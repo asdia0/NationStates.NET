@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Represents a sector

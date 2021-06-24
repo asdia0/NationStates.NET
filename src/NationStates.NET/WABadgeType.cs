@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Types of World Assembly badges.
@@ -7,5 +7,6 @@
     {
         Commend,
         Condemn,
+        Liberate,
     }
 }

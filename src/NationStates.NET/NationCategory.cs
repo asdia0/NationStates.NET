@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Types of nation categories. <see href="https://nsindex.net/wiki/World_Assembly_Category">Source</see>

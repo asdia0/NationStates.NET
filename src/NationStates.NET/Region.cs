@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Region
+﻿namespace NationStates.NET
 {
     using System;
     using System.Collections.Generic;

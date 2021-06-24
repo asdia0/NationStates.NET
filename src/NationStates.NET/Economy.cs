@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Rankings of the economy. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>

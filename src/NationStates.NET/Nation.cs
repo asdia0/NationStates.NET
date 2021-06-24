@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     using System;
     using System.Collections.Generic;
@@ -228,12 +228,12 @@
         /// <summary>
         /// Z-Day information.
         /// </summary>
-        public Zombie Zombie { get; set; }
+        public NationZombie Zombie { get; set; }
 
         /// <summary>
         /// List of census results.
         /// </summary>
-        public HashSet<Census> Census { get; set; }
+        public HashSet<NationCensus> Census { get; set; }
 
         /// <summary>
         /// Initialises a new instance of the <see cref="Nation"/> class.
@@ -257,9 +257,10 @@
 
             foreach (XmlNode node in normal.DocumentElement.ChildNodes)
             {
-                this.ParseFieldsData(node);
+                this.ParseFieldData(node);
             }
 
+            // Census
             XmlDocument census = new XmlDocument();
 
             census.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank"));
@@ -271,7 +272,7 @@
         /// Parses the XML document provided in <see cref="GetFields"/>.
         /// </summary>
         /// <param name="node"></param>
-        public void ParseFieldsData(XmlNode node)
+        public void ParseFieldData(XmlNode node)
         {
             switch (node.Name)
             {
@@ -486,7 +487,7 @@
                     long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                     long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
 
-                    this.Zombie = new Zombie(action, intendedAction, survivors, zombies, dead);
+                    this.Zombie = new NationZombie(action, intendedAction, survivors, zombies, dead);
                     break;
             }
         }
@@ -497,7 +498,7 @@
         /// <param name="census">The CENSUS node in the document.</param>
         public void ParseCensusData(XmlNode census)
         {
-            this.Census = new HashSet<Census>();
+            this.Census = new HashSet<NationCensus>();
 
             foreach (XmlNode scale in census.ChildNodes)
             {
@@ -508,7 +509,7 @@
                 double worldPercentage = double.Parse(scale.SelectSingleNode("PRANK").InnerText);
                 double regionPercentage = double.Parse(scale.SelectSingleNode("PRRANK").InnerText);
 
-                this.Census.Add(new Census(id, score, worldRank, regionRank, worldPercentage, regionPercentage));
+                this.Census.Add(new NationCensus(id, score, worldRank, regionRank, worldPercentage, regionPercentage));
             }
         }
     }

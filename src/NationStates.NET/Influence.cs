@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Rankings of inlfuence. <see href="https://nationstates.fandom.com/wiki/Regional_Influence">Source</see>

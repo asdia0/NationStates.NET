@@ -1,9 +1,9 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
     /// Represents a nation during Z-Day.
     /// </summary>
-    public class Zombie
+    public class NationZombie
     {
         /// <summary>
         /// Nation's action.
@@ -31,14 +31,14 @@
         public long Dead { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Zombie"/> class.
+        /// Initialises a new instance of the <see cref="NationZombie"/> class.
         /// </summary>
         /// <param name="action">Nation's action.</param>
         /// <param name="intendedAction">Nation;s intended action.</param>
         /// <param name="survivors">Number of survivors in millions.</param>
         /// <param name="zombies">Number of zombies in millions.</param>
         /// <param name="dead">Number of dead people in millions.</param>
-        public Zombie(ZombieAction action, ZombieAction? intendedAction, long survivors, long zombies, long dead)
+        public NationZombie(ZombieAction action, ZombieAction? intendedAction, long survivors, long zombies, long dead)
         {
             this.Action = action;
             this.IntendedAction = intendedAction;

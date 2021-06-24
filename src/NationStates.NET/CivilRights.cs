@@ -1,12 +1,12 @@
-﻿namespace NationStates.NET.Nation
+﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Rankings of political freedoms. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>
+    /// Rankings of civil rights. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>
     /// </summary>
-    public enum PoliticalFreedoms
+    public enum CivilRights
     {
         Outlawed,
-        UnheardOf,
+        Unheard_Of,
         Rare,
         Few,
         Some,
@@ -18,7 +18,7 @@
         Superb,
         World_Benchmark,
         Excessive,
+        Frightening,
         Widely_Abused,
-        Corrupted,
     }
 }
