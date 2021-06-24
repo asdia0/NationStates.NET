@@ -236,6 +236,11 @@
         public Zombie Zombie { get; set; }
 
         /// <summary>
+        /// List of census results.
+        /// </summary>
+        public HashSet<Census> Census { get; set; }
+
+        /// <summary>
         /// Initialises a new instance of the <see cref="Nation"/> class.
         /// </summary>
         /// <param name="name">The name of the nation.</param>
@@ -261,6 +266,11 @@
             }
 
             // TODO: Census
+            XmlDocument census = new XmlDocument();
+
+            census.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank"));
+
+            this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
         }
 
         /// <summary>
@@ -271,9 +281,6 @@
         {
             switch (node.Name)
             {
-                case "NAME":
-                    this.Name = node.InnerText;
-                    break;
                 case "DBID":
                     this.DBID = long.Parse(node.InnerText);
                     break;
@@ -489,6 +496,23 @@
 
                     this.Zombie = new Zombie(action, intendedAction, survivors, zombies, dead);
                     break;
+            }
+        }
+
+        public void ParseCensusData(XmlNode census)
+        {
+            this.Census = new HashSet<Census>();
+
+            foreach (XmlNode scale in census.ChildNodes)
+            {
+                int id = int.Parse(scale.Attributes["id"].Value);
+                double score = double.Parse(scale.SelectSingleNode("SCORE").InnerText);
+                long worldRank = long.Parse(scale.SelectSingleNode("RANK").InnerText);
+                long regionRank = long.Parse(scale.SelectSingleNode("RRANK").InnerText);
+                double worldPercentage = double.Parse(scale.SelectSingleNode("PRANK").InnerText);
+                double regionPercentage = double.Parse(scale.SelectSingleNode("PRRANK").InnerText);
+
+                this.Census.Add(new Census(id, score, worldRank, regionRank, worldPercentage, regionPercentage));
             }
         }
     }
