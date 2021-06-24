@@ -467,7 +467,7 @@
                         long views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
                         int score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
 
-                        this.DispatchList.Add(new Dispatch(id, title, this, category, subCategory, created, edited, views, score));
+                        this.DispatchList.Add(new Dispatch(id, title, this.Name, category, subCategory, created, edited, views, score));
                     }
                     break;
                 case "WABADGES":

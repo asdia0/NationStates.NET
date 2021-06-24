@@ -23,7 +23,7 @@
         /// <summary>
         /// Dispatch's author.
         /// </summary>
-        public Nation Author { get; set; }
+        public string Author { get; set; }
 
         /// <summary>
         /// Dispatch's category.
@@ -171,7 +171,7 @@
         /// <param name="edited">Time of last edit.</param>
         /// <param name="views">Number of views.</param>
         /// <param name="score">Dispatch's score.</param>
-        public Dispatch(ulong id, string title, Nation author, DispatchCategory category, DispatchSubCategory subCategory, DateTime created, DateTime edited, long views, int score)
+        public Dispatch(ulong id, string title, string author, DispatchCategory category, DispatchSubCategory subCategory, DateTime created, DateTime edited, long views, int score)
         {
             this.ID = id;
             this.Title = title;
