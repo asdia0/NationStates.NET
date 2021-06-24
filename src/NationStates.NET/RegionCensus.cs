@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a national census record.
+    /// Represents a census record.
     /// </summary>
-    public class NationCensus
+    public class RegionCensus
     {
         /// <summary>
         /// The census ID.
@@ -21,19 +21,9 @@
         public long WorldRank { get; set; }
 
         /// <summary>
-        /// The nation's regional rank.
-        /// </summary>
-        public long RegionRank { get; set; }
-
-        /// <summary>
         /// The nation's world rank as a percentage.
         /// </summary>
         public double WorldPercentage { get; set; }
-
-        /// <summary>
-        /// The nation's regional rank as a percentage.
-        /// </summary>
-        public double RegionPercentage { get; set; }
 
         /// <summary>
         /// Initialises a new instance of the <see cref="NationCensus"/> class.
@@ -44,14 +34,12 @@
         /// <param name="regionRank">The nation's regional rank.</param>
         /// <param name="worldPercentage">The nation's world rank as a percentage.</param>
         /// <param name="regionPercentage">The nation's regional rank as a percentage.</param>
-        public NationCensus(int id, double score, long worldRank, long regionRank, double worldPercentage, double regionPercentage)
+        public RegionCensus(int id, double score, long worldRank, double worldPercentage)
         {
             this.ID = id;
             this.Score = score;
             this.WorldRank = worldRank;
-            this.RegionRank = regionRank;
             this.WorldPercentage = worldPercentage;
-            this.RegionPercentage = regionPercentage;
         }
     }
 }

@@ -41,7 +41,7 @@
         /// <summary>
         /// Last 10 RMB messages.
         /// </summary>
-        public HashSet<Message> Messages { get; set; }
+        public HashSet<Post> Messages { get; set; }
 
         public string Name { get; set; }
 
@@ -61,7 +61,7 @@
 
         public RegionZombie Zombie { get; set; }
 
-        public RegionCensus Census { get; set; }
+        public HashSet<RegionCensus> Census { get; set; }
 
         public Region(string name)
         {
