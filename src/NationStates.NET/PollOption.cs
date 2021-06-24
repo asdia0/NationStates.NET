@@ -34,7 +34,7 @@
         /// <param name="text">The option's text.</param>
         /// <param name="votes">The number of votes received.</param>
         /// <param name="voters">The name of the nations that voted for the option.</param>
-        public PollOption(int id, string text, string votes, HashSet<string> voters)
+        public PollOption(int id, string text, int votes, HashSet<string> voters)
         {
             this.ID = id;
             this.Text = text;
