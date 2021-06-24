@@ -96,11 +96,6 @@
         public Freedom Freedom { get; set; }
 
         /// <summary>
-        /// Full name of nation.
-        /// </summary>
-        public string FullName { get; set; }
-
-        /// <summary>
         /// Vote on current General Assembly bill.
         /// </summary>
         public WAVote GAVote { get; set; }
@@ -286,8 +281,6 @@
                 case "TYPE":
                     this.Type = node.InnerText;
                     break;
-                case "FULLNAME":
-                    this.FullName = node.InnerText;
                     break;
                 case "MOTTO":
                     this.Motto = node.InnerText;
