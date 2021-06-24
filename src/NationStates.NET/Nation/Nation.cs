@@ -5,109 +5,249 @@
     using System.Linq;
     using System.Xml;
 
+    /// <summary>
+    /// Represents a nation.
+    /// </summary>
     public class Nation
     {
-        public string Animal;
-
-        public int Answered;
-
-        public HashSet<string> Banners;
-
-        public string Capital;
-
-        public WACategory Category;
-
-        public string Currency;
-
-        public long DBID;
-
-        public HashSet<Death> Deaths;
-
-        public string Demonym;
-
-        public string Demonym2;
-
-        public string Demonym2Plural;
-
-        public List<Dispatch> DispatchList;
-
-        public HashSet<string> Endorsements;
-
-        public DateTime FirstLogin;
-
-        public string Flag;
-
-        public DateTime FoundedTime;
-
-        public Freedom Freedom;
-
-        public string FullName;
-
-        public WAVote GAVote;
-
-        public ulong GDP;
-
-        public Government Government;
-
-        public List<Event> Happenings;
-
-        public long Income;
-
-        public Influence Influence;
-
-        public DateTime LastLogin;
-
-        public string Leader;
-
-        public HashSet<string> Legislation;
-
-        public Industry MajorIndustry;
-
-        public string Motto;
-
-        public string Name;
-
-        public HashSet<Policy> Policies;
-
-        public long Poorest;
+        /// <summary>
+        /// Name of national animal.
+        /// </summary>
+        public string Animal { get; set; }
 
         /// <summary>
-        /// Population in millions;
+        /// Number of issues answered.
         /// </summary>
-        public long Population;
+        public int Answered { get; set; }
 
-        public double PublicSector;
+        /// <summary>
+        /// List of banners that can be displayed.
+        /// </summary>
+        public HashSet<string> Banners { get; set; }
 
-        public string Region;
+        /// <summary>
+        /// Name of capital city.
+        /// </summary>
+        public string Capital { get; set; }
 
-        public string Religion;
+        /// <summary>
+        /// Type of nation.
+        /// </summary>
+        public NationCategory Category { get; set; }
 
-        public long Richest;
+        /// <summary>
+        /// Name of currency.
+        /// </summary>
+        public string Currency { get; set; }
 
-        public WAVote SCVote;
+        /// <summary>
+        /// ID of nation.
+        /// </summary>
+        public long DBID { get; set; }
 
-        public HashSet<Sector> Sectors;
+        /// <summary>
+        /// Causes of deaths and their frequency.
+        /// </summary>
+        public HashSet<Death> Deaths { get; set; }
 
-        public double Tax;
+        /// <summary>
+        /// Demonym (adjective).
+        /// </summary>
+        public string DemonymAdjective { get; set; }
 
-        public bool TelegramCanRecruit;
+        /// <summary>
+        /// Demonym (noun).
+        /// </summary>
+        public string DemonymNoun { get; set; }
 
-        public bool TelegramCanCampaign;
+        /// <summary>
+        /// Demonym (noun, plural).
+        /// </summary>
+        public string DemonymPlural { get; set; }
 
-        public string Type;
+        /// <summary>
+        /// List of dispatches authored.
+        /// </summary>
+        public List<Dispatch> DispatchList { get; set; }
 
-        public WAStatus WA;
+        /// <summary>
+        /// List of endoresements.
+        /// </summary>
+        public HashSet<string> Endorsements { get; set; }
 
-        public HashSet<WABadge> WABadges;
+        /// <summary>
+        /// Time of first login.
+        /// </summary>
+        public DateTime FirstLogin { get; set; }
 
-        public Zombie Zombie;
+        /// <summary>
+        /// URL of flag.
+        /// </summary>
+        public string Flag { get; set; }
 
+        /// <summary>
+        /// Time of founding.
+        /// </summary>
+        public DateTime FoundedTime { get; set; }
+
+        /// <summary>
+        /// Civil rights, economy and political freedoms.
+        /// </summary>
+        public Freedom Freedom { get; set; }
+
+        /// <summary>
+        /// Full name of nation.
+        /// </summary>
+        public string FullName { get; set; }
+
+        /// <summary>
+        /// Vote on current General Assembly bill.
+        /// </summary>
+        public WAVote GAVote { get; set; }
+
+        /// <summary>
+        /// GDP in standard dollars.
+        /// </summary>
+        public ulong GDP { get; set; }
+
+        /// <summary>
+        /// Government funding frequency.
+        /// </summary>
+        public Government Government { get; set; }
+
+        /// <summary>
+        /// List of recent events.
+        /// </summary>
+        public List<Event> Happenings { get; set; }
+
+        /// <summary>
+        /// Income of average citizen in standard dollars.
+        /// </summary>
+        public long Income { get; set; }
+
+        /// <summary>
+        /// Influence level.
+        /// </summary>
+        public Influence Influence { get; set; }
+
+        /// <summary>
+        /// Time of last login.
+        /// </summary>
+        public DateTime LastLogin { get; set; }
+
+        /// <summary>
+        /// Name of leader.
+        /// </summary>
+        public string Leader { get; set; }
+
+        /// <summary>
+        /// Largest industry.
+        /// </summary>
+        public Industry MajorIndustry { get; set; }
+
+        /// <summary>
+        /// Nation's motto.
+        /// </summary>
+        public string Motto { get; set; }
+
+        /// <summary>
+        /// Nation's name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// List of policies implemented.
+        /// </summary>
+        public HashSet<Policy> Policies { get; set; }
+
+        /// <summary>
+        /// Average income of poorest 10% in standard dollars.
+        /// </summary>
+        public long Poorest { get; set; }
+
+        /// <summary>
+        /// Population in millions.
+        /// </summary>
+        public long Population { get; set; }
+
+        /// <summary>
+        /// Percentage of public sector in economy.
+        /// </summary>
+        public double PublicSector { get; set; }
+
+        /// <summary>
+        /// Nation's region.
+        /// </summary>
+        public string Region { get; set; }
+
+        /// <summary>
+        /// Name of religion.
+        /// </summary>
+        public string Religion { get; set; }
+
+        /// <summary>
+        /// Avergae income of richest 10% in standard dollars.
+        /// </summary>
+        public long Richest { get; set; }
+
+        /// <summary>
+        /// Vote on current Security Council bill.
+        /// </summary>
+        public WAVote SCVote { get; set; }
+
+        /// <summary>
+        /// List of sectors and their share in the economy.
+        /// </summary>
+        public HashSet<Sector> Sectors { get; set; }
+
+        /// <summary>
+        /// Tax rate.
+        /// </summary>
+        public double Tax { get; set; }
+
+        /// <summary>
+        /// Whether the nation accepts recruitment telegrams.
+        /// </summary>
+        public bool TelegramCanRecruit { get; set; }
+
+        /// <summary>
+        /// Whether the nation accepts campaign telegrams.
+        /// </summary>
+        public bool TelegramCanCampaign { get; set; }
+
+        /// <summary>
+        /// Type of nation.
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Nation's World Assembly status.
+        /// </summary>
+        public WAStatus WA { get; set; }
+
+        /// <summary>
+        /// List of commendations/condemnations received.
+        /// </summary>
+        public HashSet<WABadge> WABadges { get; set; }
+
+        /// <summary>
+        /// Z-Day information.
+        /// </summary>
+        public Zombie Zombie { get; set; }
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="Nation"/> class.
+        /// </summary>
+        /// <param name="name">The name of the nation.</param>
         public Nation(string name)
         {
             this.Name = name;
             GetFields();
         }
 
+        /// <summary>
+        /// Updates the nation's information.
+        /// </summary>
         public void GetFields()
         {
             // Normal fields
@@ -123,6 +263,10 @@
             // TODO: Census
         }
 
+        /// <summary>
+        /// Parses the XML document provided in <see cref="GetFields"/>.
+        /// </summary>
+        /// <param name="node"></param>
         public void ParseFieldsData(XmlNode node)
         {
             switch (node.Name)
@@ -143,7 +287,7 @@
                     this.Motto = node.InnerText;
                     break;
                 case "CATEGORY":
-                    this.Category = (WACategory)Enum.Parse(typeof(WACategory), Utility.FormatForEnum(node.InnerText));
+                    this.Category = (NationCategory)Enum.Parse(typeof(NationCategory), Utility.FormatForEnum(node.InnerText));
                     break;
                 case "UNSTATUS":
                     this.WA = (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(node.InnerText.Replace("WA ", ""))));
@@ -207,13 +351,13 @@
                     }
                     break;
                 case "DEMONYM":
-                    this.Demonym = node.InnerText;
+                    this.DemonymNoun = node.InnerText;
                     break;
                 case "DEMONYM2":
-                    this.Demonym2 = node.InnerText;
+                    this.DemonymNoun = node.InnerText;
                     break;
                 case "DEMONYM2PLURAL":
-                    this.Demonym2Plural = node.InnerText;
+                    this.DemonymPlural = node.InnerText;
                     break;
                 case "GDP":
                     this.GDP = ulong.Parse(node.InnerText);

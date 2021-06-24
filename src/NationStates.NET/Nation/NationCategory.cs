@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET.Nation
 {
     /// <summary>
-    /// Types of World Assembly categories. <see href="https://nsindex.net/wiki/World_Assembly_Category">Source</see>
+    /// Types of nation categories. <see href="https://nsindex.net/wiki/World_Assembly_Category">Source</see>
     /// </summary>
-    public enum WACategory
+    public enum NationCategory
     {
         Anarchy,
         Authoritarian_Democracy,

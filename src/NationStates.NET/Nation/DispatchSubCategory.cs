@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET.Nation
 {
+    /// <summary>
+    /// Types of dispatch sub-categories.
+    /// </summary>
     public enum DispatchSubCategory
     {
         // Account + Factbook
