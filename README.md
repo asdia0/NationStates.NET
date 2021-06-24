@@ -6,7 +6,10 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 - [ ] Authentication
 - [ ] Nation
-- [ ] Region
+  - [X] Public shards
+  - [ ] Private shards
+  - [ ] Private commands
+- [ ] Region [DOING]
 - [ ] World
 - [ ] World Assembly
 - [ ] Telegram
