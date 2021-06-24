@@ -5,4 +5,13 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\" />
+    <Folder Include="Cards\" />
+    <Folder Include="Region\" />
+    <Folder Include="TG\" />
+    <Folder Include="WA\" />
+    <Folder Include="World\" />
+  </ItemGroup>
+
 </Project>
