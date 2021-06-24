@@ -4,7 +4,7 @@
     {
         public ZombieAction Action { get; set; }
 
-        public ZombieAction IntendedAction { get; set; }
+        public ZombieAction? IntendedAction { get; set; }
 
         public long Survivors { get; set; }
 
@@ -12,7 +12,7 @@
 
         public long Dead { get; set; }
 
-        public Zombie(ZombieAction action, ZombieAction intendedAction, long survivors, long zombies, long dead)
+        public Zombie(ZombieAction action, ZombieAction? intendedAction, long survivors, long zombies, long dead)
         {
             this.Action = action;
             this.IntendedAction = intendedAction;

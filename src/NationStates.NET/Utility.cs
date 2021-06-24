@@ -1,6 +1,9 @@
 ﻿namespace NationStates.NET
 {
+    using System;
+    using System.Text;
     using System.Net;
+
     public class Utility
     {
         public static string DownloadUrlString(string url)
@@ -11,6 +14,26 @@
 
                 return client.DownloadString(url);
             }
+        }
+
+        public static string Capitalise(string word)
+        {
+            string firstChar = char.ToUpper(word[0]) + word.ToLower().Substring(1);
+
+            StringBuilder sb = new StringBuilder(firstChar);
+            for (int i = 0; i < sb.Length - 1; i++)
+            {
+                if (sb[i] == '-')
+                {
+                    sb[i + 1] = char.ToUpper(sb[i + 1]);
+                }
+            }
+            return sb.ToString();
+        }
+
+        public static string FormatForEnum(string word)
+        {
+            return word.Replace(" ", "_").Replace("-", "");
         }
     }
 }

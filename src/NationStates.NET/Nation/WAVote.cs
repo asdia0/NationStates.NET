@@ -1,9 +1,10 @@
 ﻿namespace NationStates.NET.Nation
 {
-    public enum Vote
+    public enum WAVote
     {
         For,
         Against,
         Undecided,
+        Null,
     }
 }

@@ -4,7 +4,7 @@
     {
         Account,
         Bulletin,
-        Factbook
+        Factbook,
         Meta,
     }
 }

@@ -2,7 +2,7 @@
 {
     public enum SectorType
     {
-        Black_Market,
+        Blackmarket,
         Government,
         Industry,
         Public,

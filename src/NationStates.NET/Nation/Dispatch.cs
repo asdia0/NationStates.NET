@@ -7,13 +7,13 @@
     {
         private DispatchSubCategory _SubCategory;
 
-        public ulong ID;
+        public ulong ID { get; set; }
 
-        public string Title;
+        public string Title { get; set; }
 
-        public Nation Author;
+        public Nation Author { get; set; }
 
-        public DispatchCategory Category;
+        public DispatchCategory Category { get; set; }
 
         public DispatchSubCategory SubCategory
         {
@@ -121,13 +121,13 @@
             }
         }
 
-        public DateTime Created;
+        public DateTime Created { get; set; }
 
-        public DateTime Edited;
+        public DateTime Edited { get; set; }
 
-        public long Views;
+        public long Views { get; set; }
 
-        public int Score;
+        public int Score { get; set; }
 
         public Dispatch(ulong id, string title, Nation author, DispatchCategory category, DispatchSubCategory subCategory, DateTime created, DateTime edited, long views, int score)
         {

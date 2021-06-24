@@ -5,7 +5,7 @@
         Economy,
         Government,
         International,
-        Law_and_Order,
+        Law_and_order,
         Society,
     }
 }
