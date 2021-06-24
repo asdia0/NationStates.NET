@@ -265,7 +265,6 @@
                 this.ParseFieldsData(node);
             }
 
-            // TODO: Census
             XmlDocument census = new XmlDocument();
 
             census.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank"));
@@ -499,6 +498,10 @@
             }
         }
 
+        /// <summary>
+        /// Parses the XML document for census data.
+        /// </summary>
+        /// <param name="census">The CENSUS node in the document.</param>
         public void ParseCensusData(XmlNode census)
         {
             this.Census = new HashSet<Census>();
