@@ -8,7 +8,7 @@
     /// </summary>
     public class Dispatch
     {
-        private DispatchSubCategory _SubCategory;
+        private dynamic _SubCategory;
 
         /// <summary>
         /// Dispatch's ID.
@@ -33,7 +33,7 @@
         /// <summary>
         /// Dispatch's sub-category.
         /// </summary>
-        public DispatchSubCategory SubCategory
+        public dynamic SubCategory
         {
             get
             {
@@ -42,98 +42,47 @@
 
             set
             {
-                List<DispatchSubCategory> accepted;
-
                 switch (this.Category)
                 {
                     case (DispatchCategory.Account):
-                        accepted = new List<DispatchSubCategory>
-                        {
-                            DispatchSubCategory.Culture,
-                            DispatchSubCategory.Diplomacy,
-                            DispatchSubCategory.Drama,
-                            DispatchSubCategory.Other,
-                            DispatchSubCategory.Military,
-                            DispatchSubCategory.Science,
-                            DispatchSubCategory.Sport,
-                            DispatchSubCategory.Trade,
-                        };
-
-                        if (accepted.Contains(value))
+                        if (Enum.IsDefined(typeof(DispatchAccount), value))
                         {
                             this._SubCategory = value;
                         }
                         else
                         {
-                            throw new NSError("SubCategory must match the Category.");
+                            throw new NSError("Sub-category type must be DispatchAccount.");
                         }
-
                         break;
-
                     case (DispatchCategory.Bulletin):
-                        accepted = new List<DispatchSubCategory>
-                        {
-                            DispatchSubCategory.Campaign,
-                            DispatchSubCategory.News,
-                            DispatchSubCategory.Opinion,
-                            DispatchSubCategory.Policy,
-                        };
-
-                        if (accepted.Contains(value))
+                        if (Enum.IsDefined(typeof(DispatchBulletin), value))
                         {
                             this._SubCategory = value;
                         }
                         else
                         {
-                            throw new NSError("SubCategory must match the Category.");
+                            throw new NSError("Sub-category type must be DispatchBulletin.");
                         }
-
                         break;
-
                     case (DispatchCategory.Factbook):
-                        accepted = new List<DispatchSubCategory>
-                        {
-                            DispatchSubCategory.Culture,
-                            DispatchSubCategory.Economy,
-                            DispatchSubCategory.Geography,
-                            DispatchSubCategory.History,
-                            DispatchSubCategory.International,
-                            DispatchSubCategory.Legislation,
-                            DispatchSubCategory.Military,
-                            DispatchSubCategory.Miscellaneous,
-                            DispatchSubCategory.Overview,
-                            DispatchSubCategory.Politics,
-                            DispatchSubCategory.Trivia,
-                            DispatchSubCategory.Religion,
-                        };
-
-                        if (accepted.Contains(value))
+                        if (Enum.IsDefined(typeof(DispatchFactbook), value))
                         {
                             this._SubCategory = value;
                         }
                         else
                         {
-                            throw new NSError("SubCategory must match the Category.");
+                            throw new NSError("Sub-category type must be DispatchFactbook.");
                         }
-
                         break;
-
                     case (DispatchCategory.Meta):
-                        accepted = new List<DispatchSubCategory>
-                        {
-                            DispatchSubCategory.Gameplay,
-                            DispatchSubCategory.Reference,
-                        };
-
-                        if (accepted.Contains(value))
+                        if (Enum.IsDefined(typeof(DispatchMeta), value))
                         {
                             this._SubCategory = value;
                         }
                         else
                         {
-                            throw new NSError("SubCategory must match the Category.");
+                            throw new NSError("Sub-category type must be DispatchMeta.");
                         }
-
                         break;
                 }
             }
@@ -171,7 +120,7 @@
         /// <param name="edited">Time of last edit.</param>
         /// <param name="views">Number of views.</param>
         /// <param name="score">Dispatch's score.</param>
-        public Dispatch(ulong id, string title, string author, DispatchCategory category, DispatchSubCategory subCategory, DateTime created, DateTime edited, long views, int score)
+        public Dispatch(ulong id, string title, string author, DispatchCategory category, dynamic subCategory, DateTime created, DateTime edited, long views, int score)
         {
             this.ID = id;
             this.Title = title;

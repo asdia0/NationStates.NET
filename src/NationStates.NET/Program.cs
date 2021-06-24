@@ -6,7 +6,12 @@
     {
         public static void Main()
         {
+            Nation nation = new Nation("dabberwocky");
 
+            foreach (Dispatch d in nation.DispatchList)
+            {
+                Console.WriteLine((d.ID, d.Category, d.SubCategory));
+            }
         }
     }
 }
