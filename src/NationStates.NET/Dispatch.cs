@@ -134,6 +134,10 @@
             this.Score = score;
         }
 
+        /// <summary>
+        /// Initialises a new instance of the Dispatch class.
+        /// </summary>
+        /// <param name="id">The dispatch's ID.</param>
         public Dispatch(ulong id)
         {
             this.ID = id;
