@@ -282,7 +282,6 @@
                 case "TYPE":
                     this.Type = node.InnerText;
                     break;
-                    break;
                 case "MOTTO":
                     this.Motto = node.InnerText;
                     break;
