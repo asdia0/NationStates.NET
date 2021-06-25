@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Xml;
 
     /// <summary>
     /// Represents a dispatch.
@@ -131,6 +132,41 @@
             this.Edited = edited;
             this.Views = views;
             this.Score = score;
+        }
+
+        public Dispatch(ulong id)
+        {
+            this.ID = id;
+
+            XmlDocument doc = new XmlDocument();
+            
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=dispatch;dispatchid={id}"));
+
+            XmlNode dispatch = doc.DocumentElement.SelectSingleNode("DISPATCH");
+
+            this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
+            this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+
+            switch (this.Category)
+            {
+                case (DispatchCategory.Account):
+                    this.SubCategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    break;
+                case (DispatchCategory.Bulletin):
+                    this.SubCategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    break;
+                case (DispatchCategory.Factbook):
+                    this.SubCategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    break;
+                case (DispatchCategory.Meta):
+                    this.SubCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    break;
+            }
+
+            this.Created= DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
+            this.Edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
+            this.Views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
+            this.Score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
         }
     }
 }

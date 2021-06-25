@@ -452,33 +452,7 @@
                     this.DispatchList = new List<Dispatch>();
                     foreach (XmlNode dispatch in node.ChildNodes)
                     {
-                        ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
-                        string title = dispatch.SelectSingleNode("TITLE").InnerText;
-                        DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
-                        dynamic subCategory = null;
-                        
-                        switch (category)
-                        {
-                            case (DispatchCategory.Account):
-                                subCategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case (DispatchCategory.Bulletin):
-                                subCategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case (DispatchCategory.Factbook):
-                                subCategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case (DispatchCategory.Meta):
-                                subCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                        }
-
-                        DateTime created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
-                        DateTime edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
-                        long views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
-                        int score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
-
-                        this.DispatchList.Add(new Dispatch(id, title, this.Name, category, subCategory, created, edited, views, score));
+                        this.DispatchList.Add(new Dispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
                     }
                     break;
                 case "WABADGES":
