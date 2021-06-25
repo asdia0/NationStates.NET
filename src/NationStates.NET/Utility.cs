@@ -1,11 +1,22 @@
 ﻿namespace NationStates.NET
 {
-    using System;
+    using System.Collections.Generic;
     using System.Text;
     using System.Net;
 
     public class Utility
     {
+        private static Dictionary<char, Authority> AuthorityDict = new Dictionary<char, Authority>
+        {
+            { 'X', Authority.Executive },
+            { 'W', Authority.World_Assembly },
+            { 'A', Authority.Appearance },
+            { 'B', Authority.Border_Control },
+            { 'C', Authority.Communications },
+            { 'E', Authority.Embassies },
+            { 'P', Authority.Polls },
+        };
+        
         public static string DownloadUrlString(string url)
         {
             using (WebClient client = new WebClient())
@@ -34,6 +45,18 @@
         public static string FormatForEnum(string word)
         {
             return word.Replace(" ", "_").Replace("-", "");
+        }
+
+        public static HashSet<Authority> ParseAuthority(string authorities)
+        {
+            HashSet<Authority> res = new HashSet<Authority>();
+            
+            foreach (char c in authorities)
+            {
+                res.Add(AuthorityDict[c]);
+            }
+
+            return res;
         }
     }
 }
