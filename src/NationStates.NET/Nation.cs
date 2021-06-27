@@ -242,7 +242,7 @@
         public Nation(string name)
         {
             this.Name = name;
-            GetFields();
+            this.GetFields();
         }
 
         /// <summary>

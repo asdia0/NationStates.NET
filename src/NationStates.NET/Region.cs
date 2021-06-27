@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
-    
+
     public class Region
     {
         public long DBID { get; set; }
@@ -67,7 +67,7 @@
         public Region(string name)
         {
             this.Name = name;
-            GetFields();
+            this.GetFields();
         }
 
         public void GetFields()
