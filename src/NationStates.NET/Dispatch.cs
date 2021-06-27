@@ -167,7 +167,7 @@
                     break;
             }
 
-            this.Created= DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
+            this.Created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
             this.Edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
             this.Views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
             this.Score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
