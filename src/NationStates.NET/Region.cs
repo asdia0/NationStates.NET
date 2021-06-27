@@ -377,6 +377,9 @@
                     this.Zombie = new RegionZombie(survivors, zombies, dead);
 
                     break;
+                case "POLL":
+                    this.Poll = World.GetPoll(long.Parse(node.Attributes["id"].Value));
+                    break;
             }
         }
 
