@@ -152,13 +152,13 @@
         public Region(string name)
         {
             this.Name = name;
-            this.GetFields();
+            this.UpdateProperties();
         }
 
         /// <summary>
         /// Updates the region's properties.
         /// </summary>
-        public void GetFields()
+        public void UpdateProperties()
         {
             // Normal fields
             XmlDocument normal = new XmlDocument();
@@ -167,7 +167,7 @@
 
             foreach (XmlNode node in normal.DocumentElement.ChildNodes)
             {
-                this.ParseFieldData(node);
+                this.ParsePropertyData(node);
             }
 
             // Census
@@ -182,7 +182,7 @@
         /// Parses and updates the region's properties from a XmlDocument.
         /// </summary>
         /// <param name="node">The XmlNode to parse.</param>
-        public void ParseFieldData(XmlNode node)
+        public void ParsePropertyData(XmlNode node)
         {
             switch (node.Name)
             {
