@@ -5,7 +5,7 @@
     /// </summary>
     public class Death
     {
-        private double _Frequency;
+        private double _frequency;
 
         /// <summary>
         /// Cause of death.
@@ -19,7 +19,7 @@
         {
             get
             {
-                return this._Frequency;
+                return this._frequency;
             }
 
             set
@@ -29,7 +29,7 @@
                     throw new NSError("Frequency must be in the interval [0, 100].");
                 }
 
-                this._Frequency = value;
+                this._frequency = value;
             }
         }
 

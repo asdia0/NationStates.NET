@@ -9,7 +9,7 @@
     /// </summary>
     public class Dispatch
     {
-        private dynamic _SubCategory;
+        private dynamic _subCategory;
 
         /// <summary>
         /// Dispatch's ID.
@@ -38,7 +38,7 @@
         {
             get
             {
-                return this._SubCategory;
+                return this._subCategory;
             }
 
             set
@@ -48,7 +48,7 @@
                     case DispatchCategory.Account:
                         if (Enum.IsDefined(typeof(DispatchAccount), value))
                         {
-                            this._SubCategory = value;
+                            this._subCategory = value;
                         }
                         else
                         {
@@ -58,7 +58,7 @@
                     case DispatchCategory.Bulletin:
                         if (Enum.IsDefined(typeof(DispatchBulletin), value))
                         {
-                            this._SubCategory = value;
+                            this._subCategory = value;
                         }
                         else
                         {
@@ -68,7 +68,7 @@
                     case DispatchCategory.Factbook:
                         if (Enum.IsDefined(typeof(DispatchFactbook), value))
                         {
-                            this._SubCategory = value;
+                            this._subCategory = value;
                         }
                         else
                         {
@@ -78,7 +78,7 @@
                     case DispatchCategory.Meta:
                         if (Enum.IsDefined(typeof(DispatchMeta), value))
                         {
-                            this._SubCategory = value;
+                            this._subCategory = value;
                         }
                         else
                         {

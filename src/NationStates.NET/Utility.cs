@@ -7,7 +7,7 @@
 
     public class Utility
     {
-        private static Dictionary<char, Authority> AuthorityDict = new Dictionary<char, Authority>
+        private static Dictionary<char, Authority> authorityDict = new Dictionary<char, Authority>
         {
             { 'X', Authority.Executive },
             { 'W', Authority.World_Assembly },
@@ -54,7 +54,7 @@
 
             foreach (char c in authorities)
             {
-                res.Add(AuthorityDict[c]);
+                res.Add(authorityDict[c]);
             }
 
             return res;
