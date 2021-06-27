@@ -98,7 +98,7 @@
                     this.DBID = long.Parse(node.InnerText);
                     break;
                 case "LASTUPDATE":
-                    this.LastUpdate = DateTimeOffset.FromUnixTimeSeconds(long.Parse(node.InnerText)).DateTime;
+                    this.LastUpdate = Utility.ParseUnix(node.InnerText);
                     break;
                 case "FACTBOOK":
                     this.Factbook = node.InnerText;
@@ -126,7 +126,7 @@
                         string nation = officer.SelectSingleNode("NATION").InnerText;
                         string office = officer.SelectSingleNode("OFFICE").InnerText;
                         HashSet<Authority> authorities = Utility.ParseAuthority(officer.SelectSingleNode("AUTHORITY").InnerText);
-                        DateTime appointed = DateTimeOffset.FromUnixTimeSeconds(long.Parse(officer.SelectSingleNode("TIME").InnerText)).DateTime;
+                        DateTime appointed = Utility.ParseUnix(officer.SelectSingleNode("TIME").InnerText);
                         string appointer = officer.SelectSingleNode("BY").InnerText;
 
                         this.Officers.Add(new Officer(nation, office, authorities, appointed, appointer));
@@ -180,7 +180,7 @@
                     this.FounderAuthorities = Utility.ParseAuthority(node.InnerText);
                     break;
                 case "FOUNDEDTIME":
-                    this.FoundedTime = DateTimeOffset.FromUnixTimeSeconds(long.Parse(node.InnerText)).DateTime;
+                    this.FoundedTime = Utility.ParseUnix(node.InnerText);
                     break;
                 case "POWER":
                     this.Power = (Power)Enum.Parse(typeof(Power), Utility.FormatForEnum(Utility.Capitalise(node.InnerText)));
@@ -234,10 +234,10 @@
                     foreach (XmlNode message in node.ChildNodes)
                     {
                         ulong id = ulong.Parse(message.Attributes["id"].Value);
-                        DateTime posted = DateTimeOffset.FromUnixTimeSeconds(long.Parse(message.SelectSingleNode("TIMESTAMP").InnerText)).DateTime;
+                        DateTime posted = Utility.ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
                         string nation = message.SelectSingleNode("NATION").InnerText;
                         PostStatus status = Utility.ParseStatus(message.SelectSingleNode("STATUS").InnerText);
-                        DateTime? edited = ((message.SelectNodes("EDITED").Count == 0) ? null : DateTimeOffset.FromUnixTimeSeconds(long.Parse(message.SelectSingleNode("EDITED").InnerText)).DateTime);
+                        DateTime? edited = ((message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText);
                         HashSet<string>? likers = (message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet());
                         string content = message.SelectSingleNode("MESSAGE").InnerText;
                         string? supressor = ((message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText));
@@ -249,7 +249,7 @@
                     this.Happenings = new HashSet<Event>();
                     foreach (XmlNode happening in node.ChildNodes)
                     {
-                        DateTime timestamp = DateTimeOffset.FromUnixTimeSeconds(long.Parse(happening.SelectSingleNode("TIMESTAMP").InnerText)).DateTime;
+                        DateTime timestamp = Utility.ParseUnix(happening.SelectSingleNode("TIMESTAMP").InnerText);
                         string text = happening.SelectSingleNode("TEXT").InnerText;
 
                         this.Happenings.Add(new Event(timestamp, text));
@@ -259,7 +259,7 @@
                     this.History = new HashSet<Event>();
                     foreach (XmlNode happening in node.ChildNodes)
                     {
-                        DateTime timestamp = DateTimeOffset.FromUnixTimeSeconds(long.Parse(happening.SelectSingleNode("TIMESTAMP").InnerText)).DateTime;
+                        DateTime timestamp = Utility.ParseUnix(happening.SelectSingleNode("TIMESTAMP").InnerText);
                         string text = happening.SelectSingleNode("TEXT").InnerText;
 
                         this.Happenings.Add(new Event(timestamp, text));

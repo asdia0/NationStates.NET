@@ -396,13 +396,13 @@
                     }
                     break;
                 case "FOUNDEDTIME":
-                    this.FoundedTime = DateTimeOffset.FromUnixTimeSeconds(long.Parse(node.InnerText)).DateTime;
+                    this.FoundedTime = Utility.ParseUnix(node.InnerText);
                     break;
                 case "FIRSTLOGIN":
-                    this.FirstLogin = DateTimeOffset.FromUnixTimeSeconds(long.Parse(node.InnerText)).DateTime;
+                    this.FirstLogin = Utility.ParseUnix(node.InnerText);
                     break;
                 case "LASTLOGIN":
-                    this.LastLogin = DateTimeOffset.FromUnixTimeSeconds(long.Parse(node.InnerText)).DateTime;
+                    this.LastLogin = Utility.ParseUnix(node.InnerText);
                     break;
                 case "INFLUENCE":
                     this.Influence = (Influence)Enum.Parse(typeof(Influence), Utility.FormatForEnum(Utility.Capitalise(node.InnerText)));
@@ -441,7 +441,7 @@
                     this.Happenings = new HashSet<Event>();
                     foreach (XmlNode happening in node.ChildNodes)
                     {
-                        DateTime timestamp = DateTimeOffset.FromUnixTimeSeconds(long.Parse(happening.SelectSingleNode("TIMESTAMP").InnerText)).DateTime;
+                        DateTime timestamp = Utility.ParseUnix(happening.SelectSingleNode("TIMESTAMP").InnerText);
                         string text = happening.SelectSingleNode("TEXT").InnerText;
 
                         this.Happenings.Add(new Event(timestamp, text));
