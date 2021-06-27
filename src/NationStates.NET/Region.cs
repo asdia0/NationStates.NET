@@ -277,8 +277,6 @@
         }
 
         public void ParseCensusData(XmlNode census)
-        {
-
-        }
+        { }
     }
 }
