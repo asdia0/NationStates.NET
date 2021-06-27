@@ -7,6 +7,6 @@
     {
         Research,
         Export,
-        Exterminate
+        Exterminate,
     }
 }

@@ -21,6 +21,6 @@
         Tourism,
         Trout_Farming,
         Uranium_Mining,
-        Woodchip_Exports
+        Woodchip_Exports,
     }
 }
