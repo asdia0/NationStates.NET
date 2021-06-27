@@ -113,7 +113,7 @@
         /// <summary>
         /// Gets or sets the current poll.
         /// </summary>
-        public Poll Poll { get; set; }
+        public Poll? Poll { get; set; }
 
         /// <summary>
         /// Gets or sets the region's power in the world.
