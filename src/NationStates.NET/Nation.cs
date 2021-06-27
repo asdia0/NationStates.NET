@@ -68,7 +68,7 @@
         /// <summary>
         /// List of dispatches authored.
         /// </summary>
-        public List<Dispatch> DispatchList { get; set; }
+        public HashSet<Dispatch> DispatchList { get; set; }
 
         /// <summary>
         /// List of endoresements.
@@ -113,7 +113,7 @@
         /// <summary>
         /// List of recent events.
         /// </summary>
-        public List<Event> Happenings { get; set; }
+        public HashSet<Event> Happenings { get; set; }
 
         /// <summary>
         /// Income of average citizen in standard dollars.
@@ -438,7 +438,7 @@
                     }
                     break;
                 case "HAPPENINGS":
-                    this.Happenings = new List<Event>();
+                    this.Happenings = new HashSet<Event>();
                     foreach (XmlNode happening in node.ChildNodes)
                     {
                         DateTime timestamp = DateTimeOffset.FromUnixTimeSeconds(long.Parse(happening.SelectSingleNode("TIMESTAMP").InnerText)).DateTime;
@@ -448,7 +448,7 @@
                     }
                     break;
                 case "DISPATCHLIST":
-                    this.DispatchList = new List<Dispatch>();
+                    this.DispatchList = new HashSet<Dispatch>();
                     foreach (XmlNode dispatch in node.ChildNodes)
                     {
                         this.DispatchList.Add(new Dispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
