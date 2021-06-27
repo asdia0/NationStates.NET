@@ -79,7 +79,7 @@
 
             foreach (XmlNode node in normal.DocumentElement.ChildNodes)
             {
-                this.ParseFieldsData(node);
+                this.ParseFieldData(node);
             }
 
             // Census
@@ -90,7 +90,7 @@
             this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
         }
 
-        public void ParseFieldsData(XmlNode node)
+        public void ParseFieldData(XmlNode node)
         {
             switch (node.Name)
             {
