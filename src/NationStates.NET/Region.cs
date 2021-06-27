@@ -107,7 +107,7 @@
                     this.DispatchList = new HashSet<Dispatch>();
                     foreach (string id in node.InnerText.Split(","))
                     {
-                        this.DispatchList.Add(new Dispatch(ulong.Parse(id)));
+                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(id)));
                     }
                     break;
                 case "NATIONS":

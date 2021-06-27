@@ -451,7 +451,7 @@
                     this.DispatchList = new HashSet<Dispatch>();
                     foreach (XmlNode dispatch in node.ChildNodes)
                     {
-                        this.DispatchList.Add(new Dispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
+                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
                     }
                     break;
                 case "WABADGES":
