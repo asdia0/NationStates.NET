@@ -9,12 +9,14 @@
 
         }
 
-        public NSError(string message) : base(message)
+        public NSError(string message)
+            : base(message)
         {
 
         }
 
-        public NSError(string message, Exception inner) : base(message, inner)
+        public NSError(string message, Exception inner)
+            : base(message, inner)
         {
 
         }
