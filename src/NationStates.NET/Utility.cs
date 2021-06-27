@@ -1,5 +1,6 @@
 ﻿namespace NationStates.NET
 {
+    using System;
     using System.Collections.Generic;
     using System.Text;
     using System.Net;
@@ -93,6 +94,11 @@
                 default:
                     throw new NSError("Unrecognised status string.");
             }
+        }
+
+        public static DateTime ParseUnix(string unix)
+        {
+            return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
         }
     }
 }
