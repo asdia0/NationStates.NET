@@ -9,7 +9,7 @@
         /// No embassy posting (0).
         /// </summary>
         None,
-        
+
         /// <summary>
         /// Delegates and Founders (con).
         /// </summary>

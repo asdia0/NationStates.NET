@@ -17,7 +17,7 @@
             { 'E', Authority.Embassies },
             { 'P', Authority.Polls },
         };
-        
+
         public static string DownloadUrlString(string url)
         {
             using (WebClient client = new WebClient())
@@ -51,7 +51,7 @@
         public static HashSet<Authority> ParseAuthority(string authorities)
         {
             HashSet<Authority> res = new HashSet<Authority>();
-            
+
             foreach (char c in authorities)
             {
                 res.Add(AuthorityDict[c]);
