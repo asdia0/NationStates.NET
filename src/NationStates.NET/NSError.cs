@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class NSError: Exception
+    public class NSError : Exception
     {
         public NSError()
         {
