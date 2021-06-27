@@ -5,6 +5,9 @@
     /// </summary>
     public enum PostStatus
     {
+        /// <summary>
+        /// Regular post.
+        /// </summary>
         Regular,
 
         /// <summary>
@@ -12,6 +15,9 @@
         /// </summary>
         SupressedViewable,
 
+        /// <summary>
+        /// Post was deleted by the poster.
+        /// </summary>
         Deleted,
 
         /// <summary>

@@ -9,47 +9,47 @@
     public class Post
     {
         /// <summary>
-        /// The post's ID.
+        /// Gets or sets the the post's ID.
         /// </summary>
         public ulong ID { get; set; }
 
         /// <summary>
-        /// Time of postage.
+        /// Gets or sets the time of postage.
         /// </summary>
         public DateTime Posted { get; set; }
 
         /// <summary>
-        /// The post's sender.
+        /// Gets or sets the post's sender.
         /// </summary>
         public string Nation { get; set; }
 
         /// <summary>
-        /// The post's status.
+        /// Gets or sets the post's status.
         /// </summary>
         public PostStatus Status { get; set; }
 
         /// <summary>
-        /// Time at which the post was last edited.
+        /// Gets or sets the time at which the post was last edited.
         /// </summary>
         public DateTime? Edited { get; set; }
 
         /// <summary>
-        /// Nations that liked the post.
+        /// Gets or sets the nations that liked the post.
         /// </summary>
         public HashSet<string>? Likers { get; set; }
 
         /// <summary>
-        /// The post's message.
+        /// Gets or sets the post's message.
         /// </summary>
         public string Message { get; set; }
 
         /// <summary>
-        /// Name of the moderator that supressed the post.
+        /// Gets or sets the name of the nation that supressed the post.
         /// </summary>
         public string? Supressor { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Post"/> class.
+        /// Initializes a new instance of the <see cref="Post"/> class.
         /// </summary>
         /// <param name="id">The post's ID.</param>
         /// <param name="posted">Time of postage.</param>

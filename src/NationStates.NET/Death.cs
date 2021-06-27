@@ -8,12 +8,12 @@
         private double _frequency;
 
         /// <summary>
-        /// Cause of death.
+        /// Gets or sets the cause of death.
         /// </summary>
         public string Cause { get; set; }
 
         /// <summary>
-        /// Frequency in percentage.
+        /// Gets or sets the death's national frequency in percentage.
         /// </summary>
         public double Frequency
         {
@@ -34,7 +34,7 @@
         }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Death"/> class.
+        /// Initializes a new instance of the <see cref="Death"/> class.
         /// </summary>
         /// <param name="cause">Cause of death.</param>
         /// <param name="frequency">Frequency in percentage.</param>

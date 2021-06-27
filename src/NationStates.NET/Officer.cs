@@ -9,32 +9,32 @@
     public class Officer
     {
         /// <summary>
-        /// Name of the officer.
+        /// Gets or sets the name of the officer.
         /// </summary>
         public string Nation { get; set; }
 
         /// <summary>
-        /// Name of the office.
+        /// Gets or sets the name of the office.
         /// </summary>
         public string Office { get; set; }
 
         /// <summary>
-        /// List of authorities granted by the office.
+        /// Gets or sets the list of authorities granted by the office.
         /// </summary>
         public HashSet<Authority> Authorities { get; set; }
 
         /// <summary>
-        /// Time of appointment.
+        /// Gets or sets the time of appointment.
         /// </summary>
         public DateTime Appointed { get; set; }
 
         /// <summary>
-        /// Name of the nation that appointed the officer.
+        /// Gets or sets the name of the nation that appointed the officer.
         /// </summary>
         public string Appointer { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Officer"/> class.
+        /// Initializes a new instance of the <see cref="Officer"/> class.
         /// </summary>
         /// <param name="nation">Name of the officer.</param>
         /// <param name="office">Name of the office.</param>

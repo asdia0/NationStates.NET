@@ -6,22 +6,22 @@
     public class Policy
     {
         /// <summary>
-        /// Name of policy.
+        /// Gets or sets the policy's name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Category of policy.
+        /// Gets or sets the policy's category.
         /// </summary>
         public PolicyCategory Category { get; set; }
 
         /// <summary>
-        /// Description of policy.
+        /// Gets or sets the policy's description.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Policy"/> class.
+        /// Initializes a new instance of the <see cref="Policy"/> class.
         /// </summary>
         /// <param name="name">Name of policy.</param>
         /// <param name="category">Category of policy.</param>

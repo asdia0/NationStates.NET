@@ -8,27 +8,27 @@
     public class PollOption
     {
         /// <summary>
-        /// The option's ID.
+        /// Gets or sets the option's ID.
         /// </summary>
         public int ID { get; set; }
 
         /// <summary>
-        /// The option's text.
+        /// Gets or sets the option's text.
         /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// The number of votes received.
+        /// Gets or sets the number of votes received.
         /// </summary>
         public int Votes { get; set; }
 
         /// <summary>
-        /// The name of the nations that voted for the option.
+        /// Gets or sets the name of the nations that voted for the option.
         /// </summary>
         public HashSet<string> Voters { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="PollOption"/> class.
+        /// Initializes a new instance of the <see cref="PollOption"/> class.
         /// </summary>
         /// <param name="id">The options's ID.</param>
         /// <param name="text">The option's text.</param>

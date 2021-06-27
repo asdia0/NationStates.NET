@@ -8,17 +8,17 @@
     public class Event
     {
         /// <summary>
-        /// Time at which the event occurred.
+        /// Gets or sets the time at which the event occurred.
         /// </summary>
         public DateTime TimeStamp { get; set; }
 
         /// <summary>
-        /// Description of the event.
+        /// Gets or sets the description of the event.
         /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Event"/> class.
+        /// Initializes a new instance of the <see cref="Event"/> class.
         /// </summary>
         /// <param name="timestamp">Time at which the event occurred.</param>
         /// <param name="text">Description of the event.</param>

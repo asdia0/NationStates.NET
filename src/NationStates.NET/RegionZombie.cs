@@ -6,22 +6,22 @@
     public class RegionZombie
     {
         /// <summary>
-        /// Number of survivors in millions.
+        /// Gets or sets the number of survivors in millions.
         /// </summary>
         public long Survivors { get; set; }
 
         /// <summary>
-        /// Number of zombies in millions.
+        /// Gets or sets the number of zombies in millions.
         /// </summary>
         public long Zombies { get; set; }
 
         /// <summary>
-        /// Number of dead people in millions.
+        /// Gets or sets the number of dead people in millions.
         /// </summary>
         public long Dead { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="RegionZombie"/> class.
+        /// Initializes a new instance of the <see cref="RegionZombie"/> class.
         /// </summary>
         /// <param name="survivors">Number of survivors in millions.</param>
         /// <param name="zombies">Number of zombies in millions.</param>

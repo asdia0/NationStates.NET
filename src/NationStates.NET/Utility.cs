@@ -5,6 +5,9 @@
     using System.Net;
     using System.Text;
 
+    /// <summary>
+    /// A class containing useful methods.
+    /// </summary>
     public class Utility
     {
         private static Dictionary<char, Authority> authorityDict = new Dictionary<char, Authority>
@@ -18,6 +21,11 @@
             { 'P', Authority.Polls },
         };
 
+        /// <summary>
+        /// Downloads a webpage.
+        /// </summary>
+        /// <param name="url">The webpage to download.</param>
+        /// <returns>The webpage's content.</returns>
         public static string DownloadUrlString(string url)
         {
             using (WebClient client = new WebClient())
@@ -28,6 +36,11 @@
             }
         }
 
+        /// <summary>
+        /// Capitalises a word. The first character and every character after a dash is capitalised.
+        /// </summary>
+        /// <param name="word">The word to capitalise.</param>
+        /// <returns>The capitalised word.</returns>
         public static string Capitalise(string word)
         {
             string firstChar = char.ToUpper(word[0]) + word.ToLower().Substring(1);
@@ -44,11 +57,21 @@
             return sb.ToString();
         }
 
-        public static string FormatForEnum(string word)
+        /// <summary>
+        /// Formats a string for <see cref="Enum.Parse(Type, string)"/>.
+        /// </summary>
+        /// <param name="enumValue">The stringified value of the enum.</param>
+        /// <returns>A formatted string.</returns>
+        public static string FormatForEnum(string enumValue)
         {
-            return word.Replace(": ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
+            return enumValue.Replace(": ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
         }
 
+        /// <summary>
+        /// Parses a string for <see cref="Authority"/>s.
+        /// </summary>
+        /// <param name="authorities">The string to parse.</param>
+        /// <returns>A collection of <see cref="Authority"/>s.</returns>
         public static HashSet<Authority> ParseAuthority(string authorities)
         {
             HashSet<Authority> res = new HashSet<Authority>();
@@ -61,6 +84,11 @@
             return res;
         }
 
+        /// <summary>
+        /// Parses a string for <see cref="RMBPermission"/>.
+        /// </summary>
+        /// <param name="permission">The string to parse.</param>
+        /// <returns>A <see cref="RMBPermission"/>.</returns>
         public static RMBPermission ParseRMBPermission(string permission)
         {
             switch (permission)
@@ -80,6 +108,11 @@
             }
         }
 
+        /// <summary>
+        /// Parses a string for <see cref="PostStatus"/>.
+        /// </summary>
+        /// <param name="status">The string to parse.</param>
+        /// <returns>A <see cref="PostStatus"/>.</returns>
         public static PostStatus ParseStatus(string status)
         {
             switch (status)
@@ -97,6 +130,11 @@
             }
         }
 
+        /// <summary>
+        /// Parses a string for <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="unix">The string to parse.</param>
+        /// <returns>A <see cref="DateTime"/>.</returns>
         public static DateTime ParseUnix(string unix)
         {
             return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;

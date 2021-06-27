@@ -6,22 +6,22 @@
     public class Freedom
     {
         /// <summary>
-        /// Civil rights level.
+        /// Gets or sets the nation's civil rights level.
         /// </summary>
         public CivilRights CivilRights { get; set; }
 
         /// <summary>
-        /// Economy level.
+        /// Gets or sets the nation's economy level.
         /// </summary>
         public Economy Economy { get; set; }
 
         /// <summary>
-        /// Political freedoms level.
+        /// Gets or sets the nation's political freedoms level.
         /// </summary>
         public PoliticalFreedoms PoliticalFreedoms { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Freedom"/> class.
+        /// Initializes a new instance of the <see cref="Freedom"/> class.
         /// </summary>
         /// <param name="civilRights">Civil rights level.</param>
         /// <param name="economy">Economy level.</param>

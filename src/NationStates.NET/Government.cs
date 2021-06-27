@@ -6,67 +6,67 @@
     public class Government
     {
         /// <summary>
-        /// Percentage of government budget spent on administration.
+        /// Gets or sets the percentage of the government budget spent on administration.
         /// </summary>
         public double Administration { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on defence.
+        /// Gets or sets the percentage of the government budget spent on defence.
         /// </summary>
         public double Defense { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on education.
+        /// Gets or sets the percentage of the government budget spent on education.
         /// </summary>
         public double Education { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on the environment.
+        /// Gets or sets the percentage of the government budget spent on the environment.
         /// </summary>
         public double Environment { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on healthcare.
+        /// Gets or sets the percentage of the government budget spent on healthcare.
         /// </summary>
         public double Healthcare { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on commerce.
+        /// Gets or sets the percentage of the government budget spent on commerce.
         /// </summary>
         public double Commerce { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on international aid.
+        /// Gets or sets the percentage of the government budget spent on international aid.
         /// </summary>
         public double InternationalAid { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on law and order.
+        /// Gets or sets the percentage of the government budget spent on law and order.
         /// </summary>
         public double LawAndOrder { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on public transport.
+        /// Gets or sets the percentage of the government budget spent on public transport.
         /// </summary>
         public double PublicTransport { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on social equality.
+        /// Gets or sets the percentage of the government budget spent on social equality.
         /// </summary>
         public double SocialEquality { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on spirituality.
+        /// Gets or sets the percentage of the government budget spent on spirituality.
         /// </summary>
         public double Spirituality { get; set; }
 
         /// <summary>
-        /// Percentage of government budget spent on welfare.
+        /// Gets or sets the percentage of the government budget spent on welfare.
         /// </summary>
         public double Welfare { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Government"/> class.
+        /// Initializes a new instance of the <see cref="Government"/> class.
         /// </summary>
         /// <param name="administration">Percentage of government budget spent on administration.</param>
         /// <param name="defense">Percentage of government budget spent on defense.</param>

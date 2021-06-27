@@ -11,232 +11,232 @@
     public class Nation
     {
         /// <summary>
-        /// Name of national animal.
+        /// Gets or sets the name of national animal.
         /// </summary>
         public string Animal { get; set; }
 
         /// <summary>
-        /// Number of issues answered.
+        /// Gets or sets the number of issues answered.
         /// </summary>
         public int Answered { get; set; }
 
         /// <summary>
-        /// List of banners that can be displayed.
+        /// Gets or sets the list of banners that can be displayed.
         /// </summary>
         public HashSet<string> Banners { get; set; }
 
         /// <summary>
-        /// Name of capital city.
+        /// Gets or sets the name of the nation's capital city.
         /// </summary>
         public string Capital { get; set; }
 
         /// <summary>
-        /// Type of nation.
+        /// Gets or sets the type of nation.
         /// </summary>
         public NationCategory Category { get; set; }
 
         /// <summary>
-        /// Name of currency.
+        /// Gets or sets the name of currency.
         /// </summary>
         public string Currency { get; set; }
 
         /// <summary>
-        /// ID of nation.
+        /// Gets or sets the nation's database ID.
         /// </summary>
         public long DBID { get; set; }
 
         /// <summary>
-        /// Causes of deaths and their frequency.
+        /// Gets or sets the causes of deaths and their frequency.
         /// </summary>
         public HashSet<Death> Deaths { get; set; }
 
         /// <summary>
-        /// Demonym (adjective).
+        /// Gets or sets the nation's demonym (adjective).
         /// </summary>
         public string DemonymAdjective { get; set; }
 
         /// <summary>
-        /// Demonym (noun).
+        /// Gets or sets the nation's demonym (noun).
         /// </summary>
         public string DemonymNoun { get; set; }
 
         /// <summary>
-        /// Demonym (noun, plural).
+        /// Gets or sets the nation's demonym (plural).
         /// </summary>
         public string DemonymPlural { get; set; }
 
         /// <summary>
-        /// List of dispatches authored.
+        /// Gets or sets the list of dispatches authored by the nation.
         /// </summary>
         public HashSet<Dispatch> DispatchList { get; set; }
 
         /// <summary>
-        /// List of endoresements.
+        /// Gets or sets the list of endoresements.
         /// </summary>
         public HashSet<string> Endorsements { get; set; }
 
         /// <summary>
-        /// Time of first login.
+        /// Gets or sets the time of first login.
         /// </summary>
         public DateTime FirstLogin { get; set; }
 
         /// <summary>
-        /// URL of flag.
+        /// Gets or sets the URL of the nation's flag.
         /// </summary>
         public string Flag { get; set; }
 
         /// <summary>
-        /// Time of founding.
+        /// Gets or sets the time of founding.
         /// </summary>
         public DateTime FoundedTime { get; set; }
 
         /// <summary>
-        /// Civil rights, economy and political freedoms.
+        /// Gets or sets the level of the nation's civil rights, economy and political freedoms.
         /// </summary>
         public Freedom Freedom { get; set; }
 
         /// <summary>
-        /// Vote on current General Assembly bill.
+        /// Gets or sets the nation's vote on current General Assembly bill.
         /// </summary>
         public WAVote GAVote { get; set; }
 
         /// <summary>
-        /// GDP in standard dollars.
+        /// Gets or sets the nation's GDP in standard dollars.
         /// </summary>
         public ulong GDP { get; set; }
 
         /// <summary>
-        /// Government funding frequency.
+        /// Gets or sets the nation's government funding in various departments.
         /// </summary>
         public Government Government { get; set; }
 
         /// <summary>
-        /// List of recent events.
+        /// Gets or sets the list of recent events.
         /// </summary>
         public HashSet<Event> Happenings { get; set; }
 
         /// <summary>
-        /// Income of average citizen in standard dollars.
+        /// Gets or sets the income of an average citizen in standard dollars.
         /// </summary>
         public long Income { get; set; }
 
         /// <summary>
-        /// Influence level.
+        /// Gets or sets the nation's influence level.
         /// </summary>
         public Influence Influence { get; set; }
 
         /// <summary>
-        /// Time of last login.
+        /// Gets or sets the time of last login.
         /// </summary>
         public DateTime LastLogin { get; set; }
 
         /// <summary>
-        /// Name of leader.
+        /// Gets or sets the name of the nation's leader.
         /// </summary>
         public string Leader { get; set; }
 
         /// <summary>
-        /// Largest industry.
+        /// Gets or sets the nation's largest industry.
         /// </summary>
         public Industry MajorIndustry { get; set; }
 
         /// <summary>
-        /// Nation's motto.
+        /// Gets or sets the nation's motto.
         /// </summary>
         public string Motto { get; set; }
 
         /// <summary>
-        /// Nation's name.
+        /// Gets or sets the nation's name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// List of policies implemented.
+        /// Gets or sets the list of policies implemented.
         /// </summary>
         public HashSet<Policy> Policies { get; set; }
 
         /// <summary>
-        /// Average income of poorest 10% in standard dollars.
+        /// Gets or sets the average income of the poorest 10% in standard dollars.
         /// </summary>
         public long Poorest { get; set; }
 
         /// <summary>
-        /// Population in millions.
+        /// Gets or sets the nation's population in millions.
         /// </summary>
         public long Population { get; set; }
 
         /// <summary>
-        /// Percentage of public sector in economy.
+        /// Gets or sets the percentage of the public sector in the nation's economy.
         /// </summary>
         public double PublicSector { get; set; }
 
         /// <summary>
-        /// Nation's region.
+        /// Gets or sets the nation's region.
         /// </summary>
         public string Region { get; set; }
 
         /// <summary>
-        /// Name of religion.
+        /// Gets or sets the name of national religion.
         /// </summary>
         public string Religion { get; set; }
 
         /// <summary>
-        /// Avergae income of richest 10% in standard dollars.
+        /// Gets or sets the avergae income of the richest 10% in standard dollars.
         /// </summary>
         public long Richest { get; set; }
 
         /// <summary>
-        /// Vote on current Security Council bill.
+        /// Gets or sets the nation's vote on current Security Council bill.
         /// </summary>
         public WAVote SCVote { get; set; }
 
         /// <summary>
-        /// List of sectors and their share in the economy.
+        /// Gets or sets the list of sectors and their share in the economy.
         /// </summary>
         public HashSet<Sector> Sectors { get; set; }
 
         /// <summary>
-        /// Tax rate.
+        /// Gets or sets the nation's tax rate.
         /// </summary>
         public double Tax { get; set; }
 
         /// <summary>
-        /// Whether the nation accepts recruitment telegrams.
+        /// Gets or sets a value indicating whether the nation accepts recruitment telegrams.
         /// </summary>
         public bool TelegramCanRecruit { get; set; }
 
         /// <summary>
-        /// Whether the nation accepts campaign telegrams.
+        /// Gets or sets a value indicating whether the nation accepts campaign telegrams.
         /// </summary>
         public bool TelegramCanCampaign { get; set; }
 
         /// <summary>
-        /// Type of nation.
+        /// Gets or sets the nation's type.
         /// </summary>
         public string Type { get; set; }
 
         /// <summary>
-        /// Nation's World Assembly status.
+        /// Gets or sets the nation's World Assembly status.
         /// </summary>
         public WAStatus WA { get; set; }
 
         /// <summary>
-        /// List of commendations/condemnations received.
+        /// Gets or sets the list of commendations/condemnations received.
         /// </summary>
         public HashSet<WABadge> WABadges { get; set; }
 
         /// <summary>
-        /// Z-Day information.
+        /// Gets or sets the nation's Z-Day information.
         /// </summary>
         public NationZombie Zombie { get; set; }
 
         /// <summary>
-        /// List of census results.
+        /// Gets or sets the nation's census data.
         /// </summary>
         public HashSet<NationCensus> Census { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Nation"/> class.
+        /// Initializes a new instance of the <see cref="Nation"/> class.
         /// </summary>
         /// <param name="name">The name of the nation.</param>
         public Nation(string name)
@@ -246,7 +246,7 @@
         }
 
         /// <summary>
-        /// Updates the nation's information.
+        /// Updates the nation's properties.
         /// </summary>
         public void GetFields()
         {
@@ -269,9 +269,9 @@
         }
 
         /// <summary>
-        /// Parses the XML document provided in <see cref="GetFields"/>.
+        /// Parses and updates the nation's properties from a XmlDocument.
         /// </summary>
-        /// <param name="node"></param>
+        /// <param name="node">The XmlNode to parse.</param>
         public void ParseFieldData(XmlNode node)
         {
             switch (node.Name)
@@ -492,9 +492,9 @@
         }
 
         /// <summary>
-        /// Parses the XML document for census data.
+        /// Parses and updates <see cref="Census"/> from a XmlDocument.
         /// </summary>
-        /// <param name="census">The CENSUS node in the document.</param>
+        /// <param name="census">The XmlNode to parse.</param>
         public void ParseCensusData(XmlNode census)
         {
             this.Census = new HashSet<NationCensus>();

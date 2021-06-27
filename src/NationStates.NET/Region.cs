@@ -5,71 +5,159 @@
     using System.Linq;
     using System.Xml;
 
+    /// <summary>
+    /// Represents a region.
+    /// </summary>
     public class Region
     {
+        /// <summary>
+        /// Gets or sets the region's database ID.
+        /// </summary>
         public long DBID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the region's World Assembly Delegate.
+        /// </summary>
         public string Delegate { get; set; }
 
+        /// <summary>
+        /// Gets or sets the authorities the <see cref="Delegate"/> has.
+        /// </summary>
         public HashSet<Authority> DelegateAuthorities { get; set; }
 
+        /// <summary>
+        /// Gets or sets the number of World Assembly votes the <see cref="Delegate"/> has (number of endorsements + 1).
+        /// </summary>
         public int DelegateVotes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the pinned dispatches.
+        /// </summary>
         public HashSet<Dispatch> DispatchList { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's embassies.
+        /// </summary>
         public Dictionary<EmbassyType, HashSet<string>> Embassies { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's policy with RMB posting.
+        /// </summary>
         public RMBPermission EmbassyRMBPermission { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's factbook.
+        /// </summary>
         public string Factbook { get; set; }
 
+        /// <summary>
+        /// Gets or sets the URL of the region's flag.
+        /// </summary>
         public string Flag { get; set; }
 
+        /// <summary>
+        /// Gets or sets the time the region was founded.
+        /// </summary>
         public DateTime FoundedTime { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the region's founder.
+        /// </summary>
         public string Founder { get; set; }
 
+        /// <summary>
+        /// Gets or sets the authorities the <see cref="Founder"/> has.
+        /// </summary>
         public HashSet<Authority> FounderAuthorities { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's votes for/against the current General Assembly bill.
+        /// </summary>
         public Dictionary<WAVote, int?> GAVote { get; set; }
 
+        /// <summary>
+        /// Gets or sets the latest happenings.
+        /// </summary>
         public HashSet<Event> Happenings { get; set; }
 
+        /// <summary>
+        /// Gets or sets the history of the region.
+        /// </summary>
         public HashSet<Event> History { get; set; }
 
+        /// <summary>
+        /// Gets or sets the time of the last update.
+        /// </summary>
         public DateTime LastUpdate { get; set; }
 
         /// <summary>
-        /// Last 10 RMB messages.
+        /// Gets or sets the last 10 RMB messages.
         /// </summary>
         public HashSet<Post> Messages { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's name.
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the list of nations in the region.
+        /// </summary>
         public HashSet<string> Nations { get; set; }
 
+        /// <summary>
+        /// Gets or sets the list of regional officers.
+        /// </summary>
         public HashSet<Officer> Officers { get; set; }
 
+        /// <summary>
+        /// Gets or sets the current poll.
+        /// </summary>
         public Poll Poll { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's power in the world.
+        /// </summary>
         public Power Power { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's vote for/against the current Security Council bill.
+        /// </summary>
         public Dictionary<WAVote, int?> SCVote { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's tags.
+        /// </summary>
         public HashSet<Tag> Tags { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's World Assembly badges.
+        /// </summary>
         public HashSet<WABadge> WABadges { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's Z-Day information.
+        /// </summary>
         public RegionZombie Zombie { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region's census data.
+        /// </summary>
         public HashSet<RegionCensus> Census { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Region"/> class.
+        /// </summary>
+        /// <param name="name">The region's name.</param>
         public Region(string name)
         {
             this.Name = name;
             this.GetFields();
         }
 
+        /// <summary>
+        /// Updates the region's properties.
+        /// </summary>
         public void GetFields()
         {
             // Normal fields
@@ -90,6 +178,10 @@
             this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
         }
 
+        /// <summary>
+        /// Parses and updates the region's properties from a XmlDocument.
+        /// </summary>
+        /// <param name="node">The XmlNode to parse.</param>
         public void ParseFieldData(XmlNode node)
         {
             switch (node.Name)
@@ -288,6 +380,10 @@
             }
         }
 
+        /// <summary>
+        /// Parses and updates <see cref="Census"/> from a XmlDocument.
+        /// </summary>
+        /// <param name="census">The XmlNode to parse.</param>
         public void ParseCensusData(XmlNode census)
         { }
     }

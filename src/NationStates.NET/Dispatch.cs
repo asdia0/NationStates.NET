@@ -12,27 +12,27 @@
         private dynamic _subCategory;
 
         /// <summary>
-        /// Dispatch's ID.
+        /// Gets or sets the dispatch's ID.
         /// </summary>
         public ulong ID { get; set; }
 
         /// <summary>
-        /// Dispatch's title.
+        /// Gets or sets the dispatch's title.
         /// </summary>
         public string Title { get; set; }
 
         /// <summary>
-        /// Dispatch's author.
+        /// Gets or sets the dispatch's author.
         /// </summary>
         public string Author { get; set; }
 
         /// <summary>
-        /// Dispatch's category.
+        /// Gets or sets the dispatch's category.
         /// </summary>
         public DispatchCategory Category { get; set; }
 
         /// <summary>
-        /// Dispatch's sub-category.
+        /// Gets or sets the dispatch's sub-category.
         /// </summary>
         public dynamic SubCategory
         {
@@ -94,27 +94,27 @@
         }
 
         /// <summary>
-        /// Time of creation.
+        /// Gets or sets the time of creation.
         /// </summary>
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Time of last edit.
+        /// Gets or sets the time of last edit.
         /// </summary>
         public DateTime Edited { get; set; }
 
         /// <summary>
-        /// Number of views.
+        /// Gets or sets the number of views.
         /// </summary>
         public long Views { get; set; }
 
         /// <summary>
-        /// Dispatch's score.
+        /// Gets or sets the dispatch's score.
         /// </summary>
         public int Score { get; set; }
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="Dispatch"/> class.
+        /// Initializes a new instance of the <see cref="Dispatch"/> class.
         /// </summary>
         /// <param name="id">Dispatch's ID.</param>
         /// <param name="title">Dispatch's title.</param>
@@ -139,7 +139,7 @@
         }
 
         /// <summary>
-        /// Initialises a new instance of the Dispatch class.
+        /// Initializes a new instance of the <see cref="Dispatch"/> class.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
         public Dispatch(ulong id)
