@@ -465,14 +465,14 @@
                     }
                     break;
                 case "TGCANRECRUIT":
-                    this.TelegramCanRecruit = (int.Parse(node.InnerText) == 1);
+                    this.TelegramCanRecruit = int.Parse(node.InnerText) == 1;
                     break;
                 case "TGCANCAMPAIGN":
-                    this.TelegramCanCampaign = (int.Parse(node.InnerText) == 1);
+                    this.TelegramCanCampaign = int.Parse(node.InnerText) == 1;
                     break;
                 case "ZOMBIE":
                     ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTION").InnerText));
-                    ZombieAction? intendedAction = ((node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText)));
+                    ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
                     long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
                     long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                     long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);

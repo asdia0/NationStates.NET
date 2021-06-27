@@ -237,10 +237,10 @@
                         DateTime posted = Utility.ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
                         string nation = message.SelectSingleNode("NATION").InnerText;
                         PostStatus status = Utility.ParseStatus(message.SelectSingleNode("STATUS").InnerText);
-                        DateTime? edited = ((message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText));
-                        HashSet<string>? likers = (message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet());
+                        DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText);
+                        HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
                         string content = message.SelectSingleNode("MESSAGE").InnerText;
-                        string? supressor = ((message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText));
+                        string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
 
                         this.Messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
                     }

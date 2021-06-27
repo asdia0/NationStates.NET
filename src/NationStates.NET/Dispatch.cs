@@ -45,7 +45,7 @@
             {
                 switch (this.Category)
                 {
-                    case (DispatchCategory.Account):
+                    case DispatchCategory.Account:
                         if (Enum.IsDefined(typeof(DispatchAccount), value))
                         {
                             this._SubCategory = value;
@@ -55,7 +55,7 @@
                             throw new NSError("Sub-category type must be DispatchAccount.");
                         }
                         break;
-                    case (DispatchCategory.Bulletin):
+                    case DispatchCategory.Bulletin:
                         if (Enum.IsDefined(typeof(DispatchBulletin), value))
                         {
                             this._SubCategory = value;
@@ -65,7 +65,7 @@
                             throw new NSError("Sub-category type must be DispatchBulletin.");
                         }
                         break;
-                    case (DispatchCategory.Factbook):
+                    case DispatchCategory.Factbook:
                         if (Enum.IsDefined(typeof(DispatchFactbook), value))
                         {
                             this._SubCategory = value;
@@ -75,7 +75,7 @@
                             throw new NSError("Sub-category type must be DispatchFactbook.");
                         }
                         break;
-                    case (DispatchCategory.Meta):
+                    case DispatchCategory.Meta:
                         if (Enum.IsDefined(typeof(DispatchMeta), value))
                         {
                             this._SubCategory = value;
@@ -153,16 +153,16 @@
 
             switch (this.Category)
             {
-                case (DispatchCategory.Account):
+                case DispatchCategory.Account:
                     this.SubCategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
-                case (DispatchCategory.Bulletin):
+                case DispatchCategory.Bulletin:
                     this.SubCategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
-                case (DispatchCategory.Factbook):
+                case DispatchCategory.Factbook:
                     this.SubCategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
-                case (DispatchCategory.Meta):
+                case DispatchCategory.Meta:
                     this.SubCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
             }
