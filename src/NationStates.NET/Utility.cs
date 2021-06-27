@@ -44,7 +44,7 @@
 
         public static string FormatForEnum(string word)
         {
-            return word.Replace(" ", "_").Replace("-", "");
+            return word.Replace(": ", "").Replace(" ", "_").Replace("-", "");
         }
 
         public static HashSet<Authority> ParseAuthority(string authorities)
@@ -57,6 +57,42 @@
             }
 
             return res;
+        }
+
+        public static RMBPermission ParseRMBPermission(string permission)
+        {
+            switch (permission)
+            {
+                case "0":
+                    return RMBPermission.None;
+                case "con":
+                    return RMBPermission.Delegate_Founder;
+                case "off":
+                    return RMBPermission.Officers;
+                case "com":
+                    return RMBPermission.CommunicationOfficers;
+                case "all":
+                    return RMBPermission.All;
+                default:
+                    throw new NSError("Unrecognised permission string.");
+            }
+        }
+
+        public static PostStatus ParseStatus(string status)
+        {
+            switch (status)
+            {
+                case "0":
+                    return PostStatus.Regular;
+                case "1":
+                    return PostStatus.SupressedViewable;
+                case "2":
+                    return PostStatus.Deleted;
+                case "9":
+                    return PostStatus.SupressedUnviewable;
+                default:
+                    throw new NSError("Unrecognised status string.");
+            }
         }
     }
 }

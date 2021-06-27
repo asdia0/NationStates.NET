@@ -5,18 +5,18 @@
     /// </summary>
     public enum PostStatus
     {
-        Regular = 0,
+        Regular,
 
         /// <summary>
         /// Post was supressed by a regional officer.
         /// </summary>
-        SupressedViewable = 1,
+        SupressedViewable,
 
-        Deleted = 2,
+        Deleted,
 
         /// <summary>
         /// Post was supressed by a moderator.
         /// </summary>
-        SupressedUnviewable = 9,
+        SupressedUnviewable,
     }
 }

@@ -1,16 +1,17 @@
 ﻿namespace NationStates.NET
 {
     using System;
+    using System.Collections.Generic;
 
     public class Program
     {
         public static void Main()
         {
-            Nation nation = new Nation("dabberwocky");
-
-            foreach (Dispatch d in nation.DispatchList)
+            Region region = new Region("the united federations");
+        
+            foreach (Post mes in region.Messages)
             {
-                Console.WriteLine((d.ID, d.Category, d.SubCategory));
+                Console.WriteLine(mes.Message);
             }
         }
     }

@@ -13,7 +13,7 @@
         /// <summary>
         /// Delegates and Founders (con).
         /// </summary>
-        Executive,
+        Delegate_Founder,
 
         /// <summary>
         /// Officers (off).
