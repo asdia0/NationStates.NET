@@ -109,6 +109,7 @@
                     {
                         this.DispatchList.Add(World.GetDispatch(ulong.Parse(id)));
                     }
+
                     break;
                 case "NATIONS":
                     this.Nations = node.InnerText.Split(":").ToHashSet();
@@ -131,6 +132,7 @@
 
                         this.Officers.Add(new Officer(nation, office, authorities, appointed, appointer));
                     }
+
                     break;
                 case "DELEGATEVOTES":
                     this.DelegateVotes = int.Parse(node.InnerText);
@@ -145,6 +147,7 @@
                     {
                         this.GAVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
                     }
+
                     if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                     {
                         this.GAVote.Add(WAVote.Against, 0);
@@ -153,6 +156,7 @@
                     {
                         this.GAVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                     }
+
                     break;
                 case "SCVOTE":
                     this.SCVote = new Dictionary<WAVote, int?>();
@@ -164,6 +168,7 @@
                     {
                         this.SCVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
                     }
+
                     if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                     {
                         this.SCVote.Add(WAVote.Against, 0);
@@ -172,6 +177,7 @@
                     {
                         this.SCVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                     }
+
                     break;
                 case "FOUNDER":
                     this.Founder = node.InnerText;
@@ -208,6 +214,7 @@
 
                         this.Embassies[type].Add(name);
                     }
+
                     break;
                 case "EMBASSYRMB":
                     this.EmbassyRMBPermission = Utility.ParseRMBPermission(node.InnerText);
@@ -221,6 +228,7 @@
 
                         this.WABadges.Add(new WABadge(type, id));
                     }
+
                     break;
                 case "TAGS":
                     this.Tags = new HashSet<Tag>();
@@ -228,6 +236,7 @@
                     {
                         this.Tags.Add((Tag)Enum.Parse(typeof(Tag), Utility.FormatForEnum(tag.InnerText)));
                     }
+
                     break;
                 case "MESSAGES":
                     this.Messages = new HashSet<Post>();
@@ -244,6 +253,7 @@
 
                         this.Messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
                     }
+
                     break;
                 case "HAPPENINGS":
                     this.Happenings = new HashSet<Event>();
@@ -254,6 +264,7 @@
 
                         this.Happenings.Add(new Event(timestamp, text));
                     }
+
                     break;
                 case "HISTORY":
                     this.History = new HashSet<Event>();
@@ -264,6 +275,7 @@
 
                         this.Happenings.Add(new Event(timestamp, text));
                     }
+
                     break;
                 case "ZOMBIE":
                     long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);

@@ -40,6 +40,7 @@
                     sb[i + 1] = char.ToUpper(sb[i + 1]);
                 }
             }
+
             return sb.ToString();
         }
 

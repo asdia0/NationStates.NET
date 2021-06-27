@@ -303,6 +303,7 @@
                     {
                         this.GAVote = (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
                     }
+
                     break;
                 case "SCVOTE":
                     if (node.InnerText == string.Empty)
@@ -313,6 +314,7 @@
                     {
                         this.SCVote = (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
                     }
+
                     break;
                 case "ISSUES_ANSWERED":
                     this.Answered = int.Parse(node.InnerText);
@@ -348,6 +350,7 @@
                     {
                         this.Banners.Add(banner.InnerText);
                     }
+
                     break;
                 case "DEMONYM":
                     this.DemonymNoun = node.InnerText;
@@ -394,6 +397,7 @@
                     {
                         this.Sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), Utility.FormatForEnum(Utility.Capitalise(sector.Name))), double.Parse(sector.InnerText)));
                     }
+
                     break;
                 case "FOUNDEDTIME":
                     this.FoundedTime = Utility.ParseUnix(node.InnerText);
@@ -416,6 +420,7 @@
                     {
                         this.Deaths.Add(new Death(death.Attributes["type"].Value, double.Parse(death.InnerText)));
                     }
+
                     break;
                 case "LEADER":
                     this.Leader = node.InnerText;
@@ -436,6 +441,7 @@
 
                         this.Policies.Add(new Policy(name, category, desc));
                     }
+
                     break;
                 case "HAPPENINGS":
                     this.Happenings = new HashSet<Event>();
@@ -446,6 +452,7 @@
 
                         this.Happenings.Add(new Event(timestamp, text));
                     }
+
                     break;
                 case "DISPATCHLIST":
                     this.DispatchList = new HashSet<Dispatch>();
@@ -453,6 +460,7 @@
                     {
                         this.DispatchList.Add(World.GetDispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
                     }
+
                     break;
                 case "WABADGES":
                     this.WABadges = new HashSet<WABadge>();
@@ -463,6 +471,7 @@
 
                         this.WABadges.Add(new WABadge(type, id));
                     }
+
                     break;
                 case "TGCANRECRUIT":
                     this.TelegramCanRecruit = int.Parse(node.InnerText) == 1;

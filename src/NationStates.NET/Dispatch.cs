@@ -54,6 +54,7 @@
                         {
                             throw new NSError("Sub-category type must be DispatchAccount.");
                         }
+
                         break;
                     case DispatchCategory.Bulletin:
                         if (Enum.IsDefined(typeof(DispatchBulletin), value))
@@ -64,6 +65,7 @@
                         {
                             throw new NSError("Sub-category type must be DispatchBulletin.");
                         }
+
                         break;
                     case DispatchCategory.Factbook:
                         if (Enum.IsDefined(typeof(DispatchFactbook), value))
@@ -74,6 +76,7 @@
                         {
                             throw new NSError("Sub-category type must be DispatchFactbook.");
                         }
+
                         break;
                     case DispatchCategory.Meta:
                         if (Enum.IsDefined(typeof(DispatchMeta), value))
@@ -84,6 +87,7 @@
                         {
                             throw new NSError("Sub-category type must be DispatchMeta.");
                         }
+
                         break;
                 }
             }
