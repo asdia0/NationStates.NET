@@ -45,7 +45,7 @@
 
         public static string FormatForEnum(string word)
         {
-            return word.Replace(": ", "").Replace(" ", "_").Replace("-", "");
+            return word.Replace(": ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
         }
 
         public static HashSet<Authority> ParseAuthority(string authorities)

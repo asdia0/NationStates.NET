@@ -137,7 +137,7 @@
                     break;
                 case "GAVOTE":
                     this.GAVote = new Dictionary<WAVote, int?>();
-                    if (node.SelectSingleNode("FOR").InnerText == "")
+                    if (node.SelectSingleNode("FOR").InnerText == string.Empty)
                     {
                         this.GAVote.Add(WAVote.For, null);
                     }
@@ -145,7 +145,7 @@
                     {
                         this.GAVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
                     }
-                    if (node.SelectSingleNode("AGAINST").InnerText == "")
+                    if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                     {
                         this.GAVote.Add(WAVote.Against, 0);
                     }
@@ -156,7 +156,7 @@
                     break;
                 case "SCVOTE":
                     this.SCVote = new Dictionary<WAVote, int?>();
-                    if (node.SelectSingleNode("FOR").InnerText == "")
+                    if (node.SelectSingleNode("FOR").InnerText == string.Empty)
                     {
                         this.SCVote.Add(WAVote.For, null);
                     }
@@ -164,7 +164,7 @@
                     {
                         this.SCVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
                     }
-                    if (node.SelectSingleNode("AGAINST").InnerText == "")
+                    if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                     {
                         this.SCVote.Add(WAVote.Against, 0);
                     }

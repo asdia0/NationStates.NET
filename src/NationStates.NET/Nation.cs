@@ -289,7 +289,7 @@
                     this.Category = (NationCategory)Enum.Parse(typeof(NationCategory), Utility.FormatForEnum(node.InnerText));
                     break;
                 case "UNSTATUS":
-                    this.WA = (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(node.InnerText.Replace("WA ", ""))));
+                    this.WA = (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(node.InnerText.Replace("WA ", string.Empty))));
                     break;
                 case "ENDORSEMENTS":
                     this.Endorsements = node.InnerText.Split(",").ToHashSet();
@@ -371,7 +371,7 @@
                     this.Poorest = long.Parse(node.InnerText);
                     break;
                 case "MAJORINDUSTRY":
-                    this.MajorIndustry = (Industry)Enum.Parse(typeof(Industry), node.InnerText.Replace(" ", "_").Replace("-", ""));
+                    this.MajorIndustry = (Industry)Enum.Parse(typeof(Industry), node.InnerText.Replace(" ", "_").Replace("-", string.Empty));
                     break;
                 case "GOVT":
                     double administration = double.Parse(node.SelectSingleNode("ADMINISTRATION").InnerText);
