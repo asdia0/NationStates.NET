@@ -18,5 +18,15 @@
         {
             return new Dispatch(id);
         }
+
+        /// <summary>
+        /// Gets a poll from its ID.
+        /// </summary>
+        /// <param name="id">The poll's ID.</param>
+        /// <returns>The poll with the specified ID.</returns>
+        public static Poll GetPoll(long id)
+        {
+            return new Poll(id);
+        }
     }
 }
