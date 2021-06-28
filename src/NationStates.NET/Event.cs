@@ -3,22 +3,22 @@
     using System;
 
     /// <summary>
-    /// Represents an event.
+    /// Defines an event.
     /// </summary>
-    public class Event
+    public struct Event
     {
         /// <summary>
-        /// Gets or sets the time at which the event occurred.
+        /// Gets the time at which the event occurred.
         /// </summary>
-        public DateTime TimeStamp { get; set; }
+        public DateTime TimeStamp { get; }
 
         /// <summary>
         /// Gets or sets the description of the event.
         /// </summary>
-        public string Text { get; set; }
+        public string Text { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Event"/> class.
+        /// Initializes a new instance of the <see cref="Event"/> struct.
         /// </summary>
         /// <param name="timestamp">Time at which the event occurred.</param>
         /// <param name="text">Description of the event.</param>
