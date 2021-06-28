@@ -4,52 +4,52 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents a RMB post.
+    /// Defines a RMB post.
     /// </summary>
-    public class Post
+    public struct Post
     {
         /// <summary>
-        /// Gets or sets the the post's ID.
+        /// Gets the the post's ID.
         /// </summary>
-        public ulong ID { get; set; }
+        public ulong ID { get; }
 
         /// <summary>
-        /// Gets or sets the time of postage.
+        /// Gets the time of postage.
         /// </summary>
-        public DateTime Posted { get; set; }
+        public DateTime Posted { get; }
 
         /// <summary>
-        /// Gets or sets the post's sender.
+        /// Gets the post's sender.
         /// </summary>
-        public string Nation { get; set; }
+        public string Nation { get; }
 
         /// <summary>
-        /// Gets or sets the post's status.
+        /// Gets the post's status.
         /// </summary>
-        public PostStatus Status { get; set; }
+        public PostStatus Status { get; }
 
         /// <summary>
-        /// Gets or sets the time at which the post was last edited.
+        /// Gets the time at which the post was last edited.
         /// </summary>
-        public DateTime? Edited { get; set; }
+        public DateTime? Edited { get; }
 
         /// <summary>
-        /// Gets or sets the nations that liked the post.
+        /// Gets the nations that liked the post.
         /// </summary>
-        public HashSet<string>? Likers { get; set; }
+        public HashSet<string>? Likers { get; }
 
         /// <summary>
-        /// Gets or sets the post's message.
+        /// Gets the post's message.
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; }
 
         /// <summary>
-        /// Gets or sets the name of the nation that supressed the post.
+        /// Gets the name of the nation that supressed the post.
         /// </summary>
-        public string? Supressor { get; set; }
+        public string? Supressor { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Post"/> class.
+        /// Initializes a new instance of the <see cref="Post"/> struct.
         /// </summary>
         /// <param name="id">The post's ID.</param>
         /// <param name="posted">Time of postage.</param>
