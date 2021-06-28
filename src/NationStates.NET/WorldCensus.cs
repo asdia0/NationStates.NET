@@ -6,17 +6,17 @@
     public struct WorldCensus
     {
         /// <summary>
-        /// The census ID.
+        /// Gets the census ID.
         /// </summary>
         public int ID { get; }
 
         /// <summary>
-        /// The nation's name.
+        /// Gets the nation's name.
         /// </summary>
         public string Name { get; }
 
         /// <summary>
-        /// The nation's score.
+        /// Gets he nation's score.
         /// </summary>
         public double Score { get; }
 
