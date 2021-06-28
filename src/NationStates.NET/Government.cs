@@ -1,72 +1,72 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a government.
+    /// Defines a government.
     /// </summary>
-    public class Government
+    public struct Government
     {
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on administration.
+        /// Gets the percentage of the government budget spent on administration.
         /// </summary>
-        public double Administration { get; set; }
+        public double Administration { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on defence.
+        /// Gets the percentage of the government budget spent on defence.
         /// </summary>
-        public double Defense { get; set; }
+        public double Defense { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on education.
+        /// Gets the percentage of the government budget spent on education.
         /// </summary>
-        public double Education { get; set; }
+        public double Education { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on the environment.
+        /// Gets the percentage of the government budget spent on the environment.
         /// </summary>
-        public double Environment { get; set; }
+        public double Environment { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on healthcare.
+        /// Gets the percentage of the government budget spent on healthcare.
         /// </summary>
-        public double Healthcare { get; set; }
+        public double Healthcare { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on commerce.
+        /// Gets the percentage of the government budget spent on commerce.
         /// </summary>
-        public double Commerce { get; set; }
+        public double Commerce { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on international aid.
+        /// Gets the percentage of the government budget spent on international aid.
         /// </summary>
-        public double InternationalAid { get; set; }
+        public double InternationalAid { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on law and order.
+        /// Gets the percentage of the government budget spent on law and order.
         /// </summary>
-        public double LawAndOrder { get; set; }
+        public double LawAndOrder { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on public transport.
+        /// Gets the percentage of the government budget spent on public transport.
         /// </summary>
-        public double PublicTransport { get; set; }
+        public double PublicTransport { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on social equality.
+        /// Gets the percentage of the government budget spent on social equality.
         /// </summary>
-        public double SocialEquality { get; set; }
+        public double SocialEquality { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on spirituality.
+        /// Gets the percentage of the government budget spent on spirituality.
         /// </summary>
-        public double Spirituality { get; set; }
+        public double Spirituality { get; }
 
         /// <summary>
-        /// Gets or sets the percentage of the government budget spent on welfare.
+        /// Gets the percentage of the government budget spent on welfare.
         /// </summary>
-        public double Welfare { get; set; }
+        public double Welfare { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Government"/> class.
+        /// Initializes a new instance of the <see cref="Government"/> struct.
         /// </summary>
         /// <param name="administration">Percentage of government budget spent on administration.</param>
         /// <param name="defense">Percentage of government budget spent on defense.</param>
