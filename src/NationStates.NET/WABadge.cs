@@ -1,22 +1,22 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a World Assembly badge.
+    /// Defines a World Assembly badge.
     /// </summary>
-    public class WABadge
+    public struct WABadge
     {
         /// <summary>
-        /// Gets or sets type of World Assembly badge.
+        /// Gets type of World Assembly badge.
         /// </summary>
-        public WABadgeType Type { get; set; }
+        public WABadgeType Type { get; }
 
         /// <summary>
-        /// Gets or sets the ID of Security Council resolution that granted the World Assembly badge.
+        /// Gets the ID of Security Council resolution that granted the World Assembly badge.
         /// </summary>
-        public long ID { get; set; }
+        public long ID { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WABadge"/> class.
+        /// Initializes a new instance of the <see cref="WABadge"/> struct.
         /// </summary>
         /// <param name="type">Type of World Assembly badge.</param>
         /// <param name="id">ID of Security Council resolution that granted the World Assembly badge.</param>
