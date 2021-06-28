@@ -1,22 +1,22 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a sector.
+    /// Defines a sector.
     /// </summary>
-    public class Sector
+    public struct Sector
     {
         /// <summary>
-        /// Gets or sets the type of sector.
+        /// Gets the type of sector.
         /// </summary>
-        public SectorType Type { get; set; }
+        public SectorType Type { get; }
 
         /// <summary>
-        /// Gets or sets the sector's share in the economy in percentage.
+        /// Gets the sector's share in the economy in percentage.
         /// </summary>
-        public double Share { get; set; }
+        public double Share { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Sector"/> class.
+        /// Initializes a new instance of the <see cref="Sector"/> struct.
         /// </summary>
         /// <param name="type">Type of sector.</param>
         /// <param name="share">Sector's share in the economy in percentage.</param>
