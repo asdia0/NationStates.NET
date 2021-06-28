@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using System.Xml;
 
     /// <summary>
@@ -235,6 +236,29 @@
         public static Faction GetFaction(long id)
         {
             return new Faction(id);
+        }
+
+        /// <summary>
+        /// Gets a list of all factions sorted by their score.
+        /// </summary>
+        /// <returns>A list of all factions.</returns>
+        public static List<Faction> GetFactions()
+        {
+            List<Faction> res = new List<Faction>();
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=factions"));
+
+            XmlNode node = doc.DocumentElement.FirstChild;
+
+            foreach (XmlNode faction in node.ChildNodes)
+            {
+                res.Add(new Faction(long.Parse(faction.Attributes["id"].Value)));
+                Thread.Sleep(600);
+            }
+
+            return res;
         }
 
         /// <summary>
