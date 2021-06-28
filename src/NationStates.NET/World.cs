@@ -89,6 +89,32 @@
         }
 
         /// <summary>
+        /// Gets the top twenty nations in the world for a census.
+        /// </summary>
+        /// <param name="id">The census ID.</param>
+        /// <returns>The top twenty nations in the world for the specified census.</returns>
+        public static List<WorldCensus> GetCensusRanks(int id)
+        {
+            List<WorldCensus> res = new List<WorldCensus>();
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks;scale={id}"));
+
+            XmlNode nations = doc.DocumentElement.SelectSingleNode("CENSUSRANKS/NATIONS");
+
+            foreach (XmlNode nation in nations.ChildNodes)
+            {
+                string name = nation.SelectSingleNode("NAME").InnerText;
+                double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
+
+                res.Add(new WorldCensus(id, name, score));
+            }
+
+            return res;
+        }
+
+        /// <summary>
         /// Gets a dispatch from its ID.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
