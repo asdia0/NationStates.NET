@@ -6,47 +6,47 @@
     using System.Xml;
 
     /// <summary>
-    /// Represents a regional poll.
+    /// Defines a regional poll.
     /// </summary>
-    public class Poll
+    public struct Poll
     {
         /// <summary>
-        /// Gets or sets the poll's ID.
+        /// Gets the poll's ID.
         /// </summary>
-        public long ID { get; set; }
+        public long ID { get; }
 
         /// <summary>
-        /// Gets or sets the poll's title.
+        /// Gets the poll's title.
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; }
 
         /// <summary>
-        /// Gets or sets the region the poll was held in.
+        /// Gets the region the poll was held in.
         /// </summary>
-        public string Region { get; set; }
+        public string Region { get; }
 
         /// <summary>
-        /// Gets or sets the time at which the poll started.
+        /// Gets the time at which the poll started.
         /// </summary>
-        public DateTime Start { get; set; }
+        public DateTime Start { get; }
 
         /// <summary>
-        /// Gets or sets the time at which the poll ended.
+        /// Gets the time at which the poll ended.
         /// </summary>
-        public DateTime Stop { get; set; }
+        public DateTime Stop { get; }
 
         /// <summary>
-        /// Gets or sets the name of the nation that started the poll.
+        /// Gets the name of the nation that started the poll.
         /// </summary>
-        public string Author { get; set; }
+        public string Author { get; }
 
         /// <summary>
-        /// Gets or sets a list of options and results for the polls.
+        /// Gets a list of options and results for the polls.
         /// </summary>
-        public HashSet<PollOption> Options { get; set; }
+        public HashSet<PollOption> Options { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Poll"/> class.
+        /// Initializes a new instance of the <see cref="Poll"/> struct.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
         /// <param name="title">The poll's title.</param>
@@ -67,7 +67,7 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Poll"/> class.
+        /// Initializes a new instance of the <see cref="Poll"/> struct.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
         public Poll(long id)
