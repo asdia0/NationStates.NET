@@ -14,23 +14,13 @@
         /// </summary>
         /// <param name="banners">A collection of the banner IDs to search for.</param>
         /// <returns>The name and validty of specified banners.</returns>
-        public static Dictionary<string, (string Name, string Validity)> GetBanner(HashSet<string> banners)
+        public static Dictionary<string, Banner> GetBanner(HashSet<string> banners)
         {
-            Dictionary<string, (string Name, string Validity)> res = new Dictionary<string, (string Name, string Validity)>();
+            Dictionary<string, Banner> res = new Dictionary<string, Banner>();
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=banner;banner={string.Join(",", banners)}"));
-
-            XmlNode node = doc.DocumentElement.SelectSingleNode("BANNERS");
-
-            foreach (XmlNode banner in node.ChildNodes)
+            foreach (string banner in banners)
             {
-                string id = banner.Attributes["id"].Value;
-                string name = banner.SelectSingleNode("NAME").InnerText;
-                string validity = banner.SelectSingleNode("VALIDITY").InnerText;
-
-                res.Add(id, (name, validity));
+                res.Add(banner, new Banner(banner));
             }
 
             return res;
