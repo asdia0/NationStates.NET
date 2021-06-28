@@ -75,6 +75,16 @@
         }
 
         /// <summary>
+        /// Gets the <see cref="CensusDescription"/> for a census.
+        /// </summary>
+        /// <param name="id">The census ID.</param>
+        /// <returns>The <see cref="CensusDescription"/> for the specified census.</returns>
+        public static CensusDescription GetCensusDescription(int id)
+        {
+            return new CensusDescription(id);
+        }
+
+        /// <summary>
         /// Gets a dispatch from its ID.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
