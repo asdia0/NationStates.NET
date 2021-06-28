@@ -3,32 +3,32 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents an option in a poll.
+    /// Defines an option in a poll.
     /// </summary>
-    public class PollOption
+    public struct PollOption
     {
         /// <summary>
-        /// Gets or sets the option's ID.
+        /// Gets the option's ID.
         /// </summary>
-        public int ID { get; set; }
+        public int ID { get; }
 
         /// <summary>
-        /// Gets or sets the option's text.
+        /// Gets the option's text.
         /// </summary>
-        public string Text { get; set; }
+        public string Text { get; }
 
         /// <summary>
-        /// Gets or sets the number of votes received.
+        /// Gets the number of votes received.
         /// </summary>
-        public int Votes { get; set; }
+        public int Votes { get; }
 
         /// <summary>
-        /// Gets or sets the name of the nations that voted for the option.
+        /// Gets the name of the nations that voted for the option.
         /// </summary>
-        public HashSet<string> Voters { get; set; }
+        public HashSet<string> Voters { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PollOption"/> class.
+        /// Initializes a new instance of the <see cref="PollOption"/> struct.
         /// </summary>
         /// <param name="id">The options's ID.</param>
         /// <param name="text">The option's text.</param>
