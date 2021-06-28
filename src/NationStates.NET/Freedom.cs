@@ -1,27 +1,27 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represent's a nation's freedom levels.
+    /// Defines a nation's freedom levels.
     /// </summary>
-    public class Freedom
+    public struct Freedom
     {
         /// <summary>
-        /// Gets or sets the nation's civil rights level.
+        /// Gets the nation's civil rights level.
         /// </summary>
-        public CivilRights CivilRights { get; set; }
+        public CivilRights CivilRights { get; }
 
         /// <summary>
-        /// Gets or sets the nation's economy level.
+        /// Gets the nation's economy level.
         /// </summary>
-        public Economy Economy { get; set; }
+        public Economy Economy { get; }
 
         /// <summary>
-        /// Gets or sets the nation's political freedoms level.
+        /// Gets the nation's political freedoms level.
         /// </summary>
-        public PoliticalFreedoms PoliticalFreedoms { get; set; }
+        public PoliticalFreedoms PoliticalFreedoms { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Freedom"/> class.
+        /// Initializes a new instance of the <see cref="Freedom"/> struct.
         /// </summary>
         /// <param name="civilRights">Civil rights level.</param>
         /// <param name="economy">Economy level.</param>
