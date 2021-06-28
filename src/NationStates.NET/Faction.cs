@@ -141,7 +141,7 @@
             this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             this.Production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             this.Nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
-            this.Shields = long.Parse(node.SelectSingleNode("SHIELDS").InnerText);
+            this.Shields = long.Parse(node.SelectSingleNode("SHIELD").InnerText);
             this.Targets = long.Parse(node.SelectSingleNode("TARGETS").InnerText);
             this.Launches = long.Parse(node.SelectSingleNode("LAUNCHES").InnerText);
             this.Incoming = long.Parse(node.SelectSingleNode("INCOMING").InnerText);
