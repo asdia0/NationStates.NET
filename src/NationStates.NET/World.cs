@@ -117,7 +117,7 @@
         /// <summary>
         /// Gets the scale of the census.
         /// </summary>
-        /// <param name="id">The Id of the census. </param>
+        /// <param name="id">The ID of the census. </param>
         /// <returns>The scale of the specified census.</returns>
         public static string GetCensusScale(int id)
         {
