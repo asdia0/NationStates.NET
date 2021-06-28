@@ -14,7 +14,7 @@
         /// </summary>
         /// <param name="banners">A collection of the banner IDs to search for.</param>
         /// <returns>The name and validty of specified banners.</returns>
-        public static Dictionary<string, Banner> GetBanner(HashSet<string> banners)
+        public static Dictionary<string, Banner> GetBanners(HashSet<string> banners)
         {
             Dictionary<string, Banner> res = new Dictionary<string, Banner>();
 
