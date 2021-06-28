@@ -13,7 +13,7 @@
         public DateTime TimeStamp { get; }
 
         /// <summary>
-        /// Gets or sets the description of the event.
+        /// Gets the description of the event.
         /// </summary>
         public string Text { get; }
 
