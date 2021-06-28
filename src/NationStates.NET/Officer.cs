@@ -4,37 +4,37 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents a regional officer.
+    /// Defines a regional officer.
     /// </summary>
-    public class Officer
+    public struct Officer
     {
         /// <summary>
-        /// Gets or sets the name of the officer.
+        /// Gets the name of the officer.
         /// </summary>
-        public string Nation { get; set; }
+        public string Nation { get; }
 
         /// <summary>
-        /// Gets or sets the name of the office.
+        /// Gets the name of the office.
         /// </summary>
-        public string Office { get; set; }
+        public string Office { get; }
 
         /// <summary>
-        /// Gets or sets the list of authorities granted by the office.
+        /// Gets the list of authorities granted by the office.
         /// </summary>
-        public HashSet<Authority> Authorities { get; set; }
+        public HashSet<Authority> Authorities { get; }
 
         /// <summary>
-        /// Gets or sets the time of appointment.
+        /// Gets the time of appointment.
         /// </summary>
-        public DateTime Appointed { get; set; }
+        public DateTime Appointed { get; }
 
         /// <summary>
-        /// Gets or sets the name of the nation that appointed the officer.
+        /// Gets the name of the nation that appointed the officer.
         /// </summary>
-        public string Appointer { get; set; }
+        public string Appointer { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Officer"/> class.
+        /// Initializes a new instance of the <see cref="Officer"/> struct.
         /// </summary>
         /// <param name="nation">Name of the officer.</param>
         /// <param name="office">Name of the office.</param>
