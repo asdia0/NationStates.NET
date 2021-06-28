@@ -1,27 +1,27 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a policy.
+    /// Defines a policy.
     /// </summary>
-    public class Policy
+    public struct Policy
     {
         /// <summary>
-        /// Gets or sets the policy's name.
+        /// Gets the policy's name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
-        /// Gets or sets the policy's category.
+        /// Gets the policy's category.
         /// </summary>
-        public PolicyCategory Category { get; set; }
+        public PolicyCategory Category { get; }
 
         /// <summary>
-        /// Gets or sets the policy's description.
+        /// Gets the policy's description.
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Policy"/> class.
+        /// Initializes a new instance of the <see cref="Policy"/> struct.
         /// </summary>
         /// <param name="name">Name of policy.</param>
         /// <param name="category">Category of policy.</param>
