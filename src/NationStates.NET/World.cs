@@ -77,7 +77,7 @@
         /// <summary>
         /// Gets the name of the census.
         /// </summary>
-        /// <param name="id">The Id of the census. </param>
+        /// <param name="id">The ID of the census. </param>
         /// <returns>The name of the specified census.</returns>
         public static string GetCensusName(int id)
         {
