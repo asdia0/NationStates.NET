@@ -228,6 +228,16 @@
         }
 
         /// <summary>
+        /// Gets a faction from its ID.
+        /// </summary>
+        /// <param name="id">The faction's ID.</param>
+        /// <returns>The faction with the specified ID.</returns>
+        public static Faction GetFaction(long id)
+        {
+            return new Faction(id);
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
