@@ -153,6 +153,81 @@
         }
 
         /// <summary>
+        /// Gets a list of dispatches fulfilling certain criteria.
+        /// </summary>
+        /// <param name="author">The author of the dispatch.</param>
+        /// <param name="category">The dispatch's category.</param>
+        /// <param name="subCategory">The dispatch's sub-category.</param>
+        /// <param name="sort">The sort to use.</param>
+        /// <returns>A list of dispatches fulfilling the above criteria.</returns>
+        public static List<Dispatch> GetDispatchList(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
+        {
+            List<Dispatch> res = new List<Dispatch>();
+
+            string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=dispatchlist;";
+
+            if (author != null)
+            {
+                url += $"dispatchauthor={author.Replace(" ", "_")}";
+            }
+
+            if (category != null)
+            {
+                switch (category)
+                {
+                    case DispatchCategory.Account:
+                        if (!Enum.IsDefined(typeof(DispatchAccount), subCategory))
+                        {
+                            throw new NSError("Sub-category type must be DispatchAccount.");
+                        }
+
+                        break;
+                    case DispatchCategory.Bulletin:
+                        if (!Enum.IsDefined(typeof(DispatchBulletin), subCategory))
+                        {
+                            throw new NSError("Sub-category type must be DispatchBulletin.");
+                        }
+
+                        break;
+                    case DispatchCategory.Factbook:
+                        if (!Enum.IsDefined(typeof(DispatchFactbook), subCategory))
+                        {
+                            throw new NSError("Sub-category type must be DispatchFactbook.");
+                        }
+
+                        break;
+                    case DispatchCategory.Meta:
+                        if (!Enum.IsDefined(typeof(DispatchMeta), subCategory))
+                        {
+                            throw new NSError("Sub-category type must be DispatchMeta.");
+                        }
+
+                        break;
+                }
+
+                url += $"dispatchcategory={category}:{subCategory}";
+            }
+
+            if (sort != null)
+            {
+                url += $"dispatchsort={sort}";
+            }
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString(url));
+
+            XmlNode node = doc.DocumentElement.SelectSingleNode("DISPATCHLIST");
+
+            foreach (XmlNode dispatch in node.ChildNodes)
+            {
+                res.Add(World.GetDispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
+            }
+
+            return res;
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
