@@ -62,6 +62,19 @@
         }
 
         /// <summary>
+        /// Gets today's census.
+        /// </summary>
+        /// <returns>The ID of today's census.</returns>
+        public static int GetCensusOfTheDay()
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=censusid"));
+
+            return int.Parse(doc.DocumentElement.SelectSingleNode("CENSUSID").InnerText);
+        }
+
+        /// <summary>
         /// Gets a dispatch from its ID.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
