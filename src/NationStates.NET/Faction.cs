@@ -1,6 +1,7 @@
 ﻿namespace NationStates.NET
 {
     using System;
+    using System.Xml;
 
     /// <summary>
     /// Defines a faction during N-Day.
@@ -117,6 +118,36 @@
             this.Targeted = targeted;
             this.Strikes = strikes;
             this.Radiation = radiation;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Faction"/> struct.
+        /// </summary>
+        /// <param name="id">The faction's ID.</param>
+        public Faction(long id)
+        {
+            this.ID = id;
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=faction;id={id}"));
+
+            XmlNode node = doc.DocumentElement.FirstChild;
+
+            this.Name = node.SelectSingleNode("NAME").InnerText;
+            this.Description = node.SelectSingleNode("DESC").InnerText;
+            this.Founded = Utility.ParseUnix(node.SelectSingleNode("FOUNDED").InnerText);
+            this.Region = node.SelectSingleNode("REGION").InnerText;
+            this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            this.Production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            this.Nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            this.Shields = long.Parse(node.SelectSingleNode("SHIELDS").InnerText);
+            this.Targets = long.Parse(node.SelectSingleNode("TARGETS").InnerText);
+            this.Launches = long.Parse(node.SelectSingleNode("LAUNCHES").InnerText);
+            this.Incoming = long.Parse(node.SelectSingleNode("INCOMING").InnerText);
+            this.Targeted = long.Parse(node.SelectSingleNode("TARGETED").InnerText);
+            this.Strikes = long.Parse(node.SelectSingleNode("STRIKES").InnerText);
+            this.Radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
         }
     }
 }

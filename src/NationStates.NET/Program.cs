@@ -7,11 +7,9 @@
     {
         public static void Main()
         {
-            Region region = new Region("the united federations");
-
-            foreach (Post mes in region.Messages)
+            foreach (Dispatch d in World.GetDispatchList(null, DispatchCategory.Factbook, DispatchFactbook.Geography, null))
             {
-                Console.WriteLine(mes.Message);
+                Console.WriteLine(d.ID);
             }
         }
     }
