@@ -37,6 +37,31 @@
         }
 
         /// <summary>
+        /// Returns the census world average in each census.
+        /// </summary>
+        /// <returns>A dictionary. Key: Census ID. Value: Census score.</returns>
+        public static Dictionary<int, double> GetCensusAverage()
+        {
+            Dictionary<int, double> res = new Dictionary<int, double>();
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=census;scale=all"));
+
+            XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUS");
+
+            foreach (XmlNode census in node.ChildNodes)
+            {
+                int id = int.Parse(census.Attributes["id"].Value);
+                double score = double.Parse(census.SelectSingleNode("SCORE").InnerText);
+
+                res.Add(id, score);
+            }
+
+            return res;
+        }
+
+        /// <summary>
         /// Gets a dispatch from its ID.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
