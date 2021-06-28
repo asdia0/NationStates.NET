@@ -1,27 +1,27 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a region during Z-Day.
+    /// Defines a region during Z-Day.
     /// </summary>
-    public class RegionZombie
+    public struct RegionZombie
     {
         /// <summary>
-        /// Gets or sets the number of survivors in millions.
+        /// Gets the number of survivors in millions.
         /// </summary>
-        public long Survivors { get; set; }
+        public long Survivors { get; }
 
         /// <summary>
-        /// Gets or sets the number of zombies in millions.
+        /// Gets the number of zombies in millions.
         /// </summary>
-        public long Zombies { get; set; }
+        public long Zombies { get; }
 
         /// <summary>
-        /// Gets or sets the number of dead people in millions.
+        /// Gets the number of dead people in millions.
         /// </summary>
-        public long Dead { get; set; }
+        public long Dead { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionZombie"/> class.
+        /// Initializes a new instance of the <see cref="RegionZombie"/> struct.
         /// </summary>
         /// <param name="survivors">Number of survivors in millions.</param>
         /// <param name="zombies">Number of zombies in millions.</param>
