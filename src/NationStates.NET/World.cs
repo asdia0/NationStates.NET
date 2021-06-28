@@ -75,6 +75,20 @@
         }
 
         /// <summary>
+        /// Gets the name of the census.
+        /// </summary>
+        /// <param name="id">The Id of the census. </param>
+        /// <returns>The name of the specified census.</returns>
+        public static string GetCensusName(int id)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusname;scale={id}"));
+
+            return doc.DocumentElement.FirstChild.InnerText;
+        }
+
+        /// <summary>
         /// Gets a dispatch from its ID.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
