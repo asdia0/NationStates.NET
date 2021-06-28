@@ -262,6 +262,19 @@
         }
 
         /// <summary>
+        /// Gets today's featured region.
+        /// </summary>
+        /// <returns>Today's featured region.</returns>
+        public static string GetFeaturedRegion()
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=featuredregion"));
+
+            return doc.DocumentElement.FirstChild.InnerText;
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
