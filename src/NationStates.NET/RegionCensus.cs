@@ -1,32 +1,32 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Represents a census record.
+    /// Defines a census record.
     /// </summary>
-    public class RegionCensus
+    public struct RegionCensus
     {
         /// <summary>
-        /// Gets or sets the census ID.
+        /// Gets the census ID.
         /// </summary>
-        public int ID { get; set; }
+        public int ID { get; }
 
         /// <summary>
-        /// Gets or sets the value of the census data.
+        /// Gets the value of the census data.
         /// </summary>
-        public double Score { get; set; }
+        public double Score { get; }
 
         /// <summary>
-        /// Gets or sets the nation's world rank.
+        /// Gets the nation's world rank.
         /// </summary>
-        public long WorldRank { get; set; }
+        public long WorldRank { get; }
 
         /// <summary>
-        /// Gets or sets the nation's world rank as a percentage.
+        /// Gets the nation's world rank as a percentage.
         /// </summary>
-        public double WorldPercentage { get; set; }
+        public double WorldPercentage { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionCensus"/> class.
+        /// Initializes a new instance of the <see cref="RegionCensus"/> struct.
         /// </summary>
         /// <param name="id">The census ID.</param>
         /// <param name="score">The value of the census data.</param>
