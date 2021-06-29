@@ -3,7 +3,7 @@
     /// <summary>
     /// Types of entities.
     /// </summary>
-    public enum EntityType
+    public enum Entity
     {
         /// <summary>
         /// A nation.

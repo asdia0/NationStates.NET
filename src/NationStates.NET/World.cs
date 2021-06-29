@@ -289,7 +289,7 @@
         /// <param name="sinceTime">Get events since a certain time.</param>
         /// <param name="beforeTime">Get events before a certain time.</param>
         /// <returns>A collection of events satisfying the above criteria.</returns>
-        public static HashSet<Event> GetHappenings(HashSet<string>? entities, EntityType? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
+        public static HashSet<Event> GetHappenings(HashSet<string>? entities, Entity? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
         {
             string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=happenings;";
 
@@ -366,7 +366,7 @@
         /// </summary>
         /// <param name="type">The type of entity.</param>
         /// <returns>The number of entities.</returns>
-        public static long GetEntityNumber(EntityType type)
+        public static long GetEntityNumber(Entity type)
         {
             XmlDocument doc = new XmlDocument();
 
