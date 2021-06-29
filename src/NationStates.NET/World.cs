@@ -407,6 +407,25 @@
         }
 
         /// <summary>
+        /// Gets the current telegram queue.
+        /// </summary>
+        /// <returns>The current telegram queue.</returns>
+        public static TelegramQueue GetTelegramQueue()
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=tgqueue"));
+
+            XmlNode node = doc.DocumentElement.FirstChild;
+
+            long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
+            long mass = long.Parse(node.SelectSingleNode("MASS").InnerText);
+            long api = long.Parse(node.SelectSingleNode("API").InnerText);
+
+            return new TelegramQueue(manual, mass, api);
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
