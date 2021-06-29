@@ -288,8 +288,6 @@
         /// <returns>A collection of events satisfying the above criteria.</returns>
         public static HashSet<Event> GetHappenings(HashSet<string>? entities, EntityType? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
         {
-            HashSet<Event> res = new HashSet<Event>();
-
             string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=happenings;";
 
             if (entities != null && entityType != null)
