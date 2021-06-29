@@ -450,7 +450,36 @@
                     this.DispatchList = new HashSet<Dispatch>();
                     foreach (XmlNode dispatch in node.ChildNodes)
                     {
-                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
+                        ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
+                        string title = dispatch.SelectSingleNode("TITLE").InnerText;
+                        DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+                        string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
+                        dynamic subcategory = null;
+
+                        switch (category)
+                        {
+                            case DispatchCategory.Account:
+                                subcategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                                break;
+                            case DispatchCategory.Bulletin:
+                                subcategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                                break;
+                            case DispatchCategory.Factbook:
+                                subcategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                                break;
+                            case DispatchCategory.Meta:
+                                subcategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                                break;
+                            default:
+                                throw new NSError("Dispatch subcategory does not exist.");
+                        }
+
+                        DateTime created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
+                        DateTime edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
+                        long vews = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
+                        int score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
+
+                        this.DispatchList.Add(new Dispatch(id, title, author, category, subcategory, created, edited, vews, score));
                     }
 
                     break;
