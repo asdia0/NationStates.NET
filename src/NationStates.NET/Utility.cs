@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// Capitalises a word. The first character and every character after a dash is capitalised.
+        /// Capitalises a word. The first character and every character after a dash and a space is capitalised.
         /// </summary>
         /// <param name="word">The word to capitalise.</param>
         /// <returns>The capitalised word.</returns>
@@ -49,7 +49,7 @@
             StringBuilder sb = new StringBuilder(firstChar);
             for (int i = 0; i < sb.Length - 1; i++)
             {
-                if (sb[i] == '-')
+                if (sb[i] == '-' || sb[i] == ' ')
                 {
                     sb[i + 1] = char.ToUpper(sb[i + 1]);
                 }
