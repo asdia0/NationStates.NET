@@ -57,6 +57,31 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Dispatch"/> struct.
         /// </summary>
+        /// <param name="id">Dispatch's ID.</param>
+        /// <param name="title">Dispatch's title.</param>
+        /// <param name="author">Dispatch's author.</param>
+        /// <param name="category">Dispatch's category.</param>
+        /// <param name="subCategory">Dispatch's sub-category.</param>
+        /// <param name="created">Time of creation.</param>
+        /// <param name="edited">Time of last edit.</param>
+        /// <param name="views">Number of views.</param>
+        /// <param name="score">Dispatch's score.</param>
+        public Dispatch(ulong id, string title, string author, DispatchCategory category, dynamic subCategory, DateTime created, DateTime edited, long views, int score)
+        {
+            this.ID = id;
+            this.Title = title;
+            this.Author = author;
+            this.Category = category;
+            this.SubCategory = subCategory;
+            this.Created = created;
+            this.Edited = edited;
+            this.Views = views;
+            this.Score = score;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Dispatch"/> struct.
+        /// </summary>
         /// <param name="id">The dispatch's ID.</param>
         public Dispatch(ulong id)
         {
