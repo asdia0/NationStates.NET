@@ -25,15 +25,15 @@
         /// <summary>
         /// Downloads a webpage.
         /// </summary>
-        /// <param name="url">The webpage to download.</param>
+        /// <param name="path">The path of the API request.</param>
         /// <returns>The webpage's content.</returns>
-        public static string DownloadUrlString(string url)
+        public static string DownloadUrlString(string path)
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
 
-                return client.DownloadString(url);
+                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?q=" + path);
             }
         }
 

@@ -32,7 +32,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusdesc;scale={this.ID}"));
+            doc.LoadXml(Utility.DownloadUrlString($"censusdesc;scale={this.ID}"));
 
             XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUSDESC");
 

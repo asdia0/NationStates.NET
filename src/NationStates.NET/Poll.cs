@@ -76,7 +76,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=poll;pollid={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"poll;pollid={id}"));
 
             XmlNode node = doc.DocumentElement.SelectSingleNode("POLL");
 

@@ -39,7 +39,7 @@
             {
                 XmlDocument doc = new XmlDocument();
 
-                doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=banner;banner={id}"));
+                doc.LoadXml(Utility.DownloadUrlString($"banner;banner={id}"));
 
                 XmlNode node = doc.DocumentElement.SelectSingleNode("BANNERS").FirstChild;
 

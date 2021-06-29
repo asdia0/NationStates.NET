@@ -38,7 +38,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=census;scale=all"));
+            doc.LoadXml(Utility.DownloadUrlString("census;scale=all"));
 
             XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUS");
 
@@ -61,7 +61,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=censusid"));
+            doc.LoadXml(Utility.DownloadUrlString("censusid"));
 
             return int.Parse(doc.DocumentElement.SelectSingleNode("CENSUSID").InnerText);
         }
@@ -85,7 +85,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusname;scale={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"censusname;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -102,7 +102,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks;scale={id}&start={start}"));
+            doc.LoadXml(Utility.DownloadUrlString($"censusranks;scale={id}&start={start}"));
 
             XmlNode nations = doc.DocumentElement.SelectSingleNode("CENSUSRANKS/NATIONS");
 
@@ -127,7 +127,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusscale;scale={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"censusscale;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -141,7 +141,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censustitle;scale={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"censustitle;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -168,7 +168,7 @@
         {
             List<Dispatch> res = new List<Dispatch>();
 
-            string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=dispatchlist;";
+            string url = "dispatchlist;";
 
             if (author != null)
             {
@@ -251,7 +251,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=factions"));
+            doc.LoadXml(Utility.DownloadUrlString("factions"));
 
             XmlNode node = doc.DocumentElement.FirstChild;
 
@@ -272,7 +272,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=featuredregion"));
+            doc.LoadXml(Utility.DownloadUrlString("featuredregion"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -291,7 +291,7 @@
         /// <returns>A collection of events satisfying the above criteria.</returns>
         public static HashSet<Event> GetHappenings(HashSet<string>? entities, Entity? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
         {
-            string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=happenings;";
+            string url = "happenings;";
 
             if (entities != null && entityType != null)
             {
@@ -343,7 +343,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=lasteventid"));
+            doc.LoadXml(Utility.DownloadUrlString("lasteventid"));
 
             return ulong.Parse(doc.DocumentElement.FirstChild.InnerText);
         }
@@ -356,7 +356,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=newnations"));
+            doc.LoadXml(Utility.DownloadUrlString("newnations"));
 
             return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
         }
@@ -370,7 +370,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=num{type.ToString().ToLower()}s"));
+            doc.LoadXml(Utility.DownloadUrlString($"num{type.ToString().ToLower()}s"));
 
             return long.Parse(doc.DocumentElement.FirstChild.InnerText);
         }
@@ -403,7 +403,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=regionsbytag;tags={string.Join(",", all)}"));
+            doc.LoadXml(Utility.DownloadUrlString($"regionsbytag;tags={string.Join(",", all)}"));
 
             return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
         }
@@ -416,7 +416,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=tgqueue"));
+            doc.LoadXml(Utility.DownloadUrlString("tgqueue"));
 
             XmlNode node = doc.DocumentElement.FirstChild;
 

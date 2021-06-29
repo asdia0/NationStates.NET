@@ -89,7 +89,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=dispatch;dispatchid={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"dispatch;dispatchid={id}"));
 
             XmlNode dispatch = doc.DocumentElement.SelectSingleNode("DISPATCH");
 
