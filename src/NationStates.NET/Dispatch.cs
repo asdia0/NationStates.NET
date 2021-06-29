@@ -5,141 +5,59 @@
     using System.Xml;
 
     /// <summary>
-    /// Represents a dispatch.
+    /// Defines a dispatch.
     /// </summary>
-    public class Dispatch
+    public struct Dispatch
     {
         private dynamic _subCategory;
 
         /// <summary>
-        /// Gets or sets the dispatch's ID.
+        /// Gets the dispatch's ID.
         /// </summary>
-        public ulong ID { get; set; }
+        public ulong ID { get; }
 
         /// <summary>
-        /// Gets or sets the dispatch's title.
+        /// Gets the dispatch's title.
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; }
 
         /// <summary>
-        /// Gets or sets the dispatch's author.
+        /// Gets the dispatch's author.
         /// </summary>
-        public string Author { get; set; }
+        public string Author { get; }
 
         /// <summary>
-        /// Gets or sets the dispatch's category.
+        /// Gets the dispatch's category.
         /// </summary>
-        public DispatchCategory Category { get; set; }
+        public DispatchCategory Category { get; }
 
         /// <summary>
-        /// Gets or sets the dispatch's sub-category.
+        /// Gets the dispatch's sub-category.
         /// </summary>
-        public dynamic SubCategory
-        {
-            get
-            {
-                return this._subCategory;
-            }
-
-            set
-            {
-                switch (this.Category)
-                {
-                    case DispatchCategory.Account:
-                        if (Enum.IsDefined(typeof(DispatchAccount), value))
-                        {
-                            this._subCategory = value;
-                        }
-                        else
-                        {
-                            throw new NSError("Sub-category type must be DispatchAccount.");
-                        }
-
-                        break;
-                    case DispatchCategory.Bulletin:
-                        if (Enum.IsDefined(typeof(DispatchBulletin), value))
-                        {
-                            this._subCategory = value;
-                        }
-                        else
-                        {
-                            throw new NSError("Sub-category type must be DispatchBulletin.");
-                        }
-
-                        break;
-                    case DispatchCategory.Factbook:
-                        if (Enum.IsDefined(typeof(DispatchFactbook), value))
-                        {
-                            this._subCategory = value;
-                        }
-                        else
-                        {
-                            throw new NSError("Sub-category type must be DispatchFactbook.");
-                        }
-
-                        break;
-                    case DispatchCategory.Meta:
-                        if (Enum.IsDefined(typeof(DispatchMeta), value))
-                        {
-                            this._subCategory = value;
-                        }
-                        else
-                        {
-                            throw new NSError("Sub-category type must be DispatchMeta.");
-                        }
-
-                        break;
-                }
-            }
-        }
+        public dynamic SubCategory { get; }
 
         /// <summary>
-        /// Gets or sets the time of creation.
+        /// Gets the time of creation.
         /// </summary>
-        public DateTime Created { get; set; }
+        public DateTime Created { get; }
 
         /// <summary>
-        /// Gets or sets the time of last edit.
+        /// Gets the time of last edit.
         /// </summary>
-        public DateTime Edited { get; set; }
+        public DateTime Edited { get; }
 
         /// <summary>
-        /// Gets or sets the number of views.
+        /// Gets the number of views.
         /// </summary>
-        public long Views { get; set; }
+        public long Views { get; }
 
         /// <summary>
-        /// Gets or sets the dispatch's score.
+        /// Gets the dispatch's score.
         /// </summary>
-        public int Score { get; set; }
+        public int Score { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Dispatch"/> class.
-        /// </summary>
-        /// <param name="id">Dispatch's ID.</param>
-        /// <param name="title">Dispatch's title.</param>
-        /// <param name="author">Dispatch's author.</param>
-        /// <param name="category">Dispatch's category.</param>
-        /// <param name="subCategory">Dispatch's sub-category.</param>
-        /// <param name="created">Time of creation.</param>
-        /// <param name="edited">Time of last edit.</param>
-        /// <param name="views">Number of views.</param>
-        /// <param name="score">Dispatch's score.</param>
-        public Dispatch(ulong id, string title, string author, DispatchCategory category, dynamic subCategory, DateTime created, DateTime edited, long views, int score)
-        {
-            this.ID = id;
-            this.Title = title;
-            this.Author = author;
-            this.Category = category;
-            this.SubCategory = subCategory;
-            this.Created = created;
-            this.Edited = edited;
-            this.Views = views;
-            this.Score = score;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Dispatch"/> class.
+        /// Initializes a new instance of the <see cref="Dispatch"/> struct.
         /// </summary>
         /// <param name="id">The dispatch's ID.</param>
         public Dispatch(ulong id)
@@ -154,6 +72,7 @@
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
             this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+            this.Author = dispatch.SelectSingleNode("AUTHOR").InnerText;
 
             switch (this.Category)
             {
@@ -169,6 +88,8 @@
                 case DispatchCategory.Meta:
                     this.SubCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
+                default:
+                    throw new NSError("Dispatch subcategory does not exist.");
             }
 
             this.Created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
