@@ -275,6 +275,66 @@
         }
 
         /// <summary>
+        /// Gets the happenings that satisfy the given criteria.
+        /// </summary>
+        /// <param name="entities">The names of entities where the event occurred.</param>
+        /// <param name="entityType">The type of entities given.</param>
+        /// <param name="eventTypes">The events to filter through. Null if no sort.</param>
+        /// <param name="limit">Number of events to get.</param>
+        /// <param name="sinceID">Get events since an ID.</param>
+        /// <param name="beforeID">Get events before an ID.</param>
+        /// <param name="sinceTime">Get events since a certain time.</param>
+        /// <param name="beforeTime">Get events before a certain time.</param>
+        /// <returns>A collection of events satisfying the above criteria.</returns>
+        public static HashSet<Event> GetHappenings(HashSet<string>? entities, EntityType? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
+        {
+            HashSet<Event> res = new HashSet<Event>();
+
+            string url = "https://www.nationstates.net/cgi-bin/api.cgi?q=happenings;";
+
+            if (entities != null && entityType != null)
+            {
+                url += $"view={entityType.ToString().ToLower()}.{string.Join(",", entities).Replace(" ", "_")};";
+            }
+
+            if (eventTypes != null)
+            {
+                url += $"filter={string.Join("+", eventTypes)};";
+            }
+
+            if (limit != null)
+            {
+                url += $"limit={limit};";
+            }
+
+            if (sinceID != null)
+            {
+                url += $"sinceid={sinceID};";
+            }
+
+            if (beforeID != null)
+            {
+                url += $"beforeid={beforeID};";
+            }
+
+            if (sinceTime != null)
+            {
+                url += $"sincetime={((DateTimeOffset)sinceTime).ToUnixTimeSeconds()};";
+            }
+
+            if (beforeTime != null)
+            {
+                url += $"beforeTime={((DateTimeOffset)beforeTime).ToUnixTimeSeconds()};";
+            }
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString(url));
+
+            return Utility.ParseEvents(doc.DocumentElement.FirstChild);
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
