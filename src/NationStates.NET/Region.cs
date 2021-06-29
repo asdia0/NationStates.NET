@@ -348,15 +348,7 @@
 
                     break;
                 case "HAPPENINGS":
-                    this.Happenings = new HashSet<Event>();
-                    foreach (XmlNode happening in node.ChildNodes)
-                    {
-                        DateTime timestamp = Utility.ParseUnix(happening.SelectSingleNode("TIMESTAMP").InnerText);
-                        string text = happening.SelectSingleNode("TEXT").InnerText;
-
-                        this.Happenings.Add(new Event(timestamp, text));
-                    }
-
+                    this.Happenings = Utility.ParseEvents(node);
                     break;
                 case "HISTORY":
                     this.History = new HashSet<Event>();
