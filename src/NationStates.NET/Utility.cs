@@ -31,7 +31,7 @@
         {
             using (WebClient client = new WebClient())
             {
-                client.Headers.Add("user-agent", "NationStates.NET 1.0 (https://github.com/asdia0/NationStates.NET)");
+                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
 
                 return client.DownloadString(url);
             }
