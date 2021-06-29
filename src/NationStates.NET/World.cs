@@ -333,6 +333,19 @@
         }
 
         /// <summary>
+        /// Gets the ID of the latest event.
+        /// </summary>
+        /// <returns>The ID of the latest event.</returns>
+        public static ulong GetLastEventID()
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=lasteventid"));
+
+            return ulong.Parse(doc.DocumentElement.FirstChild.InnerText);
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
