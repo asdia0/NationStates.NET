@@ -160,5 +160,47 @@
 
             return res;
         }
+
+        /// <summary>
+        /// Converts <see cref="RegionTag"/> to a string.
+        /// </summary>
+        /// <param name="tag">The <see cref="RegionTag"/> to convert.</param>
+        /// <returns>The stringified <see cref="RegionTag"/>.</returns>
+        public static string RegionTagToString(RegionTag tag)
+        {
+            switch (tag)
+            {
+                case RegionTag.AntiCapitalist:
+                    return "Anti-Capitalist";
+                case RegionTag.AntiCommunist:
+                    return "Anti-Communist";
+                case RegionTag.AntiFascist:
+                    return "Anti-Fascist";
+                case RegionTag.AntiGeneral_Assembly:
+                    return "Anti-General Assembly";
+                case RegionTag.AntiSecurity_Council:
+                    return "Anti-Secutiry Council";
+                case RegionTag.AntiWorld_Assembly:
+                    return "Anti-World Assembly";
+                case RegionTag.EcoFriendly:
+                    return "Eco-Friendly";
+                case RegionTag.Human_Only:
+                    return "Humans-Only";
+                case RegionTag.MultiSpecies:
+                    return "Multi-Species";
+                case RegionTag.NonEnglish:
+                    return "Non-English";
+                case RegionTag.PostModern_Tech:
+                    return "Post-Modern Tech";
+                case RegionTag.FTFTL:
+                    return "FT: FTL";
+                case RegionTag.FTFTLi:
+                    return "FT: FTLi";
+                case RegionTag.FTSTL:
+                    return "FT: STL";
+                default:
+                    return tag.ToString();
+            }
+        }
     }
 }
