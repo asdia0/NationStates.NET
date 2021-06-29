@@ -91,17 +91,18 @@
         }
 
         /// <summary>
-        /// Gets the top twenty nations in the world for a census.
+        /// Gets the twenty nations after a specfied rank for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
-        /// <returns>The top twenty nations in the world for the specified census.</returns>
-        public static List<WorldCensus> GetCensusRanks(int id)
+        /// <param name="start">The start rank.</param>
+        /// <returns>The twenty nations after the specified rank for the specified census.</returns>
+        public static List<WorldCensus> GetCensusRanks(int id, long start)
         {
             List<WorldCensus> res = new List<WorldCensus>();
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks;scale={id}"));
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks;scale={id}&start={start}"));
 
             XmlNode nations = doc.DocumentElement.SelectSingleNode("CENSUSRANKS/NATIONS");
 
@@ -109,8 +110,9 @@
             {
                 string name = nation.SelectSingleNode("NAME").InnerText;
                 double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
+                long rank = long.Parse(nation.SelectSingleNode("RANK").InnerText);
 
-                res.Add(new WorldCensus(id, name, score));
+                res.Add(new WorldCensus(id, name, score, rank));
             }
 
             return res;

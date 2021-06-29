@@ -7,7 +7,10 @@
     {
         public static void Main()
         {
-            Console.WriteLine(World.GetEntityNumber(EntityType.Nation));
+            foreach (WorldCensus w in World.GetCensusRanks(74, 1))
+            {
+                Console.WriteLine((w.Rank, w.Name));
+            }
         }
     }
 }
