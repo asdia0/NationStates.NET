@@ -9,8 +9,6 @@
     /// </summary>
     public struct Dispatch
     {
-        private dynamic _subCategory;
-
         /// <summary>
         /// Gets the dispatch's ID.
         /// </summary>
