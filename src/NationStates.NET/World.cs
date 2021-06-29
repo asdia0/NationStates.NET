@@ -374,6 +374,39 @@
         }
 
         /// <summary>
+        /// Gets a collection of regions with and without the specified tags.
+        /// </summary>
+        /// <param name="with">Get regions with the <see cref="RegionTag"/>s.</param>
+        /// <param name="without">Get regions without the <see cref="RegionTag"/>s.</param>
+        /// <returns>A collection of regions that satisfy the above criteria.</returns>
+        public static HashSet<string> GetRegionsByTags(HashSet<RegionTag>? with, HashSet<RegionTag>? without)
+        {
+            HashSet<string> all = new HashSet<string>();
+
+            if (with != null)
+            {
+                foreach (RegionTag t in with)
+                {
+                    all.Add(Utility.RegionTagToString(t).ToLower());
+                }
+            }
+
+            if (without != null)
+            {
+                foreach (RegionTag t in without)
+                {
+                    all.Add("-" + Utility.RegionTagToString(t).ToLower());
+                }
+            }
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=regionsbytag;tags={string.Join(",", all)}"));
+
+            return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
