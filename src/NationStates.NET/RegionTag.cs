@@ -198,7 +198,7 @@
         /// <summary>
         /// Human Only.
         /// </summary>
-        Human_Only,
+        HumanOnly,
 
         /// <summary>
         /// Imperialist.
