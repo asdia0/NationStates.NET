@@ -184,8 +184,8 @@
                     return "Anti-World Assembly";
                 case RegionTag.EcoFriendly:
                     return "Eco-Friendly";
-                case RegionTag.Human_Only:
-                    return "Humans-Only";
+                case RegionTag.HumanOnly:
+                    return "Human-Only";
                 case RegionTag.MultiSpecies:
                     return "Multi-Species";
                 case RegionTag.NonEnglish:
