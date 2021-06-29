@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using System.Xml;
 
@@ -343,6 +344,19 @@
             doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=lasteventid"));
 
             return ulong.Parse(doc.DocumentElement.FirstChild.InnerText);
+        }
+
+        /// <summary>
+        /// Gets the names of newly founded nations.
+        /// </summary>
+        /// <returns>A collection of the names of newly founded nations.</returns>
+        public static HashSet<string> GetNewNations()
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString("https://www.nationstates.net/cgi-bin/api.cgi?q=newnations"));
+
+            return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
         }
 
         /// <summary>
