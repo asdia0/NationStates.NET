@@ -65,7 +65,7 @@
         /// <returns>A formatted string.</returns>
         public static string FormatForEnum(string enumValue)
         {
-            return enumValue.Replace(": ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
+            return enumValue.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
         }
 
         /// <summary>
