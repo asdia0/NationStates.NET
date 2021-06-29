@@ -5,6 +5,16 @@
     /// </summary>
     public enum WAResolutionCategory
     {
+        /// <summary>
+        /// Repeal.
+        /// </summary>
+        Repeal,
+
+        /// <summary>
+        /// Bookkeeping.
+        /// </summary>
+        Bookkeeping,
+
         // General Assembly
 
         /// <summary>
