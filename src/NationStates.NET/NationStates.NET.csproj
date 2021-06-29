@@ -6,24 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Auth\**" />
-    <Compile Remove="Cards\**" />
-    <Compile Remove="TG\**" />
-    <Compile Remove="WA\**" />
-    <Compile Remove="World\**" />
-    <EmbeddedResource Remove="Auth\**" />
-    <EmbeddedResource Remove="Cards\**" />
-    <EmbeddedResource Remove="TG\**" />
-    <EmbeddedResource Remove="WA\**" />
-    <EmbeddedResource Remove="World\**" />
-    <None Remove="Auth\**" />
-    <None Remove="Cards\**" />
-    <None Remove="TG\**" />
-    <None Remove="WA\**" />
-    <None Remove="World\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
