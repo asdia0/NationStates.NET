@@ -33,7 +33,7 @@
             {
                 client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
 
-                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?q=" + path);
+                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path);
             }
         }
 

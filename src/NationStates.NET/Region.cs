@@ -163,7 +163,7 @@
             // Normal fields
             XmlDocument normal = new XmlDocument();
 
-            normal.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?region={this.Name.Replace(" ", "_")}&q=dbid+delegate+delegateauth+delegatevotes+dispatches+embassies+embassyrmb+factbook+flag+foundedtime+founder+founderauth+gavote+happenings+history+lastupdate+messages+name+nations+officers+poll+power+scvote+tags+wabadges+zombie"));
+            normal.LoadXml(Utility.DownloadUrlString($"region={this.Name.Replace(" ", "_")}&q=dbid+delegate+delegateauth+delegatevotes+dispatches+embassies+embassyrmb+factbook+flag+foundedtime+founder+founderauth+gavote+happenings+history+lastupdate+messages+name+nations+officers+poll+power+scvote+tags+wabadges+zombie"));
 
             foreach (XmlNode node in normal.DocumentElement.ChildNodes)
             {
@@ -173,7 +173,7 @@
             // Census
             XmlDocument census = new XmlDocument();
 
-            census.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?region={this.Name.Replace(" ", "_")}&q=census;scale=all;mode=score+rank+prank"));
+            census.LoadXml(Utility.DownloadUrlString($"region={this.Name.Replace(" ", "_")}&q=census;scale=all;mode=score+rank+prank"));
 
             this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
         }

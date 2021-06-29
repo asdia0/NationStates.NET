@@ -7,9 +7,10 @@
     {
         public static void Main()
         {
-            foreach (WorldCensus w in World.GetCensusRanks(74, 1))
+            for (int i = 1; i <= 51; i++)
             {
-                Console.WriteLine((w.Rank, w.Name));
+                WAResolution res = WorldAssembly.GetResolution(WACouncil.General_Assembly, i);
+                Console.WriteLine(res.Name);
             }
         }
     }

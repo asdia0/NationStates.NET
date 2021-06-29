@@ -102,7 +102,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?wa={(int)council + 1}&id={councilID}&q=resolution"));
+            doc.LoadXml(Utility.DownloadUrlString($"wa={(int)council + 1}&id={councilID}&q=resolution"));
 
             XmlNode node = doc.DocumentElement.FirstChild;
 
