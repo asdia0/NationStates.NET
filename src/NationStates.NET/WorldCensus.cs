@@ -16,7 +16,7 @@
         public string Name { get; }
 
         /// <summary>
-        /// Gets he nation's score.
+        /// Gets the nation's score.
         /// </summary>
         public double Score { get; }
 
