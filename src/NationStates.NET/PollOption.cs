@@ -36,6 +36,11 @@
         /// <param name="voters">The name of the nations that voted for the option.</param>
         public PollOption(int id, string text, int votes, HashSet<string> voters)
         {
+            if (voters.Count != votes)
+            {
+                throw new NSError("Votes must be the same as the number of voters.");
+            }
+
             this.ID = id;
             this.Text = text;
             this.Votes = votes;
