@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of World Assembly resolution categories.
+    /// Types of General Assembly resolution categories.
     /// </summary>
-    public enum WAResolutionCategory
+    public enum WAGACategory
     {
         /// <summary>
         /// Repeal.
@@ -14,8 +14,6 @@
         /// Bookkeeping.
         /// </summary>
         Bookkeeping,
-
-        // General Assembly
 
         /// <summary>
         /// Advancement of industry.
@@ -81,22 +79,5 @@
         /// Social justice.
         /// </summary>
         Social_Justice,
-
-        // Security Council
-
-        /// <summary>
-        /// Conmmendation.
-        /// </summary>
-        Commendation,
-
-        /// <summary>
-        /// Condemnation.
-        /// </summary>
-        Condemnation,
-
-        /// <summary>
-        /// Liberation.
-        /// </summary>
-        Liberation,
     }
 }
