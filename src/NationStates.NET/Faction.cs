@@ -87,43 +87,6 @@
         /// Initializes a new instance of the <see cref="Faction"/> struct.
         /// </summary>
         /// <param name="id">The faction's ID.</param>
-        /// <param name="name">The faction's name.</param>
-        /// <param name="description">The faction's description.</param>
-        /// <param name="founded">The time when the faction was founded.</param>
-        /// <param name="region">The region that founded the faction.</param>
-        /// <param name="score">The faction's score.</param>
-        /// <param name="production">The number of production points the faction has in total.</param>
-        /// <param name="nukes">The number of nukes the faction has in total.</param>
-        /// <param name="shields">The number of shields the faction has in total.</param>
-        /// <param name="targets">The number of targets the faction has in total.</param>
-        /// <param name="launches">The current amount of nukes launched by the faction.</param>
-        /// <param name="incoming">The current amount of nukes incoming towards the faction.</param>
-        /// <param name="targeted">The number of nukes targeted towards the faction.</param>
-        /// <param name="strikes">The total number of radiation imposed onto other factions.</param>
-        /// <param name="radiation">The total number of radiation in the faction.</param>
-        public Faction(long id, string name, string description, DateTime founded, string region, long score, long production, long nukes, long shields, long targets, long launches, long incoming, long targeted, long strikes, long radiation)
-        {
-            this.ID = id;
-            this.Name = name;
-            this.Description = description;
-            this.Founded = founded;
-            this.Region = region;
-            this.Score = score;
-            this.Production = production;
-            this.Nukes = nukes;
-            this.Shields = shields;
-            this.Targets = targets;
-            this.Launches = launches;
-            this.Incoming = incoming;
-            this.Targeted = targeted;
-            this.Strikes = strikes;
-            this.Radiation = radiation;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Faction"/> struct.
-        /// </summary>
-        /// <param name="id">The faction's ID.</param>
         public Faction(long id)
         {
             this.ID = id;
