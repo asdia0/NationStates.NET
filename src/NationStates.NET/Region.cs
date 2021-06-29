@@ -197,9 +197,9 @@
                     break;
                 case "DISPATCHES":
                     this.DispatchList = new HashSet<Dispatch>();
-                    foreach (string id in node.InnerText.Split(","))
+                    foreach (string dispatchID in node.InnerText.Split(","))
                     {
-                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(id)));
+                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(dispatchID)));
                     }
 
                     break;
@@ -370,7 +370,26 @@
 
                     break;
                 case "POLL":
-                    this.Poll = World.GetPoll(long.Parse(node.Attributes["id"].Value));
+                    long pollID = long.Parse(node.Attributes["id"].Value);
+                    string title = node.SelectSingleNode("TITLE").InnerText;
+                    string region = node.SelectSingleNode("REGION").InnerText;
+                    DateTime start = Utility.ParseUnix(node.SelectSingleNode("START").InnerText);
+                    DateTime stop = Utility.ParseUnix(node.SelectSingleNode("STOP").InnerText);
+                    string author = node.SelectSingleNode("AUTHOR").InnerText;
+                    HashSet<PollOption> options = new HashSet<PollOption>();
+
+                    foreach (XmlNode option in node.SelectSingleNode("OPTIONS").ChildNodes)
+                    {
+                        int optionID = int.Parse(option.Attributes["id"].Value);
+                        string text = option.SelectSingleNode("OPTIONTEXT").InnerText;
+                        int votes = int.Parse(option.SelectSingleNode("VOTES").InnerText);
+                        HashSet<string> voters = option.SelectSingleNode("VOTERS").InnerText.Split(":").ToHashSet();
+
+                        options.Add(new PollOption(optionID, text, votes, voters));
+                    }
+
+                    this.Poll = new Poll(pollID, title, region, start, stop, author, options);
+
                     break;
             }
         }
