@@ -33,7 +33,19 @@
             {
                 client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
 
-                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path);
+                try
+                {
+                    return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path);
+                }
+                catch (WebException e)
+                {
+                    if (e.Message.Contains("(429)"))
+                    {
+                        throw new NSError("Too many requests. Try again in 15 minutes.");
+                    }
+
+                    throw new NSError(e.Message);
+                }
             }
         }
 
