@@ -6,6 +6,11 @@
     public enum WASCCategory
     {
         /// <summary>
+        /// Repeal.
+        /// </summary>
+        Repeal,
+
+        /// <summary>
         /// Conmmendation.
         /// </summary>
         Commendation,
