@@ -360,6 +360,20 @@
         }
 
         /// <summary>
+        /// Gets the number of entities.
+        /// </summary>
+        /// <param name="type">The type of entity.</param>
+        /// <returns>The number of entities.</returns>
+        public static long GetEntityNumber(EntityType type)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?q=num{type.ToString().ToLower()}s"));
+
+            return long.Parse(doc.DocumentElement.FirstChild.InnerText);
+        }
+
+        /// <summary>
         /// Gets a poll from its ID.
         /// </summary>
         /// <param name="id">The poll's ID.</param>
