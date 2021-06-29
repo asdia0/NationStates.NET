@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Net;
     using System.Text;
+    using System.Xml;
 
     /// <summary>
     /// A class containing useful methods.
@@ -138,6 +139,26 @@
         public static DateTime ParseUnix(string unix)
         {
             return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
+        }
+
+        /// <summary>
+        /// Parses <see cref="Event"/>s from a <see cref="XmlNode"/>.
+        /// </summary>
+        /// <param name="events">The parent <see cref="XmlNode"/>.</param>
+        /// <returns>A collection of <see cref="Event"/>s.</returns>
+        public static HashSet<Event> ParseEvents(XmlNode events)
+        {
+            HashSet<Event> res = new HashSet<Event>();
+
+            foreach (XmlNode ev in events.ChildNodes)
+            {
+                DateTime timestamp = Utility.ParseUnix(ev.SelectSingleNode("TIMESTAMP").InnerText);
+                string text = ev.SelectSingleNode("TEXT").InnerText;
+
+                res.Add(new Event(timestamp, text));
+            }
+
+            return res;
         }
     }
 }
