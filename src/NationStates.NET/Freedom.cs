@@ -1,8 +1,5 @@
 ﻿namespace NationStates.NET
 {
-    using System;
-    using System.Xml;
-
     /// <summary>
     /// Defines a nation's freedom levels.
     /// </summary>
@@ -26,18 +23,14 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Freedom"/> struct.
         /// </summary>
-        /// <param name="nation">The nation's name.</param>
-        public Freedom(string nation)
+        /// <param name="civilRights">Civil rights level.</param>
+        /// <param name="economy">Economy level.</param>
+        /// <param name="politicalFreedoms">Political freedoms level.</param>
+        public Freedom(CivilRights civilRights, Economy economy, PoliticalFreedoms politicalFreedoms)
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"https://www.nationstates.net/cgi-bin/api.cgi?nation={nation.Replace(" ", "_")}&q=freedom"));
-
-            XmlNode node = doc.DocumentElement.FirstChild;
-
-            this.CivilRights = (CivilRights)Enum.Parse(typeof(CivilRights), Utility.FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
-            this.Economy = (Economy)Enum.Parse(typeof(Economy), Utility.FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
-            this.PoliticalFreedoms = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), Utility.FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
+            this.CivilRights = civilRights;
+            this.Economy = economy;
+            this.PoliticalFreedoms = politicalFreedoms;
         }
     }
 }
