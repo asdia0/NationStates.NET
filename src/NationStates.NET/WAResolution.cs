@@ -119,6 +119,8 @@
 
                 switch (this.Category)
                 {
+                    case WAGACategory.Repeal:
+                        this.SubCategory = long.Parse(option.InnerText);
                     case WAGACategory.Bookkeeping:
                         this.SubCategory = WAGABookeeping.Sweeping;
                         break;
