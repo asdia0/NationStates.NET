@@ -26,19 +26,6 @@
         /// Initializes a new instance of the <see cref="Banner"/> struct.
         /// </summary>
         /// <param name="id">The banner's ID.</param>
-        /// <param name="name">The banner's name.</param>
-        /// <param name="validity">The banner's validity.</param>
-        public Banner(string id, string? name, string? validity)
-        {
-            this.ID = id;
-            this.Name = name;
-            this.Validity = validity;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Banner"/> struct.
-        /// </summary>
-        /// <param name="id">The banner's ID.</param>
         public Banner(string id)
         {
             this.ID = id;
