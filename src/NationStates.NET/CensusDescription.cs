@@ -26,19 +26,6 @@
         /// Initializes a new instance of the <see cref="CensusDescription"/> struct.
         /// </summary>
         /// <param name="id">The census ID.</param>
-        /// <param name="nation">The census description for nations.</param>
-        /// <param name="region">The census description for regions.</param>
-        public CensusDescription(int id, string nation, string region)
-        {
-            this.ID = id;
-            this.Nation = nation;
-            this.Region = region;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CensusDescription"/> struct.
-        /// </summary>
-        /// <param name="id">The census ID.</param>
         public CensusDescription(int id)
         {
             this.ID = id;
