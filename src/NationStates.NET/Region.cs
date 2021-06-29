@@ -128,7 +128,7 @@
         /// <summary>
         /// Gets or sets the region's tags.
         /// </summary>
-        public HashSet<Tag> Tags { get; set; }
+        public HashSet<RegionTag> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the region's World Assembly badges.
@@ -323,10 +323,10 @@
 
                     break;
                 case "TAGS":
-                    this.Tags = new HashSet<Tag>();
+                    this.Tags = new HashSet<RegionTag>();
                     foreach (XmlNode tag in node.ChildNodes)
                     {
-                        this.Tags.Add((Tag)Enum.Parse(typeof(Tag), Utility.FormatForEnum(tag.InnerText)));
+                        this.Tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), Utility.FormatForEnum(tag.InnerText)));
                     }
 
                     break;

@@ -3,7 +3,7 @@
     /// <summary>
     /// Types of region tags.
     /// </summary>
-    public enum Tag
+    public enum RegionTag
     {
         /// <summary>
         /// Anarchist.
