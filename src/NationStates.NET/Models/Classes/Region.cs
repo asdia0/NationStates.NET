@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using static NationStates.NET.Utility;
 
     /// <summary>
     /// Represents a region.
@@ -21,7 +22,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=census&scale=all&mode=score+rank+prank")
+                XmlNode node = ParseDocument($"region={this.Name}&q=census&scale=all&mode=score+rank+prank")
                     .SelectSingleNode("/REGION/CENSUS");
 
                 HashSet<RegionCensus> regionCensus = new();
@@ -47,7 +48,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"region={this.Name}&q=dbid")
+                return long.Parse(ParseDocument($"region={this.Name}&q=dbid")
                     .SelectSingleNode("/REGION/DBID")
                     .InnerText);
             }
@@ -60,7 +61,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=delegate")
+                return ParseDocument($"region={this.Name}&q=delegate")
                     .SelectSingleNode("/REGION/DELEGATE")
                     .InnerText;
             }
@@ -73,7 +74,7 @@
         {
             get
             {
-                return Utility.ParseAuthority(Utility.ParseDocument($"region={this.Name}&q=delegateauth")
+                return ParseAuthority(ParseDocument($"region={this.Name}&q=delegateauth")
                     .SelectSingleNode("/REGION/DELEGATEAUTH")
                     .InnerText);
             }
@@ -86,7 +87,7 @@
         {
             get
             {
-                return int.Parse(Utility.ParseDocument($"region={this.Name}&q=dbid")
+                return int.Parse(ParseDocument($"region={this.Name}&q=dbid")
                     .SelectSingleNode("/REGION/DELEGATEVOTES")
                     .InnerText);
             }
@@ -101,7 +102,7 @@
             {
                 HashSet<Dispatch> dispatchList = new();
 
-                foreach (string dispatchID in Utility.ParseDocument($"region={this.Name}&q=dispatches").SelectSingleNode("/REGION/DISPATCHES").InnerText.Split(","))
+                foreach (string dispatchID in ParseDocument($"region={this.Name}&q=dispatches").SelectSingleNode("/REGION/DISPATCHES").InnerText.Split(","))
                 {
                     dispatchList.Add(World.GetDispatch(ulong.Parse(dispatchID)));
                 }
@@ -117,7 +118,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=embassies")
+                XmlNode node = ParseDocument($"region={this.Name}&q=embassies")
                     .SelectSingleNode("/REGION/EMBASSIES");
 
                 Dictionary<EmbassyType, HashSet<string>> embassies = new();
@@ -128,7 +129,7 @@
 
                     if (embassy.Attributes.Count != 0)
                     {
-                        type = (EmbassyType)Enum.Parse(typeof(EmbassyType), Utility.Capitalise(embassy.Attributes["type"].Value));
+                        type = (EmbassyType)Enum.Parse(typeof(EmbassyType), Capitalise(embassy.Attributes["type"].Value));
                     }
 
                     string name = embassy.InnerText;
@@ -152,7 +153,7 @@
         {
             get
             {
-                return Utility.ParseRMBPermission(Utility.ParseDocument($"region={this.Name}&q=embassyrmb")
+                return ParseRMBPermission(ParseDocument($"region={this.Name}&q=embassyrmb")
                     .SelectSingleNode("/REGION/EMBASSYRMB")
                     .InnerText);
             }
@@ -165,7 +166,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=factbook")
+                return ParseDocument($"region={this.Name}&q=factbook")
                     .SelectSingleNode("/REGION/FACTBOOK")
                     .InnerText;
             }
@@ -178,7 +179,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=flag")
+                return ParseDocument($"region={this.Name}&q=flag")
                     .SelectSingleNode("/REGION/FLAG")
                     .InnerText;
             }
@@ -191,7 +192,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=founded")
+                return ParseDocument($"region={this.Name}&q=founded")
                     .SelectSingleNode("/REGION/FOUNDED")
                     .InnerText;
             }
@@ -204,7 +205,7 @@
         {
             get
             {
-                return Utility.ParseUnix(Utility.ParseDocument($"region={this.Name}&q=foundedtime")
+                return ParseUnix(ParseDocument($"region={this.Name}&q=foundedtime")
                     .SelectSingleNode("/REGION/FOUNDEDTIME")
                     .InnerText);
             }
@@ -217,7 +218,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=founder")
+                return ParseDocument($"region={this.Name}&q=founder")
                     .SelectSingleNode("/REGION/FOUNDER")
                     .InnerText;
             }
@@ -230,7 +231,7 @@
         {
             get
             {
-                return Utility.ParseAuthority(Utility.ParseDocument($"region={this.Name}&q=founderauth")
+                return ParseAuthority(ParseDocument($"region={this.Name}&q=founderauth")
                     .SelectSingleNode("/REGION/FOUNDERAUTH")
                     .InnerText);
             }
@@ -243,7 +244,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=gavote")
+                XmlNode node = ParseDocument($"region={this.Name}&q=gavote")
                     .SelectSingleNode("/REGION/GAVOTE");
 
                 Dictionary<WAVote, int?> gaVote = new();
@@ -277,7 +278,7 @@
         {
             get
             {
-                return Utility.ParseEvents(Utility.ParseDocument($"region={this.Name}&q=happenings")
+                return ParseEvents(ParseDocument($"region={this.Name}&q=happenings")
                     .SelectSingleNode("/REGION/HAPPENINGS"));
             }
         }
@@ -289,7 +290,7 @@
         {
             get
             {
-                return Utility.ParseEvents(Utility.ParseDocument($"nation={this.Name}&q=history")
+                return ParseEvents(ParseDocument($"nation={this.Name}&q=history")
                     .SelectSingleNode("/REGION/HISTORY"));
             }
         }
@@ -301,7 +302,7 @@
         {
             get
             {
-                return Utility.ParseUnix(Utility.ParseDocument($"region={this.Name}&q=lastupdate")
+                return ParseUnix(ParseDocument($"region={this.Name}&q=lastupdate")
                     .SelectSingleNode("/REGION/LASTUPDATE")
                     .InnerText);
             }
@@ -314,7 +315,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=messages")
+                XmlNode node = ParseDocument($"region={this.Name}&q=messages")
                     .SelectSingleNode("/REGION/MESSAGES");
 
                 HashSet<Post> messages = new();
@@ -322,10 +323,10 @@
                 foreach (XmlNode message in node.ChildNodes)
                 {
                     ulong id = ulong.Parse(message.Attributes["id"].Value);
-                    DateTime posted = Utility.ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
+                    DateTime posted = ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
                     string nation = message.SelectSingleNode("NATION").InnerText;
-                    PostStatus status = Utility.ParseStatus(message.SelectSingleNode("STATUS").InnerText);
-                    DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText);
+                    PostStatus status = ParseStatus(message.SelectSingleNode("STATUS").InnerText);
+                    DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : ParseUnix(message.SelectSingleNode("EDITED").InnerText);
                     HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
                     string content = message.SelectSingleNode("MESSAGE").InnerText;
                     string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
@@ -364,7 +365,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"region={this.Name}&q=nations")
+                return ParseDocument($"region={this.Name}&q=nations")
                     .SelectSingleNode("/REGION/NATIONS")
                     .InnerText
                     .Split(":")
@@ -379,7 +380,7 @@
         {
             get
             {
-                return int.Parse(Utility.ParseDocument($"region={this.Name}&q=numnations")
+                return int.Parse(ParseDocument($"region={this.Name}&q=numnations")
                     .SelectSingleNode("/REGION/NUMNATIONS")
                     .InnerText);
             }
@@ -392,7 +393,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=officers")
+                XmlNode node = ParseDocument($"region={this.Name}&q=officers")
                     .SelectSingleNode("/REGION/OFFICERS");
 
                 HashSet<Officer> officers = new();
@@ -401,8 +402,8 @@
                 {
                     string nation = officer.SelectSingleNode("NATION").InnerText;
                     string office = officer.SelectSingleNode("OFFICE").InnerText;
-                    HashSet<Authority> authorities = Utility.ParseAuthority(officer.SelectSingleNode("AUTHORITY").InnerText);
-                    DateTime appointed = Utility.ParseUnix(officer.SelectSingleNode("TIME").InnerText);
+                    HashSet<Authority> authorities = ParseAuthority(officer.SelectSingleNode("AUTHORITY").InnerText);
+                    DateTime appointed = ParseUnix(officer.SelectSingleNode("TIME").InnerText);
                     string appointer = officer.SelectSingleNode("BY").InnerText;
 
                     officers.Add(new Officer(nation, office, authorities, appointed, appointer));
@@ -419,14 +420,14 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=poll")
+                XmlNode node = ParseDocument($"region={this.Name}&q=poll")
                     .SelectSingleNode("/REGION/POLL");
 
                 long pollID = long.Parse(node.Attributes["id"].Value);
                 string title = node.SelectSingleNode("TITLE").InnerText;
                 string region = node.SelectSingleNode("REGION").InnerText;
-                DateTime start = Utility.ParseUnix(node.SelectSingleNode("START").InnerText);
-                DateTime stop = Utility.ParseUnix(node.SelectSingleNode("STOP").InnerText);
+                DateTime start = ParseUnix(node.SelectSingleNode("START").InnerText);
+                DateTime stop = ParseUnix(node.SelectSingleNode("STOP").InnerText);
                 string author = node.SelectSingleNode("AUTHOR").InnerText;
                 HashSet<PollOption> options = new HashSet<PollOption>();
 
@@ -451,7 +452,7 @@
         {
             get
             {
-                return (Power)Enum.Parse(typeof(Power), Utility.FormatForEnum(Utility.Capitalise(Utility.ParseDocument($"region={this.Name}&q=power")
+                return (Power)Enum.Parse(typeof(Power), FormatForEnum(Capitalise(ParseDocument($"region={this.Name}&q=power")
                     .SelectSingleNode("/REGION/POWER")
                     .InnerText)));
             }
@@ -464,7 +465,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=scvote")
+                XmlNode node = ParseDocument($"region={this.Name}&q=scvote")
                     .SelectSingleNode("/REGION/SCVOTE");
 
                 Dictionary<WAVote, int?> scVote = new();
@@ -498,14 +499,14 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=tags")
+                XmlNode node = ParseDocument($"region={this.Name}&q=tags")
                     .SelectSingleNode("/REGION/TAGS");
 
                 HashSet<RegionTag> tags = new();
 
                 foreach (XmlNode tag in node.ChildNodes)
                 {
-                    tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), Utility.FormatForEnum(tag.InnerText)));
+                    tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), FormatForEnum(tag.InnerText)));
                 }
 
                 return tags;
@@ -519,14 +520,14 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=wabadges")
+                XmlNode node = ParseDocument($"region={this.Name}&q=wabadges")
                     .SelectSingleNode("/REGION/WABADGES");
 
                 HashSet<WABadge> waBadges = new();
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
+                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Capitalise(badge.Attributes["type"].Value));
                     long id = long.Parse(badge.InnerText);
 
                     waBadges.Add(new WABadge(type, id));
@@ -543,7 +544,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=zombie")
+                XmlNode node = ParseDocument($"region={this.Name}&q=zombie")
                     .SelectSingleNode("/REGION/ZOMBIE");
 
                 long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
@@ -571,7 +572,7 @@
         /// <returns>A list of all census data recorded during the time period.</returns>
         public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
         {
-            XmlNode node = Utility.ParseDocument($"region={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + Utility.ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + Utility.ConvertToUnix((DateTime)end) : string.Empty)}")
+            XmlNode node = ParseDocument($"region={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/REGION/CENSUS");
 
             HashSet<CensusRecord> records = new();
@@ -583,7 +584,7 @@
                 foreach (XmlNode point in scale.ChildNodes)
                 {
                     double score = double.Parse(point.SelectSingleNode("SCORE").InnerText);
-                    DateTime timeStamp = Utility.ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
+                    DateTime timeStamp = ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
 
                     records.Add(new(id, score, timeStamp));
                 }
@@ -600,7 +601,7 @@
         /// <returns>A list of twenty nations with their census rank and score.</returns>
         public HashSet<CensusRank> CensusRank(int id, int start = 1)
         {
-            XmlNode node = Utility.ParseDocument($"region={this.Name}&q=censusranks;scale={id};start={start}")
+            XmlNode node = ParseDocument($"region={this.Name}&q=censusranks;scale={id};start={start}")
                 .SelectSingleNode("/REGION/CENSUSRANK/NATIONS");
 
             HashSet<CensusRank> censusRanks = new();

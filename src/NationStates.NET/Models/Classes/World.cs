@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading;
     using System.Xml;
+    using static NationStates.NET.Utility;
 
     /// <summary>
     /// Represents the NationStates world.
@@ -38,7 +39,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("census;scale=all"));
+            doc.LoadXml(DownloadUrlString("census;scale=all"));
 
             XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUS");
 
@@ -61,7 +62,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("censusid"));
+            doc.LoadXml(DownloadUrlString("censusid"));
 
             return int.Parse(doc.DocumentElement.SelectSingleNode("CENSUSID").InnerText);
         }
@@ -85,7 +86,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"censusname;scale={id}"));
+            doc.LoadXml(DownloadUrlString($"censusname;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -102,7 +103,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"censusranks;scale={id}&start={start}"));
+            doc.LoadXml(DownloadUrlString($"censusranks;scale={id}&start={start}"));
 
             XmlNode nations = doc.DocumentElement.SelectSingleNode("CENSUSRANKS/NATIONS");
 
@@ -127,7 +128,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"censusscale;scale={id}"));
+            doc.LoadXml(DownloadUrlString($"censusscale;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -141,7 +142,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"censustitle;scale={id}"));
+            doc.LoadXml(DownloadUrlString($"censustitle;scale={id}"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -219,7 +220,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString(url));
+            doc.LoadXml(DownloadUrlString(url));
 
             XmlNode node = doc.DocumentElement.SelectSingleNode("DISPATCHLIST");
 
@@ -251,7 +252,7 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("factions"));
+            doc.LoadXml(DownloadUrlString("factions"));
 
             XmlNode node = doc.DocumentElement.FirstChild;
 
@@ -272,7 +273,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("featuredregion"));
+            doc.LoadXml(DownloadUrlString("featuredregion"));
 
             return doc.DocumentElement.FirstChild.InnerText;
         }
@@ -330,9 +331,9 @@
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString(url));
+            doc.LoadXml(DownloadUrlString(url));
 
-            return Utility.ParseEvents(doc.DocumentElement.FirstChild);
+            return ParseEvents(doc.DocumentElement.FirstChild);
         }
 
         /// <summary>
@@ -343,7 +344,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("lasteventid"));
+            doc.LoadXml(DownloadUrlString("lasteventid"));
 
             return ulong.Parse(doc.DocumentElement.FirstChild.InnerText);
         }
@@ -356,7 +357,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("newnations"));
+            doc.LoadXml(DownloadUrlString("newnations"));
 
             return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
         }
@@ -370,7 +371,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"num{type.ToString().ToLower()}s"));
+            doc.LoadXml(DownloadUrlString($"num{type.ToString().ToLower()}s"));
 
             return long.Parse(doc.DocumentElement.FirstChild.InnerText);
         }
@@ -389,7 +390,7 @@
             {
                 foreach (RegionTag t in with)
                 {
-                    all.Add(Utility.RegionTagToString(t).ToLower());
+                    all.Add(RegionTagToString(t).ToLower());
                 }
             }
 
@@ -397,13 +398,13 @@
             {
                 foreach (RegionTag t in without)
                 {
-                    all.Add("-" + Utility.RegionTagToString(t).ToLower());
+                    all.Add("-" + RegionTagToString(t).ToLower());
                 }
             }
 
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString($"regionsbytag;tags={string.Join(",", all)}"));
+            doc.LoadXml(DownloadUrlString($"regionsbytag;tags={string.Join(",", all)}"));
 
             return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
         }
@@ -416,7 +417,7 @@
         {
             XmlDocument doc = new XmlDocument();
 
-            doc.LoadXml(Utility.DownloadUrlString("tgqueue"));
+            doc.LoadXml(DownloadUrlString("tgqueue"));
 
             XmlNode node = doc.DocumentElement.FirstChild;
 

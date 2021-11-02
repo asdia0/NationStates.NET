@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using static NationStates.NET.Utility;
 
     /// <summary>
     /// Represents a nation.
@@ -21,7 +22,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=admirable")
+                return ParseDocument($"nation={this.Name}&q=admirable")
                     .SelectSingleNode("/NATION/ADMIRABLE")
                     .InnerText;
             }
@@ -34,7 +35,7 @@
         {
             get
             {
-                XmlNodeList doc = Utility.ParseDocument($"nation={this.Name}&q=admirables")
+                XmlNodeList doc = ParseDocument($"nation={this.Name}&q=admirables")
                     .SelectNodes("/NATION/ADMIRABLES/ADMIRABLE");
 
                 HashSet<string> admirables = new();
@@ -55,7 +56,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=animal")
+                return ParseDocument($"nation={this.Name}&q=animal")
                     .SelectSingleNode("/NATION/ANIMAL")
                     .InnerText;
             }
@@ -68,7 +69,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=animaltrait")
+                return ParseDocument($"nation={this.Name}&q=animaltrait")
                     .SelectSingleNode("/NATION/ANIMALTRAIT")
                     .InnerText;
             }
@@ -81,7 +82,7 @@
         {
             get
             {
-                return int.Parse(Utility.ParseDocument($"nation={this.Name}&q=answered")
+                return int.Parse(ParseDocument($"nation={this.Name}&q=answered")
                     .SelectSingleNode("/NATION/ISSUES_ANSWERED")
                     .InnerText);
             }
@@ -94,7 +95,7 @@
         {
             get
             {
-                return new(Utility.ParseDocument($"nation={this.Name}&q=banner")
+                return new(ParseDocument($"nation={this.Name}&q=banner")
                     .SelectSingleNode("/NATION/BANNER")
                     .InnerText);
             }
@@ -107,7 +108,7 @@
         {
             get
             {
-                XmlNodeList doc = Utility.ParseDocument($"nation={this.Name}&q=banners")
+                XmlNodeList doc = ParseDocument($"nation={this.Name}&q=banners")
                     .SelectNodes("/NATION/BANNERS/BANNER");
 
                 HashSet<Banner> banners = new();
@@ -128,7 +129,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=capital")
+                return ParseDocument($"nation={this.Name}&q=capital")
                     .SelectSingleNode("/NATION/CAPITAL")
                     .InnerText;
             }
@@ -141,7 +142,7 @@
         {
             get
             {
-                return (NationCategory)Enum.Parse(typeof(NationCategory), Utility.FormatForEnum(Utility.ParseDocument($"nation={this.Name}&q=category")
+                return (NationCategory)Enum.Parse(typeof(NationCategory), FormatForEnum(ParseDocument($"nation={this.Name}&q=category")
                     .SelectSingleNode("NATION/CATEGORY")
                     .InnerText));
             }
@@ -154,7 +155,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank")
+                XmlNode node = ParseDocument($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank")
                     .SelectSingleNode("/NATION/CENSUS");
 
                 HashSet<NationCensus> census = new();
@@ -182,7 +183,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=currency")
+                return ParseDocument($"nation={this.Name}&q=currency")
                     .SelectSingleNode("/NATION/CURRENCY")
                     .InnerText;
             }
@@ -195,7 +196,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=customleader")
+                return ParseDocument($"nation={this.Name}&q=customleader")
                     .SelectSingleNode("/NATION/LEADER")
                     .InnerText;
             }
@@ -208,7 +209,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=customcapital")
+                return ParseDocument($"nation={this.Name}&q=customcapital")
                     .SelectSingleNode("/NATION/CAPITAL")
                     .InnerText;
             }
@@ -221,7 +222,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=customreligion")
+                return ParseDocument($"nation={this.Name}&q=customreligion")
                     .SelectSingleNode("/NATION/RELIGION")
                     .InnerText;
             }
@@ -234,7 +235,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"nation={this.Name}&q=dbid")
+                return long.Parse(ParseDocument($"nation={this.Name}&q=dbid")
                     .SelectSingleNode("/NATION/DBID")
                     .InnerText);
             }
@@ -247,7 +248,7 @@
         {
             get
             {
-                XmlNodeList list = Utility.ParseDocument($"nation={this.Name}&q=deaths")
+                XmlNodeList list = ParseDocument($"nation={this.Name}&q=deaths")
                     .SelectNodes("/NATION/DEATHS/DEATH");
 
                 HashSet<Death> deaths = new();
@@ -268,7 +269,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=demonym")
+                return ParseDocument($"nation={this.Name}&q=demonym")
                     .SelectSingleNode("/NATION/DEMONYM")
                     .InnerText;
             }
@@ -281,7 +282,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=demonym2")
+                return ParseDocument($"nation={this.Name}&q=demonym2")
                     .SelectSingleNode("/NATION/DEMONYM2")
                     .InnerText;
             }
@@ -294,7 +295,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=demonym2plural")
+                return ParseDocument($"nation={this.Name}&q=demonym2plural")
                     .SelectSingleNode("/NATION/DEMONYM2PLURAL")
                     .InnerText;
             }
@@ -307,7 +308,7 @@
         {
             get
             {
-                return int.Parse(Utility.ParseDocument($"nation={this.Name}&q=dispatches")
+                return int.Parse(ParseDocument($"nation={this.Name}&q=dispatches")
                     .SelectSingleNode("/NATION/DISPATCHES")
                     .InnerText);
             }
@@ -320,7 +321,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=dispatchlist")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=dispatchlist")
                     .SelectSingleNode("/NATION/DISPATCHLIST");
 
                 HashSet<Dispatch> dispatchList = new();
@@ -329,7 +330,7 @@
                 {
                     ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
                     string title = dispatch.SelectSingleNode("TITLE").InnerText;
-                    DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+                    DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), FormatForEnum(Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
                     string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
                     dynamic subcategory = null;
 
@@ -370,7 +371,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=endorsements")
+                return ParseDocument($"nation={this.Name}&q=endorsements")
                     .SelectSingleNode("/NATION/ENDORSEMENTS")
                     .InnerText
                     .Split(",")
@@ -385,7 +386,7 @@
         {
             get
             {
-                return int.Parse(Utility.ParseDocument($"nation={this.Name}&q=factbooks")
+                return int.Parse(ParseDocument($"nation={this.Name}&q=factbooks")
                     .SelectSingleNode("/NATION/FACTBOOKS")
                     .InnerText);
             }
@@ -398,7 +399,7 @@
         {
             get
             {
-                return Utility.ParseUnix(Utility.ParseDocument($"nation={this.Name}&q=firstlogin")
+                return ParseUnix(ParseDocument($"nation={this.Name}&q=firstlogin")
                     .SelectSingleNode("/NATION/FIRSTLOGIN")
                     .InnerText);
             }
@@ -411,7 +412,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=flag")
+                return ParseDocument($"nation={this.Name}&q=flag")
                     .SelectSingleNode("/NATION/FLAG")
                     .InnerText;
             }
@@ -424,7 +425,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=founded")
+                return ParseDocument($"nation={this.Name}&q=founded")
                     .SelectSingleNode("/NATION/FOUNDED")
                     .InnerText;
             }
@@ -437,7 +438,7 @@
         {
             get
             {
-                return Utility.ParseUnix(Utility.ParseDocument($"nation={this.Name}&q=foundedtime")
+                return ParseUnix(ParseDocument($"nation={this.Name}&q=foundedtime")
                     .SelectSingleNode("/NATION/FOUNDEDTIME")
                     .InnerText);
             }
@@ -450,12 +451,12 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=freedom")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=freedom")
                     .SelectSingleNode("/NATION/FREEDOM");
 
-                CivilRights civil = (CivilRights)Enum.Parse(typeof(CivilRights), Utility.FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
-                Economy economy = (Economy)Enum.Parse(typeof(Economy), Utility.FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
-                PoliticalFreedoms political = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), Utility.FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
+                CivilRights civil = (CivilRights)Enum.Parse(typeof(CivilRights), FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
+                Economy economy = (Economy)Enum.Parse(typeof(Economy), FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
+                PoliticalFreedoms political = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
 
                 return new Freedom(civil, economy, political);
             }
@@ -468,7 +469,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=fullname")
+                return ParseDocument($"nation={this.Name}&q=fullname")
                     .SelectSingleNode("/NATION/FULLNAME")
                     .InnerText;
             }
@@ -481,7 +482,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=gavote")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=gavote")
                     .SelectSingleNode("/NATION/GAVOTE");
 
                 if (node.InnerText == string.Empty)
@@ -490,7 +491,7 @@
                 }
                 else
                 {
-                    return (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
+                    return (WAVote)Enum.Parse(typeof(WAVote), Capitalise(node.InnerText));
                 }
             }
         }
@@ -502,7 +503,7 @@
         {
             get
             {
-                return ulong.Parse(Utility.ParseDocument($"nation={this.Name}&q=gdp")
+                return ulong.Parse(ParseDocument($"nation={this.Name}&q=gdp")
                     .SelectSingleNode("/NATION/GDP")
                     .InnerText);
             }
@@ -515,7 +516,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=govt")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=govt")
                     .SelectSingleNode("/NATION/GOVT");
 
                 double administration = double.Parse(node.SelectSingleNode("ADMINISTRATION").InnerText);
@@ -542,7 +543,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=govtdesc")
+                return ParseDocument($"nation={this.Name}&q=govtdesc")
                     .SelectSingleNode("/NATION/GOVTDESC")
                     .InnerText;
             }
@@ -555,7 +556,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=govtpriority")
+                return ParseDocument($"nation={this.Name}&q=govtpriority")
                     .SelectSingleNode("/NATION/GOVTPRIORITY")
                     .InnerText;
             }
@@ -568,7 +569,7 @@
         {
             get
             {
-                return Utility.ParseEvents(Utility.ParseDocument($"nation={this.Name}&q=happenings")
+                return ParseEvents(ParseDocument($"nation={this.Name}&q=happenings")
                     .SelectSingleNode("/NATION/HAPPENINGS"));
             }
         }
@@ -580,7 +581,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"nation={this.Name}&q=income")
+                return long.Parse(ParseDocument($"nation={this.Name}&q=income")
                     .SelectSingleNode("/NATION/INCOME")
                     .InnerText);
             }
@@ -593,7 +594,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=industrydesc")
+                return ParseDocument($"nation={this.Name}&q=industrydesc")
                     .SelectSingleNode("/NATION/INDUSTRYDESC")
                     .InnerText;
             }
@@ -606,7 +607,7 @@
         {
             get
             {
-                return (Influence)Enum.Parse(typeof(Influence), Utility.FormatForEnum(Utility.Capitalise(Utility.ParseDocument($"nation={this.Name}&q=influence")
+                return (Influence)Enum.Parse(typeof(Influence), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=influence")
                     .SelectSingleNode("/NATION/INFLUENCE")
                     .InnerText)));
             }
@@ -619,7 +620,7 @@
         {
             get
             {
-                return Utility.ParseUnix(Utility.ParseDocument($"nation={this.Name}&q=lastlogin")
+                return ParseUnix(ParseDocument($"nation={this.Name}&q=lastlogin")
                     .SelectSingleNode("/NATION/LASTLOGIN")
                     .InnerText);
             }
@@ -632,7 +633,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=leader")
+                return ParseDocument($"nation={this.Name}&q=leader")
                     .SelectSingleNode("/NATION/LEADER")
                     .InnerText;
             }
@@ -645,7 +646,7 @@
         {
             get
             {
-                XmlNodeList list = Utility.ParseDocument($"nation={this.Name}&q=legislation")
+                XmlNodeList list = ParseDocument($"nation={this.Name}&q=legislation")
                     .SelectNodes("/NATION/LEGISLATION/LAW");
 
                 HashSet<string> legislation = new();
@@ -666,7 +667,7 @@
         {
             get
             {
-                return (Industry)Enum.Parse(typeof(Industry), Utility.FormatForEnum(Utility.Capitalise(Utility.ParseDocument($"nation={this.Name}&q=majorindustry")
+                return (Industry)Enum.Parse(typeof(Industry), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=majorindustry")
                     .SelectSingleNode("/NATION/MAJORINDUSTRY")
                     .InnerText)));
             }
@@ -679,7 +680,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=motto")
+                return ParseDocument($"nation={this.Name}&q=motto")
                     .SelectSingleNode("/NATION/MOTTO")
                     .InnerText;
             }
@@ -712,7 +713,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=notable")
+                return ParseDocument($"nation={this.Name}&q=notable")
                     .SelectSingleNode("/NATION/NOTABLE")
                     .InnerText;
             }
@@ -725,7 +726,7 @@
         {
             get
             {
-                XmlNodeList list = Utility.ParseDocument($"nation={this.Name}&q=notables")
+                XmlNodeList list = ParseDocument($"nation={this.Name}&q=notables")
                     .SelectNodes("/NATION/NOTABLES/NOTABLE");
 
                 HashSet<string> notables = new();
@@ -746,7 +747,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=policies")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=policies")
                     .SelectSingleNode("/NATION/POLICIES");
 
                 HashSet<Policy> policies = new();
@@ -754,7 +755,7 @@
                 foreach (XmlNode policy in node.ChildNodes)
                 {
                     string name = policy.SelectSingleNode("NAME").InnerText;
-                    PolicyCategory category = (PolicyCategory)Enum.Parse(typeof(PolicyCategory), Utility.FormatForEnum(Utility.Capitalise(policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"))));
+                    PolicyCategory category = (PolicyCategory)Enum.Parse(typeof(PolicyCategory), FormatForEnum(Capitalise(policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"))));
                     string desc = policy.SelectSingleNode("DESC").InnerText;
 
                     policies.Add(new Policy(name, category, desc));
@@ -771,7 +772,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"nation={this.Name}&q=poorest")
+                return long.Parse(ParseDocument($"nation={this.Name}&q=poorest")
                     .SelectSingleNode("/NATION/POOREST")
                     .InnerText);
             }
@@ -784,7 +785,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"nation={this.Name}&q=population")
+                return long.Parse(ParseDocument($"nation={this.Name}&q=population")
                     .SelectSingleNode("/NATION/POPULATION")
                     .InnerText);
             }
@@ -797,7 +798,7 @@
         {
             get
             {
-                return double.Parse(Utility.ParseDocument($"nation={this.Name}&q=publicsector")
+                return double.Parse(ParseDocument($"nation={this.Name}&q=publicsector")
                     .SelectSingleNode("/NATION/PUBLICSECTOR")
                     .InnerText);
             }
@@ -810,7 +811,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=region")
+                return ParseDocument($"nation={this.Name}&q=region")
                     .SelectSingleNode("/NATION/REGION")
                     .InnerText;
             }
@@ -823,7 +824,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=religion")
+                return ParseDocument($"nation={this.Name}&q=religion")
                     .SelectSingleNode("/NATION/RELIGION")
                     .InnerText;
             }
@@ -836,7 +837,7 @@
         {
             get
             {
-                return long.Parse(Utility.ParseDocument($"nation={this.Name}&q=richest")
+                return long.Parse(ParseDocument($"nation={this.Name}&q=richest")
                     .SelectSingleNode("/NATION/RICHEST")
                     .InnerText);
             }
@@ -849,7 +850,7 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=scvote")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=scvote")
                     .SelectSingleNode("/NATION/SCVOTE");
 
                 if (node.InnerText == string.Empty)
@@ -858,7 +859,7 @@
                 }
                 else
                 {
-                    return (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
+                    return (WAVote)Enum.Parse(typeof(WAVote), Capitalise(node.InnerText));
                 }
             }
         }
@@ -870,14 +871,14 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=sectors")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=sectors")
                     .SelectSingleNode("/NATION/SECTORS");
 
                 HashSet<Sector> sectors = new();
 
                 foreach (XmlNode sector in node.ChildNodes)
                 {
-                    sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), Utility.FormatForEnum(Utility.Capitalise(sector.Name))), double.Parse(sector.InnerText)));
+                    sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), FormatForEnum(Capitalise(sector.Name))), double.Parse(sector.InnerText)));
                 }
 
                 return sectors;
@@ -891,7 +892,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=sensibilities")
+                return ParseDocument($"nation={this.Name}&q=sensibilities")
                     .SelectSingleNode("/NATION/SENSIBILITIES")
                     .InnerText;
             }
@@ -904,7 +905,7 @@
         {
             get
             {
-                return double.Parse(Utility.ParseDocument($"nation={this.Name}&q=tax")
+                return double.Parse(ParseDocument($"nation={this.Name}&q=tax")
                     .SelectSingleNode("/NATION/TAX")
                     .InnerText);
             }
@@ -917,7 +918,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=tgcanrecruit")
+                return ParseDocument($"nation={this.Name}&q=tgcanrecruit")
                     .SelectSingleNode("/NATION/TGCANRECRUIT")
                     .InnerText == "1";
             }
@@ -930,7 +931,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=tgcancampaign")
+                return ParseDocument($"nation={this.Name}&q=tgcancampaign")
                     .SelectSingleNode("/NATION/TGCANCAMPAIGN")
                     .InnerText == "1";
             }
@@ -943,7 +944,7 @@
         {
             get
             {
-                return Utility.ParseDocument($"nation={this.Name}&q=type")
+                return ParseDocument($"nation={this.Name}&q=type")
                     .SelectSingleNode("/NATION/TYPE")
                     .InnerText;
             }
@@ -956,7 +957,7 @@
         {
             get
             {
-                return (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(Utility.ParseDocument($"nation={this.Name}&q=wa")
+                return (WAStatus)Enum.Parse(typeof(WAStatus), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=wa")
                     .SelectSingleNode("/NATION/UNSTATUS")
                     .InnerText
                     .Replace("WA ", string.Empty))));
@@ -970,14 +971,14 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=wabadges")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=wabadges")
                     .SelectSingleNode("/NATION/WABADGES");
 
                 HashSet<WABadge> wabadges = new();
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
+                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Capitalise(badge.Attributes["type"].Value));
                     long id = long.Parse(badge.InnerText);
 
                     wabadges.Add(new WABadge(type, id));
@@ -994,11 +995,11 @@
         {
             get
             {
-                XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=zombie")
+                XmlNode node = ParseDocument($"nation={this.Name}&q=zombie")
                     .SelectSingleNode("/NATION/ZOMBIE");
 
-                ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTION").InnerText));
-                ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
+                ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Capitalise(node.SelectSingleNode("ZACTION").InnerText));
+                ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
                 long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
@@ -1024,7 +1025,7 @@
         /// <returns>A list of all census data recorded during the time period.</returns>
         public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
         {
-            XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + Utility.ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + Utility.ConvertToUnix((DateTime)end) : string.Empty)}")
+            XmlNode node = ParseDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/NATION/CENSUS");
 
             HashSet<CensusRecord> records = new();
@@ -1036,7 +1037,7 @@
                 foreach (XmlNode point in scale.ChildNodes)
                 {
                     double score = double.Parse(point.SelectSingleNode("SCORE").InnerText);
-                    DateTime timeStamp = Utility.ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
+                    DateTime timeStamp = ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
 
                     records.Add(new(id, score, timeStamp));
                 }

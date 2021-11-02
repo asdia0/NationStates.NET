@@ -1,5 +1,7 @@
 ﻿namespace NationStates.NET
 {
+    using static NationStates.NET.Utility;
+
     /// <summary>
     /// Represents the WorldAssembly.
     /// </summary>
