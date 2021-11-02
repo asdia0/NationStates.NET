@@ -10,140 +10,549 @@
     /// </summary>
     public class Region
     {
-        /// <summary>
-        /// Gets or sets the region's database ID.
-        /// </summary>
-        public long DBID { get; set; }
+        private string _Name;
+
+        private bool nameSet;
 
         /// <summary>
-        /// Gets or sets the name of the region's World Assembly Delegate.
+        /// Gets the region's census data.
         /// </summary>
-        public string Delegate { get; set; }
+        public HashSet<RegionCensus> Census
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=census&scale=all&mode=score+rank+prank")
+                    .SelectSingleNode("/REGION/CENSUS");
+
+                HashSet<RegionCensus> regionCensus = new();
+
+                foreach (XmlNode census in node.ChildNodes)
+                {
+                    int id = int.Parse(census.Attributes["id"].Value);
+                    double score = double.Parse(census.SelectSingleNode("SCORE").InnerText);
+                    long worldRank = long.Parse(census.SelectSingleNode("RANK").InnerText);
+                    double worldPercentage = double.Parse(census.SelectSingleNode("PRANK").InnerText);
+
+                    regionCensus.Add(new(id, score, worldRank, worldPercentage));
+                }
+
+                return regionCensus;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the authorities the <see cref="Delegate"/> has.
+        /// Gets the region's database ID.
         /// </summary>
-        public HashSet<Authority> DelegateAuthorities { get; set; }
+        public long DBID
+        {
+            get
+            {
+                return long.Parse(Utility.ParseDocument($"region={this.Name}&q=dbid")
+                    .SelectSingleNode("/REGION/DBID")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the number of World Assembly votes the <see cref="Delegate"/> has (number of endorsements + 1).
+        /// Gets the name of the region's World Assembly Delegate.
         /// </summary>
-        public int DelegateVotes { get; set; }
+        public string Delegate
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=delegate")
+                    .SelectSingleNode("/REGION/DELEGATE")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the pinned dispatches.
+        /// Gets the authorities the <see cref="Delegate"/> has.
         /// </summary>
-        public HashSet<Dispatch> DispatchList { get; set; }
+        public HashSet<Authority> DelegateAuthorities
+        {
+            get
+            {
+                return Utility.ParseAuthority(Utility.ParseDocument($"region={this.Name}&q=delegateauth")
+                    .SelectSingleNode("/REGION/DELEGATEAUTH")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's embassies.
+        /// Gets the number of World Assembly votes the <see cref="Delegate"/> has (number of endorsements + 1).
         /// </summary>
-        public Dictionary<EmbassyType, HashSet<string>> Embassies { get; set; }
+        public int DelegateVotes
+        {
+            get
+            {
+                return int.Parse(Utility.ParseDocument($"region={this.Name}&q=dbid")
+                    .SelectSingleNode("/REGION/DELEGATEVOTES")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's policy with RMB posting.
+        /// Gets the pinned dispatches.
         /// </summary>
-        public RMBPermission EmbassyRMBPermission { get; set; }
+        public HashSet<Dispatch> DispatchList
+        {
+            get
+            {
+                HashSet<Dispatch> dispatchList = new();
+
+                foreach (string dispatchID in Utility.ParseDocument($"region={this.Name}&q=dispatches").SelectSingleNode("/REGION/DISPATCHES").InnerText.Split(","))
+                {
+                    dispatchList.Add(World.GetDispatch(ulong.Parse(dispatchID)));
+                }
+
+                return dispatchList;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's factbook.
+        /// Gets the region's embassies.
         /// </summary>
-        public string Factbook { get; set; }
+        public Dictionary<EmbassyType, HashSet<string>> Embassies
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=embassies")
+                    .SelectSingleNode("/REGION/EMBASSIES");
+
+                Dictionary<EmbassyType, HashSet<string>> embassies = new();
+
+                foreach (XmlNode embassy in node.ChildNodes)
+                {
+                    EmbassyType type = EmbassyType.Constructed;
+
+                    if (embassy.Attributes.Count != 0)
+                    {
+                        type = (EmbassyType)Enum.Parse(typeof(EmbassyType), Utility.Capitalise(embassy.Attributes["type"].Value));
+                    }
+
+                    string name = embassy.InnerText;
+
+                    if (!this.Embassies.ContainsKey(type))
+                    {
+                        embassies.Add(type, new HashSet<string>());
+                    }
+
+                    embassies[type].Add(name);
+                }
+
+                return embassies;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the URL of the region's flag.
+        /// Gets the region's policy with RMB posting.
         /// </summary>
-        public string Flag { get; set; }
+        public RMBPermission EmbassyRMBPermission
+        {
+            get
+            {
+                return Utility.ParseRMBPermission(Utility.ParseDocument($"region={this.Name}&q=embassyrmb")
+                    .SelectSingleNode("/REGION/EMBASSYRMB")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the time the region was founded.
+        /// Gets the region's factbook.
         /// </summary>
-        public DateTime FoundedTime { get; set; }
+        public string Factbook
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=factbook")
+                    .SelectSingleNode("/REGION/FACTBOOK")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the name of the region's founder.
+        /// Gets the URL of the region's flag.
         /// </summary>
-        public string Founder { get; set; }
+        public string Flag
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=flag")
+                    .SelectSingleNode("/REGION/FLAG")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the authorities the <see cref="Founder"/> has.
+        /// Gets the time the region was founded in natural language.
         /// </summary>
-        public HashSet<Authority> FounderAuthorities { get; set; }
+        public string Founded
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=founded")
+                    .SelectSingleNode("/REGION/FOUNDED")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's votes for/against the current General Assembly bill.
+        /// Gets the time the region was founded.
         /// </summary>
-        public Dictionary<WAVote, int?> GAVote { get; set; }
+        public DateTime FoundedTime
+        {
+            get
+            {
+                return Utility.ParseUnix(Utility.ParseDocument($"region={this.Name}&q=foundedtime")
+                    .SelectSingleNode("/REGION/FOUNDEDTIME")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the latest happenings.
+        /// Gets the name of the region's founder.
         /// </summary>
-        public HashSet<Event> Happenings { get; set; }
+        public string Founder
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=founder")
+                    .SelectSingleNode("/REGION/FOUNDER")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the history of the region.
+        /// Gets the authorities the <see cref="Founder"/> has.
         /// </summary>
-        public HashSet<Event> History { get; set; }
+        public HashSet<Authority> FounderAuthorities
+        {
+            get
+            {
+                return Utility.ParseAuthority(Utility.ParseDocument($"region={this.Name}&q=founderauth")
+                    .SelectSingleNode("/REGION/FOUNDERAUTH")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the time of the last update.
+        /// Gets the region's votes for/against the current General Assembly bill.
         /// </summary>
-        public DateTime LastUpdate { get; set; }
+        public Dictionary<WAVote, int?> GAVote
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=gavote")
+                    .SelectSingleNode("/REGION/GAVOTE");
+
+                Dictionary<WAVote, int?> gaVote = new();
+
+                if (node.SelectSingleNode("FOR").InnerText == string.Empty)
+                {
+                    gaVote.Add(WAVote.For, null);
+                }
+                else
+                {
+                    gaVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
+                }
+
+                if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
+                {
+                    gaVote.Add(WAVote.Against, 0);
+                }
+                else
+                {
+                    gaVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
+                }
+
+                return gaVote;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the last 10 RMB messages.
+        /// Gets the latest happenings.
         /// </summary>
-        public HashSet<Post> Messages { get; set; }
+        public HashSet<Event> Happenings
+        {
+            get
+            {
+                return Utility.ParseEvents(Utility.ParseDocument($"region={this.Name}&q=happenings")
+                    .SelectSingleNode("/REGION/HAPPENINGS"));
+            }
+        }
+
+        /// <summary>
+        /// Gets the history of the region.
+        /// </summary>
+        public HashSet<Event> History
+        {
+            get
+            {
+                return Utility.ParseEvents(Utility.ParseDocument($"nation={this.Name}&q=history")
+                    .SelectSingleNode("/REGION/HISTORY"));
+            }
+        }
+
+        /// <summary>
+        /// Gets the time of the last update.
+        /// </summary>
+        public DateTime LastUpdate
+        {
+            get
+            {
+                return Utility.ParseUnix(Utility.ParseDocument($"region={this.Name}&q=lastupdate")
+                    .SelectSingleNode("/REGION/LASTUPDATE")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the last 10 RMB messages.
+        /// </summary>
+        public HashSet<Post> Messages
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=messages")
+                    .SelectSingleNode("/REGION/MESSAGES");
+
+                HashSet<Post> messages = new();
+
+                foreach (XmlNode message in node.ChildNodes)
+                {
+                    ulong id = ulong.Parse(message.Attributes["id"].Value);
+                    DateTime posted = Utility.ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
+                    string nation = message.SelectSingleNode("NATION").InnerText;
+                    PostStatus status = Utility.ParseStatus(message.SelectSingleNode("STATUS").InnerText);
+                    DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText);
+                    HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
+                    string content = message.SelectSingleNode("MESSAGE").InnerText;
+                    string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
+
+                    messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
+                }
+
+                return messages;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the region's name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+
+            set
+            {
+                if (!this.nameSet)
+                {
+                    this._Name = value;
+                    this.nameSet = true;
+                }
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of nations in the region.
+        /// Gets the list of nations in the region.
         /// </summary>
-        public HashSet<string> Nations { get; set; }
+        public HashSet<string> Nations
+        {
+            get
+            {
+                return Utility.ParseDocument($"region={this.Name}&q=nations")
+                    .SelectSingleNode("/REGION/NATIONS")
+                    .InnerText
+                    .Split(":")
+                    .ToHashSet();
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of regional officers.
+        /// Gets the number of nations in the region.
         /// </summary>
-        public HashSet<Officer> Officers { get; set; }
+        public int NumberOfNations
+        {
+            get
+            {
+                return int.Parse(Utility.ParseDocument($"region={this.Name}&q=numnations")
+                    .SelectSingleNode("/REGION/NUMNATIONS")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the current poll.
+        /// Gets the list of regional officers.
         /// </summary>
-        public Poll? Poll { get; set; }
+        public HashSet<Officer> Officers
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=officers")
+                    .SelectSingleNode("/REGION/OFFICERS");
+
+                HashSet<Officer> officers = new();
+
+                foreach (XmlNode officer in node.ChildNodes)
+                {
+                    string nation = officer.SelectSingleNode("NATION").InnerText;
+                    string office = officer.SelectSingleNode("OFFICE").InnerText;
+                    HashSet<Authority> authorities = Utility.ParseAuthority(officer.SelectSingleNode("AUTHORITY").InnerText);
+                    DateTime appointed = Utility.ParseUnix(officer.SelectSingleNode("TIME").InnerText);
+                    string appointer = officer.SelectSingleNode("BY").InnerText;
+
+                    officers.Add(new Officer(nation, office, authorities, appointed, appointer));
+                }
+
+                return officers;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's power in the world.
+        /// Gets the current poll.
         /// </summary>
-        public Power Power { get; set; }
+        public Poll? Poll
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=poll")
+                    .SelectSingleNode("/REGION/POLL");
+
+                long pollID = long.Parse(node.Attributes["id"].Value);
+                string title = node.SelectSingleNode("TITLE").InnerText;
+                string region = node.SelectSingleNode("REGION").InnerText;
+                DateTime start = Utility.ParseUnix(node.SelectSingleNode("START").InnerText);
+                DateTime stop = Utility.ParseUnix(node.SelectSingleNode("STOP").InnerText);
+                string author = node.SelectSingleNode("AUTHOR").InnerText;
+                HashSet<PollOption> options = new HashSet<PollOption>();
+
+                foreach (XmlNode option in node.SelectSingleNode("OPTIONS").ChildNodes)
+                {
+                    int optionID = int.Parse(option.Attributes["id"].Value);
+                    string text = option.SelectSingleNode("OPTIONTEXT").InnerText;
+                    int votes = int.Parse(option.SelectSingleNode("VOTES").InnerText);
+                    HashSet<string> voters = option.SelectSingleNode("VOTERS").InnerText.Split(":").ToHashSet();
+
+                    options.Add(new PollOption(optionID, text, votes, voters));
+                }
+
+                return new Poll(pollID, title, region, start, stop, author, options);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's vote for/against the current Security Council bill.
+        /// Gets the region's power in the world.
         /// </summary>
-        public Dictionary<WAVote, int?> SCVote { get; set; }
+        public Power Power
+        {
+            get
+            {
+                return (Power)Enum.Parse(typeof(Power), Utility.FormatForEnum(Utility.Capitalise(Utility.ParseDocument($"region={this.Name}&q=power")
+                    .SelectSingleNode("/REGION/POWER")
+                    .InnerText)));
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's tags.
+        /// Gets the region's vote for/against the current Security Council bill.
         /// </summary>
-        public HashSet<RegionTag> Tags { get; set; }
+        public Dictionary<WAVote, int?> SCVote
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=scvote")
+                    .SelectSingleNode("/REGION/SCVOTE");
+
+                Dictionary<WAVote, int?> scVote = new();
+
+                if (node.SelectSingleNode("FOR").InnerText == string.Empty)
+                {
+                    scVote.Add(WAVote.For, null);
+                }
+                else
+                {
+                    scVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
+                }
+
+                if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
+                {
+                    scVote.Add(WAVote.Against, 0);
+                }
+                else
+                {
+                    scVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
+                }
+
+                return scVote;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's World Assembly badges.
+        /// Gets the region's tags.
         /// </summary>
-        public HashSet<WABadge> WABadges { get; set; }
+        public HashSet<RegionTag> Tags
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=tags")
+                    .SelectSingleNode("/REGION/TAGS");
+
+                HashSet<RegionTag> tags = new();
+
+                foreach (XmlNode tag in node.ChildNodes)
+                {
+                    tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), Utility.FormatForEnum(tag.InnerText)));
+                }
+
+                return tags;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's Z-Day information.
+        /// Gets the region's World Assembly badges.
         /// </summary>
-        public RegionZombie Zombie { get; set; }
+        public HashSet<WABadge> WABadges
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=wabadges")
+                    .SelectSingleNode("/REGION/WABADGES");
+
+                HashSet<WABadge> waBadges = new();
+
+                foreach (XmlNode badge in node.ChildNodes)
+                {
+                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
+                    long id = long.Parse(badge.InnerText);
+
+                    waBadges.Add(new WABadge(type, id));
+                }
+
+                return waBadges;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the region's census data.
+        /// Gets the region's Z-Day information.
         /// </summary>
-        public HashSet<RegionCensus> Census { get; set; }
+        public RegionZombie Zombie
+        {
+            get
+            {
+                XmlNode node = Utility.ParseDocument($"region={this.Name}&q=zombie")
+                    .SelectSingleNode("/REGION/ZOMBIE");
+
+                long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
+                long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
+                long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
+
+                return new RegionZombie(survivors, zombies, dead);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Region"/> class.
@@ -152,253 +561,60 @@
         public Region(string name)
         {
             this.Name = name;
-            this.UpdateProperties();
         }
 
         /// <summary>
-        /// Updates the region's properties.
+        /// Gets census data from a time period.
         /// </summary>
-        public void UpdateProperties()
+        /// <param name="start">The start of the time period as a UNIX timestamp.</param>
+        /// <param name="end">The end of the time period as a UNIX timestamp.</param>
+        /// <returns>A list of all census data recorded during the time period.</returns>
+        public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
         {
-            // Normal fields
-            XmlDocument normal = new XmlDocument();
+            XmlNode node = Utility.ParseDocument($"region={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + Utility.ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + Utility.ConvertToUnix((DateTime)end) : string.Empty)}")
+                .SelectSingleNode("/REGION/CENSUS");
 
-            normal.LoadXml(Utility.DownloadUrlString($"region={this.Name.Replace(" ", "_")}&q=dbid+delegate+delegateauth+delegatevotes+dispatches+embassies+embassyrmb+factbook+flag+foundedtime+founder+founderauth+gavote+happenings+history+lastupdate+messages+name+nations+officers+poll+power+scvote+tags+wabadges+zombie"));
+            HashSet<CensusRecord> records = new();
 
-            foreach (XmlNode node in normal.DocumentElement.ChildNodes)
+            foreach (XmlNode scale in node.ChildNodes)
             {
-                this.ParsePropertyData(node);
+                int id = int.Parse(scale.Attributes["id"].Value);
+
+                foreach (XmlNode point in scale.ChildNodes)
+                {
+                    double score = double.Parse(point.SelectSingleNode("SCORE").InnerText);
+                    DateTime timeStamp = Utility.ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
+
+                    records.Add(new(id, score, timeStamp));
+                }
             }
 
-            // Census
-            XmlDocument census = new XmlDocument();
-
-            census.LoadXml(Utility.DownloadUrlString($"region={this.Name.Replace(" ", "_")}&q=census;scale=all;mode=score+rank+prank"));
-
-            this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
+            return records;
         }
 
         /// <summary>
-        /// Parses and updates the region's properties from a XmlDocument.
+        /// Gets twenty nations in order of their census rankings.
         /// </summary>
-        /// <param name="node">The XmlNode to parse.</param>
-        public void ParsePropertyData(XmlNode node)
+        /// <param name="id">The census to compare.</param>
+        /// <param name="start">The starting rank.</param>
+        /// <returns>A list of twenty nations with their census rank and score.</returns>
+        public HashSet<CensusRank> CensusRank(int id, int start = 1)
         {
-            switch (node.Name)
+            XmlNode node = Utility.ParseDocument($"region={this.Name}&q=censusranks;scale={id};start={start}")
+                .SelectSingleNode("/REGION/CENSUSRANK/NATIONS");
+
+            HashSet<CensusRank> censusRanks = new();
+
+            foreach (XmlNode nation in node.ChildNodes)
             {
-                case "DBID":
-                    this.DBID = long.Parse(node.InnerText);
-                    break;
-                case "LASTUPDATE":
-                    this.LastUpdate = Utility.ParseUnix(node.InnerText);
-                    break;
-                case "FACTBOOK":
-                    this.Factbook = node.InnerText;
-                    break;
-                case "DISPATCHES":
-                    this.DispatchList = new HashSet<Dispatch>();
-                    foreach (string dispatchID in node.InnerText.Split(","))
-                    {
-                        this.DispatchList.Add(World.GetDispatch(ulong.Parse(dispatchID)));
-                    }
+                string name = nation.SelectSingleNode("NAME").InnerText;
+                long rank = long.Parse(nation.SelectSingleNode("RANK").InnerText);
+                double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
 
-                    break;
-                case "NATIONS":
-                    this.Nations = node.InnerText.Split(":").ToHashSet();
-                    break;
-                case "DELEGATE":
-                    this.Delegate = node.InnerText;
-                    break;
-                case "DELEGATEAUTH":
-                    this.DelegateAuthorities = Utility.ParseAuthority(node.InnerText);
-                    break;
-                case "OFFICERS":
-                    this.Officers = new HashSet<Officer>();
-                    foreach (XmlNode officer in node.ChildNodes)
-                    {
-                        string nation = officer.SelectSingleNode("NATION").InnerText;
-                        string office = officer.SelectSingleNode("OFFICE").InnerText;
-                        HashSet<Authority> authorities = Utility.ParseAuthority(officer.SelectSingleNode("AUTHORITY").InnerText);
-                        DateTime appointed = Utility.ParseUnix(officer.SelectSingleNode("TIME").InnerText);
-                        string appointer = officer.SelectSingleNode("BY").InnerText;
-
-                        this.Officers.Add(new Officer(nation, office, authorities, appointed, appointer));
-                    }
-
-                    break;
-                case "DELEGATEVOTES":
-                    this.DelegateVotes = int.Parse(node.InnerText);
-                    break;
-                case "GAVOTE":
-                    this.GAVote = new Dictionary<WAVote, int?>();
-                    if (node.SelectSingleNode("FOR").InnerText == string.Empty)
-                    {
-                        this.GAVote.Add(WAVote.For, null);
-                    }
-                    else
-                    {
-                        this.GAVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                    }
-
-                    if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
-                    {
-                        this.GAVote.Add(WAVote.Against, 0);
-                    }
-                    else
-                    {
-                        this.GAVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
-                    }
-
-                    break;
-                case "SCVOTE":
-                    this.SCVote = new Dictionary<WAVote, int?>();
-                    if (node.SelectSingleNode("FOR").InnerText == string.Empty)
-                    {
-                        this.SCVote.Add(WAVote.For, null);
-                    }
-                    else
-                    {
-                        this.SCVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                    }
-
-                    if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
-                    {
-                        this.SCVote.Add(WAVote.Against, 0);
-                    }
-                    else
-                    {
-                        this.SCVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
-                    }
-
-                    break;
-                case "FOUNDER":
-                    this.Founder = node.InnerText;
-                    break;
-                case "FOUNDERAUTH":
-                    this.FounderAuthorities = Utility.ParseAuthority(node.InnerText);
-                    break;
-                case "FOUNDEDTIME":
-                    this.FoundedTime = Utility.ParseUnix(node.InnerText);
-                    break;
-                case "POWER":
-                    this.Power = (Power)Enum.Parse(typeof(Power), Utility.FormatForEnum(Utility.Capitalise(node.InnerText)));
-                    break;
-                case "FLAG":
-                    this.Flag = node.InnerText;
-                    break;
-                case "EMBASSIES":
-                    this.Embassies = new Dictionary<EmbassyType, HashSet<string>>();
-                    foreach (XmlNode embassy in node.ChildNodes)
-                    {
-                        EmbassyType type = EmbassyType.Constructed;
-
-                        if (embassy.Attributes.Count != 0)
-                        {
-                            type = (EmbassyType)Enum.Parse(typeof(EmbassyType), Utility.Capitalise(embassy.Attributes["type"].Value));
-                        }
-
-                        string name = embassy.InnerText;
-
-                        if (!this.Embassies.ContainsKey(type))
-                        {
-                            this.Embassies.Add(type, new HashSet<string>());
-                        }
-
-                        this.Embassies[type].Add(name);
-                    }
-
-                    break;
-                case "EMBASSYRMB":
-                    this.EmbassyRMBPermission = Utility.ParseRMBPermission(node.InnerText);
-                    break;
-                case "WABADGES":
-                    this.WABadges = new HashSet<WABadge>();
-                    foreach (XmlNode badge in node.ChildNodes)
-                    {
-                        WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
-                        long id = long.Parse(badge.InnerText);
-
-                        this.WABadges.Add(new WABadge(type, id));
-                    }
-
-                    break;
-                case "TAGS":
-                    this.Tags = new HashSet<RegionTag>();
-                    foreach (XmlNode tag in node.ChildNodes)
-                    {
-                        this.Tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), Utility.FormatForEnum(tag.InnerText)));
-                    }
-
-                    break;
-                case "MESSAGES":
-                    this.Messages = new HashSet<Post>();
-                    foreach (XmlNode message in node.ChildNodes)
-                    {
-                        ulong id = ulong.Parse(message.Attributes["id"].Value);
-                        DateTime posted = Utility.ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
-                        string nation = message.SelectSingleNode("NATION").InnerText;
-                        PostStatus status = Utility.ParseStatus(message.SelectSingleNode("STATUS").InnerText);
-                        DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : Utility.ParseUnix(message.SelectSingleNode("EDITED").InnerText);
-                        HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
-                        string content = message.SelectSingleNode("MESSAGE").InnerText;
-                        string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
-
-                        this.Messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
-                    }
-
-                    break;
-                case "HAPPENINGS":
-                    this.Happenings = Utility.ParseEvents(node);
-                    break;
-                case "HISTORY":
-                    this.History = new HashSet<Event>();
-                    foreach (XmlNode happening in node.ChildNodes)
-                    {
-                        DateTime timestamp = Utility.ParseUnix(happening.SelectSingleNode("TIMESTAMP").InnerText);
-                        string text = happening.SelectSingleNode("TEXT").InnerText;
-
-                        this.Happenings.Add(new Event(timestamp, text));
-                    }
-
-                    break;
-                case "ZOMBIE":
-                    long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
-                    long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
-                    long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
-
-                    this.Zombie = new RegionZombie(survivors, zombies, dead);
-
-                    break;
-                case "POLL":
-                    long pollID = long.Parse(node.Attributes["id"].Value);
-                    string title = node.SelectSingleNode("TITLE").InnerText;
-                    string region = node.SelectSingleNode("REGION").InnerText;
-                    DateTime start = Utility.ParseUnix(node.SelectSingleNode("START").InnerText);
-                    DateTime stop = Utility.ParseUnix(node.SelectSingleNode("STOP").InnerText);
-                    string author = node.SelectSingleNode("AUTHOR").InnerText;
-                    HashSet<PollOption> options = new HashSet<PollOption>();
-
-                    foreach (XmlNode option in node.SelectSingleNode("OPTIONS").ChildNodes)
-                    {
-                        int optionID = int.Parse(option.Attributes["id"].Value);
-                        string text = option.SelectSingleNode("OPTIONTEXT").InnerText;
-                        int votes = int.Parse(option.SelectSingleNode("VOTES").InnerText);
-                        HashSet<string> voters = option.SelectSingleNode("VOTERS").InnerText.Split(":").ToHashSet();
-
-                        options.Add(new PollOption(optionID, text, votes, voters));
-                    }
-
-                    this.Poll = new Poll(pollID, title, region, start, stop, author, options);
-
-                    break;
+                censusRanks.Add(new(name, rank, score));
             }
-        }
 
-        /// <summary>
-        /// Parses and updates <see cref="Census"/> from a XmlDocument.
-        /// </summary>
-        /// <param name="census">The XmlNode to parse.</param>
-        public void ParseCensusData(XmlNode census)
-        { }
+            return censusRanks;
+        }
     }
 }
