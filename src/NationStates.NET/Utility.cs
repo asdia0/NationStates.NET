@@ -71,6 +71,16 @@
         }
 
         /// <summary>
+        /// Converts a <see cref="DateTime"/> object to its UNIX timestamp.
+        /// </summary>
+        /// <param name="dateTime">The object to convert.</param>
+        /// <returns>The <see cref="DateTime"/> as a UNIX timestamp.</returns>
+        public static long ConvertToUnix(DateTime dateTime)
+        {
+            return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
+        }
+
+        /// <summary>
         /// Formats a string for <see cref="Enum.Parse(Type, string)"/>.
         /// </summary>
         /// <param name="enumValue">The stringified value of the enum.</param>
