@@ -418,7 +418,7 @@
         }
 
         /// <summary>
-        /// Gets the time the nationw as founded as natural language.
+        /// Gets the time the nation was founded in natural language.
         /// </summary>
         public string Founded
         {
