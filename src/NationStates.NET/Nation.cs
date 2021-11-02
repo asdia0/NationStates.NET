@@ -90,31 +90,31 @@
         /// <summary>
         /// Gets one of the nation's banners that can be displayed.
         /// </summary>
-        public string Banner
+        public Banner Banner
         {
             get
             {
-                return Utility.DownloadDocument($"nation={this.Name}&q=banner")
+                return new(Utility.DownloadDocument($"nation={this.Name}&q=banner")
                     .SelectSingleNode("/NATION/BANNER")
-                    .InnerText;
+                    .InnerText);
             }
         }
 
         /// <summary>
         /// Gets a list of the nation's banners that can be displayed.
         /// </summary>
-        public HashSet<string> Banners
+        public HashSet<Banner> Banners
         {
             get
             {
                 XmlNodeList doc = Utility.DownloadDocument($"nation={this.Name}&q=banners")
                     .SelectNodes("/NATION/BANNERS/BANNER");
 
-                HashSet<string> banners = new();
+                HashSet<Banner> banners = new();
 
                 foreach (XmlNode banner in doc)
                 {
-                    banners.Add(banner.InnerText);
+                    banners.Add(new(banner.InnerText));
                 }
 
                 return banners;
