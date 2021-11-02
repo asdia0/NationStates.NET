@@ -15,5 +15,18 @@
         {
             return new WAResolution(council, councilID);
         }
+
+        //public static WAResolution GetCurrentResolution(WACouncil council)
+        //{
+        //    switch (council)
+        //    {
+        //        case WACouncil.General_Assembly:
+        //            break;
+        //        case WACouncil.Security_Council:
+        //            break;
+        //        default:
+        //            throw new NSError("Unrecognised WACouncil.");
+        //    }
+        //}
     }
 }
