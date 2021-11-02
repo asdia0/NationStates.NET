@@ -49,6 +49,13 @@
             }
         }
 
+        public static XmlDocument DownloadDocument(string path)
+        {
+            XmlDocument doc = new();
+            doc.LoadXml(Utility.DownloadUrlString(path));
+            return doc;
+        }
+
         /// <summary>
         /// Capitalises a word. The first character and every character after a dash and a space is capitalised.
         /// </summary>

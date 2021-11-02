@@ -10,230 +10,921 @@
     /// </summary>
     public class Nation
     {
-        /// <summary>
-        /// Gets or sets the name of national animal.
-        /// </summary>
-        public string Animal { get; set; }
+        private string _Name;
+
+        private bool nameSet;
 
         /// <summary>
-        /// Gets or sets the number of issues answered.
+        /// Gets one of the nation's admirables.
         /// </summary>
-        public int Answered { get; set; }
+        public string Admirable
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=admirable")
+                    .SelectSingleNode("/NATION/ADMIRABLE")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of banners that can be displayed.
+        /// Gets a list of the nation's admirables.
         /// </summary>
-        public HashSet<string> Banners { get; set; }
+        public HashSet<string> Admirables
+        {
+            get
+            {
+                XmlNodeList doc = Utility.DownloadDocument($"nation={this.Name}&q=admirables")
+                    .SelectNodes("/NATION/ADMIRABLES/ADMIRABLE");
+
+                HashSet<string> admirables = new();
+
+                foreach (XmlNode admirable in doc)
+                {
+                    admirables.Add(admirable.InnerText);
+                }
+
+                return admirables;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the name of the nation's capital city.
+        /// Gets the name of national animal.
         /// </summary>
-        public string Capital { get; set; }
+        public string Animal
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=animal")
+                    .SelectSingleNode("/NATION/ANIMAL")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the type of nation.
+        /// Gets the national animal's trait.
         /// </summary>
-        public NationCategory Category { get; set; }
+        public string AnimalTrait
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=animaltrait")
+                    .SelectSingleNode("/NATION/ANIMALTRAIT")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the name of currency.
+        /// Gets the number of issues answered.
         /// </summary>
-        public string Currency { get; set; }
+        public int Answered
+        {
+            get
+            {
+                return int.Parse(Utility.DownloadDocument($"nation={this.Name}&q=answered")
+                    .SelectSingleNode("/NATION/ISSUES_ANSWERED")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's database ID.
+        /// Gets one of the nation's banners that can be displayed.
         /// </summary>
-        public long DBID { get; set; }
+        public string Banner
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=banner")
+                    .SelectSingleNode("/NATION/BANNER")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the causes of deaths and their frequency.
+        /// Gets a list of the nation's banners that can be displayed.
         /// </summary>
-        public HashSet<Death> Deaths { get; set; }
+        public HashSet<string> Banners
+        {
+            get
+            {
+                XmlNodeList doc = Utility.DownloadDocument($"nation={this.Name}&q=banners")
+                    .SelectNodes("/NATION/BANNERS/BANNER");
+
+                HashSet<string> banners = new();
+
+                foreach (XmlNode banner in doc)
+                {
+                    banners.Add(banner.InnerText);
+                }
+
+                return banners;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's demonym (adjective).
+        /// Gets the name of the nation's capital city.
         /// </summary>
-        public string DemonymAdjective { get; set; }
+        public string Capital
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=capital")
+                    .SelectSingleNode("/NATION/CAPITAL")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's demonym (noun).
+        /// Gets the type of nation.
         /// </summary>
-        public string DemonymNoun { get; set; }
+        public NationCategory Category
+        {
+            get
+            {
+                return (NationCategory)Enum.Parse(typeof(NationCategory), Utility.FormatForEnum(Utility.DownloadDocument($"nation={this.Name}&q=category")
+                    .SelectSingleNode("NATION/CATEGORY")
+                    .InnerText));
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's demonym (plural).
+        /// Gets the nation's census data.
         /// </summary>
-        public string DemonymPlural { get; set; }
+        public HashSet<NationCensus> Census
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank")
+                    .SelectSingleNode("/NATION/CENSUS");
+
+                HashSet<NationCensus> census = new();
+
+                foreach (XmlNode scale in node.ChildNodes)
+                {
+                    int id = int.Parse(scale.Attributes["id"].Value);
+                    double score = double.Parse(scale.SelectSingleNode("SCORE").InnerText);
+                    long worldRank = long.Parse(scale.SelectSingleNode("RANK").InnerText);
+                    long regionRank = long.Parse(scale.SelectSingleNode("RRANK").InnerText);
+                    double worldPercentage = double.Parse(scale.SelectSingleNode("PRANK").InnerText);
+                    double regionPercentage = double.Parse(scale.SelectSingleNode("PRRANK").InnerText);
+
+                    census.Add(new NationCensus(id, score, worldRank, regionRank, worldPercentage, regionPercentage));
+                }
+
+                return census;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of dispatches authored by the nation.
+        /// Gets the name of the nation's currency.
         /// </summary>
-        public HashSet<Dispatch> DispatchList { get; set; }
+        public string Currency
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=currency")
+                    .SelectSingleNode("/NATION/CURRENCY")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of endoresements.
+        /// Gets the nation's custom leader.
         /// </summary>
-        public HashSet<string> Endorsements { get; set; }
+        public string CustomLeader
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=customleader")
+                    .SelectSingleNode("/NATION/LEADER")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the time of first login.
+        /// Gets the nation's custom capital.
         /// </summary>
-        public DateTime FirstLogin { get; set; }
+        public string CustomCapital
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=customcapital")
+                    .SelectSingleNode("/NATION/CAPITAL")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the URL of the nation's flag.
+        /// Gets the nation's custom religion.
         /// </summary>
-        public string Flag { get; set; }
+        public string CustomReligion
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=customreligion")
+                    .SelectSingleNode("/NATION/RELIGION")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the time of founding.
+        /// Gets the nation's database ID.
         /// </summary>
-        public DateTime FoundedTime { get; set; }
+        public long DBID
+        {
+            get
+            {
+                return long.Parse(Utility.DownloadDocument($"nation={this.Name}&q=dbid")
+                    .SelectSingleNode("/NATION/DBID")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the level of the nation's civil rights, economy and political freedoms.
+        /// Gets the causes of deaths and their frequency.
         /// </summary>
-        public Freedom Freedom { get; set; }
+        public HashSet<Death> Deaths
+        {
+            get
+            {
+                XmlNodeList list = Utility.DownloadDocument($"nation={this.Name}&q=deaths")
+                    .SelectNodes("/NATION/DEATHS/DEATH");
+
+                HashSet<Death> deaths = new();
+
+                foreach (XmlNode death in list)
+                {
+                    deaths.Add(new Death(death.Attributes["type"].Value, double.Parse(death.InnerText)));
+                }
+
+                return deaths;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's vote on current General Assembly bill.
+        /// Gets the nation's demonym (adjective).
         /// </summary>
-        public WAVote GAVote { get; set; }
+        public string DemonymAdjective
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=demonym")
+                    .SelectSingleNode("/NATION/DEMONYM")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's GDP in standard dollars.
+        /// Gets the nation's demonym (noun).
         /// </summary>
-        public ulong GDP { get; set; }
+        public string DemonymNoun
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=demonym2")
+                    .SelectSingleNode("/NATION/DEMONYM2")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's government funding in various departments.
+        /// Gets the nation's demonym (plural).
         /// </summary>
-        public Government Government { get; set; }
+        public string DemonymPlural
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=demonym2plural")
+                    .SelectSingleNode("/NATION/DEMONYM2PLURAL")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of recent events.
+        /// Gets the number of dispatches authored by the nation.
         /// </summary>
-        public HashSet<Event> Happenings { get; set; }
+        public int Dispatches
+        {
+            get
+            {
+                return int.Parse(Utility.DownloadDocument($"nation={this.Name}&q=dispatches")
+                    .SelectSingleNode("/NATION/DISPATCHES")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the income of an average citizen in standard dollars.
+        /// Gets the list of dispatches authored by the nation.
         /// </summary>
-        public long Income { get; set; }
+        public HashSet<Dispatch> DispatchList
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=dispatchlist")
+                    .SelectSingleNode("/NATION/DISPATCHLIST");
+
+                HashSet<Dispatch> dispatchList = new();
+
+                foreach (XmlNode dispatch in node.ChildNodes)
+                {
+                    ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
+                    string title = dispatch.SelectSingleNode("TITLE").InnerText;
+                    DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+                    string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
+                    dynamic subcategory = null;
+
+                    switch (category)
+                    {
+                        case DispatchCategory.Account:
+                            subcategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            break;
+                        case DispatchCategory.Bulletin:
+                            subcategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            break;
+                        case DispatchCategory.Factbook:
+                            subcategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            break;
+                        case DispatchCategory.Meta:
+                            subcategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            break;
+                        default:
+                            throw new NSError("Dispatch subcategory does not exist.");
+                    }
+
+                    DateTime created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
+                    DateTime edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
+                    long vews = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
+                    int score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
+
+                    dispatchList.Add(new Dispatch(id, title, author, category, subcategory, created, edited, vews, score));
+                }
+
+                return dispatchList;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's influence level.
+        /// Gets a list of the nation's endorsements.
         /// </summary>
-        public Influence Influence { get; set; }
+        public HashSet<string> Endorsements
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=endorsements")
+                    .SelectSingleNode("/NATION/ENDORSEMENTS")
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the time of last login.
+        /// Gets the number of factbooks authored by the nation.
         /// </summary>
-        public DateTime LastLogin { get; set; }
+        public int Factbooks
+        {
+            get
+            {
+                return int.Parse(Utility.DownloadDocument($"nation={this.Name}&q=factbooks")
+                    .SelectSingleNode("/NATION/FACTBOOKS")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the name of the nation's leader.
+        /// Gets the time the nation first logged in.
         /// </summary>
-        public string Leader { get; set; }
+        public DateTime FirstLogin
+        {
+            get
+            {
+                return Utility.ParseUnix(Utility.DownloadDocument($"nation={this.Name}&q=firstlogin")
+                    .SelectSingleNode("/NATION/FIRSTLOGIN")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's largest industry.
+        /// Gets the URL of the nation's flag.
         /// </summary>
-        public Industry MajorIndustry { get; set; }
+        public string Flag
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=flag")
+                    .SelectSingleNode("/NATION/FLAG")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's motto.
+        /// Gets the time the nationw as founded as natural language.
         /// </summary>
-        public string Motto { get; set; }
+        public string Founded
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=founded")
+                    .SelectSingleNode("/NATION/FOUNDED")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the time the nation was founded.
+        /// </summary>
+        public DateTime FoundedTime
+        {
+            get
+            {
+                return Utility.ParseUnix(Utility.DownloadDocument($"nation={this.Name}&q=foundedtime")
+                    .SelectSingleNode("/NATION/FOUNDEDTIME")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the level of the nation's civil rights, economy and political freedoms.
+        /// </summary>
+        public Freedom Freedom
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=freedom")
+                    .SelectSingleNode("/NATION/FREEDOM");
+
+                CivilRights civil = (CivilRights)Enum.Parse(typeof(CivilRights), Utility.FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
+                Economy economy = (Economy)Enum.Parse(typeof(Economy), Utility.FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
+                PoliticalFreedoms political = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), Utility.FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
+
+                return new Freedom(civil, economy, political);
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's full name.
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=fullname")
+                    .SelectSingleNode("/NATION/FULLNAME")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's vote on current General Assembly bill.
+        /// </summary>
+        public WAVote GAVote
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=gavote")
+                    .SelectSingleNode("/NATION/GAVOTE");
+
+                if (node.InnerText == string.Empty)
+                {
+                    return WAVote.Null;
+                }
+                else
+                {
+                    return (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's GDP in standard dollars.
+        /// </summary>
+        public ulong GDP
+        {
+            get
+            {
+                return ulong.Parse(Utility.DownloadDocument($"nation={this.Name}&q=gdp")
+                    .SelectSingleNode("/NATION/GDP")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's government funding in various departments.
+        /// </summary>
+        public Government Government
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=govt")
+                    .SelectSingleNode("/NATION/GOVT");
+
+                double administration = double.Parse(node.SelectSingleNode("ADMINISTRATION").InnerText);
+                double defence = double.Parse(node.SelectSingleNode("DEFENCE").InnerText);
+                double education = double.Parse(node.SelectSingleNode("EDUCATION").InnerText);
+                double environment = double.Parse(node.SelectSingleNode("ENVIRONMENT").InnerText);
+                double healthcare = double.Parse(node.SelectSingleNode("HEALTHCARE").InnerText);
+                double commerce = double.Parse(node.SelectSingleNode("COMMERCE").InnerText);
+                double internationalAid = double.Parse(node.SelectSingleNode("INTERNATIONALAID").InnerText);
+                double lawAndOrder = double.Parse(node.SelectSingleNode("LAWANDORDER").InnerText);
+                double publicTransport = double.Parse(node.SelectSingleNode("PUBLICTRANSPORT").InnerText);
+                double socialEquality = double.Parse(node.SelectSingleNode("SOCIALEQUALITY").InnerText);
+                double spirituality = double.Parse(node.SelectSingleNode("SPIRITUALITY").InnerText);
+                double welfare = double.Parse(node.SelectSingleNode("WELFARE").InnerText);
+
+                return new Government(administration, defence, education, environment, healthcare, commerce, internationalAid, lawAndOrder, publicTransport, socialEquality, spirituality, welfare);
+            }
+        }
+
+        /// <summary>
+        /// Gets a description of the nation's government.
+        /// </summary>
+        public string GovernmentDescription
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=govtdesc")
+                    .SelectSingleNode("/NATION/GOVTDESC")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the department that the government funds the most.
+        /// </summary>
+        public string GovernmentPriority
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=govtpriority")
+                    .SelectSingleNode("/NATION/GOVTPRIORITY")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of recent events in the nation.
+        /// </summary>
+        public HashSet<Event> Happenings
+        {
+            get
+            {
+                return Utility.ParseEvents(Utility.DownloadDocument($"nation={this.Name}&q=happenings")
+                    .SelectSingleNode("/NATION/HAPPENINGS"));
+            }
+        }
+
+        /// <summary>
+        /// Gets the income of the nation's average citizen in standard dollars.
+        /// </summary>
+        public long Income
+        {
+            get
+            {
+                return long.Parse(Utility.DownloadDocument($"nation={this.Name}&q=income")
+                    .SelectSingleNode("/NATION/INCOME")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's influence level.
+        /// </summary>
+        public Influence Influence
+        {
+            get
+            {
+                return (Influence)Enum.Parse(typeof(Influence), Utility.FormatForEnum(Utility.Capitalise(Utility.DownloadDocument($"nation={this.Name}&q=influence")
+                    .SelectSingleNode("/NATION/INFLUENCE")
+                    .InnerText)));
+            }
+        }
+
+        /// <summary>
+        /// Gets the time the nation last logged in.
+        /// </summary>
+        public DateTime LastLogin
+        {
+            get
+            {
+                return Utility.ParseUnix(Utility.DownloadDocument($"nation={this.Name}&q=lastlogin")
+                    .SelectSingleNode("/NATION/LASTLOGIN")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the name of the nation's leader.
+        /// </summary>
+        public string Leader
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=leader")
+                    .SelectSingleNode("/NATION/LEADER")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's largest industry.
+        /// </summary>
+        public Industry MajorIndustry
+        {
+            get
+            {
+                return (Industry)Enum.Parse(typeof(Industry), Utility.FormatForEnum(Utility.Capitalise(Utility.DownloadDocument($"nation={this.Name}&q=majorindustry")
+                    .SelectSingleNode("/NATION/MAJORINDUSTRY")
+                    .InnerText)));
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's motto.
+        /// </summary>
+        public string Motto
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=motto")
+                    .SelectSingleNode("/NATION/MOTTO")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the nation's name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+
+            set
+            {
+                if (!this.nameSet)
+                {
+                    this._Name = value;
+                    this.nameSet = true;
+                }
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of policies implemented.
+        /// Gets the list of policies implemented.
         /// </summary>
-        public HashSet<Policy> Policies { get; set; }
+        public HashSet<Policy> Policies
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=policies")
+                    .SelectSingleNode("/NATION/POLICIES");
+
+                HashSet<Policy> policies = new();
+
+                foreach (XmlNode policy in node.ChildNodes)
+                {
+                    string name = policy.SelectSingleNode("NAME").InnerText;
+                    PolicyCategory category = (PolicyCategory)Enum.Parse(typeof(PolicyCategory), Utility.FormatForEnum(Utility.Capitalise(policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"))));
+                    string desc = policy.SelectSingleNode("DESC").InnerText;
+
+                    policies.Add(new Policy(name, category, desc));
+                }
+
+                return policies;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the average income of the poorest 10% in standard dollars.
+        /// Gets the average income of the poorest 10% in standard dollars.
         /// </summary>
-        public long Poorest { get; set; }
+        public long Poorest
+        {
+            get
+            {
+                return long.Parse(Utility.DownloadDocument($"nation={this.Name}&q=poorest")
+                    .SelectSingleNode("/NATION/POOREST")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's population in millions.
+        /// Gets the nation's population in millions.
         /// </summary>
-        public long Population { get; set; }
+        public long Population
+        {
+            get
+            {
+                return long.Parse(Utility.DownloadDocument($"nation={this.Name}&q=population")
+                    .SelectSingleNode("/NATION/POPULATION")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the percentage of the public sector in the nation's economy.
+        /// Gets the percentage of the public sector in the nation's economy.
         /// </summary>
-        public double PublicSector { get; set; }
+        public double PublicSector
+        {
+            get
+            {
+                return double.Parse(Utility.DownloadDocument($"nation={this.Name}&q=publicsector")
+                    .SelectSingleNode("/NATION/PUBLICSECTOR")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's region.
+        /// Gets the nation's region.
         /// </summary>
-        public string Region { get; set; }
+        public string Region
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=region")
+                    .SelectSingleNode("/NATION/REGION")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the name of national religion.
+        /// Gets the name of national religion.
         /// </summary>
-        public string Religion { get; set; }
+        public string Religion
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=religion")
+                    .SelectSingleNode("/NATION/RELIGION")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the avergae income of the richest 10% in standard dollars.
+        /// Gets the average income of the richest 10% in standard dollars.
         /// </summary>
-        public long Richest { get; set; }
+        public long Richest
+        {
+            get
+            {
+                return long.Parse(Utility.DownloadDocument($"nation={this.Name}&q=richest")
+                    .SelectSingleNode("/NATION/RICHEST")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's vote on current Security Council bill.
+        /// Gets the nation's vote on current Security Council bill.
         /// </summary>
-        public WAVote SCVote { get; set; }
+        public WAVote SCVote
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=scvote")
+                    .SelectSingleNode("/NATION/SCVOTE");
+
+                if (node.InnerText == string.Empty)
+                {
+                    return WAVote.Null;
+                }
+                else
+                {
+                    return (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
+                }
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of sectors and their share in the economy.
+        /// Gets the list of sectors and their share in the economy.
         /// </summary>
-        public HashSet<Sector> Sectors { get; set; }
+        public HashSet<Sector> Sectors
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=sectors")
+                    .SelectSingleNode("/NATION/SECTORS");
+
+                HashSet<Sector> sectors = new();
+
+                foreach (XmlNode sector in node.ChildNodes)
+                {
+                    sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), Utility.FormatForEnum(Utility.Capitalise(sector.Name))), double.Parse(sector.InnerText)));
+                }
+
+                return sectors;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's tax rate.
+        /// Gets the nation's tax rate.
         /// </summary>
-        public double Tax { get; set; }
+        public double Tax
+        {
+            get
+            {
+                return double.Parse(Utility.DownloadDocument($"nation={this.Name}&q=tax")
+                    .SelectSingleNode("/NATION/TAX")
+                    .InnerText);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the nation accepts recruitment telegrams.
+        /// Gets a value indicating whether the nation accepts recruitment telegrams.
         /// </summary>
-        public bool TelegramCanRecruit { get; set; }
+        public bool TelegramCanRecruit
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=tgcanrecruit")
+                    .SelectSingleNode("/NATION/TGCANRECRUIT")
+                    .InnerText == "1";
+            }
+        }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the nation accepts campaign telegrams.
+        /// Gets a value indicating whether the nation accepts campaign telegrams.
         /// </summary>
-        public bool TelegramCanCampaign { get; set; }
+        public bool TelegramCanCampaign
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=tgcancampaign")
+                    .SelectSingleNode("/NATION/TGCANCAMPAIGN")
+                    .InnerText == "1";
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's type.
+        /// Gets the nation's type.
         /// </summary>
-        public string Type { get; set; }
+        public string Type
+        {
+            get
+            {
+                return Utility.DownloadDocument($"nation={this.Name}&q=type")
+                    .SelectSingleNode("/NATION/TYPE")
+                    .InnerText;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's World Assembly status.
+        /// Gets the nation's World Assembly status.
         /// </summary>
-        public WAStatus WA { get; set; }
+        public WAStatus WA
+        {
+            get
+            {
+                return (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(Utility.DownloadDocument($"nation={this.Name}&q=wa")
+                    .SelectSingleNode("/NATION/UNSTATUS")
+                    .InnerText
+                    .Replace("WA ", string.Empty))));
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the list of commendations/condemnations received.
+        /// Gets the list of commendations/condemnations received.
         /// </summary>
-        public HashSet<WABadge> WABadges { get; set; }
+        public HashSet<WABadge> WABadges
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=wabadges")
+                    .SelectSingleNode("/NATION/WABADGES");
+
+                HashSet<WABadge> wabadges = new();
+
+                foreach (XmlNode badge in node.ChildNodes)
+                {
+                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
+                    long id = long.Parse(badge.InnerText);
+
+                    wabadges.Add(new WABadge(type, id));
+                }
+
+                return wabadges;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the nation's Z-Day information.
+        /// Gets the nation's Z-Day information.
         /// </summary>
-        public NationZombie Zombie { get; set; }
+        public NationZombie Zombie
+        {
+            get
+            {
+                XmlNode node = Utility.DownloadDocument($"nation={this.Name}&q=zombie")
+                    .SelectSingleNode("/NATION/ZOMBIE");
 
-        /// <summary>
-        /// Gets or sets the nation's census data.
-        /// </summary>
-        public HashSet<NationCensus> Census { get; set; }
+                ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTION").InnerText));
+                ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
+                long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
+                long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
+                long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
+
+                return new NationZombie(action, intendedAction, survivors, zombies, dead);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Nation"/> class.
@@ -242,295 +933,6 @@
         public Nation(string name)
         {
             this.Name = name;
-            this.UpdateProperties();
-        }
-
-        /// <summary>
-        /// Updates the nation's properties.
-        /// </summary>
-        public void UpdateProperties()
-        {
-            // Normal fields
-            XmlDocument normal = new XmlDocument();
-
-            normal.LoadXml(Utility.DownloadUrlString($"nation={this.Name.Replace(" ", "_")}&q=animal+answered+banners+capital+category+currency+dbid+deaths+demonym+demonym2+demonym2plural+dispatchlist+endorsements+firstlogin+flag+foundedtime+freedom+fullname+gavote+gdp+govt+happenings+income+influence+lastlogin+leader+majorindustry+motto+name+policies+poorest+population+publicsector+region+religion+richest+scvote+sectors+tax+tgcanrecruit+tgcancampaign+type+wa+wabadges+zombie"));
-
-            foreach (XmlNode node in normal.DocumentElement.ChildNodes)
-            {
-                this.ParsePropertyData(node);
-            }
-
-            // Census
-            XmlDocument census = new XmlDocument();
-
-            census.LoadXml(Utility.DownloadUrlString($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank"));
-
-            this.ParseCensusData(census.DocumentElement.SelectSingleNode("CENSUS"));
-        }
-
-        /// <summary>
-        /// Parses and updates the nation's properties from a XmlDocument.
-        /// </summary>
-        /// <param name="node">The XmlNode to parse.</param>
-        public void ParsePropertyData(XmlNode node)
-        {
-            switch (node.Name)
-            {
-                case "DBID":
-                    this.DBID = long.Parse(node.InnerText);
-                    break;
-                case "TYPE":
-                    this.Type = node.InnerText;
-                    break;
-                case "MOTTO":
-                    this.Motto = node.InnerText;
-                    break;
-                case "CATEGORY":
-                    this.Category = (NationCategory)Enum.Parse(typeof(NationCategory), Utility.FormatForEnum(node.InnerText));
-                    break;
-                case "UNSTATUS":
-                    this.WA = (WAStatus)Enum.Parse(typeof(WAStatus), Utility.FormatForEnum(Utility.Capitalise(node.InnerText.Replace("WA ", string.Empty))));
-                    break;
-                case "ENDORSEMENTS":
-                    this.Endorsements = node.InnerText.Split(",").ToHashSet();
-                    break;
-                case "GAVOTE":
-                    if (node.InnerText == string.Empty)
-                    {
-                        this.GAVote = WAVote.Null;
-                    }
-                    else
-                    {
-                        this.GAVote = (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
-                    }
-
-                    break;
-                case "SCVOTE":
-                    if (node.InnerText == string.Empty)
-                    {
-                        this.SCVote = WAVote.Null;
-                    }
-                    else
-                    {
-                        this.SCVote = (WAVote)Enum.Parse(typeof(WAVote), Utility.Capitalise(node.InnerText));
-                    }
-
-                    break;
-                case "ISSUES_ANSWERED":
-                    this.Answered = int.Parse(node.InnerText);
-                    break;
-                case "FREEDOM":
-                    CivilRights civil = (CivilRights)Enum.Parse(typeof(CivilRights), Utility.FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
-                    Economy economy = (Economy)Enum.Parse(typeof(Economy), Utility.FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
-                    PoliticalFreedoms political = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), Utility.FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
-
-                    this.Freedom = new Freedom(civil, economy, political);
-                    break;
-                case "REGION":
-                    this.Region = node.InnerText;
-                    break;
-                case "POPULATION":
-                    this.Population = long.Parse(node.InnerText);
-                    break;
-                case "TAX":
-                    this.Tax = double.Parse(node.InnerText);
-                    break;
-                case "ANIMAL":
-                    this.Animal = node.InnerText;
-                    break;
-                case "CURRENCY":
-                    this.Currency = node.InnerText;
-                    break;
-                case "FLAG":
-                    this.Flag = node.InnerText;
-                    break;
-                case "BANNERS":
-                    this.Banners = new HashSet<string>();
-                    foreach (XmlNode banner in node.ChildNodes)
-                    {
-                        this.Banners.Add(banner.InnerText);
-                    }
-
-                    break;
-                case "DEMONYM":
-                    this.DemonymNoun = node.InnerText;
-                    break;
-                case "DEMONYM2":
-                    this.DemonymNoun = node.InnerText;
-                    break;
-                case "DEMONYM2PLURAL":
-                    this.DemonymPlural = node.InnerText;
-                    break;
-                case "GDP":
-                    this.GDP = ulong.Parse(node.InnerText);
-                    break;
-                case "INCOME":
-                    this.Income = long.Parse(node.InnerText);
-                    break;
-                case "RICHEST":
-                    this.Richest = long.Parse(node.InnerText);
-                    break;
-                case "POOREST":
-                    this.Poorest = long.Parse(node.InnerText);
-                    break;
-                case "MAJORINDUSTRY":
-                    this.MajorIndustry = (Industry)Enum.Parse(typeof(Industry), node.InnerText.Replace(" ", "_").Replace("-", string.Empty));
-                    break;
-                case "GOVT":
-                    double administration = double.Parse(node.SelectSingleNode("ADMINISTRATION").InnerText);
-                    double defence = double.Parse(node.SelectSingleNode("DEFENCE").InnerText);
-                    double education = double.Parse(node.SelectSingleNode("EDUCATION").InnerText);
-                    double environment = double.Parse(node.SelectSingleNode("ENVIRONMENT").InnerText);
-                    double healthcare = double.Parse(node.SelectSingleNode("HEALTHCARE").InnerText);
-                    double commerce = double.Parse(node.SelectSingleNode("COMMERCE").InnerText);
-                    double internationalAid = double.Parse(node.SelectSingleNode("INTERNATIONALAID").InnerText);
-                    double lawAndOrder = double.Parse(node.SelectSingleNode("LAWANDORDER").InnerText);
-                    double publicTransport = double.Parse(node.SelectSingleNode("PUBLICTRANSPORT").InnerText);
-                    double socialEquality = double.Parse(node.SelectSingleNode("SOCIALEQUALITY").InnerText);
-                    double spirituality = double.Parse(node.SelectSingleNode("SPIRITUALITY").InnerText);
-                    double welfare = double.Parse(node.SelectSingleNode("WELFARE").InnerText);
-                    this.Government = new Government(administration, defence, education, environment, healthcare, commerce, internationalAid, lawAndOrder, publicTransport, socialEquality, spirituality, welfare);
-                    break;
-                case "SECTORS":
-                    this.Sectors = new HashSet<Sector>();
-                    foreach (XmlNode sector in node.ChildNodes)
-                    {
-                        this.Sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), Utility.FormatForEnum(Utility.Capitalise(sector.Name))), double.Parse(sector.InnerText)));
-                    }
-
-                    break;
-                case "FOUNDEDTIME":
-                    this.FoundedTime = Utility.ParseUnix(node.InnerText);
-                    break;
-                case "FIRSTLOGIN":
-                    this.FirstLogin = Utility.ParseUnix(node.InnerText);
-                    break;
-                case "LASTLOGIN":
-                    this.LastLogin = Utility.ParseUnix(node.InnerText);
-                    break;
-                case "INFLUENCE":
-                    this.Influence = (Influence)Enum.Parse(typeof(Influence), Utility.FormatForEnum(Utility.Capitalise(node.InnerText)));
-                    break;
-                case "PUBLICSECTOR":
-                    this.PublicSector = double.Parse(node.InnerText);
-                    break;
-                case "DEATHS":
-                    this.Deaths = new HashSet<Death>();
-                    foreach (XmlNode death in node.ChildNodes)
-                    {
-                        this.Deaths.Add(new Death(death.Attributes["type"].Value, double.Parse(death.InnerText)));
-                    }
-
-                    break;
-                case "LEADER":
-                    this.Leader = node.InnerText;
-                    break;
-                case "CAPITAL":
-                    this.Capital = node.InnerText;
-                    break;
-                case "RELIGION":
-                    this.Religion = node.InnerText;
-                    break;
-                case "POLICIES":
-                    this.Policies = new HashSet<Policy>();
-                    foreach (XmlNode policy in node.ChildNodes)
-                    {
-                        string name = policy.SelectSingleNode("NAME").InnerText;
-                        PolicyCategory category = (PolicyCategory)Enum.Parse(typeof(PolicyCategory), Utility.FormatForEnum(Utility.Capitalise(policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"))));
-                        string desc = policy.SelectSingleNode("DESC").InnerText;
-
-                        this.Policies.Add(new Policy(name, category, desc));
-                    }
-
-                    break;
-                case "HAPPENINGS":
-                    this.Happenings = Utility.ParseEvents(node);
-                    break;
-                case "DISPATCHLIST":
-                    this.DispatchList = new HashSet<Dispatch>();
-                    foreach (XmlNode dispatch in node.ChildNodes)
-                    {
-                        ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
-                        string title = dispatch.SelectSingleNode("TITLE").InnerText;
-                        DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
-                        string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
-                        dynamic subcategory = null;
-
-                        switch (category)
-                        {
-                            case DispatchCategory.Account:
-                                subcategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case DispatchCategory.Bulletin:
-                                subcategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case DispatchCategory.Factbook:
-                                subcategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            case DispatchCategory.Meta:
-                                subcategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                                break;
-                            default:
-                                throw new NSError("Dispatch subcategory does not exist.");
-                        }
-
-                        DateTime created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
-                        DateTime edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
-                        long vews = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
-                        int score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
-
-                        this.DispatchList.Add(new Dispatch(id, title, author, category, subcategory, created, edited, vews, score));
-                    }
-
-                    break;
-                case "WABADGES":
-                    this.WABadges = new HashSet<WABadge>();
-                    foreach (XmlNode badge in node.ChildNodes)
-                    {
-                        WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Utility.Capitalise(badge.Attributes["type"].Value));
-                        long id = long.Parse(badge.InnerText);
-
-                        this.WABadges.Add(new WABadge(type, id));
-                    }
-
-                    break;
-                case "TGCANRECRUIT":
-                    this.TelegramCanRecruit = int.Parse(node.InnerText) == 1;
-                    break;
-                case "TGCANCAMPAIGN":
-                    this.TelegramCanCampaign = int.Parse(node.InnerText) == 1;
-                    break;
-                case "ZOMBIE":
-                    ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTION").InnerText));
-                    ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Utility.Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
-                    long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
-                    long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
-                    long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
-
-                    this.Zombie = new NationZombie(action, intendedAction, survivors, zombies, dead);
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Parses and updates <see cref="Census"/> from a XmlDocument.
-        /// </summary>
-        /// <param name="census">The XmlNode to parse.</param>
-        public void ParseCensusData(XmlNode census)
-        {
-            this.Census = new HashSet<NationCensus>();
-
-            foreach (XmlNode scale in census.ChildNodes)
-            {
-                int id = int.Parse(scale.Attributes["id"].Value);
-                double score = double.Parse(scale.SelectSingleNode("SCORE").InnerText);
-                long worldRank = long.Parse(scale.SelectSingleNode("RANK").InnerText);
-                long regionRank = long.Parse(scale.SelectSingleNode("RRANK").InnerText);
-                double worldPercentage = double.Parse(scale.SelectSingleNode("PRANK").InnerText);
-                double regionPercentage = double.Parse(scale.SelectSingleNode("PRRANK").InnerText);
-
-                this.Census.Add(new NationCensus(id, score, worldRank, regionRank, worldPercentage, regionPercentage));
-            }
         }
     }
 }
