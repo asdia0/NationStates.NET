@@ -587,6 +587,19 @@
         }
 
         /// <summary>
+        /// Gets a description of the nation's industry.
+        /// </summary>
+        public string IndustryDescription
+        {
+            get
+            {
+                return Utility.ParseDocument($"nation={this.Name}&q=industrydesc")
+                    .SelectSingleNode("/NATION/INDUSTRYDESC")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
         /// Gets the nation's influence level.
         /// </summary>
         public Influence Influence
@@ -813,6 +826,19 @@
                 }
 
                 return sectors;
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's sensibilities.
+        /// </summary>
+        public string Sensibilities
+        {
+            get
+            {
+                return Utility.ParseDocument($"nation={this.Name}&q=sensibilities")
+                    .SelectSingleNode("/NATION/SENSIBILITIES")
+                    .InnerText;
             }
         }
 
