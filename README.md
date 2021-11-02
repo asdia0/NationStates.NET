@@ -17,3 +17,4 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## TODO
 - [ ] Rewrite main classes for readability
+- [ ] Add rate-limiter
