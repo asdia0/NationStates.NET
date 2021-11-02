@@ -16,12 +16,12 @@
         public double Score { get; }
 
         /// <summary>
-        /// Gets the nation's world rank.
+        /// Gets the region's world rank.
         /// </summary>
         public long WorldRank { get; }
 
         /// <summary>
-        /// Gets the nation's world rank as a percentage.
+        /// Gets the region's world rank as a percentage.
         /// </summary>
         public double WorldPercentage { get; }
 
@@ -30,8 +30,8 @@
         /// </summary>
         /// <param name="id">The census ID.</param>
         /// <param name="score">The value of the census data.</param>
-        /// <param name="worldRank">The nation's world rank.</param>
-        /// <param name="worldPercentage">The nation's world rank as a percentage.</param>
+        /// <param name="worldRank">The region's world rank.</param>
+        /// <param name="worldPercentage">The region's world rank as a percentage.</param>
         public RegionCensus(int id, double score, long worldRank, double worldPercentage)
         {
             this.ID = id;
