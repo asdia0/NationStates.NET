@@ -49,13 +49,6 @@
             }
         }
 
-        public static XmlDocument DownloadDocument(string path)
-        {
-            XmlDocument doc = new();
-            doc.LoadXml(Utility.DownloadUrlString(path));
-            return doc;
-        }
-
         /// <summary>
         /// Capitalises a word. The first character and every character after a dash and a space is capitalised.
         /// </summary>
@@ -102,6 +95,18 @@
             }
 
             return res;
+        }
+
+        /// <summary>
+        /// Parses an XML document from a webpage.
+        /// </summary>
+        /// <param name="path">The webpage to parse the XML document from.</param>
+        /// <returns>An <see cref="XmlDocument"/>.</returns>
+        public static XmlDocument ParseDocument(string path)
+        {
+            XmlDocument doc = new();
+            doc.LoadXml(Utility.DownloadUrlString(path));
+            return doc;
         }
 
         /// <summary>

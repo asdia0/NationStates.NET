@@ -74,11 +74,9 @@
         {
             this.ID = id;
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"poll;pollid={id}"));
-
-            XmlNode node = doc.DocumentElement.SelectSingleNode("POLL");
+            XmlNode node = Utility.ParseDocument($"poll;pollid={id}")
+                .DocumentElement
+                .SelectSingleNode("POLL");
 
             this.Title = node.SelectSingleNode("TITLE").InnerText;
             this.Region = node.SelectSingleNode("REGION").InnerText;

@@ -30,23 +30,12 @@
         {
             this.ID = id;
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"censusdesc;scale={this.ID}"));
-
-            XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUSDESC");
+            XmlNode node = Utility.ParseDocument($"censusdesc;scale={this.ID}")
+                .DocumentElement
+                .SelectSingleNode("CENSUSDESC");
 
             this.Nation = node.SelectSingleNode("NDESC").InnerText;
             this.Region = node.SelectSingleNode("RDESC").InnerText;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="CensusDescription"/> into a string.
-        /// </summary>
-        /// <returns>The stringified version of the <see cref="CensusDescription"/>.</returns>
-        public override string ToString()
-        {
-            return $"(this.Nation, this.Region)";
         }
     }
 }

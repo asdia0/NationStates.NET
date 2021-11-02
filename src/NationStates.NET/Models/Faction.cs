@@ -91,11 +91,9 @@
         {
             this.ID = id;
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"faction;id={id}"));
-
-            XmlNode node = doc.DocumentElement.FirstChild;
+            XmlNode node = Utility.ParseDocument($"faction;id={id}")
+                .DocumentElement
+                .FirstChild;
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
             this.Description = node.SelectSingleNode("DESC").InnerText;

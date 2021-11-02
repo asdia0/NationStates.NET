@@ -37,11 +37,10 @@
             }
             else
             {
-                XmlDocument doc = new XmlDocument();
-
-                doc.LoadXml(Utility.DownloadUrlString($"banner;banner={id}"));
-
-                XmlNode node = doc.DocumentElement.SelectSingleNode("BANNERS").FirstChild;
+                XmlNode node = Utility.ParseDocument($"banner;banner={id}")
+                    .DocumentElement
+                    .SelectSingleNode("BANNERS")
+                    .FirstChild;
 
                 this.Name = node.SelectSingleNode("NAME").InnerText;
                 this.Validity = node.SelectSingleNode("VALIDITY").InnerText;

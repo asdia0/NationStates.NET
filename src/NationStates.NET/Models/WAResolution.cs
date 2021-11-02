@@ -100,11 +100,9 @@
         /// <param name="councilID">The resolution's council ID.</param>
         public WAResolution(WACouncil council, long councilID)
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"wa={(int)council + 1}&id={councilID}&q=resolution"));
-
-            XmlNode node = doc.DocumentElement.FirstChild;
+            XmlNode node = Utility.ParseDocument($"wa={(int)council + 1}&id={councilID}&q=resolution")
+                .DocumentElement
+                .FirstChild;
 
             this.Council = council;
             this.CouncilID = councilID;

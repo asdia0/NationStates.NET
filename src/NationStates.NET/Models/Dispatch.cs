@@ -87,11 +87,9 @@
         {
             this.ID = id;
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(Utility.DownloadUrlString($"dispatch;dispatchid={id}"));
-
-            XmlNode dispatch = doc.DocumentElement.SelectSingleNode("DISPATCH");
+            XmlNode dispatch = Utility.ParseDocument($"dispatch;dispatchid={id}")
+                .DocumentElement
+                .SelectSingleNode("DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
             this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
