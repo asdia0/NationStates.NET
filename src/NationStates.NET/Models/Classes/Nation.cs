@@ -1015,5 +1015,34 @@
         {
             this.Name = name;
         }
+
+        /// <summary>
+        /// Gets census data from a time period.
+        /// </summary>
+        /// <param name="start">The start of the time period as a UNIX timestamp.</param>
+        /// <param name="end">The end of the time period as a UNIX timestamp.</param>
+        /// <returns>A list of all census data recorded during the time period.</returns>
+        public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
+        {
+            XmlNode node = Utility.ParseDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + Utility.ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + Utility.ConvertToUnix((DateTime)end) : string.Empty)}")
+                .SelectSingleNode("/NATION/CENSUS");
+
+            HashSet<CensusRecord> records = new();
+
+            foreach (XmlNode scale in node.ChildNodes)
+            {
+                int id = int.Parse(scale.Attributes["id"].Value);
+
+                foreach (XmlNode point in scale.ChildNodes)
+                {
+                    double score = double.Parse(point.SelectSingleNode("SCORE").InnerText);
+                    DateTime timeStamp = Utility.ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
+
+                    records.Add(new(id, score, timeStamp));
+                }
+            }
+
+            return records;
+        }
     }
 }
