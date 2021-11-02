@@ -639,6 +639,27 @@
         }
 
         /// <summary>
+        /// Gets a list of recent legislation passed in the nation.
+        /// </summary>
+        public HashSet<string> Legislation
+        {
+            get
+            {
+                XmlNodeList list = Utility.ParseDocument($"nation={this.Name}&q=legislation")
+                    .SelectNodes("/NATION/LEGISLATION/LAW");
+
+                HashSet<string> legislation = new();
+
+                foreach (XmlNode law in list)
+                {
+                    legislation.Add(law.InnerText);
+                }
+
+                return legislation;
+            }
+        }
+
+        /// <summary>
         /// Gets the nation's largest industry.
         /// </summary>
         public Industry MajorIndustry
@@ -681,6 +702,40 @@
                     this._Name = value;
                     this.nameSet = true;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets one the nation's notable characteristic.
+        /// </summary>
+        public string Notable
+        {
+            get
+            {
+                return Utility.ParseDocument($"nation={this.Name}&q=notable")
+                    .SelectSingleNode("/NATION/NOTABLE")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of the nation's notable characteristics.
+        /// </summary>
+        public HashSet<string> Notables
+        {
+            get
+            {
+                XmlNodeList list = Utility.ParseDocument($"nation={this.Name}&q=notables")
+                    .SelectNodes("/NATION/NOTABLES/NOTABLE");
+
+                HashSet<string> notables = new();
+
+                foreach (XmlNode notable in list)
+                {
+                    notables.Add(notable.InnerText);
+                }
+
+                return notables;
             }
         }
 
