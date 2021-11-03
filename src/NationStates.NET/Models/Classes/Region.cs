@@ -309,36 +309,6 @@
         }
 
         /// <summary>
-        /// Gets the last 10 RMB messages.
-        /// </summary>
-        public HashSet<Post> Messages
-        {
-            get
-            {
-                XmlNode node = ParseDocument($"region={this.Name}&q=messages")
-                    .SelectSingleNode("/REGION/MESSAGES");
-
-                HashSet<Post> messages = new();
-
-                foreach (XmlNode message in node.ChildNodes)
-                {
-                    ulong id = ulong.Parse(message.Attributes["id"].Value);
-                    DateTime posted = ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
-                    string nation = message.SelectSingleNode("NATION").InnerText;
-                    PostStatus status = ParseStatus(message.SelectSingleNode("STATUS").InnerText);
-                    DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : ParseUnix(message.SelectSingleNode("EDITED").InnerText);
-                    HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
-                    string content = message.SelectSingleNode("MESSAGE").InnerText;
-                    string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
-
-                    messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
-                }
-
-                return messages;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the region's name.
         /// </summary>
         public string Name
@@ -616,6 +586,37 @@
             }
 
             return censusRanks;
+        }
+
+        /// <summary>
+        /// Gets RMB messages.
+        /// </summary>
+        /// <param name="limit">The number of messages to return. Must be between 1 and 100. Is 10 by default.</param>
+        /// <param name="offset">Number of latest messages to skip.</param>
+        /// <param name="fromID">Return messages from the message with the given ID.</param>
+        /// <returns>A list of RMB messages.</returns>
+        public HashSet<Post> Messages(int? limit, int? offset, ulong? fromID)
+        {
+            XmlNode node = ParseDocument($"region={this.Name}&q=messages{((limit != null) ? ("&limit=" + limit.ToString()) : string.Empty)}{((offset != null) ? ("&offset=" + offset.ToString()) : string.Empty)}{((fromID != null) ? ("&fromid=" + fromID.ToString()) : string.Empty)}")
+                .SelectSingleNode("/REGION/MESSAGES");
+
+            HashSet<Post> messages = new();
+
+            foreach (XmlNode message in node.ChildNodes)
+            {
+                ulong id = ulong.Parse(message.Attributes["id"].Value);
+                DateTime posted = ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
+                string nation = message.SelectSingleNode("NATION").InnerText;
+                PostStatus status = ParseStatus(message.SelectSingleNode("STATUS").InnerText);
+                DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : ParseUnix(message.SelectSingleNode("EDITED").InnerText);
+                HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
+                string content = message.SelectSingleNode("MESSAGE").InnerText;
+                string? supressor = message.SelectNodes("SUPPRESOR").Count == 0 ? null : message.SelectSingleNode("SUPPRESOR").InnerText;
+
+                messages.Add(new Post(id, posted, nation, status, edited, likers, content, supressor));
+            }
+
+            return messages;
         }
     }
 }
