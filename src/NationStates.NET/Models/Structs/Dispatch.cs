@@ -88,7 +88,6 @@
             this.ID = id;
 
             XmlNode dispatch = Utility.ParseDocument($"dispatch;dispatchid={id}")
-                .DocumentElement
                 .SelectSingleNode("DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;

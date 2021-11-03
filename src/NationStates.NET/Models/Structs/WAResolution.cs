@@ -101,7 +101,6 @@
         public WAResolution(WACouncil council, long councilID)
         {
             XmlNode node = Utility.ParseDocument($"wa={(int)council + 1}&id={councilID}&q=resolution")
-                .DocumentElement
                 .FirstChild;
 
             this.Council = council;

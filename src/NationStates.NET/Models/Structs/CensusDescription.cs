@@ -31,7 +31,6 @@
             this.ID = id;
 
             XmlNode node = Utility.ParseDocument($"censusdesc;scale={this.ID}")
-                .DocumentElement
                 .SelectSingleNode("CENSUSDESC");
 
             this.Nation = node.SelectSingleNode("NDESC").InnerText;

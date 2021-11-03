@@ -112,11 +112,11 @@
         /// </summary>
         /// <param name="path">The webpage to parse the XML document from.</param>
         /// <returns>An <see cref="XmlDocument"/>.</returns>
-        public static XmlDocument ParseDocument(string path)
+        public static XmlElement ParseDocument(string path)
         {
             XmlDocument doc = new();
             doc.LoadXml(Utility.DownloadUrlString(path));
-            return doc;
+            return doc.DocumentElement;
         }
 
         /// <summary>

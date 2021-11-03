@@ -92,7 +92,6 @@
             this.ID = id;
 
             XmlNode node = Utility.ParseDocument($"faction;id={id}")
-                .DocumentElement
                 .FirstChild;
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
