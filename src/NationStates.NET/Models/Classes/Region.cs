@@ -104,7 +104,7 @@
 
                 foreach (string dispatchID in ParseDocument($"region={this.Name}&q=dispatches").SelectSingleNode("/REGION/DISPATCHES").InnerText.Split(","))
                 {
-                    dispatchList.Add(World.GetDispatch(ulong.Parse(dispatchID)));
+                    dispatchList.Add(new(ulong.Parse(dispatchID)));
                 }
 
                 return dispatchList;

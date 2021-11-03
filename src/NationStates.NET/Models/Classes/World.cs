@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading;
     using System.Xml;
     using static NationStates.NET.Utility;
 
@@ -13,68 +12,136 @@
     public static class World
     {
         /// <summary>
-        /// Gets the name and validity of banners from their ID.
+        /// Gets the census world average in each census.
         /// </summary>
-        /// <param name="banners">A collection of the banner IDs to search for.</param>
-        /// <returns>The name and validty of specified banners.</returns>
-        public static Dictionary<string, Banner> GetBanners(HashSet<string> banners)
+        public static HashSet<CensusWorld> CensusAverages
         {
-            Dictionary<string, Banner> res = new Dictionary<string, Banner>();
-
-            foreach (string banner in banners)
+            get
             {
-                res.Add(banner, new Banner(banner));
-            }
+                HashSet<CensusWorld> censusAverages = new();
 
-            return res;
+                foreach (XmlNode census in ParseDocument("q=census;scale=all").SelectSingleNode("CENSUS").ChildNodes)
+                {
+                    int id = int.Parse(census.Attributes["id"].Value);
+                    double score = double.Parse(census
+                        .SelectSingleNode("SCORE")
+                        .InnerText);
+
+                    censusAverages.Add(new(id, score));
+                }
+
+                return censusAverages;
+            }
         }
 
         /// <summary>
-        /// Returns the census world average in each census.
+        /// Gets today's census ID.
         /// </summary>
-        /// <returns>A dictionary. Key: Census ID. Value: Census score.</returns>
-        public static Dictionary<int, double> GetCensusAverage()
+        public static int CensusOfTheDay
         {
-            Dictionary<int, double> res = new Dictionary<int, double>();
-
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("census;scale=all"));
-
-            XmlNode node = doc.DocumentElement.SelectSingleNode("CENSUS");
-
-            foreach (XmlNode census in node.ChildNodes)
+            get
             {
-                int id = int.Parse(census.Attributes["id"].Value);
-                double score = double.Parse(census.SelectSingleNode("SCORE").InnerText);
-
-                res.Add(id, score);
+                return int.Parse(ParseDocument("q=censusid")
+                    .SelectSingleNode("CENSUSID")
+                    .InnerText);
             }
-
-            return res;
         }
 
         /// <summary>
-        /// Gets today's census.
+        /// Gets a list of all factions sorted by their score.
         /// </summary>
-        /// <returns>The ID of today's census.</returns>
-        public static int GetCensusOfTheDay()
+        public static List<Faction> Factions
         {
-            XmlDocument doc = new XmlDocument();
+            get
+            {
+                List<Faction> factions = new List<Faction>();
 
-            doc.LoadXml(DownloadUrlString("censusid"));
+                foreach (XmlNode faction in ParseDocument("q=factions").FirstChild.ChildNodes)
+                {
+                    factions.Add(new Faction(long.Parse(faction.Attributes["id"].Value)));
+                }
 
-            return int.Parse(doc.DocumentElement.SelectSingleNode("CENSUSID").InnerText);
+                return factions;
+            }
         }
 
         /// <summary>
-        /// Gets the <see cref="CensusDescription"/> for a census.
+        /// Gets today's featured region.
+        /// </summary>
+        /// <returns>Today's featured region.</returns>
+        public static string FeaturedRegion
+        {
+            get
+            {
+                return ParseDocument("q=featuredregion").FirstChild.InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the ID of the latest event.
+        /// </summary>
+        public static ulong LastEventID
+        {
+            get
+            {
+                return ulong.Parse(ParseDocument("q=lasteventid").FirstChild.InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the names of newly founded nations.
+        /// </summary>
+        public static HashSet<string> NewNations
+        {
+            get
+            {
+                return ParseDocument("q=newnations").FirstChild.InnerText.Split(",").ToHashSet();
+            }
+        }
+
+        /// <summary>
+        /// Gets the total number of nations.
+        /// </summary>
+        public static long NumNations
+        {
+            get
+            {
+                return long.Parse(ParseDocument("q=numnations").FirstChild.InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the total number of regions.
+        /// </summary>
+        public static long NumRegions
+        {
+            get
+            {
+                return long.Parse(ParseDocument("q=numregions").FirstChild.InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the description for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
-        /// <returns>The <see cref="CensusDescription"/> for the specified census.</returns>
-        public static CensusDescription GetCensusDescription(int id)
+        /// <param name="entity">The type of entity to get the census description for.</param>
+        /// <returns>The description for the specified census.</returns>
+        public static string CensusDescription(int id, Entity entity)
         {
-            return new CensusDescription(id);
+            XmlNode node = Utility.ParseDocument($"censusdesc;scale={id}")
+                .SelectSingleNode("CENSUSDESC");
+
+            switch (entity)
+            {
+                case Entity.Nation:
+                    return node.SelectSingleNode("NDESC")
+                        .InnerText;
+                case Entity.Region:
+                    return node.SelectSingleNode("RDESC").InnerText;
+                default:
+                    throw new NSError("Invalid entity.");
+            }
         }
 
         /// <summary>
@@ -82,13 +149,9 @@
         /// </summary>
         /// <param name="id">The ID of the census. </param>
         /// <returns>The name of the specified census.</returns>
-        public static string GetCensusName(int id)
+        public static string CensusName(int id)
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"censusname;scale={id}"));
-
-            return doc.DocumentElement.FirstChild.InnerText;
+            return ParseDocument($"q=censusname&scale={id}").FirstChild.InnerText;
         }
 
         /// <summary>
@@ -97,17 +160,11 @@
         /// <param name="id">The census ID.</param>
         /// <param name="start">The start rank.</param>
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static List<WorldCensus> GetCensusRanks(int id, long start)
+        public static List<WorldCensus> CensusRanks(int id, long start)
         {
             List<WorldCensus> res = new List<WorldCensus>();
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"censusranks;scale={id}&start={start}"));
-
-            XmlNode nations = doc.DocumentElement.SelectSingleNode("CENSUSRANKS/NATIONS");
-
-            foreach (XmlNode nation in nations.ChildNodes)
+            foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("CENSUSRANKS/NATIONS").ChildNodes)
             {
                 string name = nation.SelectSingleNode("NAME").InnerText;
                 double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
@@ -124,13 +181,9 @@
         /// </summary>
         /// <param name="id">The ID of the census. </param>
         /// <returns>The scale of the specified census.</returns>
-        public static string GetCensusScale(int id)
+        public static string CensusScale(int id)
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"censusscale;scale={id}"));
-
-            return doc.DocumentElement.FirstChild.InnerText;
+            return ParseDocument($"q=censusscale;scale={id}").FirstChild.InnerText;
         }
 
         /// <summary>
@@ -138,23 +191,9 @@
         /// </summary>
         /// <param name="id">The ID of the census. </param>
         /// <returns>The title of the specified census.</returns>
-        public static string GetCensusTitle(int id)
+        public static string CensusTitle(int id)
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"censustitle;scale={id}"));
-
-            return doc.DocumentElement.FirstChild.InnerText;
-        }
-
-        /// <summary>
-        /// Gets a dispatch from its ID.
-        /// </summary>
-        /// <param name="id">The dispatch's ID.</param>
-        /// <returns>The dispatch with the specified ID.</returns>
-        public static Dispatch GetDispatch(ulong id)
-        {
-            return new Dispatch(id);
+            return ParseDocument($"q=censustitle;scale={id}").FirstChild.InnerText;
         }
 
         /// <summary>
@@ -165,11 +204,11 @@
         /// <param name="subCategory">The dispatch's sub-category.</param>
         /// <param name="sort">The sort to use.</param>
         /// <returns>A list of dispatches fulfilling the above criteria.</returns>
-        public static List<Dispatch> GetDispatchList(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
+        public static List<Dispatch> DispatchList(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
         {
-            List<Dispatch> res = new List<Dispatch>();
+            List<Dispatch> dispatches = new List<Dispatch>();
 
-            string url = "dispatchlist;";
+            string url = "q=dispatchlist;";
 
             if (author != null)
             {
@@ -218,64 +257,12 @@
                 url += $"dispatchsort={sort}";
             }
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString(url));
-
-            XmlNode node = doc.DocumentElement.SelectSingleNode("DISPATCHLIST");
-
-            foreach (XmlNode dispatch in node.ChildNodes)
+            foreach (XmlNode dispatch in ParseDocument(url).SelectSingleNode("DISPATCHLIST").ChildNodes)
             {
-                res.Add(World.GetDispatch(ulong.Parse(dispatch.Attributes["id"].Value)));
+                dispatches.Add(new(ulong.Parse(dispatch.Attributes["id"].Value)));
             }
 
-            return res;
-        }
-
-        /// <summary>
-        /// Gets a faction from its ID.
-        /// </summary>
-        /// <param name="id">The faction's ID.</param>
-        /// <returns>The faction with the specified ID.</returns>
-        public static Faction GetFaction(long id)
-        {
-            return new Faction(id);
-        }
-
-        /// <summary>
-        /// Gets a list of all factions sorted by their score.
-        /// </summary>
-        /// <returns>A list of all factions.</returns>
-        public static List<Faction> GetFactions()
-        {
-            List<Faction> res = new List<Faction>();
-
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("factions"));
-
-            XmlNode node = doc.DocumentElement.FirstChild;
-
-            foreach (XmlNode faction in node.ChildNodes)
-            {
-                res.Add(new Faction(long.Parse(faction.Attributes["id"].Value)));
-                Thread.Sleep(600);
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// Gets today's featured region.
-        /// </summary>
-        /// <returns>Today's featured region.</returns>
-        public static string GetFeaturedRegion()
-        {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("featuredregion"));
-
-            return doc.DocumentElement.FirstChild.InnerText;
+            return dispatches;
         }
 
         /// <summary>
@@ -290,9 +277,9 @@
         /// <param name="sinceTime">Get events since a certain time.</param>
         /// <param name="beforeTime">Get events before a certain time.</param>
         /// <returns>A collection of events satisfying the above criteria.</returns>
-        public static HashSet<Event> GetHappenings(HashSet<string>? entities, Entity? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
+        public static HashSet<Event> Happenings(HashSet<string>? entities, Entity? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
         {
-            string url = "happenings;";
+            string url = "q=happenings;";
 
             if (entities != null && entityType != null)
             {
@@ -329,51 +316,7 @@
                 url += $"beforeTime={((DateTimeOffset)beforeTime).ToUnixTimeSeconds()};";
             }
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString(url));
-
-            return ParseEvents(doc.DocumentElement.FirstChild);
-        }
-
-        /// <summary>
-        /// Gets the ID of the latest event.
-        /// </summary>
-        /// <returns>The ID of the latest event.</returns>
-        public static ulong GetLastEventID()
-        {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("lasteventid"));
-
-            return ulong.Parse(doc.DocumentElement.FirstChild.InnerText);
-        }
-
-        /// <summary>
-        /// Gets the names of newly founded nations.
-        /// </summary>
-        /// <returns>A collection of the names of newly founded nations.</returns>
-        public static HashSet<string> GetNewNations()
-        {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("newnations"));
-
-            return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
-        }
-
-        /// <summary>
-        /// Gets the number of entities.
-        /// </summary>
-        /// <param name="type">The type of entity.</param>
-        /// <returns>The number of entities.</returns>
-        public static long GetEntityNumber(Entity type)
-        {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"num{type.ToString().ToLower()}s"));
-
-            return long.Parse(doc.DocumentElement.FirstChild.InnerText);
+            return ParseEvents(ParseDocument(url).FirstChild);
         }
 
         /// <summary>
@@ -382,60 +325,42 @@
         /// <param name="with">Get regions with the <see cref="RegionTag"/>s.</param>
         /// <param name="without">Get regions without the <see cref="RegionTag"/>s.</param>
         /// <returns>A collection of regions that satisfy the above criteria.</returns>
-        public static HashSet<string> GetRegionsByTags(HashSet<RegionTag>? with, HashSet<RegionTag>? without)
+        public static HashSet<string> RegionsByTags(HashSet<RegionTag>? with, HashSet<RegionTag>? without)
         {
-            HashSet<string> all = new HashSet<string>();
+            HashSet<string> tags = new HashSet<string>();
 
             if (with != null)
             {
-                foreach (RegionTag t in with)
+                foreach (RegionTag tag in with)
                 {
-                    all.Add(RegionTagToString(t).ToLower());
+                    tags.Add(RegionTagToString(tag).ToLower());
                 }
             }
 
             if (without != null)
             {
-                foreach (RegionTag t in without)
+                foreach (RegionTag tag in without)
                 {
-                    all.Add("-" + RegionTagToString(t).ToLower());
+                    tags.Add("-" + RegionTagToString(tag).ToLower());
                 }
             }
 
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString($"regionsbytag;tags={string.Join(",", all)}"));
-
-            return doc.DocumentElement.FirstChild.InnerText.Split(",").ToHashSet();
+            return ParseDocument($"q=regionsbytag;tags={string.Join(",", tags)}").FirstChild.InnerText.Split(",").ToHashSet();
         }
 
         /// <summary>
         /// Gets the current telegram queue.
         /// </summary>
         /// <returns>The current telegram queue.</returns>
-        public static TelegramQueue GetTelegramQueue()
+        public static TelegramQueue TelegramQueue()
         {
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(DownloadUrlString("tgqueue"));
-
-            XmlNode node = doc.DocumentElement.FirstChild;
+            XmlNode node = ParseDocument("q=tgqueue").FirstChild;
 
             long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
             long mass = long.Parse(node.SelectSingleNode("MASS").InnerText);
             long api = long.Parse(node.SelectSingleNode("API").InnerText);
 
             return new TelegramQueue(manual, mass, api);
-        }
-
-        /// <summary>
-        /// Gets a poll from its ID.
-        /// </summary>
-        /// <param name="id">The poll's ID.</param>
-        /// <returns>The poll with the specified ID.</returns>
-        public static Poll GetPoll(long id)
-        {
-            return new Poll(id);
         }
     }
 }

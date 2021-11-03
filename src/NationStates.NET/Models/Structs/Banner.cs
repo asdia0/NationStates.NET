@@ -37,7 +37,7 @@
             }
             else
             {
-                XmlNode node = Utility.ParseDocument($"banner;banner={id}")
+                XmlNode node = Utility.ParseDocument($"q=banner;banner={id}")
                     .SelectSingleNode("BANNERS")
                     .FirstChild;
 
