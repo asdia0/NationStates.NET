@@ -89,6 +89,21 @@
         }
 
         /// <summary>
+        /// Gets a list of all nations.
+        /// </summary>
+        public static HashSet<string> Nations
+        {
+            get
+            {
+                return ParseDocument("q=nations")
+                    .FirstChild
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
+            }
+        }
+
+        /// <summary>
         /// Gets the names of newly founded nations.
         /// </summary>
         public static HashSet<string> NewNations
@@ -118,6 +133,21 @@
             get
             {
                 return long.Parse(ParseDocument("q=numregions").FirstChild.InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of all nations.
+        /// </summary>
+        public static HashSet<string> Regions
+        {
+            get
+            {
+                return ParseDocument("q=regions")
+                    .FirstChild
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
             }
         }
 
