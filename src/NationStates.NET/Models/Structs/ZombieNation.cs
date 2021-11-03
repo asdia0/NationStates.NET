@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines a nation during Z-Day.
     /// </summary>
-    public struct NationZombie
+    public struct ZombieNation
     {
         /// <summary>
         /// Gets the nation's action.
@@ -31,14 +31,14 @@
         public long Dead { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NationZombie"/> struct.
+        /// Initializes a new instance of the <see cref="ZombieNation"/> struct.
         /// </summary>
         /// <param name="action">Nation's action.</param>
         /// <param name="intendedAction">Nation;s intended action.</param>
         /// <param name="survivors">Number of survivors in millions.</param>
         /// <param name="zombies">Number of zombies in millions.</param>
         /// <param name="dead">Number of dead people in millions.</param>
-        public NationZombie(ZombieAction action, ZombieAction? intendedAction, long survivors, long zombies, long dead)
+        public ZombieNation(ZombieAction action, ZombieAction? intendedAction, long survivors, long zombies, long dead)
         {
             this.Action = action;
             this.IntendedAction = intendedAction;

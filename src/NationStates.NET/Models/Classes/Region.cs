@@ -18,14 +18,14 @@
         /// <summary>
         /// Gets the region's census data.
         /// </summary>
-        public HashSet<RegionCensus> Census
+        public HashSet<CensusRegion> Census
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=census&scale=all&mode=score+rank+prank")
                     .SelectSingleNode("/REGION/CENSUS");
 
-                HashSet<RegionCensus> regionCensus = new();
+                HashSet<CensusRegion> regionCensus = new();
 
                 foreach (XmlNode census in node.ChildNodes)
                 {
@@ -34,7 +34,7 @@
                     long worldRank = long.Parse(census.SelectSingleNode("RANK").InnerText);
                     double worldPercentage = double.Parse(census.SelectSingleNode("PRANK").InnerText);
 
-                    regionCensus.Add(new(id, score, worldRank, worldPercentage));
+                    regionCensus.Add(new(id, this.Name, score, worldRank, worldPercentage));
                 }
 
                 return regionCensus;
@@ -510,7 +510,7 @@
         /// <summary>
         /// Gets the region's Z-Day information.
         /// </summary>
-        public RegionZombie Zombie
+        public ZombieRegion Zombie
         {
             get
             {
@@ -521,7 +521,7 @@
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
 
-                return new RegionZombie(survivors, zombies, dead);
+                return new ZombieRegion(survivors, zombies, dead);
             }
         }
 
@@ -540,12 +540,12 @@
         /// <param name="start">The start of the time period as a UNIX timestamp.</param>
         /// <param name="end">The end of the time period as a UNIX timestamp.</param>
         /// <returns>A list of all census data recorded during the time period.</returns>
-        public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
+        public HashSet<CensusHistory> CensusHistory(DateTime? start, DateTime? end)
         {
             XmlNode node = ParseDocument($"region={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/REGION/CENSUS");
 
-            HashSet<CensusRecord> records = new();
+            HashSet<CensusHistory> records = new();
 
             foreach (XmlNode scale in node.ChildNodes)
             {
@@ -556,7 +556,7 @@
                     double score = double.Parse(point.SelectSingleNode("SCORE").InnerText);
                     DateTime timeStamp = ParseUnix(point.SelectSingleNode("TIMESTAMP").InnerText);
 
-                    records.Add(new(id, score, timeStamp));
+                    records.Add(new(id, this.Name, score, timeStamp));
                 }
             }
 
