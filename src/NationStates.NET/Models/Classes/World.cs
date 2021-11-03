@@ -137,7 +137,7 @@
         }
 
         /// <summary>
-        /// Gets a list of all nations.
+        /// Gets a list of all regions.
         /// </summary>
         public static HashSet<string> Regions
         {
