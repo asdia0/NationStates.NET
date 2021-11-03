@@ -18,3 +18,4 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 ## TODO
 - [ ] Rewrite main classes for readability
 - [ ] Add pre-emptive rate-limit warning
+- [ ] Convert Region.Messages to a function
