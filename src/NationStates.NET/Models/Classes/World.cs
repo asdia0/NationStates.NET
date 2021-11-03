@@ -122,6 +122,23 @@
         }
 
         /// <summary>
+        /// Gets the current telegram queue.
+        /// </summary>
+        public static TelegramQueue TelegramQueue
+        {
+            get
+            {
+                XmlNode node = ParseDocument("q=tgqueue").FirstChild;
+
+                long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
+                long mass = long.Parse(node.SelectSingleNode("MASS").InnerText);
+                long api = long.Parse(node.SelectSingleNode("API").InnerText);
+
+                return new TelegramQueue(manual, mass, api);
+            }
+        }
+
+        /// <summary>
         /// Gets the description for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
@@ -346,21 +363,6 @@
             }
 
             return ParseDocument($"q=regionsbytag;tags={string.Join(",", tags)}").FirstChild.InnerText.Split(",").ToHashSet();
-        }
-
-        /// <summary>
-        /// Gets the current telegram queue.
-        /// </summary>
-        /// <returns>The current telegram queue.</returns>
-        public static TelegramQueue TelegramQueue()
-        {
-            XmlNode node = ParseDocument("q=tgqueue").FirstChild;
-
-            long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
-            long mass = long.Parse(node.SelectSingleNode("MASS").InnerText);
-            long api = long.Parse(node.SelectSingleNode("API").InnerText);
-
-            return new TelegramQueue(manual, mass, api);
         }
     }
 }
