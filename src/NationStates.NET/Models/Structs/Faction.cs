@@ -91,7 +91,7 @@
         {
             this.ID = id;
 
-            XmlNode node = Utility.ParseDocument($"faction;id={id}")
+            XmlNode node = Utility.ParseDocument($"q=faction;id={id}")
                 .FirstChild;
 
             this.Name = node.SelectSingleNode("NAME").InnerText;

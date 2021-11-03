@@ -87,7 +87,7 @@
         {
             this.ID = id;
 
-            XmlNode dispatch = Utility.ParseDocument($"dispatch;dispatchid={id}")
+            XmlNode dispatch = Utility.ParseDocument($"q=dispatch;dispatchid={id}")
                 .SelectSingleNode("DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;

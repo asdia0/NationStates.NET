@@ -74,7 +74,7 @@
         {
             this.ID = id;
 
-            XmlNode node = Utility.ParseDocument($"poll;pollid={id}")
+            XmlNode node = Utility.ParseDocument($"q=poll;pollid={id}")
                 .SelectSingleNode("POLL");
 
             this.Title = node.SelectSingleNode("TITLE").InnerText;
