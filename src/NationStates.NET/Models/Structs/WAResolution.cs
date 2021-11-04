@@ -112,64 +112,13 @@
             if (council == WACouncil.General_Assembly)
             {
                 this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
-
-                string formatted = FormatForEnum(Capitalise(option.InnerText));
-
-                switch (this.Category)
-                {
-                    case WAGACategory.Repeal:
-                        this.SubCategory = long.Parse(option.InnerText);
-                        break;
-
-                    case WAGACategory.Bookkeeping:
-                        this.SubCategory = WAGABookeeping.Sweeping;
-                        break;
-
-                    case WAGACategory.Regulation:
-                        this.SubCategory = (WAGARegulation)Enum.Parse(typeof(WAGARegulation), formatted);
-                        break;
-
-                    case WAGACategory.Health:
-                        this.SubCategory = (WAGAHealth)Enum.Parse(typeof(WAGAHealth), formatted);
-                        break;
-
-                    case WAGACategory.Environmental:
-                        this.SubCategory = (WAGAEnvironmental)Enum.Parse(typeof(WAGAEnvironmental), formatted);
-                        break;
-
-                    case WAGACategory.Education_And_Creativity:
-                        this.SubCategory = (WAGAEducationAndCreativity)Enum.Parse(typeof(WAGAEducationAndCreativity), formatted);
-                        break;
-
-                    case WAGACategory.Advancement_Of_Industry:
-                        this.SubCategory = (WAGAAdvancementOfIndustry)Enum.Parse(typeof(WAGAAdvancementOfIndustry), formatted);
-                        break;
-
-                    default:
-                        this.SubCategory = (WAGAStrength)Enum.Parse(typeof(WAGAStrength), formatted);
-                        break;
-                }
             }
             else
             {
                 this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
-
-                if (option.InnerText.StartsWith("N:"))
-                {
-                    this.SubCategory = (Entity.Nation, option.InnerText.Replace("N:", string.Empty));
-                }
-
-                if (option.InnerText.StartsWith("R:"))
-                {
-                    this.SubCategory = (Entity.Region, option.InnerText.Replace("R:", string.Empty));
-                }
-                else
-                {
-                    // Identical to RepealedID
-                    this.SubCategory = long.Parse(option.InnerText);
-                }
             }
 
+            this.SubCategory = ParseSubCategory(option, this.Council, this.Category);
             this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
             this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
             this.Description = node.SelectSingleNode("DESC").InnerText;

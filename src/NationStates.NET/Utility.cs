@@ -177,6 +177,69 @@
         }
 
         /// <summary>
+        /// Parses <see cref="WAGACategory"/> or <see cref="WASCCategory"/>.
+        /// </summary>
+        /// <param name="option">The option node.</param>
+        /// <param name="council">The council the proposal/resolution was submitted in.</param>
+        /// <param name="category">The category of the proposal/resolution.</param>
+        /// <returns>A sub-category.</returns>
+        public static dynamic ParseSubCategory(XmlNode option, WACouncil council, dynamic category)
+        {
+            if (category is WAGACategory)
+            {
+                string formatted = FormatForEnum(Capitalise(option.InnerText));
+
+                switch (category)
+                {
+                    case WAGACategory.Repeal:
+                        return long.Parse(option.InnerText);
+
+                    case WAGACategory.Bookkeeping:
+                        return WAGABookeeping.Sweeping;
+
+                    case WAGACategory.Regulation:
+                        return (WAGARegulation)Enum.Parse(typeof(WAGARegulation), formatted);
+
+                    case WAGACategory.Health:
+                        return (WAGAHealth)Enum.Parse(typeof(WAGAHealth), formatted);
+
+                    case WAGACategory.Environmental:
+                        return (WAGAEnvironmental)Enum.Parse(typeof(WAGAEnvironmental), formatted);
+
+                    case WAGACategory.Education_And_Creativity:
+                        return (WAGAEducationAndCreativity)Enum.Parse(typeof(WAGAEducationAndCreativity), formatted);
+
+                    case WAGACategory.Advancement_Of_Industry:
+                        return (WAGAAdvancementOfIndustry)Enum.Parse(typeof(WAGAAdvancementOfIndustry), formatted);
+
+                    default:
+                        return (WAGAStrength)Enum.Parse(typeof(WAGAStrength), formatted);
+                }
+            }
+            else if (category is WASCCategory)
+            {
+                if (option.InnerText.StartsWith("N:"))
+                {
+                    return (Entity.Nation, option.InnerText.Replace("N:", string.Empty));
+                }
+
+                if (option.InnerText.StartsWith("R:"))
+                {
+                    return (Entity.Region, option.InnerText.Replace("R:", string.Empty));
+                }
+                else
+                {
+                    // Identical to RepealedID
+                    return long.Parse(option.InnerText);
+                }
+            }
+            else
+            {
+                throw new NSError("Invalid category type.");
+            }
+        }
+
+        /// <summary>
         /// Parses a string for <see cref="DateTime"/>.
         /// </summary>
         /// <param name="unix">The string to parse.</param>
