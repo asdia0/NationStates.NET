@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using static Utility;
 
     /// <summary>
     /// Defines a World Assembly proposal.
