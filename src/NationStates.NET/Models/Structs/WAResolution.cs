@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a World Assembly resolution.
@@ -101,7 +102,7 @@
         public WAResolution(WACouncil council, long councilID)
         {
             XmlNode node = Utility.ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution")
-                .FirstChild;
+                .SelectSingleNode("/WA/RESOLUTION");
 
             this.Council = council;
             this.CouncilID = councilID;
