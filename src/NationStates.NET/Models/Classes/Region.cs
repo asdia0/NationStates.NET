@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
-    using static NationStates.NET.Utility;
+    using static Utility;
 
     /// <summary>
     /// Represents a region.

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using static NationStates.NET.Utility;
+    using static Utility;
 
     /// <summary>
     /// Represents the WorldAssembly.
