@@ -189,7 +189,7 @@
         /// <returns>The description for the specified census.</returns>
         public static string CensusDescription(int id, Entity entity)
         {
-            XmlNode node = Utility.ParseDocument($"censusdesc;scale={id}")
+            XmlNode node = ParseDocument($"censusdesc;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSDESC");
 
             switch (entity)

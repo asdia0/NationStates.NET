@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a dispatch.
@@ -86,11 +87,11 @@
         {
             this.ID = id;
 
-            XmlNode dispatch = Utility.ParseDocument($"q=dispatch;dispatchid={id}")
+            XmlNode dispatch = ParseDocument($"q=dispatch;dispatchid={id}")
                 .SelectSingleNode("/WORLD/DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
-            this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+            this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), FormatForEnum(Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
             this.Author = dispatch.SelectSingleNode("AUTHOR").InnerText;
 
             switch (this.Category)

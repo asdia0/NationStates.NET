@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a regional poll.
@@ -74,13 +75,13 @@
         {
             this.ID = id;
 
-            XmlNode node = Utility.ParseDocument($"q=poll;pollid={id}")
+            XmlNode node = ParseDocument($"q=poll;pollid={id}")
                 .SelectSingleNode("/WORLD/POLL");
 
             this.Title = node.SelectSingleNode("TITLE").InnerText;
             this.Region = node.SelectSingleNode("REGION").InnerText;
-            this.Start = Utility.ParseUnix(node.SelectSingleNode("START").InnerText);
-            this.Stop = Utility.ParseUnix(node.SelectSingleNode("STOP").InnerText);
+            this.Start = ParseUnix(node.SelectSingleNode("START").InnerText);
+            this.Stop = ParseUnix(node.SelectSingleNode("STOP").InnerText);
             this.Author = node.SelectSingleNode("AUTHOR").InnerText;
             this.Options = new HashSet<PollOption>();
 

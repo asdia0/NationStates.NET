@@ -117,7 +117,7 @@
         public static XmlElement ParseDocument(string path)
         {
             XmlDocument doc = new();
-            doc.LoadXml(Utility.DownloadUrlString(path));
+            doc.LoadXml(DownloadUrlString(path));
             return doc.DocumentElement;
         }
 
@@ -197,7 +197,7 @@
 
             foreach (XmlNode ev in events.ChildNodes)
             {
-                DateTime timestamp = Utility.ParseUnix(ev.SelectSingleNode("TIMESTAMP").InnerText);
+                DateTime timestamp = ParseUnix(ev.SelectSingleNode("TIMESTAMP").InnerText);
                 string text = ev.SelectSingleNode("TEXT").InnerText;
 
                 res.Add(new Event(timestamp, text));

@@ -1,6 +1,7 @@
 ﻿namespace NationStates.NET
 {
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a banner's information.
@@ -37,7 +38,7 @@
             }
             else
             {
-                XmlNode node = Utility.ParseDocument($"q=banner;banner={id}")
+                XmlNode node = ParseDocument($"q=banner;banner={id}")
                     .SelectSingleNode("/WORLD/BANNERS/BANNER");
 
                 this.Name = node.SelectSingleNode("NAME").InnerText;

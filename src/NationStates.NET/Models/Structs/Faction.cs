@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a faction during N-Day.
@@ -91,12 +92,12 @@
         {
             this.ID = id;
 
-            XmlNode node = Utility.ParseDocument($"q=faction;id={id}")
+            XmlNode node = ParseDocument($"q=faction;id={id}")
                 .SelectSingleNode("/WORLD/FACTION");
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
             this.Description = node.SelectSingleNode("DESC").InnerText;
-            this.Founded = Utility.ParseUnix(node.SelectSingleNode("FOUNDED").InnerText);
+            this.Founded = ParseUnix(node.SelectSingleNode("FOUNDED").InnerText);
             this.Region = node.SelectSingleNode("REGION").InnerText;
             this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             this.Production = long.Parse(node.SelectSingleNode("SCORE").InnerText);

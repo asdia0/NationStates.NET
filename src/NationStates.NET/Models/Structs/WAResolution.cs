@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a World Assembly resolution.
@@ -100,7 +101,7 @@
         /// <param name="councilID">The resolution's council ID.</param>
         public WAResolution(WACouncil council, long councilID)
         {
-            XmlNode node = Utility.ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution")
+            XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution")
                 .SelectSingleNode("/WA/RESOLUTION");
 
             this.Council = council;
@@ -110,9 +111,9 @@
 
             if (council == WACouncil.General_Assembly)
             {
-                this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), Utility.FormatForEnum(Utility.Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
 
-                string formatted = Utility.FormatForEnum(Utility.Capitalise(option.InnerText));
+                string formatted = FormatForEnum(Capitalise(option.InnerText));
 
                 switch (this.Category)
                 {
@@ -151,7 +152,7 @@
             }
             else
             {
-                this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), Utility.FormatForEnum(Utility.Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
 
                 if (option.InnerText.StartsWith("N:"))
                 {
@@ -169,8 +170,8 @@
                 }
             }
 
-            this.Created = Utility.ParseUnix(node.SelectSingleNode("CREATED").InnerText);
-            this.Implemented = Utility.ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
+            this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
+            this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
             this.Description = node.SelectSingleNode("DESC").InnerText;
             this.Name = node.SelectSingleNode("NAME").InnerText;
             this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
@@ -181,7 +182,7 @@
             this.RepealedCouncilID = node.SelectNodes("REPEALED_BY").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALED_BY").InnerText);
             this.RepealsID = node.SelectNodes("REPEALS_RESID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_RESID").InnerText);
             this.RepealsCouncilID = node.SelectNodes("REPEALS_COUNCILID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_COUNCILID").InnerText);
-            this.Promoted = node.SelectNodes("PROMOTED").Count == 0 ? null : Utility.ParseUnix(node.SelectSingleNode("PROMOTED").InnerText);
+            this.Promoted = node.SelectNodes("PROMOTED").Count == 0 ? null : ParseUnix(node.SelectSingleNode("PROMOTED").InnerText);
         }
     }
 }
