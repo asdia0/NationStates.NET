@@ -56,7 +56,7 @@
             {
                 List<Faction> factions = new List<Faction>();
 
-                foreach (XmlNode faction in ParseDocument("q=factions").FirstChild.ChildNodes)
+                foreach (XmlNode faction in ParseDocument("q=factions").SelectSingleNode("/WORLD/FACTIONS").ChildNodes)
                 {
                     factions.Add(new Faction(long.Parse(faction.Attributes["id"].Value)));
                 }
@@ -73,7 +73,9 @@
         {
             get
             {
-                return ParseDocument("q=featuredregion").FirstChild.InnerText;
+                return ParseDocument("q=featuredregion")
+                    .SelectSingleNode("/WORLD/FEATUREDREGION")
+                    .InnerText;
             }
         }
 
@@ -84,7 +86,9 @@
         {
             get
             {
-                return ulong.Parse(ParseDocument("q=lasteventid").FirstChild.InnerText);
+                return ulong.Parse(ParseDocument("q=lasteventid")
+                    .SelectSingleNode("/WORLD/LASTEVENTID")
+                    .InnerText);
             }
         }
 
@@ -96,7 +100,7 @@
             get
             {
                 return ParseDocument("q=nations")
-                    .FirstChild
+                    .SelectSingleNode("/WORLD/NATIONS")
                     .InnerText
                     .Split(",")
                     .ToHashSet();
@@ -110,7 +114,11 @@
         {
             get
             {
-                return ParseDocument("q=newnations").FirstChild.InnerText.Split(",").ToHashSet();
+                return ParseDocument("q=newnations")
+                    .SelectSingleNode("/WORLD/NEWNATIONS")
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
             }
         }
 
@@ -121,7 +129,9 @@
         {
             get
             {
-                return long.Parse(ParseDocument("q=numnations").FirstChild.InnerText);
+                return long.Parse(ParseDocument("q=numnations")
+                    .SelectSingleNode("/WORLD/NUMNATIONS")
+                    .InnerText);
             }
         }
 
@@ -132,7 +142,9 @@
         {
             get
             {
-                return long.Parse(ParseDocument("q=numregions").FirstChild.InnerText);
+                return long.Parse(ParseDocument("q=numregions")
+                    .SelectSingleNode("/WORLD/NUMREGIONS")
+                    .InnerText);
             }
         }
 
@@ -144,7 +156,7 @@
             get
             {
                 return ParseDocument("q=regions")
-                    .FirstChild
+                    .SelectSingleNode("/WORLD/REGIONS")
                     .InnerText
                     .Split(",")
                     .ToHashSet();
@@ -158,7 +170,8 @@
         {
             get
             {
-                XmlNode node = ParseDocument("q=tgqueue").FirstChild;
+                XmlNode node = ParseDocument("q=tgqueue")
+                    .SelectSingleNode("/WORLD/TGQUEUE");
 
                 long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
                 long mass = long.Parse(node.SelectSingleNode("MASS").InnerText);
@@ -177,7 +190,7 @@
         public static string CensusDescription(int id, Entity entity)
         {
             XmlNode node = Utility.ParseDocument($"censusdesc;scale={id}")
-                .SelectSingleNode("CENSUSDESC");
+                .SelectSingleNode("/WORLD/CENSUSDESC");
 
             switch (entity)
             {
@@ -198,7 +211,9 @@
         /// <returns>The name of the specified census.</returns>
         public static string CensusName(int id)
         {
-            return ParseDocument($"q=censusname&scale={id}").FirstChild.InnerText;
+            return ParseDocument($"q=censusname&scale={id}")
+                .SelectSingleNode("/WORLD/CENSUSNAME")
+                .InnerText;
         }
 
         /// <summary>
@@ -211,11 +226,17 @@
         {
             List<WorldCensus> res = new List<WorldCensus>();
 
-            foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("CENSUSRANKS/NATIONS").ChildNodes)
+            foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
-                string name = nation.SelectSingleNode("NAME").InnerText;
-                double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
-                long rank = long.Parse(nation.SelectSingleNode("RANK").InnerText);
+                string name = nation
+                    .SelectSingleNode("NAME")
+                    .InnerText;
+                double score = double.Parse(nation
+                    .SelectSingleNode("SCORE")
+                    .InnerText);
+                long rank = long.Parse(nation
+                    .SelectSingleNode("RANK")
+                    .InnerText);
 
                 res.Add(new WorldCensus(id, name, score, rank));
             }
@@ -230,7 +251,9 @@
         /// <returns>The scale of the specified census.</returns>
         public static string CensusScale(int id)
         {
-            return ParseDocument($"q=censusscale;scale={id}").FirstChild.InnerText;
+            return ParseDocument($"q=censusscale;scale={id}")
+                .SelectSingleNode("/WORLD/CENSUSSCALE")
+                .InnerText;
         }
 
         /// <summary>
@@ -240,7 +263,9 @@
         /// <returns>The title of the specified census.</returns>
         public static string CensusTitle(int id)
         {
-            return ParseDocument($"q=censustitle;scale={id}").FirstChild.InnerText;
+            return ParseDocument($"q=censustitle;scale={id}")
+                .SelectSingleNode("/WORLD/CENSUSTITLE")
+                .InnerText;
         }
 
         /// <summary>
@@ -363,7 +388,8 @@
                 url += $"beforeTime={((DateTimeOffset)beforeTime).ToUnixTimeSeconds()};";
             }
 
-            return ParseEvents(ParseDocument(url).FirstChild);
+            return ParseEvents(ParseDocument(url)
+                .SelectSingleNode("/WORLD/HAPPENINGS"));
         }
 
         /// <summary>
@@ -392,7 +418,11 @@
                 }
             }
 
-            return ParseDocument($"q=regionsbytag;tags={string.Join(",", tags)}").FirstChild.InnerText.Split(",").ToHashSet();
+            return ParseDocument($"q=regionsbytag;tags={string.Join(",", tags)}")
+                .SelectSingleNode("/WORLD/REGIONSBYTAGS")
+                .InnerText
+                .Split(",")
+                .ToHashSet();
         }
     }
 }

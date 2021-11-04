@@ -75,7 +75,7 @@
             this.ID = id;
 
             XmlNode node = Utility.ParseDocument($"q=poll;pollid={id}")
-                .SelectSingleNode("POLL");
+                .SelectSingleNode("/WORLD/POLL");
 
             this.Title = node.SelectSingleNode("TITLE").InnerText;
             this.Region = node.SelectSingleNode("REGION").InnerText;

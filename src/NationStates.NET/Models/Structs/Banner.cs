@@ -38,8 +38,7 @@
             else
             {
                 XmlNode node = Utility.ParseDocument($"q=banner;banner={id}")
-                    .SelectSingleNode("BANNERS")
-                    .FirstChild;
+                    .SelectSingleNode("/WORLD/BANNERS/BANNER");
 
                 this.Name = node.SelectSingleNode("NAME").InnerText;
                 this.Validity = node.SelectSingleNode("VALIDITY").InnerText;

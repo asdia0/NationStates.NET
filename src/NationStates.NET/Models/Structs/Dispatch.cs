@@ -88,7 +88,7 @@
             this.ID = id;
 
             XmlNode dispatch = Utility.ParseDocument($"q=dispatch;dispatchid={id}")
-                .SelectSingleNode("DISPATCH");
+                .SelectSingleNode("/WORLD/DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
             this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), Utility.FormatForEnum(Utility.Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));

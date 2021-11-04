@@ -1,5 +1,7 @@
 ﻿namespace NationStates.NET
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using static NationStates.NET.Utility;
 
     /// <summary>
@@ -8,27 +10,71 @@
     public static class WorldAssembly
     {
         /// <summary>
-        /// Gets a World Assembly resolution.
+        /// Gets the number of nations in the world assembly.
         /// </summary>
-        /// <param name="council">The council the resolution was submitted in.</param>
-        /// <param name="councilID">The resolution's council ID.</param>
-        /// <returns>A World Assembly resolution with the specified council ID.</returns>
-        public static WAResolution GetResolution(WACouncil council, long councilID)
+        public static long NumNations
         {
-            return new WAResolution(council, councilID);
+            get
+            {
+                return long.Parse(ParseDocument("wa=1&q=numnations")
+                    .SelectSingleNode("/WA/NUMNATIONS")
+                    .InnerText);
+            }
         }
 
-        //public static WAResolution GetCurrentResolution(WACouncil council)
-        //{
-        //    switch (council)
-        //    {
-        //        case WACouncil.General_Assembly:
-        //            break;
-        //        case WACouncil.Security_Council:
-        //            break;
-        //        default:
-        //            throw new NSError("Unrecognised WACouncil.");
-        //    }
-        //}
+        /// <summary>
+        /// Gets the number of delegates.
+        /// </summary>
+        public static int NumDelegates
+        {
+            get
+            {
+                return int.Parse(ParseDocument("wa=1&q=numdelegates")
+                    .SelectSingleNode("/WA/NUMDELEGATES")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of the names of all the delegates.
+        /// </summary>
+        public static HashSet<string> Delegates
+        {
+            get
+            {
+                return ParseDocument("wa=1&q=delegates")
+                    .SelectSingleNode("/WA/DELEGATES")
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of the names of all the nations in the world assembly.
+        /// </summary>
+        public static HashSet<string> Members
+        {
+            get
+            {
+                return ParseDocument("wa=1&q=members")
+                    .SelectSingleNode("/WA/MEMBERS")
+                    .InnerText
+                    .Split(",")
+                    .ToHashSet();
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of recent events in the world assembly.
+        /// </summary>
+        public static HashSet<Event> Happenings
+        {
+            get
+            {
+                return ParseEvents(ParseDocument($"wa=1&q=happenings")
+                    .SelectSingleNode("/WA/HAPPENINGS"));
+            }
+        }
     }
 }
