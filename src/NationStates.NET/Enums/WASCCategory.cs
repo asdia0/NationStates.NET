@@ -21,6 +21,11 @@
         Condemnation,
 
         /// <summary>
+        /// Declaration.
+        /// </summary>
+        Declaration,
+
+        /// <summary>
         /// Liberation.
         /// </summary>
         Liberation,
