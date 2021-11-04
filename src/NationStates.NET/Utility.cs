@@ -132,14 +132,19 @@
             {
                 case "0":
                     return RMBPermission.None;
+
                 case "con":
                     return RMBPermission.Delegate_Founder;
+
                 case "off":
                     return RMBPermission.Officers;
+
                 case "com":
                     return RMBPermission.CommunicationOfficers;
+
                 case "all":
                     return RMBPermission.All;
+
                 default:
                     throw new NSError("Unrecognised permission string.");
             }
@@ -156,12 +161,16 @@
             {
                 case "0":
                     return PostStatus.Regular;
+
                 case "1":
                     return PostStatus.SupressedViewable;
+
                 case "2":
                     return PostStatus.Deleted;
+
                 case "9":
                     return PostStatus.SupressedUnviewable;
+
                 default:
                     throw new NSError("Unrecognised status string.");
             }
@@ -208,32 +217,46 @@
             {
                 case RegionTag.AntiCapitalist:
                     return "Anti-Capitalist";
+
                 case RegionTag.AntiCommunist:
                     return "Anti-Communist";
+
                 case RegionTag.AntiFascist:
                     return "Anti-Fascist";
+
                 case RegionTag.AntiGeneral_Assembly:
                     return "Anti-General Assembly";
+
                 case RegionTag.AntiSecurity_Council:
                     return "Anti-Secutiry Council";
+
                 case RegionTag.AntiWorld_Assembly:
                     return "Anti-World Assembly";
+
                 case RegionTag.EcoFriendly:
                     return "Eco-Friendly";
+
                 case RegionTag.HumanOnly:
                     return "Human-Only";
+
                 case RegionTag.MultiSpecies:
                     return "Multi-Species";
+
                 case RegionTag.NonEnglish:
                     return "Non-English";
+
                 case RegionTag.PostModern_Tech:
                     return "Post-Modern Tech";
+
                 case RegionTag.FTFTL:
                     return "FT: FTL";
+
                 case RegionTag.FTFTLi:
                     return "FT: FTLi";
+
                 case RegionTag.FTSTL:
                     return "FT: STL";
+
                 default:
                     return tag.ToString();
             }

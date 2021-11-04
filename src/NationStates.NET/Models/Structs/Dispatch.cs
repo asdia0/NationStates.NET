@@ -1,7 +1,6 @@
 ﻿namespace NationStates.NET
 {
     using System;
-    using System.Collections.Generic;
     using System.Xml;
 
     /// <summary>
@@ -99,15 +98,19 @@
                 case DispatchCategory.Account:
                     this.SubCategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
+
                 case DispatchCategory.Bulletin:
                     this.SubCategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
+
                 case DispatchCategory.Factbook:
                     this.SubCategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
+
                 case DispatchCategory.Meta:
                     this.SubCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
+
                 default:
                     throw new NSError("Dispatch subcategory does not exist.");
             }

@@ -339,15 +339,19 @@
                         case DispatchCategory.Account:
                             subcategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
+
                         case DispatchCategory.Bulletin:
                             subcategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
+
                         case DispatchCategory.Factbook:
                             subcategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
+
                         case DispatchCategory.Meta:
                             subcategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
+
                         default:
                             throw new NSError("Dispatch subcategory does not exist.");
                     }

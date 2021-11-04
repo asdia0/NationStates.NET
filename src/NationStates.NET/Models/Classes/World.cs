@@ -197,8 +197,10 @@
                 case Entity.Nation:
                     return node.SelectSingleNode("NDESC")
                         .InnerText;
+
                 case Entity.Region:
                     return node.SelectSingleNode("RDESC").InnerText;
+
                 default:
                     throw new NSError("Invalid entity.");
             }
@@ -298,6 +300,7 @@
                         }
 
                         break;
+
                     case DispatchCategory.Bulletin:
                         if (!Enum.IsDefined(typeof(DispatchBulletin), subCategory))
                         {
@@ -305,6 +308,7 @@
                         }
 
                         break;
+
                     case DispatchCategory.Factbook:
                         if (!Enum.IsDefined(typeof(DispatchFactbook), subCategory))
                         {
@@ -312,6 +316,7 @@
                         }
 
                         break;
+
                     case DispatchCategory.Meta:
                         if (!Enum.IsDefined(typeof(DispatchMeta), subCategory))
                         {

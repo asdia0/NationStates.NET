@@ -2,7 +2,6 @@
 {
     using System;
     using System.Xml;
-    using static Utility;
 
     /// <summary>
     /// Defines a World Assembly resolution.
@@ -120,24 +119,31 @@
                     case WAGACategory.Repeal:
                         this.SubCategory = long.Parse(option.InnerText);
                         break;
+
                     case WAGACategory.Bookkeeping:
                         this.SubCategory = WAGABookeeping.Sweeping;
                         break;
+
                     case WAGACategory.Regulation:
                         this.SubCategory = (WAGARegulation)Enum.Parse(typeof(WAGARegulation), formatted);
                         break;
+
                     case WAGACategory.Health:
                         this.SubCategory = (WAGAHealth)Enum.Parse(typeof(WAGAHealth), formatted);
                         break;
+
                     case WAGACategory.Environmental:
                         this.SubCategory = (WAGAEnvironmental)Enum.Parse(typeof(WAGAEnvironmental), formatted);
                         break;
+
                     case WAGACategory.Education_And_Creativity:
                         this.SubCategory = (WAGAEducationAndCreativity)Enum.Parse(typeof(WAGAEducationAndCreativity), formatted);
                         break;
+
                     case WAGACategory.Advancement_Of_Industry:
                         this.SubCategory = (WAGAAdvancementOfIndustry)Enum.Parse(typeof(WAGAAdvancementOfIndustry), formatted);
                         break;
+
                     default:
                         this.SubCategory = (WAGAStrength)Enum.Parse(typeof(WAGAStrength), formatted);
                         break;
