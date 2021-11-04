@@ -14,7 +14,3 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 - [ ] World Assembly [DOING]
 - [ ] Telegram
 - [ ] Trading Cards
-
-## TODO
-- [ ] Rewrite main classes for readability
-- [ ] Add pre-emptive rate-limit warning
