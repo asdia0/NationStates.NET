@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Xml;
+    using static Utility;
 
     /// <summary>
     /// Defines a <see cref="WAProposal"/> that is currently at vote.
@@ -106,47 +108,107 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="WAProposalAtVote"/> struct.
         /// </summary>
-        /// <param name="id">The proposal's ID.</param>
-        /// <param name="category">The proposal's category.</param>
         /// <param name="council">The council in which the proposal was submitted in.</param>
-        /// <param name="created">The time at which the proposal was created.</param>
-        /// <param name="delegateLog">A log of the delegates' voting activity.</param>
-        /// <param name="delegateVotesAgainst">A list of delegate votes against the proposal.</param>
-        /// <param name="delegateVotesFor">A list of delegate votes for the proposal.</param>
-        /// <param name="description">The body of the proposal.</param>
-        /// <param name="name">The proposal's name.</param>
-        /// <param name="proposer">The name of the nation that proposed the proposal.</param>
-        /// <param name="subCategory">The proposal's sub-category.</param>
-        /// <param name="totalNationsAgainst">The number of nations against the proposal.</param>
-        /// <param name="totalNationsFor">The number of natins for the proposal.</param>
-        /// <param name="totalVotesAgainst">The number of votes against the proposal.</param>
-        /// <param name="totalVotesFor">The number of votes for the proposal.</param>
-        /// <param name="votesAgainst">A list of nations voting against the proposal.</param>
-        /// <param name="votesFor">A list of nations voting for the proposal.</param>
-        /// <param name="voteTrackAgainst">A list tracking the number of votes against the proposal over time.</param>
-        /// <param name="voteTrackFor">A list tracking the number of votes for the proposal over time.</param>
-        public WAProposalAtVote(string id, dynamic category, WACouncil council, DateTime created, HashSet<DelegateEntry> delegateLog, HashSet<DelegateVote> delegateVotesAgainst,
-            HashSet<DelegateVote> delegateVotesFor, string description, string name, string proposer, dynamic subCategory, long totalNationsAgainst, long totalNationsFor,
-            long totalVotesAgainst, long totalVotesFor, HashSet<string> votesAgainst, HashSet<string> votesFor, List<long> voteTrackAgainst, List<long> voteTrackFor)
+        public WAProposalAtVote(WACouncil council)
         {
-            this.ID = id;
-            this.Category = category;
             this.Council = council;
-            this.Created = created;
+
+            XmlNode node = ParseDocument($"wa={(int)council + 1}&q=resolution+votetrack+voters+dellog+delvotes")
+                .SelectSingleNode("/WA/RESOLUTION");
+
+            this.ID = node.SelectSingleNode("ID").InnerText;
+
+            switch (council)
+            {
+                case WACouncil.General_Assembly:
+                    this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.General_Assembly, this.Category);
+                    break;
+                case WACouncil.Security_Council:
+                    this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.Security_Council, this.Category);
+                    break;
+                default:
+                    throw new NSError("Invalid council.");
+            }
+
+            this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
+
+            HashSet<DelegateEntry> delegateLog = new();
+            foreach (XmlNode delegateEntry in node.SelectNodes("DELLOG/ENTRY"))
+            {
+                WAAction action = (WAAction)Enum.Parse(typeof(WAAction), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
+                string nation = delegateEntry.SelectSingleNode("NATION").InnerText;
+                DateTime timeStamp = ParseUnix(delegateEntry.SelectSingleNode("TIMESTAMP").InnerText);
+                int votes = int.Parse(delegateEntry.SelectSingleNode("VOTES").InnerText);
+
+                delegateLog.Add(new(action, nation, timeStamp, votes));
+            }
+
             this.DelegateLog = delegateLog;
+
+            HashSet<DelegateVote> delegateVotesAgainst = new();
+            foreach (XmlNode delegateVoteAgainst in node.SelectNodes("DELVOTES_FOR/DELEGATE"))
+            {
+                string nation = delegateVoteAgainst.SelectSingleNode("NATION").InnerText;
+                DateTime timeStamp = ParseUnix(delegateVoteAgainst.SelectSingleNode("TIMESTAMP").InnerText);
+                int votes = int.Parse(delegateVoteAgainst.SelectSingleNode("VOTES").InnerText);
+
+                delegateVotesAgainst.Add(new(nation, timeStamp, votes));
+            }
+
             this.DelegateVotesAgainst = delegateVotesAgainst;
+
+            HashSet<DelegateVote> delegateVotesFor = new();
+            foreach (XmlNode delegateVoteFor in node.SelectNodes("DELVOTES_FOR/DELEGATE"))
+            {
+                string nation = delegateVoteFor.SelectSingleNode("NATION").InnerText;
+                DateTime timeStamp = ParseUnix(delegateVoteFor.SelectSingleNode("TIMESTAMP").InnerText);
+                int votes = int.Parse(delegateVoteFor.SelectSingleNode("VOTES").InnerText);
+
+                delegateVotesFor.Add(new(nation, timeStamp, votes));
+            }
+
             this.DelegateVotesFor = delegateVotesFor;
-            this.Description = description;
-            this.Name = name;
-            this.Proposer = proposer;
-            this.SubCategory = subCategory;
-            this.TotalNationsAgainst = totalNationsAgainst;
-            this.TotalNationsFor = totalNationsFor;
-            this.TotalVotesAgainst = totalVotesAgainst;
-            this.TotalVotesFor = totalVotesFor;
+
+            this.Description = node.SelectSingleNode("DESC").InnerText;
+            this.Name = node.SelectSingleNode("NAME").InnerText;
+            this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
+            this.TotalNationsAgainst = long.Parse(node.SelectSingleNode("TOTAL_NATIONS_AGAINST").InnerText);
+            this.TotalNationsFor = long.Parse(node.SelectSingleNode("TOTAL_NATIONS_FOR").InnerText);
+            this.TotalVotesAgainst = long.Parse(node.SelectSingleNode("TOTAL_VOTES_AGAINST").InnerText);
+            this.TotalVotesFor = long.Parse(node.SelectSingleNode("TOTAL_VOTES_FOR").InnerText);
+
+            HashSet<string> votesAgainst = new();
+            foreach (XmlNode voteAgainst in node.SelectNodes("VOTES_AGAINST/N"))
+            {
+                votesAgainst.Add(voteAgainst.InnerText);
+            }
+
             this.VotesAgainst = votesAgainst;
+
+            HashSet<string> votesFor = new();
+            foreach (XmlNode voteFor in node.SelectNodes("VOTES_FOR/N"))
+            {
+                votesFor.Add(voteFor.InnerText);
+            }
+
             this.VotesFor = votesFor;
+
+            List<long> voteTrackAgainst = new();
+            foreach (XmlNode votes in node.SelectNodes("VOTE_TRACK_AGAINST/N"))
+            {
+                voteTrackAgainst.Add(long.Parse(votes.InnerText));
+            }
+
             this.VoteTrackAgainst = voteTrackAgainst;
+
+            List<long> voteTrackFor = new();
+            foreach (XmlNode votes in node.SelectNodes("VOTE_TRACK_FOR/N"))
+            {
+                voteTrackFor.Add(long.Parse(votes.InnerText));
+            }
+
             this.VoteTrackFor = voteTrackFor;
         }
     }
