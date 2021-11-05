@@ -1,0 +1,1003 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/eytan/source/repos/asdia0/NationStates.NET/docfx-project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Authority.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Authority.html",
+          "hash": "e1UKK7mfff8Z1DxeNB/QKjPvwY0gccQjTPKX/OFj1yI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Banner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Banner.html",
+          "hash": "VdZEw3N565jn1Y9eWcZ73b48L5oYtpILHTJ0Sy0YGgQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CensusHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CensusHistory.html",
+          "hash": "Dkw3xlgediAApQ69H0gp8cBWQXfq6ykeeHuN2evIJ/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CensusNation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CensusNation.html",
+          "hash": "g0gR1NekNVhl5ft52tPpbzITgz/j04q4vv8057M/4aw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CensusRank.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CensusRank.html",
+          "hash": "AsJz4vFH4S6AglF3BKts25WdvA5q/Gvq/DTDiB0kktU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CensusRegion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CensusRegion.html",
+          "hash": "dA5nuUznY6Oyonb44eKx4rKwOQ0gi7udqFYsfmQWsdw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CensusWorld.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CensusWorld.html",
+          "hash": "D1yIpkctgevyAfPyAVmrGBME6ati8yFO3j8na1SI3gY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CivilRights.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CivilRights.html",
+          "hash": "yMlcD8hcIZnhzgyjnai+NVJyeITRJ2SnGsNjEBPS0WI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Death.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Death.html",
+          "hash": "2S3H/XYZPj4iinWhhqJt7JyOKiFU7EZC9LsZqbprRJg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DelegateEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DelegateEntry.html",
+          "hash": "ILUlNDiLfp/E8p5HcU996rhQOKb59S/glarP7v2LfSM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DelegateVote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DelegateVote.html",
+          "hash": "oIc8Bn0UdqlgNhUk0ZUojTh6NfNTOIX+iZApbOEFh78="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Dispatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Dispatch.html",
+          "hash": "rjdxypBHbq3Sgj7dKr065iABcn4X1xPrN81avXsR+ms="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchAccount.html",
+          "hash": "KaBJWjcA8moSkuMe3J0cuTcgSL502CyLP/50diZLuhY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchBulletin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchBulletin.html",
+          "hash": "oHtzsmWNmwey4KnShWKO0CllGDqVL2J1HxplREfS2FA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchCategory.html",
+          "hash": "2PO1Sns9Dp4xHORqY6iZcX5hnvYJ6ImeFvTyNaZDXaA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchFactbook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchFactbook.html",
+          "hash": "4egmArGLSjv3LVaZ12HgCY4V7G3nT4oadNHJTLN7OEg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchMeta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchMeta.html",
+          "hash": "/5yP1TqxIDA6LX0vCSWrQOygSAPtw01levp+ezrauCE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.DispatchSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.DispatchSort.html",
+          "hash": "o7uTCuuUaMibpAemJ6k7yHv9cLkOy5/x1jx1SvKTPcM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Economy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Economy.html",
+          "hash": "bTOWciOBPiXVUztNGSriw8slmt2/PlXx3Xg2VCmePEk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.EmbassyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.EmbassyType.html",
+          "hash": "opxZo9x9JhTxVijrj8y1tvZZQHsCORWtyzmS0FDaEbg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Entity.html",
+          "hash": "rBXO2iFDT9QbzzTs0+UWrdWSrZCo/vA6n9OlBgypjss="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Event.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Event.html",
+          "hash": "SQvmZhFYZX+TTw8gfp726HwO+OH/W5+yqPjsDm2lncg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.EventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.EventType.html",
+          "hash": "vY6GjH09kao00Tk0khd20jSokcj4Tr/qWRs65UumW8o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Faction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Faction.html",
+          "hash": "22khYAR6W52fDyfRhWA0cUDArLL/tYb2xbsL0K74GeU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Freedom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Freedom.html",
+          "hash": "QQwz4lILX0UE4BToHBR5rAquAghKD/8iWiwMkVNS6k0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Government.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Government.html",
+          "hash": "0INlO0zWgI//BaHRbdyWjK7Yau8dtnD+rjrsdhVNKvw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Industry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Industry.html",
+          "hash": "4tJyDDGx5tZXRxig4L26duuKVIEneghYrx/Vu1BFjHQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Influence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Influence.html",
+          "hash": "ri9tvg/0lXmMfBwgED6cvWie/jwcc1OWpMxfU+3kUA0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.NSError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.NSError.html",
+          "hash": "7ySPFr/WAYyyzmlpN55i0ZFJWYO0Un29Y+1eF1Jz/Oo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Nation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Nation.html",
+          "hash": "2/i4sZO7wO6zVvLQaH2AjHpzhFMVe8ezz/FguPG+myI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.NationCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.NationCategory.html",
+          "hash": "MUiwUG+2cFYgbufS/ajAOLveKO480O+ObW63jUGniFE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Officer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Officer.html",
+          "hash": "sjk0FZAerqrfGzQg1486FXYa/+14yEMR/8Zxt4pHH40="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Policy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Policy.html",
+          "hash": "q7q6BStQR9q4fGecnthe31xnAngW+dOqvbU5BYMi47w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.PolicyCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.PolicyCategory.html",
+          "hash": "LbabW1fJ34i/fjiZZdDx0B+wVV6fll5XdyWBfE84dVU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.PoliticalFreedoms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.PoliticalFreedoms.html",
+          "hash": "7Jl6zkcCzMxv4hHDVoy73pOclp1DwDMlMoviQDxDo/E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Poll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Poll.html",
+          "hash": "PZJ8c89SOTRL5dkiSgT+51P+J1AxPi2SEuHwRy5Hs6Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.PollOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.PollOption.html",
+          "hash": "SLZnWp/FGlZjn2l4e93kijCxtHwTCfss7wLGA447Frg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Post.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Post.html",
+          "hash": "W7SYCP87tUPSIQwDg4zhpQu3m56GfJJXAcp8p1Hhk54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.PostStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.PostStatus.html",
+          "hash": "Rk0AfXS2fhay05J1LQcCyxqsS4JOIjCjw6UMYlabd2A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Power.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Power.html",
+          "hash": "YJKb+uDTGWICxT9X/UBhAqaFiH/QqifkUWK5texmCnM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Program.html",
+          "hash": "s+yzXz0kmE/3uUm0TytHWBgzImOvoAWpQuO35h2FdSY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.RMBPermission.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.RMBPermission.html",
+          "hash": "5VxGaT0rKcKWY3uupcCE2pPc8z69t4lJCVIqF4VFqBA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Region.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Region.html",
+          "hash": "y4LR3VXjpPtOc/JEJtbtRlbP3b9+eWgZkTsNv3QlzO0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.RegionTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.RegionTag.html",
+          "hash": "+x1UCUsjEM3Ww93SL+CfH4yz25senSC5gLA0kcuMkVc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Sector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Sector.html",
+          "hash": "Ns2GPQJaYO39wGkvI54jzedn8TJJ3TgTRjHmY3KMLtQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.SectorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.SectorType.html",
+          "hash": "t0erFmrmgiMp/xpZzFwyn+SbaFaBExD1hjQw+IHonf8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.TelegramQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.TelegramQueue.html",
+          "hash": "1JVcgGY3+dOfChr9pHXOOhTW5Cwz8QizxUjAszksexk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Utility.html",
+          "hash": "eZJXXTgpyZNpoytMfqWatcPrVidV+K9gr4mUZfWHjAE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAAction.html",
+          "hash": "9lynOhHDnEoG46TmOruj9tApWCMqai0b8rqV8Yy1p1c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WABadge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WABadge.html",
+          "hash": "9tpW8DHB0n8YwkPJOSLbFgryCR6GMTj623iF0hwPWAQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WABadgeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WABadgeType.html",
+          "hash": "QvvbxmgUdZ5k8XFzAAhebpDQo7HxBassXajQgchNAX8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WACouncil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WACouncil.html",
+          "hash": "4UDpNCn8WCdsnfmPZH1RPuIp4RapgNAjHKdFhSUUvyM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGAAdvancementOfIndustry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGAAdvancementOfIndustry.html",
+          "hash": "xHTXzzf6zY6sRJKcmTWgAuvAib0ypZX66iWcJEcfuSI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGABookeeping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGABookeeping.html",
+          "hash": "iZgHFXjM/S0bU6OtFHU817xgTMsfeq6k/f6RaPV2Lwg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGACategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGACategory.html",
+          "hash": "ndBa2oivKHS1mGtfPQnvmsw9HmSp63OceHtnicvuAGM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGAEducationAndCreativity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGAEducationAndCreativity.html",
+          "hash": "WRhWRoQvryCpNJy8U7hCxC84bbY7b+u7cMxjXAotsZM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGAEnvironmental.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGAEnvironmental.html",
+          "hash": "JZby6Gz+BNyYbL2uOeIvTX2beJm7+PNzMe2F4S+2akA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGAHealth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGAHealth.html",
+          "hash": "0aBdf1lIppmgn05r8JYnr+DxjfU7MFKGSoOTNxInsCQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGARegulation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGARegulation.html",
+          "hash": "CyAp4gVNPoUUPqMAoAAPocO2OwM03/BAtd3OuODfSaI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAGAStrength.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAGAStrength.html",
+          "hash": "/7AAtgDh50UEeCrHvQYgHU5A0dPoJg954A3RYIFutjs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAProposal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAProposal.html",
+          "hash": "grqapVYMf5eJ9ev5NaB8cZTgGYKIgR5Et9tOZ404pGw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAProposalAtVote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAProposalAtVote.html",
+          "hash": "kBU2y+AysoY/N8VXTLQHpN+whio+cS82OWH5mRWMRcM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAResolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAResolution.html",
+          "hash": "tmX7PaWaR2D0EGW/lcRtSz0hRLNsxJhSVBhp1LOVvdM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WASCCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WASCCategory.html",
+          "hash": "EnuoBTmDbRpvfntvj9tlHN5OxL25ZfSQmCF6Yq1zFjY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAStatus.html",
+          "hash": "l4oTNiBkk2WmCGVwwKoARu8qUG8m4h0x7w2tJzEKENU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WAVote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WAVote.html",
+          "hash": "MPkSqBtixEZEJVLqdep5vqxE8JQZArVxcdY/qy/UwdM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.World.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.World.html",
+          "hash": "twFvuJXeNNbv+VHy4qWZ2NowGwd5GCSlHRqEhCvS3X4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WorldAssembly.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WorldAssembly.html",
+          "hash": "a/YSGB7pMatrOeKFnjV5djeeMSt6ft4WRXY5wdnalNI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.WorldCensus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.WorldCensus.html",
+          "hash": "inMKPllKAQRR19QgEg9BtDdPIX5+EPLMzhNQTjupRhQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.ZombieAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.ZombieAction.html",
+          "hash": "bbWCOskY6WLLY3zDJVrbBGWY/VVgzKYmYvwJohEEyBw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.ZombieNation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.ZombieNation.html",
+          "hash": "cGVE5JijMDZN8sHdxJTHN2j+MjC2eidCFl5QplcmRUQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.ZombieRegion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.ZombieRegion.html",
+          "hash": "u9CVcg3fLQmIMUYuA2aWUGajTs1OK8uWMWxEH85Ookw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.html",
+          "hash": "YRiIrTvVPA769U2Oo22zuuTrJIgV3PIjfi1B9Xd7De4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "SZduw/56ibOMn+YAlk98p+DQHBZkFnewVVk2ev4sCa8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "dwFqtsJU2sRJCJNzD8BFhl07OgMzIVzx1KczBykCEYQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "Bom+qCgBMnWoCi3oRlos8aklMRpkbcbvBflK5tsJKos="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "PBuu7kFSeOqHrvESyK6XFcP+ZRSVNtqAAVdTEWIcY9k="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "WSuRrYiGwKKMbtdG9z8W9fXmLoCyTnGg9AxbPKLXm2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ManagedReferenceDocumentProcessor disable incremental build because last build doesn't contain version .",
+          "incrementalPhase": "build",
+          "total_file_count": 73,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
