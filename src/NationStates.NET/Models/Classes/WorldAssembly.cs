@@ -107,10 +107,10 @@
                 switch (council)
                 {
                     case WACouncil.General_Assembly:
-                        category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                        category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
                         break;
                     case WACouncil.Security_Council:
-                        category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                        category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
                         break;
                     default:
                         throw new NSError("Invalid council.");

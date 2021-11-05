@@ -129,7 +129,7 @@
 
                     if (embassy.Attributes.Count != 0)
                     {
-                        type = (EmbassyType)Enum.Parse(typeof(EmbassyType), Capitalise(embassy.Attributes["type"].Value));
+                        type = (EmbassyType)ParseEnum(typeof(EmbassyType), embassy.Attributes["type"].Value);
                     }
 
                     string name = embassy.InnerText;
@@ -422,9 +422,9 @@
         {
             get
             {
-                return (Power)Enum.Parse(typeof(Power), FormatForEnum(Capitalise(ParseDocument($"region={this.Name}&q=power")
+                return (Power)ParseEnum(typeof(Power), ParseDocument($"region={this.Name}&q=power")
                     .SelectSingleNode("/REGION/POWER")
-                    .InnerText)));
+                    .InnerText);
             }
         }
 
@@ -476,7 +476,7 @@
 
                 foreach (XmlNode tag in node.ChildNodes)
                 {
-                    tags.Add((RegionTag)Enum.Parse(typeof(RegionTag), FormatForEnum(tag.InnerText)));
+                    tags.Add((RegionTag)ParseEnum(typeof(RegionTag), tag.InnerText));
                 }
 
                 return tags;
@@ -497,7 +497,7 @@
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Capitalise(badge.Attributes["type"].Value));
+                    WABadgeType type = (WABadgeType)ParseEnum(typeof(WABadgeType), badge.Attributes["type"].Value);
                     long id = long.Parse(badge.InnerText);
 
                     waBadges.Add(new WABadge(type, id));

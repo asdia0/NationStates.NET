@@ -142,9 +142,9 @@
         {
             get
             {
-                return (NationCategory)Enum.Parse(typeof(NationCategory), FormatForEnum(ParseDocument($"nation={this.Name}&q=category")
+                return (NationCategory)ParseEnum(typeof(NationCategory), ParseDocument($"nation={this.Name}&q=category")
                     .SelectSingleNode("NATION/CATEGORY")
-                    .InnerText));
+                    .InnerText);
             }
         }
 
@@ -330,26 +330,26 @@
                 {
                     ulong id = ulong.Parse(dispatch.Attributes["id"].Value);
                     string title = dispatch.SelectSingleNode("TITLE").InnerText;
-                    DispatchCategory category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), FormatForEnum(Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+                    DispatchCategory category = (DispatchCategory)ParseEnum(typeof(DispatchCategory), dispatch.SelectSingleNode("CATEGORY").InnerText);
                     string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
                     dynamic subcategory = null;
 
                     switch (category)
                     {
                         case DispatchCategory.Account:
-                            subcategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            subcategory = (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
 
                         case DispatchCategory.Bulletin:
-                            subcategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            subcategory = (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
 
                         case DispatchCategory.Factbook:
-                            subcategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            subcategory = (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
 
                         case DispatchCategory.Meta:
-                            subcategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                            subcategory = (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                             break;
 
                         default:
@@ -458,9 +458,9 @@
                 XmlNode node = ParseDocument($"nation={this.Name}&q=freedom")
                     .SelectSingleNode("/NATION/FREEDOM");
 
-                CivilRights civil = (CivilRights)Enum.Parse(typeof(CivilRights), FormatForEnum(node.SelectSingleNode("CIVILRIGHTS").InnerText));
-                Economy economy = (Economy)Enum.Parse(typeof(Economy), FormatForEnum(node.SelectSingleNode("ECONOMY").InnerText));
-                PoliticalFreedoms political = (PoliticalFreedoms)Enum.Parse(typeof(PoliticalFreedoms), FormatForEnum(node.SelectSingleNode("POLITICALFREEDOM").InnerText));
+                CivilRights civil = (CivilRights)ParseEnum(typeof(CivilRights), node.SelectSingleNode("CIVILRIGHTS").InnerText);
+                Economy economy = (Economy)ParseEnum(typeof(Economy), node.SelectSingleNode("ECONOMY").InnerText);
+                PoliticalFreedoms political = (PoliticalFreedoms)ParseEnum(typeof(PoliticalFreedoms), node.SelectSingleNode("POLITICALFREEDOM").InnerText);
 
                 return new Freedom(civil, economy, political);
             }
@@ -495,7 +495,7 @@
                 }
                 else
                 {
-                    return (WAVote)Enum.Parse(typeof(WAVote), Capitalise(node.InnerText));
+                    return (WAVote)ParseEnum(typeof(WAVote), node.InnerText);
                 }
             }
         }
@@ -611,9 +611,9 @@
         {
             get
             {
-                return (Influence)Enum.Parse(typeof(Influence), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=influence")
+                return (Influence)ParseEnum(typeof(Influence), ParseDocument($"nation={this.Name}&q=influence")
                     .SelectSingleNode("/NATION/INFLUENCE")
-                    .InnerText)));
+                    .InnerText);
             }
         }
 
@@ -671,9 +671,9 @@
         {
             get
             {
-                return (Industry)Enum.Parse(typeof(Industry), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=majorindustry")
+                return (Industry)ParseEnum(typeof(Industry), ParseDocument($"nation={this.Name}&q=majorindustry")
                     .SelectSingleNode("/NATION/MAJORINDUSTRY")
-                    .InnerText)));
+                    .InnerText);
             }
         }
 
@@ -759,7 +759,7 @@
                 foreach (XmlNode policy in node.ChildNodes)
                 {
                     string name = policy.SelectSingleNode("NAME").InnerText;
-                    PolicyCategory category = (PolicyCategory)Enum.Parse(typeof(PolicyCategory), FormatForEnum(Capitalise(policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"))));
+                    PolicyCategory category = (PolicyCategory)ParseEnum(typeof(PolicyCategory), policy.SelectSingleNode("CAT").InnerText.Replace("&", "and"));
                     string desc = policy.SelectSingleNode("DESC").InnerText;
 
                     policies.Add(new Policy(name, category, desc));
@@ -863,7 +863,7 @@
                 }
                 else
                 {
-                    return (WAVote)Enum.Parse(typeof(WAVote), Capitalise(node.InnerText));
+                    return (WAVote)ParseEnum(typeof(WAVote), node.InnerText);
                 }
             }
         }
@@ -882,7 +882,7 @@
 
                 foreach (XmlNode sector in node.ChildNodes)
                 {
-                    sectors.Add(new Sector((SectorType)Enum.Parse(typeof(SectorType), FormatForEnum(Capitalise(sector.Name))), double.Parse(sector.InnerText)));
+                    sectors.Add(new Sector((SectorType)ParseEnum(typeof(SectorType), sector.Name), double.Parse(sector.InnerText)));
                 }
 
                 return sectors;
@@ -961,10 +961,10 @@
         {
             get
             {
-                return (WAStatus)Enum.Parse(typeof(WAStatus), FormatForEnum(Capitalise(ParseDocument($"nation={this.Name}&q=wa")
+                return (WAStatus)ParseEnum(typeof(WAStatus), ParseDocument($"nation={this.Name}&q=wa")
                     .SelectSingleNode("/NATION/UNSTATUS")
                     .InnerText
-                    .Replace("WA ", string.Empty))));
+                    .Replace("WA ", string.Empty));
             }
         }
 
@@ -982,7 +982,7 @@
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)Enum.Parse(typeof(WABadgeType), Capitalise(badge.Attributes["type"].Value));
+                    WABadgeType type = (WABadgeType)ParseEnum(typeof(WABadgeType), badge.Attributes["type"].Value);
                     long id = long.Parse(badge.InnerText);
 
                     wabadges.Add(new WABadge(type, id));
@@ -1002,8 +1002,8 @@
                 XmlNode node = ParseDocument($"nation={this.Name}&q=zombie")
                     .SelectSingleNode("/NATION/ZOMBIE");
 
-                ZombieAction action = (ZombieAction)Enum.Parse(typeof(ZombieAction), Capitalise(node.SelectSingleNode("ZACTION").InnerText));
-                ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)Enum.Parse(typeof(ZombieAction), Capitalise(node.SelectSingleNode("ZACTIONINTENDED").InnerText));
+                ZombieAction action = (ZombieAction)ParseEnum(typeof(ZombieAction), node.SelectSingleNode("ZACTION").InnerText);
+                ZombieAction? intendedAction = (node.SelectSingleNode("ZACTIONINTENDED").InnerText == string.Empty) ? null : (ZombieAction)ParseEnum(typeof(ZombieAction), node.SelectSingleNode("ZACTIONINTENDED").InnerText);
                 long survivors = long.Parse(node.SelectSingleNode("SURVIVORS").InnerText);
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);

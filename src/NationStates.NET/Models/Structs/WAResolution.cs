@@ -111,11 +111,11 @@
 
             if (council == WACouncil.General_Assembly)
             {
-                this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                this.Category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
             }
             else
             {
-                this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                this.Category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
             }
 
             this.SubCategory = ParseSubCategory(option, this.Council, this.Category);

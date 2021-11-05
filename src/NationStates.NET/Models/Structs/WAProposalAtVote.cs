@@ -121,11 +121,11 @@
             switch (council)
             {
                 case WACouncil.General_Assembly:
-                    this.Category = (WAGACategory)Enum.Parse(typeof(WAGACategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                    this.Category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
                     this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.General_Assembly, this.Category);
                     break;
                 case WACouncil.Security_Council:
-                    this.Category = (WASCCategory)Enum.Parse(typeof(WASCCategory), FormatForEnum(Capitalise(node.SelectSingleNode("CATEGORY").InnerText)));
+                    this.Category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
                     this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.Security_Council, this.Category);
                     break;
                 default:
@@ -137,7 +137,7 @@
             HashSet<DelegateEntry> delegateLog = new();
             foreach (XmlNode delegateEntry in node.SelectNodes("DELLOG/ENTRY"))
             {
-                WAAction action = (WAAction)Enum.Parse(typeof(WAAction), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
+                WAAction action = (WAAction)ParseEnum(typeof(WAAction), delegateEntry.SelectSingleNode("ACTION").InnerText);
                 string nation = delegateEntry.SelectSingleNode("NATION").InnerText;
                 DateTime timeStamp = ParseUnix(delegateEntry.SelectSingleNode("TIMESTAMP").InnerText);
                 int votes = int.Parse(delegateEntry.SelectSingleNode("VOTES").InnerText);

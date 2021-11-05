@@ -91,25 +91,25 @@
                 .SelectSingleNode("/WORLD/DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
-            this.Category = (DispatchCategory)Enum.Parse(typeof(DispatchCategory), FormatForEnum(Capitalise(dispatch.SelectSingleNode("CATEGORY").InnerText)));
+            this.Category = (DispatchCategory)ParseEnum(typeof(DispatchCategory), dispatch.SelectSingleNode("CATEGORY").InnerText);
             this.Author = dispatch.SelectSingleNode("AUTHOR").InnerText;
 
             switch (this.Category)
             {
                 case DispatchCategory.Account:
-                    this.SubCategory = (DispatchAccount)Enum.Parse(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    this.SubCategory = (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
 
                 case DispatchCategory.Bulletin:
-                    this.SubCategory = (DispatchBulletin)Enum.Parse(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    this.SubCategory = (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
 
                 case DispatchCategory.Factbook:
-                    this.SubCategory = (DispatchFactbook)Enum.Parse(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    this.SubCategory = (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
 
                 case DispatchCategory.Meta:
-                    this.SubCategory = (DispatchMeta)Enum.Parse(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
+                    this.SubCategory = (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
                     break;
 
                 default:

@@ -122,6 +122,17 @@
         }
 
         /// <summary>
+        /// Parses an enum from text.
+        /// </summary>
+        /// <param name="type">The type of enum to parse to.</param>
+        /// <param name="text">The enum in words.</param>
+        /// <returns>An enum.</returns>
+        public static dynamic ParseEnum(Type type, string text)
+        {
+            return Enum.Parse(type, FormatForEnum(Capitalise(text)));
+        }
+
+        /// <summary>
         /// Parses a string for <see cref="RMBPermission"/>.
         /// </summary>
         /// <param name="permission">The string to parse.</param>
@@ -187,8 +198,6 @@
         {
             if (category is WAGACategory)
             {
-                string formatted = FormatForEnum(Capitalise(option.InnerText));
-
                 switch (category)
                 {
                     case WAGACategory.Repeal:
@@ -198,22 +207,22 @@
                         return WAGABookeeping.Sweeping;
 
                     case WAGACategory.Regulation:
-                        return (WAGARegulation)Enum.Parse(typeof(WAGARegulation), formatted);
+                        return (WAGARegulation)ParseEnum(typeof(WAGARegulation), option.InnerText);
 
                     case WAGACategory.Health:
-                        return (WAGAHealth)Enum.Parse(typeof(WAGAHealth), formatted);
+                        return (WAGAHealth)ParseEnum(typeof(WAGAHealth), option.InnerText);
 
                     case WAGACategory.Environmental:
-                        return (WAGAEnvironmental)Enum.Parse(typeof(WAGAEnvironmental), formatted);
+                        return (WAGAEnvironmental)ParseEnum(typeof(WAGAEnvironmental), option.InnerText);
 
                     case WAGACategory.Education_And_Creativity:
-                        return (WAGAEducationAndCreativity)Enum.Parse(typeof(WAGAEducationAndCreativity), formatted);
+                        return (WAGAEducationAndCreativity)ParseEnum(typeof(WAGAEducationAndCreativity), option.InnerText);
 
                     case WAGACategory.Advancement_Of_Industry:
-                        return (WAGAAdvancementOfIndustry)Enum.Parse(typeof(WAGAAdvancementOfIndustry), formatted);
+                        return (WAGAAdvancementOfIndustry)ParseEnum(typeof(WAGAAdvancementOfIndustry), option.InnerText);
 
                     default:
-                        return (WAGAStrength)Enum.Parse(typeof(WAGAStrength), formatted);
+                        return (WAGAStrength)ParseEnum(typeof(WAGAStrength), option.InnerText);
                 }
             }
             else if (category is WASCCategory)
