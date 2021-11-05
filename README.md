@@ -17,6 +17,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## TODO
 - [ ] Actually test stuff
+- [ ] Standardise code
 - [ ] Add documentation
 - [ ] Convert the project into a library
 - [ ] Upload the project to NuGet
