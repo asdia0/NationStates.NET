@@ -11,7 +11,7 @@
     /// </summary>
     public static class World
     {
-        private static Dictionary<RegionTag, string> RegionTagDict = new()
+        private static Dictionary<RegionTag, string> regionTagDict = new()
         {
             { RegionTag.AntiCapitalist, "Anti-Capitalist" },
             { RegionTag.AntiCommunist, "Anti-Communist" },
@@ -429,7 +429,7 @@
             {
                 foreach (RegionTag tag in with)
                 {
-                    tags.Add(RegionTagDict[tag].ToLower());
+                    tags.Add(regionTagDict[tag].ToLower());
                 }
             }
 
@@ -437,7 +437,7 @@
             {
                 foreach (RegionTag tag in without)
                 {
-                    tags.Add("-" + RegionTagDict[tag].ToLower());
+                    tags.Add("-" + regionTagDict[tag].ToLower());
                 }
             }
 
