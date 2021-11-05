@@ -24,34 +24,6 @@
         };
 
         /// <summary>
-        /// Downloads a webpage.
-        /// </summary>
-        /// <param name="path">The path of the API request.</param>
-        /// <returns>The webpage's content.</returns>
-        public static string DownloadUrlString(string path)
-        {
-            using (WebClient client = new WebClient())
-            {
-                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
-
-                try
-                {
-                    Thread.Sleep(600);
-                    return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
-                }
-                catch (WebException e)
-                {
-                    if (e.Message.Contains("(429)"))
-                    {
-                        throw new NSError("Too many requests. Try again in 15 minutes.");
-                    }
-
-                    throw new NSError(e.Message);
-                }
-            }
-        }
-
-        /// <summary>
         /// Capitalises a word. The first character and every character after a dash and a space is capitalised.
         /// </summary>
         /// <param name="word">The word to capitalise.</param>
@@ -117,7 +89,30 @@
         public static XmlElement ParseDocument(string path)
         {
             XmlDocument doc = new();
-            doc.LoadXml(DownloadUrlString(path));
+
+            string document = string.Empty;
+
+            using (WebClient client = new WebClient())
+            {
+                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
+
+                try
+                {
+                    Thread.Sleep(600);
+                    document = client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
+                }
+                catch (WebException e)
+                {
+                    if (e.Message.Contains("(429)"))
+                    {
+                        throw new NSError("Too many requests. Try again in 15 minutes.");
+                    }
+
+                    throw new NSError(e.Message);
+                }
+            }
+
+            doc.LoadXml(document);
             return doc.DocumentElement;
         }
 
