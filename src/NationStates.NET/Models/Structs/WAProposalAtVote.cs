@@ -14,11 +14,6 @@
         public string ID { get; }
 
         /// <summary>
-        /// Gets a list of delegates that approved of the proposal.
-        /// </summary>
-        public HashSet<string> Approvals { get; }
-
-        /// <summary>
         /// Gets the proposal's category.
         /// </summary>
         public dynamic Category { get; }
@@ -112,7 +107,6 @@
         /// Initializes a new instance of the <see cref="WAProposalAtVote"/> struct.
         /// </summary>
         /// <param name="id">The proposal's ID.</param>
-        /// <param name="approvals">A list of delegates that approved of the proposal.</param>
         /// <param name="category">The proposal's category.</param>
         /// <param name="council">The council in which the proposal was submitted in.</param>
         /// <param name="created">The time at which the proposal was created.</param>
@@ -131,13 +125,12 @@
         /// <param name="votesFor">A list of nations voting for the proposal.</param>
         /// <param name="voteTrackAgainst">A list tracking the number of votes against the proposal over time.</param>
         /// <param name="voteTrackFor">A list tracking the number of votes for the proposal over time.</param>
-        public WAProposalAtVote(string id, HashSet<string> approvals, dynamic category, WACouncil council, DateTime created, HashSet<DelegateEntry> delegateLog,
+        public WAProposalAtVote(string id, dynamic category, WACouncil council, DateTime created, HashSet<DelegateEntry> delegateLog,
             HashSet<DelegateVote> delegateVotesAgainst, HashSet<DelegateVote> delegateVotesFor, string description, string name, string proposer, dynamic subCategory,
             long totalNationsAgainst, long totalNationsFor, long totalVotesAgainst, long totalVotesFor, HashSet<string> votesAgainst, HashSet<string> votesFor,
             List<long> voteTrackAgainst, List<long> voteTrackFor)
         {
             this.ID = id;
-            this.Approvals = approvals;
             this.Category = category;
             this.Council = council;
             this.Created = created;
