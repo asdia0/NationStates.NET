@@ -429,7 +429,7 @@
             {
                 foreach (RegionTag tag in with)
                 {
-                    tags.Add(regionTagDict[tag].ToLower());
+                    tags.Add((regionTagDict.Keys.Contains(tag) ? regionTagDict[tag] : tag.ToString()).ToLower());
                 }
             }
 
@@ -437,7 +437,7 @@
             {
                 foreach (RegionTag tag in without)
                 {
-                    tags.Add("-" + regionTagDict[tag].ToLower());
+                    tags.Add("-" + (regionTagDict.Keys.Contains(tag) ? regionTagDict[tag] : tag.ToString()).ToLower());
                 }
             }
 
