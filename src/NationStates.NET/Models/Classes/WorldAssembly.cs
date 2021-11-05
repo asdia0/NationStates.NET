@@ -122,7 +122,7 @@
                 HashSet<DelegateEntry> delegateLog = new();
                 foreach (XmlNode delegateEntry in node.SelectNodes("DELLOG/ENTRY"))
                 {
-                    WAVote action = (WAVote)Enum.Parse(typeof(WAVote), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
+                    WAAction action = (WAAction)Enum.Parse(typeof(WAAction), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
                     string nation = delegateEntry.SelectSingleNode("NATION").InnerText;
                     DateTime timeStamp = ParseUnix(delegateEntry.SelectSingleNode("TIMESTAMP").InnerText);
                     int votes = int.Parse(delegateEntry.SelectSingleNode("VOTES").InnerText);
@@ -244,7 +244,7 @@
                 HashSet<DelegateEntry> delegateLog = new();
                 foreach (XmlNode delegateEntry in node.SelectNodes("DELLOG/ENTRY"))
                 {
-                    WAVote action = (WAVote)Enum.Parse(typeof(WAVote), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
+                    WAAction action = (WAAction)Enum.Parse(typeof(WAAction), FormatForEnum(Capitalise(delegateEntry.SelectSingleNode("ACTION").InnerText)));
                     string nation = delegateEntry.SelectSingleNode("NATION").InnerText;
                     DateTime timeStamp = ParseUnix(delegateEntry.SelectSingleNode("TIMESTAMP").InnerText);
                     int votes = int.Parse(delegateEntry.SelectSingleNode("VOTES").InnerText);
