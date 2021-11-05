@@ -11,6 +11,24 @@
     /// </summary>
     public static class World
     {
+        private static Dictionary<RegionTag, string> RegionTagDict = new()
+        {
+            { RegionTag.AntiCapitalist, "Anti-Capitalist" },
+            { RegionTag.AntiCommunist, "Anti-Communist" },
+            { RegionTag.AntiFascist, "Anti-Fascist" },
+            { RegionTag.AntiGeneral_Assembly, "Anti-General Assembly" },
+            { RegionTag.AntiSecurity_Council, "Anti-Secutiry Council" },
+            { RegionTag.AntiWorld_Assembly, "Anti-World Assembly" },
+            { RegionTag.EcoFriendly, "Eco-Friendly" },
+            { RegionTag.HumanOnly, "Human-Only" },
+            { RegionTag.MultiSpecies, "Multi-Species" },
+            { RegionTag.NonEnglish, "Non-English" },
+            { RegionTag.PostModern_Tech, "Post-Modern Tech" },
+            { RegionTag.FTFTL, "FT: FTL" },
+            { RegionTag.FTFTLi, "FT: FTLi" },
+            { RegionTag.FTSTL, "FT: STL" },
+        };
+
         /// <summary>
         /// Gets the census world average in each census.
         /// </summary>
@@ -411,7 +429,7 @@
             {
                 foreach (RegionTag tag in with)
                 {
-                    tags.Add(RegionTagToString(tag).ToLower());
+                    tags.Add(RegionTagDict[tag].ToLower());
                 }
             }
 
@@ -419,7 +437,7 @@
             {
                 foreach (RegionTag tag in without)
                 {
-                    tags.Add("-" + RegionTagToString(tag).ToLower());
+                    tags.Add("-" + RegionTagDict[tag].ToLower());
                 }
             }
 
