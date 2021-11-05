@@ -190,19 +190,6 @@
         }
 
         /// <summary>
-        /// Gets the nation's custom leader.
-        /// </summary>
-        public string CustomLeader
-        {
-            get
-            {
-                return ParseDocument($"nation={this.Name}&q=customleader")
-                    .SelectSingleNode("/NATION/LEADER")
-                    .InnerText;
-            }
-        }
-
-        /// <summary>
         /// Gets the nation's custom capital.
         /// </summary>
         public string CustomCapital
@@ -211,6 +198,19 @@
             {
                 return ParseDocument($"nation={this.Name}&q=customcapital")
                     .SelectSingleNode("/NATION/CAPITAL")
+                    .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's custom leader.
+        /// </summary>
+        public string CustomLeader
+        {
+            get
+            {
+                return ParseDocument($"nation={this.Name}&q=customleader")
+                    .SelectSingleNode("/NATION/LEADER")
                     .InnerText;
             }
         }
@@ -916,19 +916,6 @@
         }
 
         /// <summary>
-        /// Gets a value indicating whether the nation accepts recruitment telegrams.
-        /// </summary>
-        public bool TelegramCanRecruit
-        {
-            get
-            {
-                return ParseDocument($"nation={this.Name}&q=tgcanrecruit")
-                    .SelectSingleNode("/NATION/TGCANRECRUIT")
-                    .InnerText == "1";
-            }
-        }
-
-        /// <summary>
         /// Gets a value indicating whether the nation accepts campaign telegrams.
         /// </summary>
         public bool TelegramCanCampaign
@@ -937,6 +924,19 @@
             {
                 return ParseDocument($"nation={this.Name}&q=tgcancampaign")
                     .SelectSingleNode("/NATION/TGCANCAMPAIGN")
+                    .InnerText == "1";
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the nation accepts recruitment telegrams.
+        /// </summary>
+        public bool TelegramCanRecruit
+        {
+            get
+            {
+                return ParseDocument($"nation={this.Name}&q=tgcanrecruit")
+                    .SelectSingleNode("/NATION/TGCANRECRUIT")
                     .InnerText == "1";
             }
         }

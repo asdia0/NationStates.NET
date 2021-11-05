@@ -11,11 +11,6 @@
     public struct WAProposalAtVote
     {
         /// <summary>
-        /// Gets the proposal's ID.
-        /// </summary>
-        public string ID { get; }
-
-        /// <summary>
         /// Gets the proposal's category.
         /// </summary>
         public dynamic Category { get; }
@@ -51,6 +46,11 @@
         public string Description { get; }
 
         /// <summary>
+        /// Gets the proposal's ID.
+        /// </summary>
+        public string ID { get; }
+
+        /// <summary>
         /// Gets the proposal's name.
         /// </summary>
         public string Name { get; }
@@ -59,6 +59,11 @@
         /// Gets the name of the nation that proposed the proposal.
         /// </summary>
         public string Proposer { get; }
+
+        /// <summary>
+        /// Gets the proposal's sub-category.
+        /// </summary>
+        public dynamic SubCategory { get; }
 
         /// <summary>
         /// Gets the number of nations against the proposal.
@@ -79,11 +84,6 @@
         /// Gets the number of votes for the proposal.
         /// </summary>
         public long TotalVotesFor { get; }
-
-        /// <summary>
-        /// Gets the proposal's sub-category.
-        /// </summary>
-        public dynamic SubCategory { get; }
 
         /// <summary>
         /// Gets a list of nations voting against the proposal.
@@ -124,10 +124,12 @@
                     this.Category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
                     this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.General_Assembly, this.Category);
                     break;
+
                 case WACouncil.Security_Council:
                     this.Category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
                     this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.Security_Council, this.Category);
                     break;
+
                 default:
                     throw new NSError("Invalid council.");
             }

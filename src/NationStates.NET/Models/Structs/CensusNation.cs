@@ -16,14 +16,9 @@
         public string Name { get; }
 
         /// <summary>
-        /// Gets the value of the census data.
+        /// Gets the nation's regional rank as a percentage.
         /// </summary>
-        public double Score { get; }
-
-        /// <summary>
-        /// Gets the nation's world rank.
-        /// </summary>
-        public long WorldRank { get; }
+        public double RegionPercentage { get; }
 
         /// <summary>
         /// Gets the nation's regional rank.
@@ -31,14 +26,19 @@
         public long RegionRank { get; }
 
         /// <summary>
+        /// Gets the value of the census data.
+        /// </summary>
+        public double Score { get; }
+
+        /// <summary>
         /// Gets the nation's world rank as a percentage.
         /// </summary>
         public double WorldPercentage { get; }
 
         /// <summary>
-        /// Gets the nation's regional rank as a percentage.
+        /// Gets the nation's world rank.
         /// </summary>
-        public double RegionPercentage { get; }
+        public long WorldRank { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CensusNation"/> struct.

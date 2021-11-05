@@ -8,14 +8,14 @@
     public struct Event
     {
         /// <summary>
-        /// Gets the time at which the event occurred.
-        /// </summary>
-        public DateTime TimeStamp { get; }
-
-        /// <summary>
         /// Gets the description of the event.
         /// </summary>
         public string Text { get; }
+
+        /// <summary>
+        /// Gets the time at which the event occurred.
+        /// </summary>
+        public DateTime TimeStamp { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Event"/> struct.

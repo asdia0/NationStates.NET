@@ -6,14 +6,14 @@
     public struct WABadge
     {
         /// <summary>
-        /// Gets type of World Assembly badge.
-        /// </summary>
-        public WABadgeType Type { get; }
-
-        /// <summary>
         /// Gets the ID of Security Council resolution that granted the World Assembly badge.
         /// </summary>
         public long ID { get; }
+
+        /// <summary>
+        /// Gets type of World Assembly badge.
+        /// </summary>
+        public WABadgeType Type { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WABadge"/> struct.

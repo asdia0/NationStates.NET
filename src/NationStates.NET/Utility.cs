@@ -112,6 +112,26 @@
         }
 
         /// <summary>
+        /// Parses <see cref="Event"/>s from a <see cref="XmlNode"/>.
+        /// </summary>
+        /// <param name="events">The parent <see cref="XmlNode"/>.</param>
+        /// <returns>A collection of <see cref="Event"/>s.</returns>
+        public static HashSet<Event> ParseEvents(XmlNode events)
+        {
+            HashSet<Event> res = new HashSet<Event>();
+
+            foreach (XmlNode ev in events.ChildNodes)
+            {
+                DateTime timestamp = ParseUnix(ev.SelectSingleNode("TIMESTAMP").InnerText);
+                string text = ev.SelectSingleNode("TEXT").InnerText;
+
+                res.Add(new Event(timestamp, text));
+            }
+
+            return res;
+        }
+
+        /// <summary>
         /// Parses <see cref="WAGACategory"/> or <see cref="WASCCategory"/>.
         /// </summary>
         /// <param name="option">The option node.</param>
@@ -180,26 +200,6 @@
         public static DateTime ParseUnix(string unix)
         {
             return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
-        }
-
-        /// <summary>
-        /// Parses <see cref="Event"/>s from a <see cref="XmlNode"/>.
-        /// </summary>
-        /// <param name="events">The parent <see cref="XmlNode"/>.</param>
-        /// <returns>A collection of <see cref="Event"/>s.</returns>
-        public static HashSet<Event> ParseEvents(XmlNode events)
-        {
-            HashSet<Event> res = new HashSet<Event>();
-
-            foreach (XmlNode ev in events.ChildNodes)
-            {
-                DateTime timestamp = ParseUnix(ev.SelectSingleNode("TIMESTAMP").InnerText);
-                string text = ev.SelectSingleNode("TEXT").InnerText;
-
-                res.Add(new Event(timestamp, text));
-            }
-
-            return res;
         }
     }
 }

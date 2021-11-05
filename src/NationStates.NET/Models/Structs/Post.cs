@@ -9,29 +9,14 @@
     public struct Post
     {
         /// <summary>
-        /// Gets the the post's ID.
-        /// </summary>
-        public ulong ID { get; }
-
-        /// <summary>
-        /// Gets the time of postage.
-        /// </summary>
-        public DateTime Posted { get; }
-
-        /// <summary>
-        /// Gets the post's sender.
-        /// </summary>
-        public string Nation { get; }
-
-        /// <summary>
-        /// Gets the post's status.
-        /// </summary>
-        public PostStatus Status { get; }
-
-        /// <summary>
         /// Gets the time at which the post was last edited.
         /// </summary>
         public DateTime? Edited { get; }
+
+        /// <summary>
+        /// Gets the the post's ID.
+        /// </summary>
+        public ulong ID { get; }
 
         /// <summary>
         /// Gets the nations that liked the post.
@@ -42,6 +27,21 @@
         /// Gets the post's message.
         /// </summary>
         public string Message { get; }
+
+        /// <summary>
+        /// Gets the post's sender.
+        /// </summary>
+        public string Nation { get; }
+
+        /// <summary>
+        /// Gets the time of postage.
+        /// </summary>
+        public DateTime Posted { get; }
+
+        /// <summary>
+        /// Gets the post's status.
+        /// </summary>
+        public PostStatus Status { get; }
 
         /// <summary>
         /// Gets the name of the nation that supressed the post.

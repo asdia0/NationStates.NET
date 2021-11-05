@@ -11,6 +11,11 @@
         public double Administration { get; }
 
         /// <summary>
+        /// Gets the percentage of the government budget spent on commerce.
+        /// </summary>
+        public double Commerce { get; }
+
+        /// <summary>
         /// Gets the percentage of the government budget spent on defence.
         /// </summary>
         public double Defense { get; }
@@ -29,11 +34,6 @@
         /// Gets the percentage of the government budget spent on healthcare.
         /// </summary>
         public double Healthcare { get; }
-
-        /// <summary>
-        /// Gets the percentage of the government budget spent on commerce.
-        /// </summary>
-        public double Commerce { get; }
 
         /// <summary>
         /// Gets the percentage of the government budget spent on international aid.

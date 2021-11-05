@@ -6,14 +6,14 @@
     public struct Sector
     {
         /// <summary>
-        /// Gets the type of sector.
-        /// </summary>
-        public SectorType Type { get; }
-
-        /// <summary>
         /// Gets the sector's share in the economy in percentage.
         /// </summary>
         public double Share { get; }
+
+        /// <summary>
+        /// Gets the type of sector.
+        /// </summary>
+        public SectorType Type { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Sector"/> struct.

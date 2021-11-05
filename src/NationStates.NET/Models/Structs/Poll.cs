@@ -12,14 +12,19 @@
     public struct Poll
     {
         /// <summary>
+        /// Gets the name of the nation that started the poll.
+        /// </summary>
+        public string Author { get; }
+
+        /// <summary>
         /// Gets the poll's ID.
         /// </summary>
         public long ID { get; }
 
         /// <summary>
-        /// Gets the poll's title.
+        /// Gets a list of options and results for the polls.
         /// </summary>
-        public string Title { get; }
+        public HashSet<PollOption> Options { get; }
 
         /// <summary>
         /// Gets the region the poll was held in.
@@ -37,14 +42,9 @@
         public DateTime Stop { get; }
 
         /// <summary>
-        /// Gets the name of the nation that started the poll.
+        /// Gets the poll's title.
         /// </summary>
-        public string Author { get; }
-
-        /// <summary>
-        /// Gets a list of options and results for the polls.
-        /// </summary>
-        public HashSet<PollOption> Options { get; }
+        public string Title { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Poll"/> struct.

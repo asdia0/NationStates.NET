@@ -10,16 +10,6 @@
     public struct WAResolution
     {
         /// <summary>
-        /// Gets the resolution's ID.
-        /// </summary>
-        public long ID { get; }
-
-        /// <summary>
-        /// Gets the resolution's council ID.
-        /// </summary>
-        public long CouncilID { get; }
-
-        /// <summary>
         /// Gets the resolution's category.
         /// </summary>
         public dynamic Category { get; }
@@ -28,6 +18,11 @@
         /// Gets the council the resolution was submitted in.
         /// </summary>
         public WACouncil Council { get; }
+
+        /// <summary>
+        /// Gets the resolution's council ID.
+        /// </summary>
+        public long CouncilID { get; }
 
         /// <summary>
         /// Gets the time at which the resolution was created.
@@ -40,6 +35,11 @@
         public string Description { get; }
 
         /// <summary>
+        /// Gets the resolution's ID.
+        /// </summary>
+        public long ID { get; }
+
+        /// <summary>
         /// Gets the time at which the resolution was implemented.
         /// </summary>
         public DateTime Implemented { get; }
@@ -50,19 +50,14 @@
         public string Name { get; }
 
         /// <summary>
-        /// Gets the name of the nation that proposed the resolution.
-        /// </summary>
-        public string Proposer { get; }
-
-        /// <summary>
         /// Gets the time of promotion.
         /// </summary>
         public DateTime? Promoted { get; }
 
         /// <summary>
-        /// Gets the ID of the resolution that repealed this resolution.
+        /// Gets the name of the nation that proposed the resolution.
         /// </summary>
-        public int? RepealedID { get; }
+        public string Proposer { get; }
 
         /// <summary>
         /// Gets the council ID of the resolution that repealed this resolution.
@@ -70,14 +65,19 @@
         public int? RepealedCouncilID { get; }
 
         /// <summary>
-        /// Gets the ID of the resolution this resolution repeals.
+        /// Gets the ID of the resolution that repealed this resolution.
         /// </summary>
-        public int? RepealsID { get; }
+        public int? RepealedID { get; }
 
         /// <summary>
         /// Gets the council ID of the resolution this resolution repeals.
         /// </summary>
         public int? RepealsCouncilID { get; }
+
+        /// <summary>
+        /// Gets the ID of the resolution this resolution repeals.
+        /// </summary>
+        public int? RepealsID { get; }
 
         /// <summary>
         /// Gets the resolution's sub-category.

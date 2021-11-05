@@ -6,11 +6,6 @@
     public struct Policy
     {
         /// <summary>
-        /// Gets the policy's name.
-        /// </summary>
-        public string Name { get; }
-
-        /// <summary>
         /// Gets the policy's category.
         /// </summary>
         public PolicyCategory Category { get; }
@@ -19,6 +14,11 @@
         /// Gets the policy's description.
         /// </summary>
         public string Description { get; }
+
+        /// <summary>
+        /// Gets the policy's name.
+        /// </summary>
+        public string Name { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Policy"/> struct.

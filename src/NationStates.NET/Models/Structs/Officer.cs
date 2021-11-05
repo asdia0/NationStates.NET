@@ -9,21 +9,6 @@
     public struct Officer
     {
         /// <summary>
-        /// Gets the name of the officer.
-        /// </summary>
-        public string Nation { get; }
-
-        /// <summary>
-        /// Gets the name of the office.
-        /// </summary>
-        public string Office { get; }
-
-        /// <summary>
-        /// Gets the list of authorities granted by the office.
-        /// </summary>
-        public HashSet<Authority> Authorities { get; }
-
-        /// <summary>
         /// Gets the time of appointment.
         /// </summary>
         public DateTime Appointed { get; }
@@ -32,6 +17,21 @@
         /// Gets the name of the nation that appointed the officer.
         /// </summary>
         public string Appointer { get; }
+
+        /// <summary>
+        /// Gets the list of authorities granted by the office.
+        /// </summary>
+        public HashSet<Authority> Authorities { get; }
+
+        /// <summary>
+        /// Gets the name of the officer.
+        /// </summary>
+        public string Nation { get; }
+
+        /// <summary>
+        /// Gets the name of the office.
+        /// </summary>
+        public string Office { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Officer"/> struct.

@@ -16,14 +16,14 @@
         public string Name { get; }
 
         /// <summary>
-        /// Gets the nation's score.
-        /// </summary>
-        public double Score { get; }
-
-        /// <summary>
         /// Gets the nation's rank.
         /// </summary>
         public long Rank { get; }
+
+        /// <summary>
+        /// Gets the nation's score.
+        /// </summary>
+        public double Score { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldCensus"/> struct.

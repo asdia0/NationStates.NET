@@ -6,6 +6,11 @@
     public struct TelegramQueue
     {
         /// <summary>
+        /// Gets the number of telegrams in the queue sent via the API.
+        /// </summary>
+        public long API { get; }
+
+        /// <summary>
         /// Gets the number of telegrams in the queue sent manually.
         /// </summary>
         public long Manual { get; }
@@ -14,11 +19,6 @@
         /// Gets the number of telegrams in the queue sent en masse.
         /// </summary>
         public long Mass { get; }
-
-        /// <summary>
-        /// Gets the number of telegrams in the queue sent via the API.
-        /// </summary>
-        public long API { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TelegramQueue"/> struct.

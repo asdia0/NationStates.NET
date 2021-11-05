@@ -10,16 +10,6 @@
     public struct Dispatch
     {
         /// <summary>
-        /// Gets the dispatch's ID.
-        /// </summary>
-        public ulong ID { get; }
-
-        /// <summary>
-        /// Gets the dispatch's title.
-        /// </summary>
-        public string Title { get; }
-
-        /// <summary>
         /// Gets the dispatch's author.
         /// </summary>
         public string Author { get; }
@@ -28,11 +18,6 @@
         /// Gets the dispatch's category.
         /// </summary>
         public DispatchCategory Category { get; }
-
-        /// <summary>
-        /// Gets the dispatch's sub-category.
-        /// </summary>
-        public dynamic SubCategory { get; }
 
         /// <summary>
         /// Gets the time of creation.
@@ -45,14 +30,29 @@
         public DateTime Edited { get; }
 
         /// <summary>
-        /// Gets the number of views.
+        /// Gets the dispatch's ID.
         /// </summary>
-        public long Views { get; }
+        public ulong ID { get; }
 
         /// <summary>
         /// Gets the dispatch's score.
         /// </summary>
         public int Score { get; }
+
+        /// <summary>
+        /// Gets the dispatch's sub-category.
+        /// </summary>
+        public dynamic SubCategory { get; }
+
+        /// <summary>
+        /// Gets the dispatch's title.
+        /// </summary>
+        public string Title { get; }
+
+        /// <summary>
+        /// Gets the number of views.
+        /// </summary>
+        public long Views { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Dispatch"/> struct.

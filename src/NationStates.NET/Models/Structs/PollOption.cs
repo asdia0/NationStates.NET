@@ -18,14 +18,14 @@
         public string Text { get; }
 
         /// <summary>
-        /// Gets the number of votes received.
-        /// </summary>
-        public int Votes { get; }
-
-        /// <summary>
         /// Gets the name of the nations that voted for the option.
         /// </summary>
         public HashSet<string> Voters { get; }
+
+        /// <summary>
+        /// Gets the number of votes received.
+        /// </summary>
+        public int Votes { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PollOption"/> struct.

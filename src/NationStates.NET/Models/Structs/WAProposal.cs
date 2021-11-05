@@ -9,11 +9,6 @@
     public struct WAProposal
     {
         /// <summary>
-        /// Gets the proposal's ID.
-        /// </summary>
-        public string ID { get; }
-
-        /// <summary>
         /// Gets a list of delegates that approved of the proposal.
         /// </summary>
         public HashSet<string> Approvals { get; }
@@ -37,6 +32,11 @@
         /// Gets the body of the proposal.
         /// </summary>
         public string Description { get; }
+
+        /// <summary>
+        /// Gets the proposal's ID.
+        /// </summary>
+        public string ID { get; }
 
         /// <summary>
         /// Gets the proposal's name.

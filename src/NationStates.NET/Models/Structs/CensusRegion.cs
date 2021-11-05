@@ -21,14 +21,14 @@
         public double Score { get; }
 
         /// <summary>
-        /// Gets the region's world rank.
-        /// </summary>
-        public long WorldRank { get; }
-
-        /// <summary>
         /// Gets the region's world rank as a percentage.
         /// </summary>
         public double WorldPercentage { get; }
+
+        /// <summary>
+        /// Gets the region's world rank.
+        /// </summary>
+        public long WorldRank { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CensusRegion"/> struct.

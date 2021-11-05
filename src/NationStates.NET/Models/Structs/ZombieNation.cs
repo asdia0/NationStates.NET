@@ -11,6 +11,11 @@
         public ZombieAction Action { get; }
 
         /// <summary>
+        /// Gets the number of dead people in millions.
+        /// </summary>
+        public long Dead { get; }
+
+        /// <summary>
         /// Gets the nation's intended action. If null, see <see cref="Action"/>.
         /// </summary>
         public ZombieAction? IntendedAction { get; }
@@ -24,11 +29,6 @@
         /// Gets the number of zombies in millions.
         /// </summary>
         public long Zombies { get; }
-
-        /// <summary>
-        /// Gets the number of dead people in millions.
-        /// </summary>
-        public long Dead { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ZombieNation"/> struct.

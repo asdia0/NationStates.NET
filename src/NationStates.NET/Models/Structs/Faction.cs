@@ -10,16 +10,6 @@
     public struct Faction
     {
         /// <summary>
-        /// Gets the faction's ID.
-        /// </summary>
-        public long ID { get; }
-
-        /// <summary>
-        /// Gets the faction's name.
-        /// </summary>
-        public string Name { get; }
-
-        /// <summary>
         /// Gets the faction's description.
         /// </summary>
         public string Description { get; }
@@ -28,6 +18,41 @@
         /// Gets the time when the faction was founded.
         /// </summary>
         public DateTime Founded { get; }
+
+        /// <summary>
+        /// Gets the faction's ID.
+        /// </summary>
+        public long ID { get; }
+
+        /// <summary>
+        /// Gets the current amount of nukes incoming towards the faction.
+        /// </summary>
+        public long Incoming { get; }
+
+        /// <summary>
+        /// Gets the current amount of nukes launched by the faction.
+        /// </summary>
+        public long Launches { get; }
+
+        /// <summary>
+        /// Gets the faction's name.
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// Gets the amount of nukes the faction has in total.
+        /// </summary>
+        public long Nukes { get; }
+
+        /// <summary>
+        /// Gets the amount of production points the faction has in total.
+        /// </summary>
+        public long Production { get; }
+
+        /// <summary>
+        /// Gets the total number of radiation in the faction.
+        /// </summary>
+        public long Radiation { get; }
 
         /// <summary>
         /// Gets the region that founded the faction.
@@ -40,39 +65,9 @@
         public long Score { get; }
 
         /// <summary>
-        /// Gets the amount of production points the faction has in total.
-        /// </summary>
-        public long Production { get; }
-
-        /// <summary>
-        /// Gets the amount of nukes the faction has in total.
-        /// </summary>
-        public long Nukes { get; }
-
-        /// <summary>
         /// Gets the amount of shields the faction has in total.
         /// </summary>
         public long Shields { get; }
-
-        /// <summary>
-        /// Gets the amount of targets the faction has in total.
-        /// </summary>
-        public long Targets { get; }
-
-        /// <summary>
-        /// Gets the current amount of nukes launched by the faction.
-        /// </summary>
-        public long Launches { get; }
-
-        /// <summary>
-        /// Gets the current amount of nukes incoming towards the faction.
-        /// </summary>
-        public long Incoming { get; }
-
-        /// <summary>
-        /// Gets the number of nukes targeted towards the faction.
-        /// </summary>
-        public long Targeted { get; }
 
         /// <summary>
         /// Gets the total number of radiation imposed onto other factions.
@@ -80,9 +75,14 @@
         public long Strikes { get; }
 
         /// <summary>
-        /// Gets the total number of radiation in the faction.
+        /// Gets the number of nukes targeted towards the faction.
         /// </summary>
-        public long Radiation { get; }
+        public long Targeted { get; }
+
+        /// <summary>
+        /// Gets the amount of targets the faction has in total.
+        /// </summary>
+        public long Targets { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Faction"/> struct.
