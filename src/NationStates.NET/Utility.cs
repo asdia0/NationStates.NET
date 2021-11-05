@@ -133,32 +133,6 @@
         }
 
         /// <summary>
-        /// Parses a string for <see cref="PostStatus"/>.
-        /// </summary>
-        /// <param name="status">The string to parse.</param>
-        /// <returns>A <see cref="PostStatus"/>.</returns>
-        public static PostStatus ParseStatus(string status)
-        {
-            switch (status)
-            {
-                case "0":
-                    return PostStatus.Regular;
-
-                case "1":
-                    return PostStatus.SupressedViewable;
-
-                case "2":
-                    return PostStatus.Deleted;
-
-                case "9":
-                    return PostStatus.SupressedUnviewable;
-
-                default:
-                    throw new NSError("Unrecognised status string.");
-            }
-        }
-
-        /// <summary>
         /// Parses <see cref="WAGACategory"/> or <see cref="WASCCategory"/>.
         /// </summary>
         /// <param name="option">The option node.</param>
