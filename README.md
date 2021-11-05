@@ -11,9 +11,9 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
   - [ ] Private commands
 - [X] Region
 - [X] World
-- [ ] World Assembly [DOING]
+- [X] World Assembly
 - [ ] Telegram
-- [ ] Trading Cards
+- [ ] Trading Cards [DOING]
 
 ## TODO
 - [ ] Actually test stuff
