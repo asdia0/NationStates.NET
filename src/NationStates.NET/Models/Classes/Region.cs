@@ -153,9 +153,28 @@
         {
             get
             {
-                return ParseRMBPermission(ParseDocument($"region={this.Name}&q=embassyrmb")
+                switch (ParseDocument($"region={this.Name}&q=embassyrmb")
                     .SelectSingleNode("/REGION/EMBASSYRMB")
-                    .InnerText);
+                    .InnerText)
+                {
+                    case "0":
+                        return RMBPermission.None;
+
+                    case "con":
+                        return RMBPermission.Delegate_Founder;
+
+                    case "off":
+                        return RMBPermission.Officers;
+
+                    case "com":
+                        return RMBPermission.CommunicationOfficers;
+
+                    case "all":
+                        return RMBPermission.All;
+
+                    default:
+                        throw new NSError("Unrecognised permission string.");
+                }
             }
         }
 

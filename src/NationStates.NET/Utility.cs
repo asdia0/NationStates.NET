@@ -133,35 +133,6 @@
         }
 
         /// <summary>
-        /// Parses a string for <see cref="RMBPermission"/>.
-        /// </summary>
-        /// <param name="permission">The string to parse.</param>
-        /// <returns>A <see cref="RMBPermission"/>.</returns>
-        public static RMBPermission ParseRMBPermission(string permission)
-        {
-            switch (permission)
-            {
-                case "0":
-                    return RMBPermission.None;
-
-                case "con":
-                    return RMBPermission.Delegate_Founder;
-
-                case "off":
-                    return RMBPermission.Officers;
-
-                case "com":
-                    return RMBPermission.CommunicationOfficers;
-
-                case "all":
-                    return RMBPermission.All;
-
-                default:
-                    throw new NSError("Unrecognised permission string.");
-            }
-        }
-
-        /// <summary>
         /// Parses a string for <see cref="PostStatus"/>.
         /// </summary>
         /// <param name="status">The string to parse.</param>
