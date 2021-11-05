@@ -24,27 +24,6 @@
         };
 
         /// <summary>
-        /// Capitalises a word. The first character and every character after a dash and a space is capitalised.
-        /// </summary>
-        /// <param name="word">The word to capitalise.</param>
-        /// <returns>The capitalised word.</returns>
-        public static string Capitalise(string word)
-        {
-            string firstChar = char.ToUpper(word[0]) + word.ToLower().Substring(1);
-
-            StringBuilder sb = new StringBuilder(firstChar);
-            for (int i = 0; i < sb.Length - 1; i++)
-            {
-                if (sb[i] == '-' || sb[i] == ' ')
-                {
-                    sb[i + 1] = char.ToUpper(sb[i + 1]);
-                }
-            }
-
-            return sb.ToString();
-        }
-
-        /// <summary>
         /// Converts a <see cref="DateTime"/> object to its UNIX timestamp.
         /// </summary>
         /// <param name="dateTime">The object to convert.</param>
@@ -52,16 +31,6 @@
         public static long ConvertToUnix(DateTime dateTime)
         {
             return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
-        }
-
-        /// <summary>
-        /// Formats a string for <see cref="Enum.Parse(Type, string)"/>.
-        /// </summary>
-        /// <param name="enumValue">The stringified value of the enum.</param>
-        /// <returns>A formatted string.</returns>
-        public static string FormatForEnum(string enumValue)
-        {
-            return enumValue.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
         }
 
         /// <summary>
@@ -124,7 +93,22 @@
         /// <returns>An enum.</returns>
         public static dynamic ParseEnum(Type type, string text)
         {
-            return Enum.Parse(type, FormatForEnum(Capitalise(text)));
+            string firstChar = char.ToUpper(text[0]) + text.ToLower().Substring(1);
+
+            StringBuilder sb = new StringBuilder(firstChar);
+            for (int i = 0; i < sb.Length - 1; i++)
+            {
+                if (sb[i] == '-' || sb[i] == ' ')
+                {
+                    sb[i + 1] = char.ToUpper(sb[i + 1]);
+                }
+            }
+
+            string text2 = sb.ToString();
+
+            text2.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
+
+            return Enum.Parse(type, text2);
         }
 
         /// <summary>
