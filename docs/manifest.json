@@ -880,15 +880,18 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "SZduw/56ibOMn+YAlk98p+DQHBZkFnewVVk2ev4sCa8="
+          "hash": "jJIkdgK5QrC+wuOAlhpNcgpVSqB2Vi/+4IRkL1wEKtI="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -909,7 +912,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "PBuu7kFSeOqHrvESyK6XFcP+ZRSVNtqAAVdTEWIcY9k="
+          "hash": "sEbb/wyCWYFRR6xJg7Cy4tLMquehIs0FqurO+aTD91U="
         }
       },
       "is_incremental": false,
@@ -941,7 +944,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 2
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
