@@ -125,10 +125,9 @@
         /// <param name="votesFor">A list of nations voting for the proposal.</param>
         /// <param name="voteTrackAgainst">A list tracking the number of votes against the proposal over time.</param>
         /// <param name="voteTrackFor">A list tracking the number of votes for the proposal over time.</param>
-        public WAProposalAtVote(string id, dynamic category, WACouncil council, DateTime created, HashSet<DelegateEntry> delegateLog,
-            HashSet<DelegateVote> delegateVotesAgainst, HashSet<DelegateVote> delegateVotesFor, string description, string name, string proposer, dynamic subCategory,
-            long totalNationsAgainst, long totalNationsFor, long totalVotesAgainst, long totalVotesFor, HashSet<string> votesAgainst, HashSet<string> votesFor,
-            List<long> voteTrackAgainst, List<long> voteTrackFor)
+        public WAProposalAtVote(string id, dynamic category, WACouncil council, DateTime created, HashSet<DelegateEntry> delegateLog, HashSet<DelegateVote> delegateVotesAgainst,
+            HashSet<DelegateVote> delegateVotesFor, string description, string name, string proposer, dynamic subCategory, long totalNationsAgainst, long totalNationsFor,
+            long totalVotesAgainst, long totalVotesFor, HashSet<string> votesAgainst, HashSet<string> votesFor, List<long> voteTrackAgainst, List<long> voteTrackFor)
         {
             this.ID = id;
             this.Category = category;
