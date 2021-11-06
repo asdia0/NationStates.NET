@@ -6,17 +6,17 @@
     public enum WAAction
     {
         /// <summary>
-        /// Against.
+        /// Vote against the proposal.
         /// </summary>
         Against,
 
         /// <summary>
-        /// For.
+        /// Vote for the proposal.
         /// </summary>
         For,
 
         /// <summary>
-        /// Withdrew.
+        /// Withdraw their vote for the proposal.
         /// </summary>
         Withdrew,
     }
