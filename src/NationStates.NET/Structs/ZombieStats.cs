@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents an entity's Z-Day statistics.
     /// </summary>
@@ -8,16 +11,19 @@
         /// <summary>
         /// Gets the number of dead people in millions.
         /// </summary>
+        [JsonProperty]
         public long Dead { get; }
 
         /// <summary>
         /// Gets the number of survivors in millions.
         /// </summary>
+        [JsonProperty]
         public long Survivors { get; }
 
         /// <summary>
         /// Gets the number of zombies in millions.
         /// </summary>
+        [JsonProperty]
         public long Zombies { get; }
 
         /// <summary>
@@ -31,6 +37,15 @@
             this.Survivors = survivors;
             this.Zombies = zombies;
             this.Dead = dead;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the statistics.
+        /// </summary>
+        /// <returns>A JSON string representing the statistics.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

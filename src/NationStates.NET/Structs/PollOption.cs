@@ -1,6 +1,8 @@
 ﻿namespace NationStates.NET
 {
     using System.Collections.Generic;
+    using Newtonsoft.Json;
+    using static Utility;
 
     /// <summary>
     /// Represents an option in a poll.
@@ -10,21 +12,25 @@
         /// <summary>
         /// Gets the option's ID.
         /// </summary>
+        [JsonProperty]
         public int ID { get; }
 
         /// <summary>
         /// Gets the option's text.
         /// </summary>
+        [JsonProperty]
         public string Text { get; }
 
         /// <summary>
         /// Gets the name of the nations that voted for the option.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Voters { get; }
 
         /// <summary>
         /// Gets the number of votes received.
         /// </summary>
+        [JsonProperty]
         public int Votes { get; }
 
         /// <summary>
@@ -40,6 +46,15 @@
             this.Text = text;
             this.Votes = votes;
             this.Voters = voters;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the poll option.
+        /// </summary>
+        /// <returns>A JSON string representing the poll option.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

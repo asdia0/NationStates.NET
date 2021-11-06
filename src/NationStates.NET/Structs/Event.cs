@@ -1,6 +1,8 @@
 ﻿namespace NationStates.NET
 {
     using System;
+    using Newtonsoft.Json;
+    using static Utility;
 
     /// <summary>
     /// Represents an event.
@@ -10,11 +12,13 @@
         /// <summary>
         /// Gets the description of the event.
         /// </summary>
+        [JsonProperty]
         public string Text { get; }
 
         /// <summary>
         /// Gets the time at which the event occurred.
         /// </summary>
+        [JsonProperty]
         public DateTime TimeStamp { get; }
 
         /// <summary>
@@ -26,6 +30,15 @@
         {
             this.TimeStamp = timestamp;
             this.Text = text;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the event.
+        /// </summary>
+        /// <returns>A JSON string representing the event.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -13,96 +14,115 @@
         /// <summary>
         /// Gets the proposal's category.
         /// </summary>
+        [JsonProperty]
         public dynamic Category { get; }
 
         /// <summary>
         /// Gets the council the proposal was submitted in.
         /// </summary>
+        [JsonProperty]
         public Council Council { get; }
 
         /// <summary>
         /// Gets the time at which the proposal was created.
         /// </summary>
+        [JsonProperty]
         public DateTime Created { get; }
 
         /// <summary>
         /// Gets a log of the delegates' voting activity.
         /// </summary>
+        [JsonProperty]
         public HashSet<DelegateEntry> DelegateLog { get; }
 
         /// <summary>
         /// Gets a list of delegate votes against the proposal.
         /// </summary>
+        [JsonProperty]
         public HashSet<DelegateVote> DelegateVotesAgainst { get; }
 
         /// <summary>
         /// Gets a list of delegate votes for the proposal.
         /// </summary>
+        [JsonProperty]
         public HashSet<DelegateVote> DelegateVotesFor { get; }
 
         /// <summary>
         /// Gets the body of the proposal.
         /// </summary>
+        [JsonProperty]
         public string Description { get; }
 
         /// <summary>
         /// Gets the proposal's ID.
         /// </summary>
+        [JsonProperty]
         public string ID { get; }
 
         /// <summary>
         /// Gets the proposal's name.
         /// </summary>
+        [JsonProperty]
         public string Name { get; }
 
         /// <summary>
         /// Gets the name of the nation that proposed the proposal.
         /// </summary>
+        [JsonProperty]
         public string Proposer { get; }
 
         /// <summary>
         /// Gets the proposal's sub-category.
         /// </summary>
+        [JsonProperty]
         public dynamic SubCategory { get; }
 
         /// <summary>
         /// Gets the number of nations against the proposal.
         /// </summary>
+        [JsonProperty]
         public long TotalNationsAgainst { get; }
 
         /// <summary>
         /// Gets the number of nations for the proposal.
         /// </summary>
+        [JsonProperty]
         public long TotalNationsFor { get; }
 
         /// <summary>
         /// Gets the number of votes against the proposal.
         /// </summary>
+        [JsonProperty]
         public long TotalVotesAgainst { get; }
 
         /// <summary>
         /// Gets the number of votes for the proposal.
         /// </summary>
+        [JsonProperty]
         public long TotalVotesFor { get; }
 
         /// <summary>
         /// Gets a list of nations voting against the proposal.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> VotesAgainst { get; }
 
         /// <summary>
         /// Gets a list of nations voting for the proposal.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> VotesFor { get; }
 
         /// <summary>
         /// Gets a list tracking the number of votes against the proposal over time.
         /// </summary>
+        [JsonProperty]
         public List<long> VoteTrackAgainst { get; }
 
         /// <summary>
         /// Gets a list tracking the number of votes for the proposal over time.
         /// </summary>
+        [JsonProperty]
         public List<long> VoteTrackFor { get; }
 
         /// <summary>
@@ -211,6 +231,15 @@
             }
 
             this.VoteTrackFor = voteTrackFor;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the proposal at vote.
+        /// </summary>
+        /// <returns>A JSON string representing the proposal at vote.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

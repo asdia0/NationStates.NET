@@ -25,6 +25,28 @@
         };
 
         /// <summary>
+        /// Capitalises a string.
+        /// </summary>
+        /// <param name="text">The string to capitalise.</param>
+        /// <returns>The capitalised string.</returns>
+        public static string Capitalise(string text)
+        {
+            string firstChar = char.ToUpper(text[0]) + text.ToLower().Substring(1);
+
+            StringBuilder sb = new StringBuilder(firstChar);
+
+            for (int i = 0; i < sb.Length - 1; i++)
+            {
+                if (sb[i] == '-' || sb[i] == ' ')
+                {
+                    sb[i + 1] = char.ToUpper(sb[i + 1]);
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
         /// Converts a <see cref="DateTime"/> object to its UNIX timestamp.
         /// </summary>
         /// <param name="dateTime">The object to convert.</param>
@@ -32,6 +54,16 @@
         public static long ConvertToUnix(DateTime dateTime)
         {
             return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
+        }
+
+        /// <summary>
+        /// Formats a string for enum parsing.
+        /// </summary>
+        /// <param name="text">The string to format.</param>
+        /// <returns>The formatted string.</returns>
+        public static string FormatForEnum(string text)
+        {
+            return text.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
         }
 
         /// <summary>
@@ -94,22 +126,12 @@
         /// <returns>An enum.</returns>
         public static dynamic ParseEnum(Type type, string text)
         {
-            string firstChar = char.ToUpper(text[0]) + text.ToLower().Substring(1);
-
-            StringBuilder sb = new StringBuilder(firstChar);
-            for (int i = 0; i < sb.Length - 1; i++)
+            if (text.StartsWith("FT"))
             {
-                if (sb[i] == '-' || sb[i] == ' ')
-                {
-                    sb[i + 1] = char.ToUpper(sb[i + 1]);
-                }
+                return Enum.Parse(type, FormatForEnum(text));
             }
 
-            string text2 = sb.ToString();
-
-            text2.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
-
-            return Enum.Parse(type, text2);
+            return Enum.Parse(type, FormatForEnum(Capitalise(text)));
         }
 
         /// <summary>

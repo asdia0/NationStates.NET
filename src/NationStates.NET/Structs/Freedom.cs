@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a nation's freedom levels.
     /// </summary>
@@ -8,16 +11,19 @@
         /// <summary>
         /// Gets the nation's civil rights level.
         /// </summary>
+        [JsonProperty]
         public CivilRights CivilRights { get; }
 
         /// <summary>
         /// Gets the nation's economy level.
         /// </summary>
+        [JsonProperty]
         public Economy Economy { get; }
 
         /// <summary>
         /// Gets the nation's political freedoms level.
         /// </summary>
+        [JsonProperty]
         public PoliticalFreedoms PoliticalFreedoms { get; }
 
         /// <summary>
@@ -31,6 +37,15 @@
             this.CivilRights = civilRights;
             this.Economy = economy;
             this.PoliticalFreedoms = politicalFreedoms;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the nation's freedom levels.
+        /// </summary>
+        /// <returns>A JSON string representing the nation's freedom levels.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

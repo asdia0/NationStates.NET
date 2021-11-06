@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -26,6 +27,7 @@
         /// <summary>
         /// Gets the region's census data.
         /// </summary>
+        [JsonProperty]
         public HashSet<CensusRegion> Census
         {
             get
@@ -52,6 +54,7 @@
         /// <summary>
         /// Gets the region's database ID.
         /// </summary>
+        [JsonProperty]
         public long DBID
         {
             get
@@ -65,6 +68,7 @@
         /// <summary>
         /// Gets the name of the region's World Assembly Delegate.
         /// </summary>
+        [JsonProperty]
         public string Delegate
         {
             get
@@ -78,6 +82,7 @@
         /// <summary>
         /// Gets the authorities the <see cref="Delegate"/> has.
         /// </summary>
+        [JsonProperty]
         public HashSet<Authority> DelegateAuthorities
         {
             get
@@ -91,11 +96,12 @@
         /// <summary>
         /// Gets the number of World Assembly votes the <see cref="Delegate"/> has (number of endorsements + 1).
         /// </summary>
+        [JsonProperty]
         public int DelegateVotes
         {
             get
             {
-                return int.Parse(ParseDocument($"region={this.Name}&q=dbid")
+                return int.Parse(ParseDocument($"region={this.Name}&q=delegatevotes")
                     .SelectSingleNode("/REGION/DELEGATEVOTES")
                     .InnerText);
             }
@@ -104,6 +110,7 @@
         /// <summary>
         /// Gets the pinned dispatches.
         /// </summary>
+        [JsonProperty]
         public HashSet<Dispatch> DispatchList
         {
             get
@@ -122,6 +129,7 @@
         /// <summary>
         /// Gets the region's embassies.
         /// </summary>
+        [JsonProperty]
         public Dictionary<EmbassyType, HashSet<string>> Embassies
         {
             get
@@ -129,7 +137,13 @@
                 XmlNode node = ParseDocument($"region={this.Name}&q=embassies")
                     .SelectSingleNode("/REGION/EMBASSIES");
 
-                Dictionary<EmbassyType, HashSet<string>> embassies = new();
+                Dictionary<EmbassyType, HashSet<string>> embassies = new()
+                {
+                    { EmbassyType.Closing, new() },
+                    { EmbassyType.Constructed, new() },
+                    { EmbassyType.Invited, new() },
+                    { EmbassyType.Pending, new() },
+                };
 
                 foreach (XmlNode embassy in node.ChildNodes)
                 {
@@ -142,11 +156,6 @@
 
                     string name = embassy.InnerText;
 
-                    if (!this.Embassies.ContainsKey(type))
-                    {
-                        embassies.Add(type, new HashSet<string>());
-                    }
-
                     embassies[type].Add(name);
                 }
 
@@ -157,6 +166,7 @@
         /// <summary>
         /// Gets the region's policy with RMB posting.
         /// </summary>
+        [JsonProperty]
         public RMBPermission EmbassyRMBPermission
         {
             get
@@ -187,6 +197,7 @@
         /// <summary>
         /// Gets the region's factbook.
         /// </summary>
+        [JsonProperty]
         public string Factbook
         {
             get
@@ -200,6 +211,7 @@
         /// <summary>
         /// Gets the URL of the region's flag.
         /// </summary>
+        [JsonProperty]
         public string Flag
         {
             get
@@ -213,6 +225,7 @@
         /// <summary>
         /// Gets the time the region was founded in natural language.
         /// </summary>
+        [JsonProperty]
         public string Founded
         {
             get
@@ -226,6 +239,7 @@
         /// <summary>
         /// Gets the time the region was founded.
         /// </summary>
+        [JsonProperty]
         public DateTime FoundedTime
         {
             get
@@ -239,6 +253,7 @@
         /// <summary>
         /// Gets the name of the region's founder.
         /// </summary>
+        [JsonProperty]
         public string Founder
         {
             get
@@ -252,6 +267,7 @@
         /// <summary>
         /// Gets the authorities the <see cref="Founder"/> has.
         /// </summary>
+        [JsonProperty]
         public HashSet<Authority> FounderAuthorities
         {
             get
@@ -265,6 +281,7 @@
         /// <summary>
         /// Gets the region's votes for/against the current General Assembly bill.
         /// </summary>
+        [JsonProperty]
         public Dictionary<Vote, int>? GAVote
         {
             get
@@ -291,6 +308,7 @@
         /// <summary>
         /// Gets the latest happenings.
         /// </summary>
+        [JsonProperty]
         public HashSet<Event> Happenings
         {
             get
@@ -303,11 +321,12 @@
         /// <summary>
         /// Gets the history of the region.
         /// </summary>
+        [JsonProperty]
         public HashSet<Event> History
         {
             get
             {
-                return ParseEvents(ParseDocument($"nation={this.Name}&q=history")
+                return ParseEvents(ParseDocument($"region={this.Name}&q=history")
                     .SelectSingleNode("/REGION/HISTORY"));
             }
         }
@@ -315,6 +334,7 @@
         /// <summary>
         /// Gets the time of the last update.
         /// </summary>
+        [JsonProperty]
         public DateTime LastUpdate
         {
             get
@@ -328,6 +348,7 @@
         /// <summary>
         /// Gets or sets the region's name.
         /// </summary>
+        [JsonProperty]
         public string Name
         {
             get
@@ -348,6 +369,7 @@
         /// <summary>
         /// Gets the list of nations in the region.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Nations
         {
             get
@@ -363,6 +385,7 @@
         /// <summary>
         /// Gets the number of nations in the region.
         /// </summary>
+        [JsonProperty]
         public int NumberOfNations
         {
             get
@@ -376,6 +399,7 @@
         /// <summary>
         /// Gets the list of regional officers.
         /// </summary>
+        [JsonProperty]
         public HashSet<Officer> Officers
         {
             get
@@ -403,12 +427,18 @@
         /// <summary>
         /// Gets the current poll.
         /// </summary>
+        [JsonProperty]
         public Poll? Poll
         {
             get
             {
-                XmlNode node = ParseDocument($"region={this.Name}&q=poll")
+                XmlNode? node = ParseDocument($"region={this.Name}&q=poll")
                     .SelectSingleNode("/REGION/POLL");
+
+                if (node == null)
+                {
+                    return null;
+                }
 
                 long pollID = long.Parse(node.Attributes["id"].Value);
                 string title = node.SelectSingleNode("TITLE").InnerText;
@@ -435,6 +465,7 @@
         /// <summary>
         /// Gets the region's power in the world.
         /// </summary>
+        [JsonProperty]
         public Power Power
         {
             get
@@ -448,6 +479,7 @@
         /// <summary>
         /// Gets the region's vote for/against the current Security Council bill.
         /// </summary>
+        [JsonProperty]
         public Dictionary<Vote, int>? SCVote
         {
             get
@@ -474,6 +506,7 @@
         /// <summary>
         /// Gets the region's tags.
         /// </summary>
+        [JsonProperty]
         public HashSet<RegionTag> Tags
         {
             get
@@ -495,6 +528,7 @@
         /// <summary>
         /// Gets the region's World Assembly badges.
         /// </summary>
+        [JsonProperty]
         public HashSet<Badge> WABadges
         {
             get
@@ -519,6 +553,7 @@
         /// <summary>
         /// Gets the region's Z-Day information.
         /// </summary>
+        [JsonProperty]
         public ZombieStats Zombie
         {
             get
@@ -626,6 +661,15 @@
             }
 
             return messages;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the region.
+        /// </summary>
+        /// <returns>A JSON string representing the region.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

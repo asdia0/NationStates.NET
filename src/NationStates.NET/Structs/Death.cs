@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a cause of death.
     /// </summary>
@@ -8,11 +11,13 @@
         /// <summary>
         /// Gets the cause of death.
         /// </summary>
+        [JsonProperty]
         public string Cause { get; }
 
         /// <summary>
         /// Gets the death's national frequency in percentage.
         /// </summary>
+        [JsonProperty]
         public double Frequency { get; }
 
         /// <summary>
@@ -24,6 +29,15 @@
         {
             this.Cause = cause;
             this.Frequency = frequency;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the cause of death.
+        /// </summary>
+        /// <returns>A JSON string representing the cause of death.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

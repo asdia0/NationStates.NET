@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -14,36 +15,43 @@
         /// <summary>
         /// Gets the name of the nation that started the poll.
         /// </summary>
+        [JsonProperty]
         public string Author { get; }
 
         /// <summary>
         /// Gets the poll's ID.
         /// </summary>
+        [JsonProperty]
         public long ID { get; }
 
         /// <summary>
         /// Gets a list of options and results for the polls.
         /// </summary>
+        [JsonProperty]
         public HashSet<PollOption> Options { get; }
 
         /// <summary>
         /// Gets the region the poll was held in.
         /// </summary>
+        [JsonProperty]
         public string Region { get; }
 
         /// <summary>
         /// Gets the time at which the poll started.
         /// </summary>
+        [JsonProperty]
         public DateTime Start { get; }
 
         /// <summary>
         /// Gets the time at which the poll ended.
         /// </summary>
+        [JsonProperty]
         public DateTime Stop { get; }
 
         /// <summary>
         /// Gets the poll's title.
         /// </summary>
+        [JsonProperty]
         public string Title { get; }
 
         /// <summary>
@@ -93,6 +101,15 @@
 
                 this.Options.Add(new PollOption(optionID, text, votes, voters));
             }
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the poll.
+        /// </summary>
+        /// <returns>A JSON string representing the poll.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

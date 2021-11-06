@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a census ranking in a region.
     /// </summary>
@@ -8,21 +11,25 @@
         /// <summary>
         /// Gets the census ID.
         /// </summary>
+        [JsonProperty]
         public int ID { get; }
 
         /// <summary>
         /// Gets the name of the nation.
         /// </summary>
+        [JsonProperty]
         public string Name { get; }
 
         /// <summary>
         /// Gets the nation's rank in the region.
         /// </summary>
+        [JsonProperty]
         public long Rank { get; }
 
         /// <summary>
         /// Gets the nation's census value.
         /// </summary>
+        [JsonProperty]
         public double Score { get; }
 
         /// <summary>
@@ -38,6 +45,15 @@
             this.Name = name;
             this.Rank = rank;
             this.Score = score;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the record.
+        /// </summary>
+        /// <returns>A JSON string representing the record.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -18,6 +19,7 @@
         /// <summary>
         /// Gets one of the nation's admirables.
         /// </summary>
+        [JsonProperty]
         public string Admirable
         {
             get
@@ -31,6 +33,7 @@
         /// <summary>
         /// Gets a list of the nation's admirables.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Admirables
         {
             get
@@ -52,6 +55,7 @@
         /// <summary>
         /// Gets the name of national animal.
         /// </summary>
+        [JsonProperty]
         public string Animal
         {
             get
@@ -65,6 +69,7 @@
         /// <summary>
         /// Gets the national animal's trait.
         /// </summary>
+        [JsonProperty]
         public string AnimalTrait
         {
             get
@@ -78,6 +83,7 @@
         /// <summary>
         /// Gets the number of issues answered.
         /// </summary>
+        [JsonProperty]
         public int Answered
         {
             get
@@ -91,6 +97,7 @@
         /// <summary>
         /// Gets one of the nation's banners that can be displayed.
         /// </summary>
+        [JsonProperty]
         public Banner Banner
         {
             get
@@ -104,6 +111,7 @@
         /// <summary>
         /// Gets a list of the nation's banners that can be displayed.
         /// </summary>
+        [JsonProperty]
         public HashSet<Banner> Banners
         {
             get
@@ -125,6 +133,7 @@
         /// <summary>
         /// Gets the name of the nation's capital city.
         /// </summary>
+        [JsonProperty]
         public string Capital
         {
             get
@@ -138,12 +147,13 @@
         /// <summary>
         /// Gets the type of nation.
         /// </summary>
+        [JsonProperty]
         public NationCategory Category
         {
             get
             {
                 return (NationCategory)ParseEnum(typeof(NationCategory), ParseDocument($"nation={this.Name}&q=category")
-                    .SelectSingleNode("NATION/CATEGORY")
+                    .SelectSingleNode("/NATION/CATEGORY")
                     .InnerText);
             }
         }
@@ -151,6 +161,7 @@
         /// <summary>
         /// Gets the nation's census data.
         /// </summary>
+        [JsonProperty]
         public HashSet<CensusNation> Census
         {
             get
@@ -179,6 +190,7 @@
         /// <summary>
         /// Gets the name of the nation's currency.
         /// </summary>
+        [JsonProperty]
         public string Currency
         {
             get
@@ -192,6 +204,7 @@
         /// <summary>
         /// Gets the nation's custom capital.
         /// </summary>
+        [JsonProperty]
         public string CustomCapital
         {
             get
@@ -205,6 +218,7 @@
         /// <summary>
         /// Gets the nation's custom leader.
         /// </summary>
+        [JsonProperty]
         public string CustomLeader
         {
             get
@@ -218,6 +232,7 @@
         /// <summary>
         /// Gets the nation's custom religion.
         /// </summary>
+        [JsonProperty]
         public string CustomReligion
         {
             get
@@ -231,6 +246,7 @@
         /// <summary>
         /// Gets the nation's database ID.
         /// </summary>
+        [JsonProperty]
         public long DBID
         {
             get
@@ -244,6 +260,7 @@
         /// <summary>
         /// Gets the causes of deaths and their frequency.
         /// </summary>
+        [JsonProperty]
         public HashSet<Death> Deaths
         {
             get
@@ -265,6 +282,7 @@
         /// <summary>
         /// Gets the nation's demonym (adjective).
         /// </summary>
+        [JsonProperty]
         public string DemonymAdjective
         {
             get
@@ -278,6 +296,7 @@
         /// <summary>
         /// Gets the nation's demonym (noun).
         /// </summary>
+        [JsonProperty]
         public string DemonymNoun
         {
             get
@@ -291,6 +310,7 @@
         /// <summary>
         /// Gets the nation's demonym (plural).
         /// </summary>
+        [JsonProperty]
         public string DemonymPlural
         {
             get
@@ -304,6 +324,7 @@
         /// <summary>
         /// Gets the number of dispatches authored by the nation.
         /// </summary>
+        [JsonProperty]
         public int Dispatches
         {
             get
@@ -317,6 +338,7 @@
         /// <summary>
         /// Gets the list of dispatches authored by the nation.
         /// </summary>
+        [JsonProperty]
         public HashSet<Dispatch> DispatchList
         {
             get
@@ -371,6 +393,7 @@
         /// <summary>
         /// Gets a list of the nation's endorsements.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Endorsements
         {
             get
@@ -386,6 +409,7 @@
         /// <summary>
         /// Gets the number of factbooks authored by the nation.
         /// </summary>
+        [JsonProperty]
         public int Factbooks
         {
             get
@@ -399,6 +423,7 @@
         /// <summary>
         /// Gets the time the nation first logged in.
         /// </summary>
+        [JsonProperty]
         public DateTime FirstLogin
         {
             get
@@ -412,6 +437,7 @@
         /// <summary>
         /// Gets the URL of the nation's flag.
         /// </summary>
+        [JsonProperty]
         public string Flag
         {
             get
@@ -425,6 +451,7 @@
         /// <summary>
         /// Gets the time the nation was founded in natural language.
         /// </summary>
+        [JsonProperty]
         public string Founded
         {
             get
@@ -438,6 +465,7 @@
         /// <summary>
         /// Gets the time the nation was founded.
         /// </summary>
+        [JsonProperty]
         public DateTime FoundedTime
         {
             get
@@ -451,6 +479,7 @@
         /// <summary>
         /// Gets the level of the nation's civil rights, economy and political freedoms.
         /// </summary>
+        [JsonProperty]
         public Freedom Freedom
         {
             get
@@ -469,6 +498,7 @@
         /// <summary>
         /// Gets the nation's full name.
         /// </summary>
+        [JsonProperty]
         public string FullName
         {
             get
@@ -482,6 +512,7 @@
         /// <summary>
         /// Gets the nation's vote on current General Assembly bill.
         /// </summary>
+        [JsonProperty]
         public Vote? GAVote
         {
             get
@@ -503,6 +534,7 @@
         /// <summary>
         /// Gets the nation's GDP in standard dollars.
         /// </summary>
+        [JsonProperty]
         public ulong GDP
         {
             get
@@ -516,6 +548,7 @@
         /// <summary>
         /// Gets the nation's government funding in various departments.
         /// </summary>
+        [JsonProperty]
         public Government Government
         {
             get
@@ -543,6 +576,7 @@
         /// <summary>
         /// Gets a description of the nation's government.
         /// </summary>
+        [JsonProperty]
         public string GovernmentDescription
         {
             get
@@ -556,6 +590,7 @@
         /// <summary>
         /// Gets the department that the government funds the most.
         /// </summary>
+        [JsonProperty]
         public string GovernmentPriority
         {
             get
@@ -569,6 +604,7 @@
         /// <summary>
         /// Gets a list of recent events in the nation.
         /// </summary>
+        [JsonProperty]
         public HashSet<Event> Happenings
         {
             get
@@ -581,6 +617,7 @@
         /// <summary>
         /// Gets the income of the nation's average citizen in standard dollars.
         /// </summary>
+        [JsonProperty]
         public long Income
         {
             get
@@ -594,6 +631,7 @@
         /// <summary>
         /// Gets a description of the nation's industry.
         /// </summary>
+        [JsonProperty]
         public string IndustryDescription
         {
             get
@@ -607,6 +645,7 @@
         /// <summary>
         /// Gets the nation's influence level.
         /// </summary>
+        [JsonProperty]
         public Influence Influence
         {
             get
@@ -620,6 +659,7 @@
         /// <summary>
         /// Gets the time the nation last logged in.
         /// </summary>
+        [JsonProperty]
         public DateTime LastLogin
         {
             get
@@ -633,6 +673,7 @@
         /// <summary>
         /// Gets the name of the nation's leader.
         /// </summary>
+        [JsonProperty]
         public string Leader
         {
             get
@@ -646,6 +687,7 @@
         /// <summary>
         /// Gets a list of recent legislation passed in the nation.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Legislation
         {
             get
@@ -667,6 +709,7 @@
         /// <summary>
         /// Gets the nation's largest industry.
         /// </summary>
+        [JsonProperty]
         public Industry MajorIndustry
         {
             get
@@ -680,6 +723,7 @@
         /// <summary>
         /// Gets the nation's motto.
         /// </summary>
+        [JsonProperty]
         public string Motto
         {
             get
@@ -693,6 +737,7 @@
         /// <summary>
         /// Gets or sets the nation's name.
         /// </summary>
+        [JsonProperty]
         public string Name
         {
             get
@@ -713,6 +758,7 @@
         /// <summary>
         /// Gets one the nation's notable characteristic.
         /// </summary>
+        [JsonProperty]
         public string Notable
         {
             get
@@ -726,6 +772,7 @@
         /// <summary>
         /// Gets a list of the nation's notable characteristics.
         /// </summary>
+        [JsonProperty]
         public HashSet<string> Notables
         {
             get
@@ -747,6 +794,7 @@
         /// <summary>
         /// Gets the list of policies implemented.
         /// </summary>
+        [JsonProperty]
         public HashSet<Policy> Policies
         {
             get
@@ -772,6 +820,7 @@
         /// <summary>
         /// Gets the average income of the poorest 10% in standard dollars.
         /// </summary>
+        [JsonProperty]
         public long Poorest
         {
             get
@@ -785,6 +834,7 @@
         /// <summary>
         /// Gets the nation's population in millions.
         /// </summary>
+        [JsonProperty]
         public long Population
         {
             get
@@ -798,6 +848,7 @@
         /// <summary>
         /// Gets the percentage of the public sector in the nation's economy.
         /// </summary>
+        [JsonProperty]
         public double PublicSector
         {
             get
@@ -811,6 +862,7 @@
         /// <summary>
         /// Gets the nation's region.
         /// </summary>
+        [JsonProperty]
         public string Region
         {
             get
@@ -824,6 +876,7 @@
         /// <summary>
         /// Gets the name of national religion.
         /// </summary>
+        [JsonProperty]
         public string Religion
         {
             get
@@ -837,6 +890,7 @@
         /// <summary>
         /// Gets the average income of the richest 10% in standard dollars.
         /// </summary>
+        [JsonProperty]
         public long Richest
         {
             get
@@ -850,6 +904,7 @@
         /// <summary>
         /// Gets the nation's vote on current Security Council bill.
         /// </summary>
+        [JsonProperty]
         public Vote? SCVote
         {
             get
@@ -871,6 +926,7 @@
         /// <summary>
         /// Gets the list of sectors and their share in the economy.
         /// </summary>
+        [JsonProperty]
         public HashSet<Sector> Sectors
         {
             get
@@ -892,6 +948,7 @@
         /// <summary>
         /// Gets the nation's sensibilities.
         /// </summary>
+        [JsonProperty]
         public string Sensibilities
         {
             get
@@ -905,6 +962,7 @@
         /// <summary>
         /// Gets the nation's tax rate.
         /// </summary>
+        [JsonProperty]
         public double Tax
         {
             get
@@ -918,6 +976,7 @@
         /// <summary>
         /// Gets a value indicating whether the nation accepts campaign telegrams.
         /// </summary>
+        [JsonProperty]
         public bool TelegramCanCampaign
         {
             get
@@ -931,6 +990,7 @@
         /// <summary>
         /// Gets a value indicating whether the nation accepts recruitment telegrams.
         /// </summary>
+        [JsonProperty]
         public bool TelegramCanRecruit
         {
             get
@@ -944,6 +1004,7 @@
         /// <summary>
         /// Gets the nation's type.
         /// </summary>
+        [JsonProperty]
         public string Type
         {
             get
@@ -957,6 +1018,7 @@
         /// <summary>
         /// Gets the nation's World Assembly status.
         /// </summary>
+        [JsonProperty]
         public Membership WA
         {
             get
@@ -971,6 +1033,7 @@
         /// <summary>
         /// Gets the list of commendations/condemnations received.
         /// </summary>
+        [JsonProperty]
         public HashSet<Badge> WABadges
         {
             get
@@ -995,6 +1058,7 @@
         /// <summary>
         /// Gets the nation's Z-Day information.
         /// </summary>
+        [JsonProperty]
         public ZombieNation Zombie
         {
             get
@@ -1048,6 +1112,15 @@
             }
 
             return records;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the nation.
+        /// </summary>
+        /// <returns>A JSON string representing the nation.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

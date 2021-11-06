@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a nation during Z-Day.
     /// </summary>
@@ -8,16 +11,19 @@
         /// <summary>
         /// Gets the nation's action.
         /// </summary>
+        [JsonProperty]
         public ZombieAction Action { get; }
 
         /// <summary>
         /// Gets the nation's intended action. If null, see <see cref="Action"/>.
         /// </summary>
+        [JsonProperty]
         public ZombieAction? IntendedAction { get; }
 
         /// <summary>
         /// Gets the nation's stats.
         /// </summary>
+        [JsonProperty]
         public ZombieStats Stats { get; }
 
         /// <summary>
@@ -33,6 +39,15 @@
             this.Action = action;
             this.IntendedAction = intendedAction;
             this.Stats = new(survivors, zombies, dead);
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the nation during Z-Day.
+        /// </summary>
+        /// <returns>A JSON string representing the nation during Z-Day.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

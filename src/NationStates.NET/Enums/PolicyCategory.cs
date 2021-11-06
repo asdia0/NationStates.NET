@@ -23,7 +23,7 @@
         /// <summary>
         /// Judicial policy.
         /// </summary>
-        Law_and_order,
+        Law_And_Order,
 
         /// <summary>
         /// Social policy.

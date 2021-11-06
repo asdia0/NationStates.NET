@@ -32,7 +32,7 @@
         /// <summary>
         /// Gets the census world average in each census.
         /// </summary>
-        public static HashSet<CensusWorld> CensusAverages
+        public static HashSet<CensusWorld> Census
         {
             get
             {
@@ -242,9 +242,9 @@
         /// <param name="id">The census ID.</param>
         /// <param name="start">The start rank.</param>
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static List<WorldCensus> CensusRanks(int id, long start)
+        public static List<CensusWorldRank> CensusRanks(int id, long start)
         {
-            List<WorldCensus> res = new List<WorldCensus>();
+            List<CensusWorldRank> res = new List<CensusWorldRank>();
 
             foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
@@ -258,7 +258,7 @@
                     .SelectSingleNode("RANK")
                     .InnerText);
 
-                res.Add(new WorldCensus(id, name, score, rank));
+                res.Add(new CensusWorldRank(id, name, score, rank));
             }
 
             return res;

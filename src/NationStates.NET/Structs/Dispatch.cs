@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -12,46 +13,55 @@
         /// <summary>
         /// Gets the dispatch's author.
         /// </summary>
+        [JsonProperty]
         public string Author { get; }
 
         /// <summary>
         /// Gets the dispatch's category.
         /// </summary>
+        [JsonProperty]
         public DispatchCategory Category { get; }
 
         /// <summary>
         /// Gets the time of creation.
         /// </summary>
+        [JsonProperty]
         public DateTime Created { get; }
 
         /// <summary>
         /// Gets the time of last edit.
         /// </summary>
+        [JsonProperty]
         public DateTime Edited { get; }
 
         /// <summary>
         /// Gets the dispatch's ID.
         /// </summary>
+        [JsonProperty]
         public ulong ID { get; }
 
         /// <summary>
         /// Gets the dispatch's score.
         /// </summary>
+        [JsonProperty]
         public int Score { get; }
 
         /// <summary>
         /// Gets the dispatch's sub-category.
         /// </summary>
+        [JsonProperty]
         public dynamic SubCategory { get; }
 
         /// <summary>
         /// Gets the dispatch's title.
         /// </summary>
+        [JsonProperty]
         public string Title { get; }
 
         /// <summary>
         /// Gets the number of views.
         /// </summary>
+        [JsonProperty]
         public long Views { get; }
 
         /// <summary>
@@ -119,6 +129,15 @@
             this.Edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
             this.Views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);
             this.Score = int.Parse(dispatch.SelectSingleNode("SCORE").InnerText);
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the dispatch.
+        /// </summary>
+        /// <returns>A JSON string representing the dispatch.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

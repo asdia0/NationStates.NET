@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a global census record.
     /// </summary>
@@ -8,11 +11,13 @@
         /// <summary>
         /// Gets the census ID.
         /// </summary>
+        [JsonProperty]
         public int ID { get; }
 
         /// <summary>
         /// Gets the global average value of the census data.
         /// </summary>
+        [JsonProperty]
         public double Score { get; }
 
         /// <summary>
@@ -24,6 +29,15 @@
         {
             this.ID = id;
             this.Score = score;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the record.
+        /// </summary>
+        /// <returns>A JSON string representing the record.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }

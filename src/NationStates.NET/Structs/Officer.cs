@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
+    using static Utility;
 
     /// <summary>
     /// Represents a regional officer.
@@ -11,26 +13,31 @@
         /// <summary>
         /// Gets the time of appointment.
         /// </summary>
+        [JsonProperty]
         public DateTime Appointed { get; }
 
         /// <summary>
         /// Gets the name of the nation that appointed the officer.
         /// </summary>
+        [JsonProperty]
         public string Appointer { get; }
 
         /// <summary>
         /// Gets the list of authorities granted by the office.
         /// </summary>
+        [JsonProperty]
         public HashSet<Authority> Authorities { get; }
 
         /// <summary>
         /// Gets the name of the officer.
         /// </summary>
+        [JsonProperty]
         public string Nation { get; }
 
         /// <summary>
         /// Gets the name of the office.
         /// </summary>
+        [JsonProperty]
         public string Office { get; }
 
         /// <summary>
@@ -48,6 +55,15 @@
             this.Authorities = authorities;
             this.Appointed = appointed;
             this.Appointer = appointer;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the regional officer.
+        /// </summary>
+        /// <returns>A JSON string representing the regional officer.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }
