@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of industries. <see href="https://forum.nationstates.net/viewtopic.php?f=13&t=88">Source</see>.
+    /// Defines the types of industries.
     /// </summary>
     public enum Industry
     {
