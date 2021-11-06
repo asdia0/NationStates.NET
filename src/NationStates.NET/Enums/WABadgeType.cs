@@ -1,23 +1,23 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of World Assembly badges.
+    /// Defines the types of badges.
     /// </summary>
     public enum WABadgeType
     {
         /// <summary>
-        /// Entity has been commended by the World Assmebly.
+        /// Entity has been commended by the Security Council.
         /// </summary>
-        Commend,
+        Commended,
 
         /// <summary>
-        /// Entity has been condemned by the World Assembly.
+        /// Entity has been condemned by the Security Council.
         /// </summary>
-        Condemn,
+        Condemned,
 
         /// <summary>
-        /// Region has been liberated by the World Assembly.
+        /// Region has been liberated by the Security Council.
         /// </summary>
-        Liberate,
+        Liberated,
     }
 }
