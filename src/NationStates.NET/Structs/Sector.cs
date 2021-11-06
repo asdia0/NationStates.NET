@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a sector.
+    /// Represents a sector.
     /// </summary>
     public struct Sector
     {

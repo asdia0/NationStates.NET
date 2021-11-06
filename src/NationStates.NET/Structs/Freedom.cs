@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a nation's freedom levels.
+    /// Represents a nation's freedom levels.
     /// </summary>
     public struct Freedom
     {

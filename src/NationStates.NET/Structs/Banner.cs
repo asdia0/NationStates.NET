@@ -4,7 +4,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a banner's information.
+    /// Represents a banner's information.
     /// </summary>
     public struct Banner
     {

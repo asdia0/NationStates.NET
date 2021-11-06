@@ -7,7 +7,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a regional poll.
+    /// Represents a regional poll.
     /// </summary>
     public struct Poll
     {

@@ -6,7 +6,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a <see cref="Proposal"/> that is currently at vote.
+    /// Represents a <see cref="Proposal"/> that is currently at vote.
     /// </summary>
     public struct ProposalAtVote
     {

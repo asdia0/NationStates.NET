@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Defines an option in a poll.
+    /// Represents an option in a poll.
     /// </summary>
     public struct PollOption
     {

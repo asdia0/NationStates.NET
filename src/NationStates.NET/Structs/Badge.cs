@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a World Assembly badge.
+    /// Represents a World Assembly badge.
     /// </summary>
     public struct Badge
     {

@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a government.
+    /// Represents a government.
     /// </summary>
     public struct Government
     {

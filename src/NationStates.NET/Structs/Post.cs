@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Defines a RMB post.
+    /// Represents a RMB post.
     /// </summary>
     public struct Post
     {

@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a cause of death.
+    /// Represents a cause of death.
     /// </summary>
     public struct Death
     {

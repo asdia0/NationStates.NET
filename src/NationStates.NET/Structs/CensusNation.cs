@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a national census record.
+    /// Represents a national census record.
     /// </summary>
     public struct CensusNation
     {

@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Defines a regional officer.
+    /// Represents a regional officer.
     /// </summary>
     public struct Officer
     {

@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the telegram queue.
+    /// Represents the telegram queue.
     /// </summary>
     public struct TelegramQueue
     {

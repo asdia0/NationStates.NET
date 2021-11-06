@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Defines a delegate voting on the current proposal at vote.
+    /// Represents a delegate voting on the current proposal at vote.
     /// </summary>
     public struct DelegateEntry
     {

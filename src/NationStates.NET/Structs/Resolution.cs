@@ -5,7 +5,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a World Assembly resolution.
+    /// Represents a World Assembly resolution.
     /// </summary>
     public struct Resolution
     {

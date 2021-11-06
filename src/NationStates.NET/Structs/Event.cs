@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Defines an event.
+    /// Represents an event.
     /// </summary>
     public struct Event
     {

@@ -5,7 +5,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a dispatch.
+    /// Represents a dispatch.
     /// </summary>
     public struct Dispatch
     {

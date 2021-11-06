@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a nation during Z-Day.
+    /// Represents a nation during Z-Day.
     /// </summary>
     public struct ZombieNation
     {

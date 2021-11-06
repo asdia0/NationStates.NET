@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines a policy.
+    /// Represents a policy.
     /// </summary>
     public struct Policy
     {

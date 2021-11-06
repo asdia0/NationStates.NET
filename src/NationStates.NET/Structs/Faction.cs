@@ -5,7 +5,7 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a faction during N-Day.
+    /// Represents a faction during N-Day.
     /// </summary>
     public struct Faction
     {
