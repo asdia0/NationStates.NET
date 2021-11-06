@@ -6,7 +6,7 @@
     public enum SCCategory
     {
         /// <summary>
-        /// Remove a resolution from internatinal law.
+        /// Remove a resolution from international law.
         /// </summary>
         Repeal,
 
