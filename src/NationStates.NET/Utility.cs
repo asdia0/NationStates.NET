@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading;
     using System.Xml;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// A class containing useful methods.
@@ -200,6 +201,18 @@
         public static DateTime ParseUnix(string unix)
         {
             return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
+        }
+
+        /// <summary>
+        /// Serializes an object.
+        /// </summary>
+        /// <param name="value">The object to serialize.</param>
+        /// <returns>A JSON string of the object.</returns>
+        public static string Serialize(object? value)
+        {
+            var jsonSerializerSettings = new JsonSerializerSettings();
+            jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            return JsonConvert.SerializeObject(value, jsonSerializerSettings);
         }
     }
 }
