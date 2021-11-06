@@ -1,22 +1,22 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of World Assembly memberships.
+    /// Defines the types of World Assembly memberships.
     /// </summary>
     public enum WAStatus
     {
         /// <summary>
-        /// Not a member of the World Assembly.
+        /// Nation is not a member of the World Assembly.
         /// </summary>
         NonMember,
 
         /// <summary>
-        /// Is a member of the World Assembly.
+        /// Nation is a member of the World Assembly.
         /// </summary>
         Member,
 
         /// <summary>
-        /// Is a World Assembly Delegate,
+        /// Nation is a World Assembly Delegate,
         /// </summary>
         Delegate,
     }
