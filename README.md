@@ -19,13 +19,11 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 - [ ] Trading Cards [DOING]
 - [ ] Challenge
-- [ ] Trivia
 
 #### Recurring minigames
 
 - [ ] N-Day
 - [ ] Z-Day
-- [ ] World Assembly Secretary-General
 
 ### Misc
 
@@ -34,8 +32,9 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## TODO
 
-- [ ] Actually test stuff
+- [ ] JSONify stuff + .ToString()
 - [ ] Standardise code
+- [ ] Actually test stuff
 - [ ] Add documentation
 - [ ] Convert the project into a library
 - [ ] Upload the project to NuGet
