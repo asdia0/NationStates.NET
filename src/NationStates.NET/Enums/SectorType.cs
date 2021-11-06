@@ -1,27 +1,27 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of sectors.
+    /// Defines the types of sectors in a nation's economy.
     /// </summary>
     public enum SectorType
     {
         /// <summary>
-        /// Defines the the black market.
+        /// Black market.
         /// </summary>
         Blackmarket,
 
         /// <summary>
-        /// Defines the the government.
+        /// Government.
         /// </summary>
         Government,
 
         /// <summary>
-        /// Defines the the industries.
+        /// Industries.
         /// </summary>
         Industry,
 
         /// <summary>
-        /// Defines the the public sector.
+        /// Public sector.
         /// </summary>
         Public,
     }
