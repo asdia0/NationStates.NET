@@ -461,17 +461,17 @@
         Surreal,
 
         /// <summary>
-        /// Defines the theocratic.
+        /// Theocratic.
         /// </summary>
         Theocratic,
 
         /// <summary>
-        /// Defines the totalitarian.
+        /// Totalitarian.
         /// </summary>
         Totalitarian,
 
         /// <summary>
-        /// Defines the trading Cards.
+        /// Trading Cards.
         /// </summary>
         Trading_Cards,
 
