@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for the category <see cref="WAGACategory.Education_And_Creativity"/>.
+    /// Defines the types of subcategories for the category <see cref="WAGACategory.Education_And_Creativity"/>.
     /// </summary>
     public enum WAGAEducationAndCreativity
     {

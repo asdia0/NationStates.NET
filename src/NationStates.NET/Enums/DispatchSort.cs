@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of dispatch sorts.
+    /// Defines the types of dispatch sorts.
     /// </summary>
     public enum DispatchSort
     {

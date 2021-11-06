@@ -1,17 +1,17 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of World Assembly councils.
+    /// Defines the types of World Assembly councils.
     /// </summary>
     public enum WACouncil
     {
         /// <summary>
-        /// The General Assembly.
+        /// Defines the the General Assembly.
         /// </summary>
         General_Assembly,
 
         /// <summary>
-        /// The Security Council.
+        /// Defines the the Security Council.
         /// </summary>
         Security_Council,
     }

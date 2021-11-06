@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of region power levels.
+    /// Defines the types of region power levels.
     /// </summary>
     public enum Power
     {

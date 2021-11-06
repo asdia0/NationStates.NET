@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of RMB posting permissions for embassy regions.
+    /// Defines the types of RMB posting permissions for embassy regions.
     /// </summary>
     public enum RMBPermission
     {

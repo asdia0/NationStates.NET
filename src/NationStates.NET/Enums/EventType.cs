@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of <see cref="Event"/>s.
+    /// Defines the types of <see cref="Event"/>s.
     /// </summary>
     public enum EventType
     {

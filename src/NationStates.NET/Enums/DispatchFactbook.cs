@@ -1,67 +1,67 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for <see cref="DispatchCategory.Factbook"/>.
+    /// Defines the types of subcategories for <see cref="DispatchCategory.Factbook"/>.
     /// </summary>
     public enum DispatchFactbook
     {
         /// <summary>
-        /// The culture sub-category.
+        /// Defines the the culture sub-category.
         /// </summary>
         Culture,
 
         /// <summary>
-        /// The economy sub-category.
+        /// Defines the the economy sub-category.
         /// </summary>
         Economy,
 
         /// <summary>
-        /// The geography sub-category.
+        /// Defines the the geography sub-category.
         /// </summary>
         Geography,
 
         /// <summary>
-        /// The history sub-category.
+        /// Defines the the history sub-category.
         /// </summary>
         History,
 
         /// <summary>
-        /// The international sub-category.
+        /// Defines the the international sub-category.
         /// </summary>
         International,
 
         /// <summary>
-        /// The legislation sub-category.
+        /// Defines the the legislation sub-category.
         /// </summary>
         Legislation,
 
         /// <summary>
-        /// The military sub-category.
+        /// Defines the the military sub-category.
         /// </summary>
         Military,
 
         /// <summary>
-        /// The miscellaneous sub-category.
+        /// Defines the the miscellaneous sub-category.
         /// </summary>
         Miscellaneous,
 
         /// <summary>
-        /// The overview sub-category.
+        /// Defines the the overview sub-category.
         /// </summary>
         Overview,
 
         /// <summary>
-        /// The politics sub-category.
+        /// Defines the the politics sub-category.
         /// </summary>
         Politics,
 
         /// <summary>
-        /// The trivia sub-category.
+        /// Defines the the trivia sub-category.
         /// </summary>
         Trivia,
 
         /// <summary>
-        /// The religion sub-category.
+        /// Defines the the religion sub-category.
         /// </summary>
         Religion,
     }

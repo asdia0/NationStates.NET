@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of World Assembly badges.
+    /// Defines the types of World Assembly badges.
     /// </summary>
     public enum WABadgeType
     {

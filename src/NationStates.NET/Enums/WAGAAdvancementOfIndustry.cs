@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for the category <see cref="WAGACategory.Advancement_Of_Industry"/>.
+    /// Defines the types of subcategories for the category <see cref="WAGACategory.Advancement_Of_Industry"/>.
     /// </summary>
     public enum WAGAAdvancementOfIndustry
     {
@@ -21,7 +21,7 @@
         Protective_Tariffs,
 
         /// <summary>
-        /// Tort reform.
+        /// Defines the tort reform.
         /// </summary>
         Tort_Reform,
 

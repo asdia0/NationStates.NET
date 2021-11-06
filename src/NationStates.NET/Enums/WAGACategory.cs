@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of General Assembly resolution categories.
+    /// Defines the types of General Assembly resolution categories.
     /// </summary>
     public enum WAGACategory
     {

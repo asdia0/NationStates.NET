@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of policies.
+    /// Defines the types of policies.
     /// </summary>
     public enum PolicyCategory
     {

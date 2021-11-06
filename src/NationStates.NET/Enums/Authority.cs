@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of authorities for regional officers.
+    /// Defines the types of authorities for regional officers.
     /// </summary>
     public enum Authority
     {

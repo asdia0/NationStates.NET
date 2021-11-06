@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of post statuses.
+    /// Defines the types of post statuses.
     /// </summary>
     public enum PostStatus
     {

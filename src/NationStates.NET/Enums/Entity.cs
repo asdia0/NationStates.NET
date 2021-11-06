@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of entities.
+    /// Defines the types of entities.
     /// </summary>
     public enum Entity
     {

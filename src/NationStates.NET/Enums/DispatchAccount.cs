@@ -1,47 +1,47 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for <see cref="DispatchCategory.Account"/>.
+    /// Defines the types of subcategories for <see cref="DispatchCategory.Account"/>.
     /// </summary>
     public enum DispatchAccount
     {
         /// <summary>
-        /// The culture sub-category.
+        /// Defines the the culture sub-category.
         /// </summary>
         Culture,
 
         /// <summary>
-        /// The diplomacy sub-category.
+        /// Defines the the diplomacy sub-category.
         /// </summary>
         Diplomacy,
 
         /// <summary>
-        /// The drama sub-category.
+        /// Defines the the drama sub-category.
         /// </summary>
         Drama,
 
         /// <summary>
-        /// The miscellaneous sub-category.
+        /// Defines the the miscellaneous sub-category.
         /// </summary>
         Other,
 
         /// <summary>
-        /// The military sub-category.
+        /// Defines the the military sub-category.
         /// </summary>
         Military,
 
         /// <summary>
-        /// The science sub-category.
+        /// Defines the the science sub-category.
         /// </summary>
         Science,
 
         /// <summary>
-        /// The sport sub-category.
+        /// Defines the the sport sub-category.
         /// </summary>
         Sport,
 
         /// <summary>
-        /// The trade sub-category.
+        /// Defines the the trade sub-category.
         /// </summary>
         Trade,
     }

@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of embassies.
+    /// Defines the types of embassies.
     /// </summary>
     public enum EmbassyType
     {

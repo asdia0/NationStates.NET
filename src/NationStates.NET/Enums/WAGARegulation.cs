@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for the category <see cref="WAGACategory.Regulation"/>.
+    /// Defines the types of subcategories for the category <see cref="WAGACategory.Regulation"/>.
     /// </summary>
     public enum WAGARegulation
     {
@@ -11,7 +11,7 @@
         Consumer_Protection,
 
         /// <summary>
-        /// Transportation.
+        /// Defines the transportation.
         /// </summary>
         Transportation,
 

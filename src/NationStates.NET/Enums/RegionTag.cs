@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of region tags.
+    /// Defines the types of region tags.
     /// </summary>
     public enum RegionTag
     {
@@ -461,17 +461,17 @@
         Surreal,
 
         /// <summary>
-        /// Theocratic.
+        /// Defines the theocratic.
         /// </summary>
         Theocratic,
 
         /// <summary>
-        /// Totalitarian.
+        /// Defines the totalitarian.
         /// </summary>
         Totalitarian,
 
         /// <summary>
-        /// Trading Cards.
+        /// Defines the trading Cards.
         /// </summary>
         Trading_Cards,
 

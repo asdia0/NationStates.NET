@@ -1,92 +1,92 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of industries. <see href="https://forum.nationstates.net/viewtopic.php?f=13&t=88">Source</see>.
+    /// Defines the types of industries. <see href="https://forum.nationstates.net/viewtopic.php?f=13&t=88">Source</see>.
     /// </summary>
     public enum Industry
     {
         /// <summary>
-        /// The arms industry.
+        /// Defines the the arms industry.
         /// </summary>
         Arms_Manufacturing,
 
         /// <summary>
-        /// The automobile industry.
+        /// Defines the the automobile industry.
         /// </summary>
         Automobile_Manufacturing,
 
         /// <summary>
-        /// The manual labour industry.
+        /// Defines the the manual labour industry.
         /// </summary>
         Basket_Weaving,
 
         /// <summary>
-        /// The meat industry.
+        /// Defines the the meat industry.
         /// </summary>
         BeefBased_Agriculture,
 
         /// <summary>
-        /// The book publishing industry.
+        /// Defines the the book publishing industry.
         /// </summary>
         Book_Publishing,
 
         /// <summary>
-        /// The cheese industry.
+        /// Defines the the cheese industry.
         /// </summary>
         Cheese_Exports,
 
         /// <summary>
-        /// The insurance industry.
+        /// Defines the the insurance industry.
         /// </summary>
         DoorToDoor_Insurance_Sales,
 
         /// <summary>
-        /// The furniture industry.
+        /// Defines the the furniture industry.
         /// </summary>
         Furniture_Restoration,
 
         /// <summary>
-        /// The gambling industry.
+        /// Defines the the gambling industry.
         /// </summary>
         Gambling,
 
         /// <summary>
-        /// The information technology industry.
+        /// Defines the the information technology industry.
         /// </summary>
         Information_Technology,
 
         /// <summary>
-        /// The pizza industry.
+        /// Defines the the pizza industry.
         /// </summary>
         Pizza_Delivery,
 
         /// <summary>
-        /// The retail industry.
+        /// Defines the the retail industry.
         /// </summary>
         Retail,
 
         /// <summary>
-        /// The soda industry.
+        /// Defines the the soda industry.
         /// </summary>
         Soda_Sales,
 
         /// <summary>
-        /// The tourist industry.
+        /// Defines the the tourist industry.
         /// </summary>
         Tourism,
 
         /// <summary>
-        /// The fish industry.
+        /// Defines the the fish industry.
         /// </summary>
         Trout_Farming,
 
         /// <summary>
-        /// The mining industry.
+        /// Defines the the mining industry.
         /// </summary>
         Uranium_Mining,
 
         /// <summary>
-        /// The logging industry.
+        /// Defines the the logging industry.
         /// </summary>
         Woodchip_Exports,
     }

@@ -1,27 +1,27 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for <see cref="DispatchCategory.Bulletin"/>.
+    /// Defines the types of subcategories for <see cref="DispatchCategory.Bulletin"/>.
     /// </summary>
     public enum DispatchBulletin
     {
         /// <summary>
-        /// The campaign sub-category.
+        /// Defines the the campaign sub-category.
         /// </summary>
         Campaign,
 
         /// <summary>
-        /// The news sub-category.
+        /// Defines the the news sub-category.
         /// </summary>
         News,
 
         /// <summary>
-        /// The opinion sub-category.
+        /// Defines the the opinion sub-category.
         /// </summary>
         Opinion,
 
         /// <summary>
-        /// The policy sub-category.
+        /// Defines the the policy sub-category.
         /// </summary>
         Policy,
     }

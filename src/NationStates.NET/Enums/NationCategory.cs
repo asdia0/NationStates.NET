@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of nation categories. <see href="https://nsindex.net/wiki/World_Assembly_Category">Source</see>.
+    /// Defines the types of nation categories. <see href="https://nsindex.net/wiki/World_Assembly_Category">Source</see>.
     /// </summary>
     public enum NationCategory
     {
@@ -141,7 +141,7 @@
         Scandinavian_Liberal_Paradise,
 
         /// <summary>
-        /// Tyranny By Majority.
+        /// Defines the tyranny By Majority.
         /// </summary>
         Tyranny_By_Majority,
     }

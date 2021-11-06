@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of subcategories for the category <see cref="WAGACategory.Environmental"/>.
+    /// Defines the types of subcategories for the category <see cref="WAGACategory.Environmental"/>.
     /// </summary>
     public enum WAGAEnvironmental
     {
