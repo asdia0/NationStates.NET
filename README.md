@@ -4,6 +4,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## Features
 
+### Standard API
 - [ ] Authentication
 - [ ] Nation
   - [X] Public shards
@@ -14,6 +15,16 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 - [X] World Assembly
 - [ ] Telegram
 - [ ] Trading Cards [DOING]
+
+### Others
+- [ ] Challenge
+- [ ] N-Day
+- [ ] Z-Day
+- [ ] United Nations
+- [ ] IPO
+- [ ] World Assembly Secretary-General
+- [ ] Trivia
+- [ ] Best Nation
 
 ## TODO
 - [ ] Actually test stuff
