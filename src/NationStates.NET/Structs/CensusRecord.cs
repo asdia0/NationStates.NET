@@ -1,6 +1,8 @@
 ﻿namespace NationStates.NET
 {
     using System;
+    using Newtonsoft.Json;
+    using static Utility;
 
     /// <summary>
     /// Represents a historical census record.
@@ -10,21 +12,25 @@
         /// <summary>
         /// Gets the record's census ID.
         /// </summary>
+        [JsonProperty]
         public int ID { get; }
 
         /// <summary>
         /// Gets the name of the entity.
         /// </summary>
+        [JsonProperty]
         public string Name { get; }
 
         /// <summary>
         /// Gets the value of the census data.
         /// </summary>
+        [JsonProperty]
         public double Score { get; }
 
         /// <summary>
         /// Gets the time the census was recorded at.
         /// </summary>
+        [JsonProperty]
         public DateTime Timestamp { get; }
 
         /// <summary>
@@ -40,6 +46,15 @@
             this.Name = name;
             this.Score = score;
             this.Timestamp = timestamp;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the record.
+        /// </summary>
+        /// <returns>A JSON string representing the record.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }
