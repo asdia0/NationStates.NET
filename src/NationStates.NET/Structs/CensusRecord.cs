@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents a historical census record.
     /// </summary>
-    public struct CensusHistory
+    public struct CensusRecord
     {
         /// <summary>
         /// Gets the record's census ID.
@@ -28,13 +28,13 @@
         public DateTime Timestamp { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CensusHistory"/> struct.
+        /// Initializes a new instance of the <see cref="CensusRecord"/> struct.
         /// </summary>
         /// <param name="id">The record's census ID.</param>
         /// <param name="name">The name of the entity.</param>
         /// <param name="score">The value of the census data.</param>
         /// <param name="timestamp">The time the census was recorded at.</param>
-        public CensusHistory(int id, string name, double score, DateTime timestamp)
+        public CensusRecord(int id, string name, double score, DateTime timestamp)
         {
             this.ID = id;
             this.Name = name;
