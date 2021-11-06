@@ -56,7 +56,7 @@
         CTE,
 
         /// <summary>
-        /// Nation voted on a World Assembly bill.
+        /// Nation voted on a World Assembly proposal.
         /// </summary>
         Vote,
 
