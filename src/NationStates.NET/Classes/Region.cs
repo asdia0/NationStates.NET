@@ -13,7 +13,7 @@
     {
         private string _Name;
 
-        private bool nameSet;
+        private bool nameSet = false;
 
         private Dictionary<string, PostStatus> statusDict = new()
         {
