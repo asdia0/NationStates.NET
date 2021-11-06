@@ -6,12 +6,12 @@
     public enum DispatchMeta
     {
         /// <summary>
-        /// Defines the the gameplay sub-category.
+        /// Gameplay sub-category.
         /// </summary>
         Gameplay,
 
         /// <summary>
-        /// Defines the the reference sub-category.
+        /// Reference sub-category.
         /// </summary>
         Reference,
     }
