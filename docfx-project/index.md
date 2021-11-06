@@ -6,37 +6,36 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Entities
 
-- Nation
-  - Public shards
-  - Private shards
-  - Private commands
-- Region
-- World Assembly
-- United Nations
-- World
+- [ ] Nation
+  - [X] Public shards
+  - [ ] Private shards
+  - [ ] Private commands
+- [X] Region
+- [X] World Assembly
+- [ ] United Nations
+- [X] World
 
 ### Minigames
 
-- Trading Cards [DOING]
-- Challenge
-- Trivia
+- [ ] Trading Cards [DOING]
+- [ ] Challenge
 
 #### Recurring minigames
 
-- N-Day
-- Z-Day
-- World Assembly Secretary-General
+- [ ] N-Day
+- [ ] Z-Day
 
 ### Misc
 
-- Authentication
-- Telegram
+- [ ] Authentication
+- [ ] Telegram
 
 ## TODO
 
-- Actually test stuff
-- Standardise code
-- Add documentation
-- Convert the project into a library
-- Upload the project to NuGet
-- Add an example project
+- [ ] JSONify stuff + .ToString()
+- [ ] Standardise code
+- [ ] Actually test stuff
+- [ ] Add documentation
+- [ ] Convert the project into a library
+- [ ] Upload the project to NuGet
+- [ ] Add an example project
