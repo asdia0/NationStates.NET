@@ -1,12 +1,12 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Rankings of civil rights. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>.
+    /// Defines the types of civil rights levels. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>.
     /// </summary>
     public enum CivilRights
     {
         /// <summary>
-        /// Level 1 (worst civil rghts).
+        /// Level 1 (worst civil rights).
         /// </summary>
         Outlawed,
 
@@ -76,7 +76,7 @@
         Frightening,
 
         /// <summary>
-        /// Level 15 (best civl rights).
+        /// Level 15 (best civil rights).
         /// </summary>
         Widely_Abused,
     }
