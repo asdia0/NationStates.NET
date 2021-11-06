@@ -6,22 +6,22 @@
     public enum DispatchCategory
     {
         /// <summary>
-        /// Defines the the account category.
+        /// Account category.
         /// </summary>
         Account,
 
         /// <summary>
-        /// Defines the the bulletin category.
+        /// Bulletin category.
         /// </summary>
         Bulletin,
 
         /// <summary>
-        /// Defines the the factbook category.
+        /// Factbook category.
         /// </summary>
         Factbook,
 
         /// <summary>
-        /// Defines the the meta category.
+        /// Meta category.
         /// </summary>
         Meta,
     }
