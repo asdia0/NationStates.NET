@@ -11,7 +11,7 @@
         Consumer_Protection,
 
         /// <summary>
-        /// Defines the transportation.
+        /// Transportation.
         /// </summary>
         Transportation,
 
