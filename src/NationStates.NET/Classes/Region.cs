@@ -593,7 +593,7 @@
                 long rank = long.Parse(nation.SelectSingleNode("RANK").InnerText);
                 double score = double.Parse(nation.SelectSingleNode("SCORE").InnerText);
 
-                censusRanks.Add(new(name, rank, score));
+                censusRanks.Add(new(id, name, rank, score));
             }
 
             return censusRanks;
