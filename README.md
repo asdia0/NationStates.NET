@@ -17,13 +17,13 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 - [ ] Trading Cards [DOING]
 
 ### Others
-- [ ] Challenge
 - [ ] N-Day
 - [ ] Z-Day
-- [ ] United Nations
-- [ ] IPO
 - [ ] World Assembly Secretary-General
+- [ ] United Nations
+- [ ] Challenge
 - [ ] Trivia
+- [ ] IPO
 - [ ] Best Nation
 
 ## TODO
