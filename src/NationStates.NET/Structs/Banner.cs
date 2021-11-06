@@ -1,6 +1,7 @@
 ﻿namespace NationStates.NET
 {
     using System.Xml;
+    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
@@ -11,16 +12,19 @@
         /// <summary>
         /// Gets the banner's ID.
         /// </summary>
+        [JsonProperty]
         public string ID { get; }
 
         /// <summary>
         /// Gets the banner's name.
         /// </summary>
+        [JsonProperty]
         public string? Name { get; }
 
         /// <summary>
         /// Gets the banner's validity.
         /// </summary>
+        [JsonProperty]
         public string? Validity { get; }
 
         /// <summary>
@@ -43,6 +47,15 @@
                 this.Name = node.SelectSingleNode("NAME").InnerText;
                 this.Validity = node.SelectSingleNode("VALIDITY").InnerText;
             }
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the banner.
+        /// </summary>
+        /// <returns>A JSON string representing the banner.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }
