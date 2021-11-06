@@ -6,42 +6,42 @@
     public enum DispatchAccount
     {
         /// <summary>
-        /// Defines the the culture sub-category.
+        /// Culture sub-category.
         /// </summary>
         Culture,
 
         /// <summary>
-        /// Defines the the diplomacy sub-category.
+        /// Diplomacy sub-category.
         /// </summary>
         Diplomacy,
 
         /// <summary>
-        /// Defines the the drama sub-category.
+        /// Drama sub-category.
         /// </summary>
         Drama,
 
         /// <summary>
-        /// Defines the the miscellaneous sub-category.
+        /// Miscellaneous sub-category.
         /// </summary>
         Other,
 
         /// <summary>
-        /// Defines the the military sub-category.
+        /// Military sub-category.
         /// </summary>
         Military,
 
         /// <summary>
-        /// Defines the the science sub-category.
+        /// Science sub-category.
         /// </summary>
         Science,
 
         /// <summary>
-        /// Defines the the sport sub-category.
+        /// Sport sub-category.
         /// </summary>
         Sport,
 
         /// <summary>
-        /// Defines the the trade sub-category.
+        /// Trade sub-category.
         /// </summary>
         Trade,
     }
