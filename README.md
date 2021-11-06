@@ -5,6 +5,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 ## Features
 
 ### Entities
+
 - [ ] Nation
   - [X] Public shards
   - [ ] Private shards
@@ -15,20 +16,24 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 - [X] World
 
 ### Minigames
+
 - [ ] Trading Cards [DOING]
 - [ ] Challenge
 - [ ] Trivia
 
 #### Recurring minigames
+
 - [ ] N-Day
 - [ ] Z-Day
 - [ ] World Assembly Secretary-General
 
 ### Misc
+
 - [ ] Authentication
 - [ ] Telegram
 
 ## TODO
+
 - [ ] Actually test stuff
 - [ ] Standardise code
 - [ ] Add documentation
