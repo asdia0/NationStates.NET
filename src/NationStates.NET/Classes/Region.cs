@@ -521,7 +521,7 @@
         /// <summary>
         /// Gets the region's Z-Day information.
         /// </summary>
-        public ZombieRegion Zombie
+        public ZombieStats Zombie
         {
             get
             {
@@ -532,7 +532,7 @@
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
 
-                return new ZombieRegion(survivors, zombies, dead);
+                return new ZombieStats(survivors, zombies, dead);
             }
         }
 
