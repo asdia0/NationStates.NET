@@ -2,4 +2,4 @@
 
 ## Projects
 
-- NationStates.NET
+- [NationStates.NET](NationStates.NET)

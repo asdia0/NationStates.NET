@@ -888,10 +888,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "jJIkdgK5QrC+wuOAlhpNcgpVSqB2Vi/+4IRkL1wEKtI="
+          "hash": "crphE/TDanw0+JegEqol8fDzYEOOXWxZIgIde8qSJnQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -915,7 +915,7 @@
           "hash": "iI00qwcPU445G9JitMPdKDNyA/01Z4OxRlVlu6XLkSE="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
