@@ -73,7 +73,7 @@
   
   <h1 id="NationStates_NET_DelegateVote" data-uid="NationStates.NET.DelegateVote" class="text-break">Struct DelegateVote
   </h1>
-  <div class="markdown level0 summary"><p>Gets a vote casted by a delegate.</p>
+  <div class="markdown level0 summary"><p>Gets a vote casted by a Delegate.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -83,9 +83,6 @@
     </div>
     <div>
       <span class="xref">System.ValueType.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.ValueType.ToString()</span>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
@@ -110,7 +107,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote__ctor_System_String_System_DateTime_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote.%23ctor(System.String%2CSystem.DateTime%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L31">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L36">View Source</a>
   </span>
   <a id="NationStates_NET_DelegateVote__ctor_" data-uid="NationStates.NET.DelegateVote.#ctor*"></a>
   <h4 id="NationStates_NET_DelegateVote__ctor_System_String_System_DateTime_System_Int32_" data-uid="NationStates.NET.DelegateVote.#ctor(System.String,System.DateTime,System.Int32)">DelegateVote(String, DateTime, Int32)</h4>
@@ -134,19 +131,19 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">nation</span></td>
-        <td><p>The name of the delegate.</p>
+        <td><p>The name of the Delegate.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.DateTime</span></td>
         <td><span class="parametername">timeStamp</span></td>
-        <td><p>The time at which the delegate voted.</p>
+        <td><p>The time at which the Delegate voted.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">votes</span></td>
-        <td><p>The number of votes the delegate has.</p>
+        <td><p>The number of votes the Delegate has.</p>
 </td>
       </tr>
     </tbody>
@@ -158,16 +155,17 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote_Nation.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote.Nation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L13">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L15">View Source</a>
   </span>
   <a id="NationStates_NET_DelegateVote_Nation_" data-uid="NationStates.NET.DelegateVote.Nation*"></a>
   <h4 id="NationStates_NET_DelegateVote_Nation" data-uid="NationStates.NET.DelegateVote.Nation">Nation</h4>
-  <div class="markdown level1 summary"><p>Gets the name of the delegate.</p>
+  <div class="markdown level1 summary"><p>Gets the name of the Delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly string Nation { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string Nation { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -189,16 +187,17 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote_TimeStamp.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote.TimeStamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L18">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L21">View Source</a>
   </span>
   <a id="NationStates_NET_DelegateVote_TimeStamp_" data-uid="NationStates.NET.DelegateVote.TimeStamp*"></a>
   <h4 id="NationStates_NET_DelegateVote_TimeStamp" data-uid="NationStates.NET.DelegateVote.TimeStamp">TimeStamp</h4>
-  <div class="markdown level1 summary"><p>Gets the time at which the delegate voted.</p>
+  <div class="markdown level1 summary"><p>Gets the time at which the Delegate voted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly DateTime TimeStamp { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly DateTime TimeStamp { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -220,16 +219,17 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote_Votes.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote.Votes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L23">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L27">View Source</a>
   </span>
   <a id="NationStates_NET_DelegateVote_Votes_" data-uid="NationStates.NET.DelegateVote.Votes*"></a>
   <h4 id="NationStates_NET_DelegateVote_Votes" data-uid="NationStates.NET.DelegateVote.Votes">Votes</h4>
-  <div class="markdown level1 summary"><p>Gets the number of votes the delegate has.</p>
+  <div class="markdown level1 summary"><p>Gets the number of votes the Delegate has.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly int Votes { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly int Votes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -246,6 +246,42 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L47">View Source</a>
+  </span>
+  <a id="NationStates_NET_DelegateVote_ToString_" data-uid="NationStates.NET.DelegateVote.ToString*"></a>
+  <h4 id="NationStates_NET_DelegateVote_ToString" data-uid="NationStates.NET.DelegateVote.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a JSON string representing the vote casted by the Delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A JSON string representing the vote casted by the Delegate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
 </article>
           </div>
           
@@ -257,7 +293,7 @@
                     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_DelegateVote.md&amp;value=---%0Auid%3A%20NationStates.NET.DelegateVote%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/DelegateVote.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

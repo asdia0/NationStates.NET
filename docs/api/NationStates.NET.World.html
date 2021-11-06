@@ -115,19 +115,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CensusAverages.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CensusAverages%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_Census.md&amp;value=---%0Auid%3A%20NationStates.NET.World.Census%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L35">View Source</a>
   </span>
-  <a id="NationStates_NET_World_CensusAverages_" data-uid="NationStates.NET.World.CensusAverages*"></a>
-  <h4 id="NationStates_NET_World_CensusAverages" data-uid="NationStates.NET.World.CensusAverages">CensusAverages</h4>
+  <a id="NationStates_NET_World_Census_" data-uid="NationStates.NET.World.Census*"></a>
+  <h4 id="NationStates_NET_World_Census" data-uid="NationStates.NET.World.Census">Census</h4>
   <div class="markdown level1 summary"><p>Gets the census world average in each census.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HashSet&lt;CensusWorld&gt; CensusAverages { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static HashSet&lt;CensusWorld&gt; Census { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -577,7 +577,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;WorldCensus&gt; CensusRanks(int id, long start)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;CensusWorldRank&gt; CensusRanks(int id, long start)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -613,7 +613,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="NationStates.NET.WorldCensus.html">WorldCensus</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="NationStates.NET.CensusWorldRank.html">CensusWorldRank</a>&gt;</td>
         <td><p>The twenty nations after the specified rank for the specified census.</p>
 </td>
       </tr>

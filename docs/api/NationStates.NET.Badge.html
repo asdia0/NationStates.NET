@@ -85,9 +85,6 @@
       <span class="xref">System.ValueType.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">System.ValueType.ToString()</span>
-    </div>
-    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
@@ -107,19 +104,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge__ctor_NationStates_NET_BadgeType_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.%23ctor(NationStates.NET.BadgeType%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge__ctor_System_String_NationStates_NET_BadgeType_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.%23ctor(System.String%2CNationStates.NET.BadgeType%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L23">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L35">View Source</a>
   </span>
   <a id="NationStates_NET_Badge__ctor_" data-uid="NationStates.NET.Badge.#ctor*"></a>
-  <h4 id="NationStates_NET_Badge__ctor_NationStates_NET_BadgeType_System_Int64_" data-uid="NationStates.NET.Badge.#ctor(NationStates.NET.BadgeType,System.Int64)">Badge(BadgeType, Int64)</h4>
+  <h4 id="NationStates_NET_Badge__ctor_System_String_NationStates_NET_BadgeType_System_Int64_" data-uid="NationStates.NET.Badge.#ctor(System.String,NationStates.NET.BadgeType,System.Int64)">Badge(String, BadgeType, Int64)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.Badge.html">Badge</a> struct.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Badge(BadgeType type, long id)</code></pre>
+    <pre><code class="lang-csharp hljs">public Badge(string name, BadgeType type, long id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -131,6 +128,12 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the entity that has the badge.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="NationStates.NET.BadgeType.html">BadgeType</a></td>
         <td><span class="parametername">type</span></td>
@@ -152,7 +155,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_ID.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L11">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L14">View Source</a>
   </span>
   <a id="NationStates_NET_Badge_ID_" data-uid="NationStates.NET.Badge.ID*"></a>
   <h4 id="NationStates_NET_Badge_ID" data-uid="NationStates.NET.Badge.ID">ID</h4>
@@ -161,7 +164,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly long ID { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly long ID { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -180,10 +184,42 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_Name.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L20">View Source</a>
+  </span>
+  <a id="NationStates_NET_Badge_Name_" data-uid="NationStates.NET.Badge.Name*"></a>
+  <h4 id="NationStates_NET_Badge_Name" data-uid="NationStates.NET.Badge.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the entity that has the badge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_Type.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L16">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L26">View Source</a>
   </span>
   <a id="NationStates_NET_Badge_Type_" data-uid="NationStates.NET.Badge.Type*"></a>
   <h4 id="NationStates_NET_Badge_Type" data-uid="NationStates.NET.Badge.Type">Type</h4>
@@ -192,7 +228,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly BadgeType Type { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly BadgeType Type { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,6 +246,42 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L46">View Source</a>
+  </span>
+  <a id="NationStates_NET_Badge_ToString_" data-uid="NationStates.NET.Badge.ToString*"></a>
+  <h4 id="NationStates_NET_Badge_ToString" data-uid="NationStates.NET.Badge.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a JSON string representing the badge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A JSON string representing the badge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
 </article>
           </div>
           
@@ -220,7 +293,7 @@
                     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

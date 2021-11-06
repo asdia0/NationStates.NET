@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct CensusRegionRank
+    <title>Struct CensusWorldRank
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct CensusRegionRank
+    <meta name="title" content="Struct CensusWorldRank
    ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -68,12 +68,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NationStates.NET.CensusRegionRank">
+            <article class="content wrap" id="_content" data-uid="NationStates.NET.CensusWorldRank">
   
   
-  <h1 id="NationStates_NET_CensusRegionRank" data-uid="NationStates.NET.CensusRegionRank" class="text-break">Struct CensusRegionRank
+  <h1 id="NationStates_NET_CensusWorldRank" data-uid="NationStates.NET.CensusWorldRank" class="text-break">Struct CensusWorldRank
   </h1>
-  <div class="markdown level0 summary"><p>Represents a census ranking in a region.</p>
+  <div class="markdown level0 summary"><p>Represents a world census record.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -96,27 +96,27 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NationStates.NET.html">NationStates.NET</a></h6>
   <h6><strong>Assembly</strong>: NationStates.NET.dll</h6>
-  <h5 id="NationStates_NET_CensusRegionRank_syntax">Syntax</h5>
+  <h5 id="NationStates_NET_CensusWorldRank_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct CensusRegionRank</code></pre>
+    <pre><code class="lang-csharp hljs">public struct CensusWorldRank</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank__ctor_System_Int32_System_String_System_Int64_System_Double_.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.%23ctor(System.Int32%2CSystem.String%2CSystem.Int64%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank__ctor_System_Int32_System_String_System_Double_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.%23ctor(System.Int32%2CSystem.String%2CSystem.Double%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L42">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L42">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank__ctor_" data-uid="NationStates.NET.CensusRegionRank.#ctor*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank__ctor_System_Int32_System_String_System_Int64_System_Double_" data-uid="NationStates.NET.CensusRegionRank.#ctor(System.Int32,System.String,System.Int64,System.Double)">CensusRegionRank(Int32, String, Int64, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.CensusRegionRank.html">CensusRegionRank</a> struct.</p>
+  <a id="NationStates_NET_CensusWorldRank__ctor_" data-uid="NationStates.NET.CensusWorldRank.#ctor*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank__ctor_System_Int32_System_String_System_Double_System_Int64_" data-uid="NationStates.NET.CensusWorldRank.#ctor(System.Int32,System.String,System.Double,System.Int64)">CensusWorldRank(Int32, String, Double, Int64)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.CensusWorldRank.html">CensusWorldRank</a> struct.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CensusRegionRank(int id, string name, long rank, double score)</code></pre>
+    <pre><code class="lang-csharp hljs">public CensusWorldRank(int id, string name, double score, long rank)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,19 +137,19 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The name of the nation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int64</span></td>
-        <td><span class="parametername">rank</span></td>
-        <td><p>The nation's rank in the region.</p>
+        <td><p>The nation's name.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">score</span></td>
-        <td><p>The nation's census value.</p>
+        <td><p>The nation's score.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">rank</span></td>
+        <td><p>The nation's rank in the world.</p>
 </td>
       </tr>
     </tbody>
@@ -158,13 +158,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank_ID.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank_ID.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L14">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L14">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank_ID_" data-uid="NationStates.NET.CensusRegionRank.ID*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank_ID" data-uid="NationStates.NET.CensusRegionRank.ID">ID</h4>
+  <a id="NationStates_NET_CensusWorldRank_ID_" data-uid="NationStates.NET.CensusWorldRank.ID*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank_ID" data-uid="NationStates.NET.CensusWorldRank.ID">ID</h4>
   <div class="markdown level1 summary"><p>Gets the census ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -190,14 +190,14 @@ public readonly int ID { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank_Name.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank_Name.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L20">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L20">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank_Name_" data-uid="NationStates.NET.CensusRegionRank.Name*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank_Name" data-uid="NationStates.NET.CensusRegionRank.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets the name of the nation.</p>
+  <a id="NationStates_NET_CensusWorldRank_Name_" data-uid="NationStates.NET.CensusWorldRank.Name*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank_Name" data-uid="NationStates.NET.CensusWorldRank.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the nation's name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -222,14 +222,14 @@ public readonly string Name { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank_Rank.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.Rank%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank_Rank.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.Rank%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L26">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L26">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank_Rank_" data-uid="NationStates.NET.CensusRegionRank.Rank*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank_Rank" data-uid="NationStates.NET.CensusRegionRank.Rank">Rank</h4>
-  <div class="markdown level1 summary"><p>Gets the nation's rank in the region.</p>
+  <a id="NationStates_NET_CensusWorldRank_Rank_" data-uid="NationStates.NET.CensusWorldRank.Rank*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank_Rank" data-uid="NationStates.NET.CensusWorldRank.Rank">Rank</h4>
+  <div class="markdown level1 summary"><p>Gets the nation's rank.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -254,14 +254,14 @@ public readonly long Rank { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank_Score.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.Score%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank_Score.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.Score%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L32">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L32">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank_Score_" data-uid="NationStates.NET.CensusRegionRank.Score*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank_Score" data-uid="NationStates.NET.CensusRegionRank.Score">Score</h4>
-  <div class="markdown level1 summary"><p>Gets the nation's census value.</p>
+  <a id="NationStates_NET_CensusWorldRank_Score_" data-uid="NationStates.NET.CensusWorldRank.Score*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank_Score" data-uid="NationStates.NET.CensusWorldRank.Score">Score</h4>
+  <div class="markdown level1 summary"><p>Gets the nation's score.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -288,13 +288,13 @@ public readonly double Score { get; }</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L54">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L54">View Source</a>
   </span>
-  <a id="NationStates_NET_CensusRegionRank_ToString_" data-uid="NationStates.NET.CensusRegionRank.ToString*"></a>
-  <h4 id="NationStates_NET_CensusRegionRank_ToString" data-uid="NationStates.NET.CensusRegionRank.ToString">ToString()</h4>
+  <a id="NationStates_NET_CensusWorldRank_ToString_" data-uid="NationStates.NET.CensusWorldRank.ToString*"></a>
+  <h4 id="NationStates_NET_CensusWorldRank_ToString" data-uid="NationStates.NET.CensusWorldRank.ToString">ToString()</h4>
   <div class="markdown level1 summary"><p>Gets a JSON string representing the record.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -328,10 +328,10 @@ public readonly double Score { get; }</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusRegionRank.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusRegionRank%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_CensusWorldRank.md&amp;value=---%0Auid%3A%20NationStates.NET.CensusWorldRank%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusRegionRank.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/CensusWorldRank.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

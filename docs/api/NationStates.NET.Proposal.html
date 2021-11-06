@@ -85,9 +85,6 @@
       <span class="xref">System.ValueType.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">System.ValueType.ToString()</span>
-    </div>
-    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
@@ -110,7 +107,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal__ctor_System_String_System_Collections_Generic_HashSet_System_String__System_Object_NationStates_NET_Council_System_DateTime_System_String_System_String_System_String_System_Object_.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.%23ctor(System.String%2CSystem.Collections.Generic.HashSet%7BSystem.String%7D%2CSystem.Object%2CNationStates.NET.Council%2CSystem.DateTime%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L68">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L79">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal__ctor_" data-uid="NationStates.NET.Proposal.#ctor*"></a>
   <h4 id="NationStates_NET_Proposal__ctor_System_String_System_Collections_Generic_HashSet_System_String__System_Object_NationStates_NET_Council_System_DateTime_System_String_System_String_System_String_System_Object_" data-uid="NationStates.NET.Proposal.#ctor(System.String,System.Collections.Generic.HashSet{System.String},System.Object,NationStates.NET.Council,System.DateTime,System.String,System.String,System.String,System.Object)">Proposal(String, HashSet&lt;String&gt;, Object, Council, DateTime, String, String, String, Object)</h4>
@@ -194,7 +191,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Approvals.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Approvals%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L14">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L16">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Approvals_" data-uid="NationStates.NET.Proposal.Approvals*"></a>
   <h4 id="NationStates_NET_Proposal_Approvals" data-uid="NationStates.NET.Proposal.Approvals">Approvals</h4>
@@ -203,7 +200,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly HashSet&lt;string&gt; Approvals { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly HashSet&lt;string&gt; Approvals { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -225,7 +223,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Category.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Category%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L19">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L22">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Category_" data-uid="NationStates.NET.Proposal.Category*"></a>
   <h4 id="NationStates_NET_Proposal_Category" data-uid="NationStates.NET.Proposal.Category">Category</h4>
@@ -234,7 +232,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly dynamic Category { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly dynamic Category { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,7 +255,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Council.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Council%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L24">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L28">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Council_" data-uid="NationStates.NET.Proposal.Council*"></a>
   <h4 id="NationStates_NET_Proposal_Council" data-uid="NationStates.NET.Proposal.Council">Council</h4>
@@ -265,7 +264,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly Council Council { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly Council Council { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -287,7 +287,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Created.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Created%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L29">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L34">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Created_" data-uid="NationStates.NET.Proposal.Created*"></a>
   <h4 id="NationStates_NET_Proposal_Created" data-uid="NationStates.NET.Proposal.Created">Created</h4>
@@ -296,7 +296,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly DateTime Created { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly DateTime Created { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -318,7 +319,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Description.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L34">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L40">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Description_" data-uid="NationStates.NET.Proposal.Description*"></a>
   <h4 id="NationStates_NET_Proposal_Description" data-uid="NationStates.NET.Proposal.Description">Description</h4>
@@ -327,7 +328,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly string Description { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string Description { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -349,7 +351,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_ID.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L39">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L46">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_ID_" data-uid="NationStates.NET.Proposal.ID*"></a>
   <h4 id="NationStates_NET_Proposal_ID" data-uid="NationStates.NET.Proposal.ID">ID</h4>
@@ -358,7 +360,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly string ID { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string ID { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -380,7 +383,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Name.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L44">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L52">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Name_" data-uid="NationStates.NET.Proposal.Name*"></a>
   <h4 id="NationStates_NET_Proposal_Name" data-uid="NationStates.NET.Proposal.Name">Name</h4>
@@ -389,7 +392,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string Name { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -411,7 +415,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_Proposer.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.Proposer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L49">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L58">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_Proposer_" data-uid="NationStates.NET.Proposal.Proposer*"></a>
   <h4 id="NationStates_NET_Proposal_Proposer" data-uid="NationStates.NET.Proposal.Proposer">Proposer</h4>
@@ -420,7 +424,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly string Proposer { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly string Proposer { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -442,7 +447,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_SubCategory.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.SubCategory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L54">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L64">View Source</a>
   </span>
   <a id="NationStates_NET_Proposal_SubCategory_" data-uid="NationStates.NET.Proposal.SubCategory*"></a>
   <h4 id="NationStates_NET_Proposal_SubCategory" data-uid="NationStates.NET.Proposal.SubCategory">SubCategory</h4>
@@ -451,7 +456,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly dynamic SubCategory { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly dynamic SubCategory { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -468,6 +474,42 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L96">View Source</a>
+  </span>
+  <a id="NationStates_NET_Proposal_ToString_" data-uid="NationStates.NET.Proposal.ToString*"></a>
+  <h4 id="NationStates_NET_Proposal_ToString" data-uid="NationStates.NET.Proposal.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a JSON string representing the proposal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A JSON string representing the proposal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
 </article>
           </div>
           
@@ -479,7 +521,7 @@
                     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Proposal.md&amp;value=---%0Auid%3A%20NationStates.NET.Proposal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Proposal.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

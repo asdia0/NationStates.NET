@@ -85,9 +85,6 @@
       <span class="xref">System.ValueType.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">System.ValueType.ToString()</span>
-    </div>
-    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
@@ -110,7 +107,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Sector__ctor_NationStates_NET_SectorType_System_Double_.md&amp;value=---%0Auid%3A%20NationStates.NET.Sector.%23ctor(NationStates.NET.SectorType%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L23">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L28">View Source</a>
   </span>
   <a id="NationStates_NET_Sector__ctor_" data-uid="NationStates.NET.Sector.#ctor*"></a>
   <h4 id="NationStates_NET_Sector__ctor_NationStates_NET_SectorType_System_Double_" data-uid="NationStates.NET.Sector.#ctor(NationStates.NET.SectorType,System.Double)">Sector(SectorType, Double)</h4>
@@ -152,7 +149,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Sector_Share.md&amp;value=---%0Auid%3A%20NationStates.NET.Sector.Share%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L11">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L14">View Source</a>
   </span>
   <a id="NationStates_NET_Sector_Share_" data-uid="NationStates.NET.Sector.Share*"></a>
   <h4 id="NationStates_NET_Sector_Share" data-uid="NationStates.NET.Sector.Share">Share</h4>
@@ -161,7 +158,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly double Share { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly double Share { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -183,7 +181,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Sector_Type.md&amp;value=---%0Auid%3A%20NationStates.NET.Sector.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L16">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L20">View Source</a>
   </span>
   <a id="NationStates_NET_Sector_Type_" data-uid="NationStates.NET.Sector.Type*"></a>
   <h4 id="NationStates_NET_Sector_Type" data-uid="NationStates.NET.Sector.Type">Type</h4>
@@ -192,7 +190,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly SectorType Type { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly SectorType Type { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,6 +208,42 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Sector_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Sector.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L38">View Source</a>
+  </span>
+  <a id="NationStates_NET_Sector_ToString_" data-uid="NationStates.NET.Sector.ToString*"></a>
+  <h4 id="NationStates_NET_Sector_ToString" data-uid="NationStates.NET.Sector.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a JSON string representing the sector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A JSON string representing the sector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
 </article>
           </div>
           
@@ -220,7 +255,7 @@
                     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Sector.md&amp;value=---%0Auid%3A%20NationStates.NET.Sector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Sector.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
