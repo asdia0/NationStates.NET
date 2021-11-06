@@ -6,9 +6,9 @@
     using static Utility;
 
     /// <summary>
-    /// Defines a <see cref="WAProposal"/> that is currently at vote.
+    /// Defines a <see cref="Proposal"/> that is currently at vote.
     /// </summary>
-    public struct WAProposalAtVote
+    public struct ProposalAtVote
     {
         /// <summary>
         /// Gets the proposal's category.
@@ -18,7 +18,7 @@
         /// <summary>
         /// Gets the council the proposal was submitted in.
         /// </summary>
-        public WACouncil Council { get; }
+        public Council Council { get; }
 
         /// <summary>
         /// Gets the time at which the proposal was created.
@@ -106,10 +106,10 @@
         public List<long> VoteTrackFor { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WAProposalAtVote"/> struct.
+        /// Initializes a new instance of the <see cref="ProposalAtVote"/> struct.
         /// </summary>
         /// <param name="council">The council in which the proposal was submitted in.</param>
-        public WAProposalAtVote(WACouncil council)
+        public ProposalAtVote(Council council)
         {
             this.Council = council;
 
@@ -120,14 +120,14 @@
 
             switch (council)
             {
-                case WACouncil.General_Assembly:
-                    this.Category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
-                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.General_Assembly, this.Category);
+                case Council.General_Assembly:
+                    this.Category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), Council.General_Assembly, this.Category);
                     break;
 
-                case WACouncil.Security_Council:
-                    this.Category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
-                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), WACouncil.Security_Council, this.Category);
+                case Council.Security_Council:
+                    this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), Council.Security_Council, this.Category);
                     break;
 
                 default:
@@ -139,7 +139,7 @@
             HashSet<DelegateEntry> delegateLog = new();
             foreach (XmlNode delegateEntry in node.SelectNodes("DELLOG/ENTRY"))
             {
-                WAAction action = (WAAction)ParseEnum(typeof(WAAction), delegateEntry.SelectSingleNode("ACTION").InnerText);
+                DelegateAction action = (DelegateAction)ParseEnum(typeof(DelegateAction), delegateEntry.SelectSingleNode("ACTION").InnerText);
                 string nation = delegateEntry.SelectSingleNode("NATION").InnerText;
                 DateTime timeStamp = ParseUnix(delegateEntry.SelectSingleNode("TIMESTAMP").InnerText);
                 int votes = int.Parse(delegateEntry.SelectSingleNode("VOTES").InnerText);

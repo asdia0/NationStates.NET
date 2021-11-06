@@ -132,44 +132,44 @@
         }
 
         /// <summary>
-        /// Parses <see cref="WAGACategory"/> or <see cref="WASCCategory"/>.
+        /// Parses <see cref="GACategory"/> or <see cref="SCCategory"/>.
         /// </summary>
         /// <param name="option">The option node.</param>
         /// <param name="council">The council the proposal/resolution was submitted in.</param>
         /// <param name="category">The category of the proposal/resolution.</param>
         /// <returns>A sub-category.</returns>
-        public static dynamic ParseSubCategory(XmlNode option, WACouncil council, dynamic category)
+        public static dynamic ParseSubCategory(XmlNode option, Council council, dynamic category)
         {
-            if (category is WAGACategory)
+            if (category is GACategory)
             {
                 switch (category)
                 {
-                    case WAGACategory.Repeal:
+                    case GACategory.Repeal:
                         return long.Parse(option.InnerText);
 
-                    case WAGACategory.Bookkeeping:
-                        return WAGABookeeping.Sweeping;
+                    case GACategory.Bookkeeping:
+                        return GABookeeping.Sweeping;
 
-                    case WAGACategory.Regulation:
-                        return (WAGARegulation)ParseEnum(typeof(WAGARegulation), option.InnerText);
+                    case GACategory.Regulation:
+                        return (GARegulation)ParseEnum(typeof(GARegulation), option.InnerText);
 
-                    case WAGACategory.Health:
-                        return (WAGAHealth)ParseEnum(typeof(WAGAHealth), option.InnerText);
+                    case GACategory.Health:
+                        return (GAHealth)ParseEnum(typeof(GAHealth), option.InnerText);
 
-                    case WAGACategory.Environmental:
-                        return (WAGAEnvironmental)ParseEnum(typeof(WAGAEnvironmental), option.InnerText);
+                    case GACategory.Environmental:
+                        return (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), option.InnerText);
 
-                    case WAGACategory.Education_And_Creativity:
-                        return (WAGAEducationAndCreativity)ParseEnum(typeof(WAGAEducationAndCreativity), option.InnerText);
+                    case GACategory.Education_And_Creativity:
+                        return (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), option.InnerText);
 
-                    case WAGACategory.Advancement_Of_Industry:
-                        return (WAGAAdvancementOfIndustry)ParseEnum(typeof(WAGAAdvancementOfIndustry), option.InnerText);
+                    case GACategory.Advancement_Of_Industry:
+                        return (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), option.InnerText);
 
                     default:
-                        return (WAGAStrength)ParseEnum(typeof(WAGAStrength), option.InnerText);
+                        return (GAStrength)ParseEnum(typeof(GAStrength), option.InnerText);
                 }
             }
-            else if (category is WASCCategory)
+            else if (category is SCCategory)
             {
                 if (option.InnerText.StartsWith("N:"))
                 {

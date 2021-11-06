@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of General Assembly resolution categories.
     /// </summary>
-    public enum WAGACategory
+    public enum GACategory
     {
         /// <summary>
         /// Removes a resolution from international law.

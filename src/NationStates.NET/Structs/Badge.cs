@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines a World Assembly badge.
     /// </summary>
-    public struct WABadge
+    public struct Badge
     {
         /// <summary>
         /// Gets the ID of Security Council resolution that granted the World Assembly badge.
@@ -13,14 +13,14 @@
         /// <summary>
         /// Gets type of World Assembly badge.
         /// </summary>
-        public WABadgeType Type { get; }
+        public BadgeType Type { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WABadge"/> struct.
+        /// Initializes a new instance of the <see cref="Badge"/> struct.
         /// </summary>
         /// <param name="type">Type of World Assembly badge.</param>
         /// <param name="id">ID of Security Council resolution that granted the World Assembly badge.</param>
-        public WABadge(WABadgeType type, long id)
+        public Badge(BadgeType type, long id)
         {
             this.Type = type;
             this.ID = id;

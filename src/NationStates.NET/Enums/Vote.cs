@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of World Assembly votes.
     /// </summary>
-    public enum WAVote
+    public enum Vote
     {
         /// <summary>
         /// Supports the proposal.

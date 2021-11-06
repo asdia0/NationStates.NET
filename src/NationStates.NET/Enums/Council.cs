@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of World Assembly councils.
     /// </summary>
-    public enum WACouncil
+    public enum Council
     {
         /// <summary>
         /// The General Assembly.

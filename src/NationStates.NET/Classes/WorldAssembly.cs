@@ -84,7 +84,7 @@
         /// </summary>
         /// <param name="council">The council to get the last resolution of.</param>
         /// <returns>A string describing the outcome of the last resolution.</returns>
-        public static string LastResolution(WACouncil council)
+        public static string LastResolution(Council council)
         {
             return ParseDocument($"wa={(int)council + 1}&q=lastresolution").SelectSingleNode("/WA/LASTRESOLUTION").InnerText;
         }
@@ -94,9 +94,9 @@
         /// </summary>
         /// <param name="council">The council to get the proposals of.</param>
         /// <returns>A list of proposals in the given council.</returns>
-        public static HashSet<WAProposal> Proposals(WACouncil council)
+        public static HashSet<Proposal> Proposals(Council council)
         {
-            HashSet<WAProposal> proposals = new();
+            HashSet<Proposal> proposals = new();
 
             foreach (XmlNode node in ParseDocument($"wa={(int)council + 1}&q=proposals").SelectNodes("/WA/PROPOSALS/PROPOSAL"))
             {
@@ -106,12 +106,12 @@
 
                 switch (council)
                 {
-                    case WACouncil.General_Assembly:
-                        category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
+                    case Council.General_Assembly:
+                        category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
                         break;
 
-                    case WACouncil.Security_Council:
-                        category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
+                    case Council.Security_Council:
+                        category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
                         break;
 
                     default:

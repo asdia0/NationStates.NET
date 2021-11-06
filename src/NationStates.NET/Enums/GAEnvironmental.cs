@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of subcategories for the category <see cref="WAGACategory.Environmental"/>.
     /// </summary>
-    public enum WAGAEnvironmental
+    public enum GAEnvironmental
     {
         /// <summary>
         /// Automotive.

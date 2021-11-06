@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of Security Council proposal categories.
     /// </summary>
-    public enum WASCCategory
+    public enum SCCategory
     {
         /// <summary>
         /// Remove a resolution from internatinal law.

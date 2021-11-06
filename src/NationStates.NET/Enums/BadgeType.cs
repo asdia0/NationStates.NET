@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of badges.
     /// </summary>
-    public enum WABadgeType
+    public enum BadgeType
     {
         /// <summary>
         /// Entity has been commended by the Security Council.

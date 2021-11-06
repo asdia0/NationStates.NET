@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of actions delegates can do to the <see cref="WAProposalAtVote"/>.
+    /// Defines the types of actions delegates can do to the <see cref="ProposalAtVote"/>.
     /// </summary>
-    public enum WAAction
+    public enum DelegateAction
     {
         /// <summary>
         /// Vote against the proposal.

@@ -6,7 +6,7 @@
     /// <summary>
     /// Defines a World Assembly proposal.
     /// </summary>
-    public struct WAProposal
+    public struct Proposal
     {
         /// <summary>
         /// Gets a list of delegates that approved of the proposal.
@@ -21,7 +21,7 @@
         /// <summary>
         /// Gets the council the proposal was submitted in.
         /// </summary>
-        public WACouncil Council { get; }
+        public Council Council { get; }
 
         /// <summary>
         /// Gets the time at which the proposal was created.
@@ -54,7 +54,7 @@
         public dynamic SubCategory { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WAProposal"/> struct.
+        /// Initializes a new instance of the <see cref="Proposal"/> struct.
         /// </summary>
         /// <param name="id">The proposal's ID.</param>
         /// <param name="approvals">A list of delegates that approved of the proposal.</param>
@@ -65,7 +65,7 @@
         /// <param name="name">The proposal's name.</param>
         /// <param name="proposer">The name of the nation that proposed the proposal.</param>
         /// <param name="subCategory">The proposal's sub-category.</param>
-        public WAProposal(string id, HashSet<string> approvals, dynamic category, WACouncil council, DateTime created, string description, string name, string proposer, dynamic subCategory)
+        public Proposal(string id, HashSet<string> approvals, dynamic category, Council council, DateTime created, string description, string name, string proposer, dynamic subCategory)
         {
             this.ID = id;
             this.Approvals = approvals;

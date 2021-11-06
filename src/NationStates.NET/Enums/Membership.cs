@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the types of World Assembly memberships.
     /// </summary>
-    public enum WAStatus
+    public enum Membership
     {
         /// <summary>
         /// Nation is not a member of the World Assembly.

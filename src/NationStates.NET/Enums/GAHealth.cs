@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of subcategories for the category <see cref="WAGACategory.Health"/>.
+    /// Defines the types of subcategories for the category <see cref="GACategory.Health"/>.
     /// </summary>
-    public enum WAGAHealth
+    public enum GAHealth
     {
         /// <summary>
         /// Healthcare.

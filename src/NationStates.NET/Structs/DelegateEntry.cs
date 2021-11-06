@@ -10,7 +10,7 @@
         /// <summary>
         /// Gets the vote the delegate casted.
         /// </summary>
-        public WAAction Action { get; }
+        public DelegateAction Action { get; }
 
         /// <summary>
         /// Gets the name of the delegate.
@@ -34,7 +34,7 @@
         /// <param name="nation">The name of the delegate.</param>
         /// <param name="timeStamp">The time at which the delegate voted.</param>
         /// <param name="votes">The number the delegate has.</param>
-        public DelegateEntry(WAAction action, string nation, DateTime timeStamp, int votes)
+        public DelegateEntry(DelegateAction action, string nation, DateTime timeStamp, int votes)
         {
             this.Action = action;
             this.Nation = nation;

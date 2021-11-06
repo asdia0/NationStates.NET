@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of subcategories for the category <see cref="WAGACategory.Bookkeeping"/>.
+    /// Defines the types of subcategories for the category <see cref="GACategory.Bookkeeping"/>.
     /// </summary>
-    public enum WAGABookeeping
+    public enum GABookeeping
     {
         /// <summary>
         /// Sweeping.

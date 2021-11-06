@@ -1,9 +1,9 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Defines the types of subcategories for the category <see cref="WAGACategory.Advancement_Of_Industry"/>.
+    /// Defines the types of subcategories for the category <see cref="GACategory.Advancement_Of_Industry"/>.
     /// </summary>
-    public enum WAGAAdvancementOfIndustry
+    public enum GAAdvancementOfIndustry
     {
         /// <summary>
         /// Environmental deregulation.

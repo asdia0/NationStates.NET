@@ -482,7 +482,7 @@
         /// <summary>
         /// Gets the nation's vote on current General Assembly bill.
         /// </summary>
-        public WAVote? GAVote
+        public Vote? GAVote
         {
             get
             {
@@ -495,7 +495,7 @@
                 }
                 else
                 {
-                    return (WAVote)ParseEnum(typeof(WAVote), node.InnerText);
+                    return (Vote)ParseEnum(typeof(Vote), node.InnerText);
                 }
             }
         }
@@ -850,7 +850,7 @@
         /// <summary>
         /// Gets the nation's vote on current Security Council bill.
         /// </summary>
-        public WAVote? SCVote
+        public Vote? SCVote
         {
             get
             {
@@ -863,7 +863,7 @@
                 }
                 else
                 {
-                    return (WAVote)ParseEnum(typeof(WAVote), node.InnerText);
+                    return (Vote)ParseEnum(typeof(Vote), node.InnerText);
                 }
             }
         }
@@ -957,11 +957,11 @@
         /// <summary>
         /// Gets the nation's World Assembly status.
         /// </summary>
-        public WAStatus WA
+        public Membership WA
         {
             get
             {
-                return (WAStatus)ParseEnum(typeof(WAStatus), ParseDocument($"nation={this.Name}&q=wa")
+                return (Membership)ParseEnum(typeof(Membership), ParseDocument($"nation={this.Name}&q=wa")
                     .SelectSingleNode("/NATION/UNSTATUS")
                     .InnerText
                     .Replace("WA ", string.Empty));
@@ -971,21 +971,21 @@
         /// <summary>
         /// Gets the list of commendations/condemnations received.
         /// </summary>
-        public HashSet<WABadge> WABadges
+        public HashSet<Badge> WABadges
         {
             get
             {
                 XmlNode node = ParseDocument($"nation={this.Name}&q=wabadges")
                     .SelectSingleNode("/NATION/WABADGES");
 
-                HashSet<WABadge> wabadges = new();
+                HashSet<Badge> wabadges = new();
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)ParseEnum(typeof(WABadgeType), badge.Attributes["type"].Value);
+                    BadgeType type = (BadgeType)ParseEnum(typeof(BadgeType), badge.Attributes["type"].Value);
                     long id = long.Parse(badge.InnerText);
 
-                    wabadges.Add(new WABadge(type, id));
+                    wabadges.Add(new Badge(type, id));
                 }
 
                 return wabadges;

@@ -267,14 +267,14 @@
         /// <summary>
         /// Gets the region's votes for/against the current General Assembly bill.
         /// </summary>
-        public Dictionary<WAVote, int>? GAVote
+        public Dictionary<Vote, int>? GAVote
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=gavote")
                     .SelectSingleNode("/REGION/GAVOTE");
 
-                Dictionary<WAVote, int> gaVote = new();
+                Dictionary<Vote, int> gaVote = new();
 
                 if (node.SelectSingleNode("FOR").InnerText == string.Empty || node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                 {
@@ -282,8 +282,8 @@
                 }
                 else
                 {
-                    gaVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                    gaVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
+                    gaVote.Add(Vote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
+                    gaVote.Add(Vote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                 }
 
                 return gaVote;
@@ -450,14 +450,14 @@
         /// <summary>
         /// Gets the region's vote for/against the current Security Council bill.
         /// </summary>
-        public Dictionary<WAVote, int>? SCVote
+        public Dictionary<Vote, int>? SCVote
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=scvote")
                     .SelectSingleNode("/REGION/SCVOTE");
 
-                Dictionary<WAVote, int> scVote = new();
+                Dictionary<Vote, int> scVote = new();
 
                 if (node.SelectSingleNode("FOR").InnerText == string.Empty || node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                 {
@@ -465,8 +465,8 @@
                 }
                 else
                 {
-                    scVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                    scVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
+                    scVote.Add(Vote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
+                    scVote.Add(Vote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                 }
 
                 return scVote;
@@ -497,21 +497,21 @@
         /// <summary>
         /// Gets the region's World Assembly badges.
         /// </summary>
-        public HashSet<WABadge> WABadges
+        public HashSet<Badge> WABadges
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=wabadges")
                     .SelectSingleNode("/REGION/WABADGES");
 
-                HashSet<WABadge> waBadges = new();
+                HashSet<Badge> waBadges = new();
 
                 foreach (XmlNode badge in node.ChildNodes)
                 {
-                    WABadgeType type = (WABadgeType)ParseEnum(typeof(WABadgeType), badge.Attributes["type"].Value);
+                    BadgeType type = (BadgeType)ParseEnum(typeof(BadgeType), badge.Attributes["type"].Value);
                     long id = long.Parse(badge.InnerText);
 
-                    waBadges.Add(new WABadge(type, id));
+                    waBadges.Add(new Badge(type, id));
                 }
 
                 return waBadges;

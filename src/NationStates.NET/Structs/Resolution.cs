@@ -7,7 +7,7 @@
     /// <summary>
     /// Defines a World Assembly resolution.
     /// </summary>
-    public struct WAResolution
+    public struct Resolution
     {
         /// <summary>
         /// Gets the resolution's category.
@@ -17,7 +17,7 @@
         /// <summary>
         /// Gets the council the resolution was submitted in.
         /// </summary>
-        public WACouncil Council { get; }
+        public Council Council { get; }
 
         /// <summary>
         /// Gets the resolution's council ID.
@@ -95,11 +95,11 @@
         public long VotesFor { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WAResolution"/> struct.
+        /// Initializes a new instance of the <see cref="Resolution"/> struct.
         /// </summary>
         /// <param name="council">The council the resolution was submitted in.</param>
         /// <param name="councilID">The resolution's council ID.</param>
-        public WAResolution(WACouncil council, long councilID)
+        public Resolution(Council council, long councilID)
         {
             XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution")
                 .SelectSingleNode("/WA/RESOLUTION");
@@ -109,13 +109,13 @@
 
             XmlNode option = node.SelectSingleNode("OPTION");
 
-            if (council == WACouncil.General_Assembly)
+            if (council == Council.General_Assembly)
             {
-                this.Category = (WAGACategory)ParseEnum(typeof(WAGACategory), node.SelectSingleNode("CATEGORY").InnerText);
+                this.Category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
             }
             else
             {
-                this.Category = (WASCCategory)ParseEnum(typeof(WASCCategory), node.SelectSingleNode("CATEGORY").InnerText);
+                this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
             }
 
             this.SubCategory = ParseSubCategory(option, this.Council, this.Category);
