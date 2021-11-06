@@ -88,6 +88,8 @@
       <h4><a class="xref" href="NationStates.NET.Region.html">Region</a></h4>
       <section><p>Represents a region.</p>
 </section>
+      <h4><a class="xref" href="NationStates.NET.TradingCards.html">TradingCards</a></h4>
+      <section></section>
       <h4><a class="xref" href="NationStates.NET.Utility.html">Utility</a></h4>
       <section><p>A class containing useful methods.</p>
 </section>
@@ -99,6 +101,9 @@
 </section>
     <h3 id="structs">Structs
   </h3>
+      <h4><a class="xref" href="NationStates.NET.Badge.html">Badge</a></h4>
+      <section><p>Defines a World Assembly badge.</p>
+</section>
       <h4><a class="xref" href="NationStates.NET.Banner.html">Banner</a></h4>
       <section><p>Defines a banner's information.</p>
 </section>
@@ -156,23 +161,20 @@
       <h4><a class="xref" href="NationStates.NET.Post.html">Post</a></h4>
       <section><p>Defines a RMB post.</p>
 </section>
+      <h4><a class="xref" href="NationStates.NET.Proposal.html">Proposal</a></h4>
+      <section><p>Defines a World Assembly proposal.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.ProposalAtVote.html">ProposalAtVote</a></h4>
+      <section><p>Defines a <a class="xref" href="NationStates.NET.Proposal.html">Proposal</a> that is currently at vote.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.Resolution.html">Resolution</a></h4>
+      <section><p>Defines a World Assembly resolution.</p>
+</section>
       <h4><a class="xref" href="NationStates.NET.Sector.html">Sector</a></h4>
       <section><p>Defines a sector.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.TelegramQueue.html">TelegramQueue</a></h4>
       <section><p>Defines the telegram queue.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WABadge.html">WABadge</a></h4>
-      <section><p>Defines a World Assembly badge.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAProposal.html">WAProposal</a></h4>
-      <section><p>Defines a World Assembly proposal.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAProposalAtVote.html">WAProposalAtVote</a></h4>
-      <section><p>Defines a <a class="xref" href="NationStates.NET.WAProposal.html">WAProposal</a> that is currently at vote.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAResolution.html">WAResolution</a></h4>
-      <section><p>Defines a World Assembly resolution.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.WorldCensus.html">WorldCensus</a></h4>
       <section><p>Defines a world census record.</p>
@@ -186,114 +188,116 @@
     <h3 id="enums">Enums
   </h3>
       <h4><a class="xref" href="NationStates.NET.Authority.html">Authority</a></h4>
-      <section><p>Types of authorities for regional officers.</p>
+      <section><p>Defines the types of authorities for regional officers.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.BadgeType.html">BadgeType</a></h4>
+      <section><p>Defines the types of badges.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.CivilRights.html">CivilRights</a></h4>
-      <section><p>Rankings of civil rights. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
+      <section><p>Defines the types of civil rights levels. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.Council.html">Council</a></h4>
+      <section><p>Defines the types of World Assembly councils.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.DelegateAction.html">DelegateAction</a></h4>
+      <section><p>Defines the types of actions delegates can do to the <a class="xref" href="NationStates.NET.ProposalAtVote.html">ProposalAtVote</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchAccount.html">DispatchAccount</a></h4>
-      <section><p>Types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Account">Account</a>.</p>
+      <section><p>Defines the types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Account">Account</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchBulletin.html">DispatchBulletin</a></h4>
-      <section><p>Types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Bulletin">Bulletin</a>.</p>
+      <section><p>Defines the types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Bulletin">Bulletin</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchCategory.html">DispatchCategory</a></h4>
-      <section><p>Types of dispatch categories.</p>
+      <section><p>Defines the types of dispatch categories.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchFactbook.html">DispatchFactbook</a></h4>
-      <section><p>Types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Factbook">Factbook</a>.</p>
+      <section><p>Defines the types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Factbook">Factbook</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchMeta.html">DispatchMeta</a></h4>
-      <section><p>Types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Bulletin">Bulletin</a>.</p>
+      <section><p>Defines the types of subcategories for <a class="xref" href="NationStates.NET.DispatchCategory.html#NationStates_NET_DispatchCategory_Bulletin">Bulletin</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.DispatchSort.html">DispatchSort</a></h4>
-      <section><p>Types of dispatch sorts.</p>
+      <section><p>Defines the types of dispatch sorts.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.Economy.html">Economy</a></h4>
-      <section><p>Rankings of the economy. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
+      <section><p>Defines the types of economy levels. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.EmbassyType.html">EmbassyType</a></h4>
-      <section><p>Types of embassies.</p>
+      <section><p>Defines the types of embassies.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.Entity.html">Entity</a></h4>
-      <section><p>Types of entities.</p>
+      <section><p>Defines the types of entities.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.EventType.html">EventType</a></h4>
-      <section><p>Types of <a class="xref" href="NationStates.NET.Event.html">Event</a>s.</p>
+      <section><p>Defines the types of <a class="xref" href="NationStates.NET.Event.html">Event</a>s.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GAAdvancementOfIndustry.html">GAAdvancementOfIndustry</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Advancement_Of_Industry">Advancement_Of_Industry</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GABookeeping.html">GABookeeping</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Bookkeeping">Bookkeeping</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GACategory.html">GACategory</a></h4>
+      <section><p>Defines the types of General Assembly resolution categories.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GAEducationAndCreativity.html">GAEducationAndCreativity</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Education_And_Creativity">Education_And_Creativity</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GAEnvironmental.html">GAEnvironmental</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Environmental">Environmental</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GAHealth.html">GAHealth</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Health">Health</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GARegulation.html">GARegulation</a></h4>
+      <section><p>Defines the types of subcategories for the category <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Regulation">Regulation</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.GAStrength.html">GAStrength</a></h4>
+      <section><p>Defines the types of subcategories for the categories <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Civil_Rights">Civil_Rights</a>, <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Free_Trade">Free_Trade</a>,
+<a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Furtherment_Of_Democracy">Furtherment_Of_Democracy</a>, <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Global_Disarmament">Global_Disarmament</a>, <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_International_Security">International_Security</a>,
+<a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Moral_Decency">Moral_Decency</a>, <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Political_Stability">Political_Stability</a> and <a class="xref" href="NationStates.NET.GACategory.html#NationStates_NET_GACategory_Social_Justice">Social_Justice</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.Industry.html">Industry</a></h4>
       <section></section>
       <h4><a class="xref" href="NationStates.NET.Influence.html">Influence</a></h4>
-      <section><p>Rankings of inlfuence. <a href="https://nationstates.fandom.com/wiki/Regional_Influence">Source</a>.</p>
+      <section><p>Defines the types of influence levels. <a href="https://nationstates.fandom.com/wiki/Regional_Influence">Source</a>.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.Membership.html">Membership</a></h4>
+      <section><p>Defines the types of World Assembly memberships.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.NationCategory.html">NationCategory</a></h4>
-      <section><p>Types of nation categories. <a href="https://nsindex.net/wiki/World_Assembly_Category">Source</a>.</p>
+      <section><p>Defines the types of categories of nations. <a href="https://nsindex.net/wiki/World_Assembly_Category">Source</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.PolicyCategory.html">PolicyCategory</a></h4>
-      <section><p>Types of policies.</p>
+      <section><p>Defines the types of categories of national policies.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.PoliticalFreedoms.html">PoliticalFreedoms</a></h4>
-      <section><p>Rankings of political freedoms. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
+      <section><p>Defines the types of political freedoms levels. <a href="https://www.nationstates.net/page=dispatch/id=777747">Source</a>.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.PostStatus.html">PostStatus</a></h4>
-      <section><p>Types of post statuses.</p>
+      <section><p>Defines the types of post statuses.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.Power.html">Power</a></h4>
-      <section><p>Types of region power levels.</p>
+      <section><p>Defines the types of region power levels.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.RegionTag.html">RegionTag</a></h4>
-      <section><p>Types of region tags.</p>
+      <section><p>Defines the types of region tags.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.RMBPermission.html">RMBPermission</a></h4>
-      <section><p>Types of RMB posting permissions for embassy regions.</p>
+      <section><p>Defines the types of RMB posting permissions for embassy regions.</p>
+</section>
+      <h4><a class="xref" href="NationStates.NET.SCCategory.html">SCCategory</a></h4>
+      <section><p>Defines the types of Security Council proposal categories.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.SectorType.html">SectorType</a></h4>
-      <section><p>Types of sectors.</p>
+      <section><p>Defines the types of sectors in a nation's economy.</p>
 </section>
-      <h4><a class="xref" href="NationStates.NET.WAAction.html">WAAction</a></h4>
-      <section><p>Types of actions delegates can do to the <a class="xref" href="NationStates.NET.WAProposalAtVote.html">WAProposalAtVote</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WABadgeType.html">WABadgeType</a></h4>
-      <section><p>Types of World Assembly badges.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WACouncil.html">WACouncil</a></h4>
-      <section><p>Types of World Assembly councils.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGAAdvancementOfIndustry.html">WAGAAdvancementOfIndustry</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Advancement_Of_Industry">Advancement_Of_Industry</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGABookeeping.html">WAGABookeeping</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Bookkeeping">Bookkeeping</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGACategory.html">WAGACategory</a></h4>
-      <section><p>Types of General Assembly resolution categories.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGAEducationAndCreativity.html">WAGAEducationAndCreativity</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Education_And_Creativity">Education_And_Creativity</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGAEnvironmental.html">WAGAEnvironmental</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Environmental">Environmental</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGAHealth.html">WAGAHealth</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Health">Health</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGARegulation.html">WAGARegulation</a></h4>
-      <section><p>Types of subcategories for the category <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Regulation">Regulation</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAGAStrength.html">WAGAStrength</a></h4>
-      <section><p>Types of subcategories for the categories <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Civil_Rights">Civil_Rights</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Free_Trade">Free_Trade</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Furtherment_Of_Democracy">Furtherment_Of_Democracy</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Global_Disarmament">Global_Disarmament</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_International_Security">International_Security</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Moral_Decency">Moral_Decency</a>, <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Political_Stability">Political_Stability</a> and <a class="xref" href="NationStates.NET.WAGACategory.html#NationStates_NET_WAGACategory_Social_Justice">Social_Justice</a>.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WASCCategory.html">WASCCategory</a></h4>
-      <section><p>Types of General Assembly resolution categories.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAStatus.html">WAStatus</a></h4>
-      <section><p>Types of World Assembly memberships.</p>
-</section>
-      <h4><a class="xref" href="NationStates.NET.WAVote.html">WAVote</a></h4>
-      <section><p>Types of World Assembly votes.</p>
+      <h4><a class="xref" href="NationStates.NET.Vote.html">Vote</a></h4>
+      <section><p>Defines the types of World Assembly votes.</p>
 </section>
       <h4><a class="xref" href="NationStates.NET.ZombieAction.html">ZombieAction</a></h4>
-      <section><p>Types of actions that can be taken during Z-Day.</p>
+      <section><p>Defines the types of actions that can be taken during Z-Day.</p>
 </section>
 </article>
           </div>
