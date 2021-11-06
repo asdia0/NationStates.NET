@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Types of World Assembly votes.
+    /// Defines the types of World Assembly votes.
     /// </summary>
     public enum WAVote
     {
@@ -19,10 +19,5 @@
         /// Has not voted.
         /// </summary>
         Undecided,
-
-        /// <summary>
-        /// No vote is being held.
-        /// </summary>
-        Null,
     }
 }

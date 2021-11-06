@@ -482,7 +482,7 @@
         /// <summary>
         /// Gets the nation's vote on current General Assembly bill.
         /// </summary>
-        public WAVote GAVote
+        public WAVote? GAVote
         {
             get
             {
@@ -491,7 +491,7 @@
 
                 if (node.InnerText == string.Empty)
                 {
-                    return WAVote.Null;
+                    return null;
                 }
                 else
                 {
@@ -850,7 +850,7 @@
         /// <summary>
         /// Gets the nation's vote on current Security Council bill.
         /// </summary>
-        public WAVote SCVote
+        public WAVote? SCVote
         {
             get
             {
@@ -859,7 +859,7 @@
 
                 if (node.InnerText == string.Empty)
                 {
-                    return WAVote.Null;
+                    return null;
                 }
                 else
                 {

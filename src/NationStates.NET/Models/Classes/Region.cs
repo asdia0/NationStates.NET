@@ -267,30 +267,22 @@
         /// <summary>
         /// Gets the region's votes for/against the current General Assembly bill.
         /// </summary>
-        public Dictionary<WAVote, int?> GAVote
+        public Dictionary<WAVote, int>? GAVote
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=gavote")
                     .SelectSingleNode("/REGION/GAVOTE");
 
-                Dictionary<WAVote, int?> gaVote = new();
+                Dictionary<WAVote, int> gaVote = new();
 
-                if (node.SelectSingleNode("FOR").InnerText == string.Empty)
+                if (node.SelectSingleNode("FOR").InnerText == string.Empty || node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                 {
-                    gaVote.Add(WAVote.For, null);
+                    return null;
                 }
                 else
                 {
                     gaVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                }
-
-                if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
-                {
-                    gaVote.Add(WAVote.Against, 0);
-                }
-                else
-                {
                     gaVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                 }
 
@@ -458,30 +450,22 @@
         /// <summary>
         /// Gets the region's vote for/against the current Security Council bill.
         /// </summary>
-        public Dictionary<WAVote, int?> SCVote
+        public Dictionary<WAVote, int>? SCVote
         {
             get
             {
                 XmlNode node = ParseDocument($"region={this.Name}&q=scvote")
                     .SelectSingleNode("/REGION/SCVOTE");
 
-                Dictionary<WAVote, int?> scVote = new();
+                Dictionary<WAVote, int> scVote = new();
 
-                if (node.SelectSingleNode("FOR").InnerText == string.Empty)
+                if (node.SelectSingleNode("FOR").InnerText == string.Empty || node.SelectSingleNode("AGAINST").InnerText == string.Empty)
                 {
-                    scVote.Add(WAVote.For, null);
+                    return null;
                 }
                 else
                 {
                     scVote.Add(WAVote.For, int.Parse(node.SelectSingleNode("FOR").InnerText));
-                }
-
-                if (node.SelectSingleNode("AGAINST").InnerText == string.Empty)
-                {
-                    scVote.Add(WAVote.Against, 0);
-                }
-                else
-                {
                     scVote.Add(WAVote.Against, int.Parse(node.SelectSingleNode("AGAINST").InnerText));
                 }
 
