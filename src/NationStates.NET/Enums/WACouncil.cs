@@ -6,12 +6,12 @@
     public enum WACouncil
     {
         /// <summary>
-        /// Defines the the General Assembly.
+        /// The General Assembly.
         /// </summary>
         General_Assembly,
 
         /// <summary>
-        /// Defines the the Security Council.
+        /// The Security Council.
         /// </summary>
         Security_Council,
     }
