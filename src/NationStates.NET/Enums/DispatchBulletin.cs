@@ -6,22 +6,22 @@
     public enum DispatchBulletin
     {
         /// <summary>
-        /// Defines the the campaign sub-category.
+        /// Campaign sub-category.
         /// </summary>
         Campaign,
 
         /// <summary>
-        /// Defines the the news sub-category.
+        /// News sub-category.
         /// </summary>
         News,
 
         /// <summary>
-        /// Defines the the opinion sub-category.
+        /// Opinion sub-category.
         /// </summary>
         Opinion,
 
         /// <summary>
-        /// Defines the the policy sub-category.
+        /// Policy sub-category.
         /// </summary>
         Policy,
     }
