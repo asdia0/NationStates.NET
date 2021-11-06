@@ -1,12 +1,12 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Rankings of inlfuence. <see href="https://nationstates.fandom.com/wiki/Regional_Influence">Source</see>.
+    /// Defines the types of influence levels. <see href="https://nationstates.fandom.com/wiki/Regional_Influence">Source</see>.
     /// </summary>
     public enum Influence
     {
         /// <summary>
-        /// Level 1 (smallest influence).
+        /// Level 1 (least influence).
         /// </summary>
         Zero,
 
@@ -186,7 +186,7 @@
         GameChanger,
 
         /// <summary>
-        /// Level 37.
+        /// Level 37 (greatest influence).
         /// </summary>
         Ultramony,
     }
