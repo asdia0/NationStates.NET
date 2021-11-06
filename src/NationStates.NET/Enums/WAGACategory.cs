@@ -6,7 +6,7 @@
     public enum WAGACategory
     {
         /// <summary>
-        /// Repeal.
+        /// Removes a resolution from international law.
         /// </summary>
         Repeal,
 
@@ -16,67 +16,67 @@
         Bookkeeping,
 
         /// <summary>
-        /// Advancement of industry.
+        /// Develops industry around the world.
         /// </summary>
         Advancement_Of_Industry,
 
         /// <summary>
-        /// Civil rights.
+        /// Improves worldwide human and civil rights.
         /// </summary>
         Civil_Rights,
 
         /// <summary>
-        /// Education and creativity.
+        /// Promotes funding and the development of education and the arts.
         /// </summary>
         Education_And_Creativity,
 
         /// <summary>
-        /// Environmental.
+        /// Increases the quality of the world's environment, at the expense of industry.
         /// </summary>
         Environmental,
 
         /// <summary>
-        /// Free trade.
+        /// Reduces barriers to free trade and commerce.
         /// </summary>
         Free_Trade,
 
         /// <summary>
-        /// Furtherment of democracy.
+        /// Increases democratic freedoms.
         /// </summary>
         Furtherment_Of_Democracy,
 
         /// <summary>
-        /// Global disarmament.
+        /// Slashes worldwide military spending.
         /// </summary>
         Global_Disarmament,
 
         /// <summary>
-        /// Health.
+        /// Modifies universal standards of healthcare.
         /// </summary>
         Health,
 
         /// <summary>
-        /// International security.
+        /// Improves world security by boosting police and military budgets.
         /// </summary>
         International_Security,
 
         /// <summary>
-        /// Moral decency.
+        /// Restricts civil freedoms in the interest of moral decency.
         /// </summary>
         Moral_Decency,
 
         /// <summary>
-        /// Political stability.
+        /// Restricts political freedoms in the interest of law and order.
         /// </summary>
         Political_Stability,
 
         /// <summary>
-        /// Regulation.
+        /// Enacts uniform standards that protect workers, consumers, and the general public.
         /// </summary>
         Regulation,
 
         /// <summary>
-        /// Social justice.
+        /// Reduces income inequality and increase basic welfare.
         /// </summary>
         Social_Justice,
     }
