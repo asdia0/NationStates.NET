@@ -6,12 +6,12 @@
     public enum WAVote
     {
         /// <summary>
-        /// Supports the bill.
+        /// Supports the proposal.
         /// </summary>
         For,
 
         /// <summary>
-        /// Opposes the bill.
+        /// Opposes the proposal.
         /// </summary>
         Against,
 
