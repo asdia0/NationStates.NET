@@ -363,64 +363,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusNation.WorldRank
   nameWithType: CensusNation.WorldRank
-- uid: NationStates.NET.CensusRank
-  name: CensusRank
-  href: api/NationStates.NET.CensusRank.html
-  commentId: T:NationStates.NET.CensusRank
-  fullName: NationStates.NET.CensusRank
-  nameWithType: CensusRank
-- uid: NationStates.NET.CensusRank.#ctor(System.String,System.Int64,System.Double)
-  name: CensusRank(String, Int64, Double)
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank__ctor_System_String_System_Int64_System_Double_
-  commentId: M:NationStates.NET.CensusRank.#ctor(System.String,System.Int64,System.Double)
-  fullName: NationStates.NET.CensusRank.CensusRank(System.String, System.Int64, System.Double)
-  nameWithType: CensusRank.CensusRank(String, Int64, Double)
-- uid: NationStates.NET.CensusRank.#ctor*
-  name: CensusRank
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank__ctor_
-  commentId: Overload:NationStates.NET.CensusRank.#ctor
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRank.CensusRank
-  nameWithType: CensusRank.CensusRank
-- uid: NationStates.NET.CensusRank.Name
-  name: Name
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Name
-  commentId: P:NationStates.NET.CensusRank.Name
-  fullName: NationStates.NET.CensusRank.Name
-  nameWithType: CensusRank.Name
-- uid: NationStates.NET.CensusRank.Name*
-  name: Name
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Name_
-  commentId: Overload:NationStates.NET.CensusRank.Name
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRank.Name
-  nameWithType: CensusRank.Name
-- uid: NationStates.NET.CensusRank.Rank
-  name: Rank
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Rank
-  commentId: P:NationStates.NET.CensusRank.Rank
-  fullName: NationStates.NET.CensusRank.Rank
-  nameWithType: CensusRank.Rank
-- uid: NationStates.NET.CensusRank.Rank*
-  name: Rank
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Rank_
-  commentId: Overload:NationStates.NET.CensusRank.Rank
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRank.Rank
-  nameWithType: CensusRank.Rank
-- uid: NationStates.NET.CensusRank.Score
-  name: Score
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Score
-  commentId: P:NationStates.NET.CensusRank.Score
-  fullName: NationStates.NET.CensusRank.Score
-  nameWithType: CensusRank.Score
-- uid: NationStates.NET.CensusRank.Score*
-  name: Score
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Score_
-  commentId: Overload:NationStates.NET.CensusRank.Score
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRank.Score
-  nameWithType: CensusRank.Score
 - uid: NationStates.NET.CensusRegion
   name: CensusRegion
   href: api/NationStates.NET.CensusRegion.html
@@ -505,6 +447,77 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRegion.WorldRank
   nameWithType: CensusRegion.WorldRank
+- uid: NationStates.NET.CensusRegionRank
+  name: CensusRegionRank
+  href: api/NationStates.NET.CensusRegionRank.html
+  commentId: T:NationStates.NET.CensusRegionRank
+  fullName: NationStates.NET.CensusRegionRank
+  nameWithType: CensusRegionRank
+- uid: NationStates.NET.CensusRegionRank.#ctor(System.Int32,System.String,System.Int64,System.Double)
+  name: CensusRegionRank(Int32, String, Int64, Double)
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank__ctor_System_Int32_System_String_System_Int64_System_Double_
+  commentId: M:NationStates.NET.CensusRegionRank.#ctor(System.Int32,System.String,System.Int64,System.Double)
+  fullName: NationStates.NET.CensusRegionRank.CensusRegionRank(System.Int32, System.String, System.Int64, System.Double)
+  nameWithType: CensusRegionRank.CensusRegionRank(Int32, String, Int64, Double)
+- uid: NationStates.NET.CensusRegionRank.#ctor*
+  name: CensusRegionRank
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank__ctor_
+  commentId: Overload:NationStates.NET.CensusRegionRank.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRegionRank.CensusRegionRank
+  nameWithType: CensusRegionRank.CensusRegionRank
+- uid: NationStates.NET.CensusRegionRank.ID
+  name: ID
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_ID
+  commentId: P:NationStates.NET.CensusRegionRank.ID
+  fullName: NationStates.NET.CensusRegionRank.ID
+  nameWithType: CensusRegionRank.ID
+- uid: NationStates.NET.CensusRegionRank.ID*
+  name: ID
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_ID_
+  commentId: Overload:NationStates.NET.CensusRegionRank.ID
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRegionRank.ID
+  nameWithType: CensusRegionRank.ID
+- uid: NationStates.NET.CensusRegionRank.Name
+  name: Name
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Name
+  commentId: P:NationStates.NET.CensusRegionRank.Name
+  fullName: NationStates.NET.CensusRegionRank.Name
+  nameWithType: CensusRegionRank.Name
+- uid: NationStates.NET.CensusRegionRank.Name*
+  name: Name
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Name_
+  commentId: Overload:NationStates.NET.CensusRegionRank.Name
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRegionRank.Name
+  nameWithType: CensusRegionRank.Name
+- uid: NationStates.NET.CensusRegionRank.Rank
+  name: Rank
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Rank
+  commentId: P:NationStates.NET.CensusRegionRank.Rank
+  fullName: NationStates.NET.CensusRegionRank.Rank
+  nameWithType: CensusRegionRank.Rank
+- uid: NationStates.NET.CensusRegionRank.Rank*
+  name: Rank
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Rank_
+  commentId: Overload:NationStates.NET.CensusRegionRank.Rank
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRegionRank.Rank
+  nameWithType: CensusRegionRank.Rank
+- uid: NationStates.NET.CensusRegionRank.Score
+  name: Score
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Score
+  commentId: P:NationStates.NET.CensusRegionRank.Score
+  fullName: NationStates.NET.CensusRegionRank.Score
+  nameWithType: CensusRegionRank.Score
+- uid: NationStates.NET.CensusRegionRank.Score*
+  name: Score
+  href: api/NationStates.NET.CensusRegionRank.html#NationStates_NET_CensusRegionRank_Score_
+  commentId: Overload:NationStates.NET.CensusRegionRank.Score
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRegionRank.Score
+  nameWithType: CensusRegionRank.Score
 - uid: NationStates.NET.CensusWorld
   name: CensusWorld
   href: api/NationStates.NET.CensusWorld.html
@@ -6852,19 +6865,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.ZombieNation.Action
   nameWithType: ZombieNation.Action
-- uid: NationStates.NET.ZombieNation.Dead
-  name: Dead
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Dead
-  commentId: P:NationStates.NET.ZombieNation.Dead
-  fullName: NationStates.NET.ZombieNation.Dead
-  nameWithType: ZombieNation.Dead
-- uid: NationStates.NET.ZombieNation.Dead*
-  name: Dead
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Dead_
-  commentId: Overload:NationStates.NET.ZombieNation.Dead
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.Dead
-  nameWithType: ZombieNation.Dead
 - uid: NationStates.NET.ZombieNation.IntendedAction
   name: IntendedAction
   href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_IntendedAction
@@ -6878,87 +6878,74 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.ZombieNation.IntendedAction
   nameWithType: ZombieNation.IntendedAction
-- uid: NationStates.NET.ZombieNation.Survivors
-  name: Survivors
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Survivors
-  commentId: P:NationStates.NET.ZombieNation.Survivors
-  fullName: NationStates.NET.ZombieNation.Survivors
-  nameWithType: ZombieNation.Survivors
-- uid: NationStates.NET.ZombieNation.Survivors*
-  name: Survivors
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Survivors_
-  commentId: Overload:NationStates.NET.ZombieNation.Survivors
+- uid: NationStates.NET.ZombieNation.Stats
+  name: Stats
+  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Stats
+  commentId: P:NationStates.NET.ZombieNation.Stats
+  fullName: NationStates.NET.ZombieNation.Stats
+  nameWithType: ZombieNation.Stats
+- uid: NationStates.NET.ZombieNation.Stats*
+  name: Stats
+  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Stats_
+  commentId: Overload:NationStates.NET.ZombieNation.Stats
   isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.Survivors
-  nameWithType: ZombieNation.Survivors
-- uid: NationStates.NET.ZombieNation.Zombies
-  name: Zombies
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Zombies
-  commentId: P:NationStates.NET.ZombieNation.Zombies
-  fullName: NationStates.NET.ZombieNation.Zombies
-  nameWithType: ZombieNation.Zombies
-- uid: NationStates.NET.ZombieNation.Zombies*
-  name: Zombies
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Zombies_
-  commentId: Overload:NationStates.NET.ZombieNation.Zombies
+  fullName: NationStates.NET.ZombieNation.Stats
+  nameWithType: ZombieNation.Stats
+- uid: NationStates.NET.ZombieStats
+  name: ZombieStats
+  href: api/NationStates.NET.ZombieStats.html
+  commentId: T:NationStates.NET.ZombieStats
+  fullName: NationStates.NET.ZombieStats
+  nameWithType: ZombieStats
+- uid: NationStates.NET.ZombieStats.#ctor(System.Int64,System.Int64,System.Int64)
+  name: ZombieStats(Int64, Int64, Int64)
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats__ctor_System_Int64_System_Int64_System_Int64_
+  commentId: M:NationStates.NET.ZombieStats.#ctor(System.Int64,System.Int64,System.Int64)
+  fullName: NationStates.NET.ZombieStats.ZombieStats(System.Int64, System.Int64, System.Int64)
+  nameWithType: ZombieStats.ZombieStats(Int64, Int64, Int64)
+- uid: NationStates.NET.ZombieStats.#ctor*
+  name: ZombieStats
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats__ctor_
+  commentId: Overload:NationStates.NET.ZombieStats.#ctor
   isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.Zombies
-  nameWithType: ZombieNation.Zombies
-- uid: NationStates.NET.ZombieRegion
-  name: ZombieRegion
-  href: api/NationStates.NET.ZombieRegion.html
-  commentId: T:NationStates.NET.ZombieRegion
-  fullName: NationStates.NET.ZombieRegion
-  nameWithType: ZombieRegion
-- uid: NationStates.NET.ZombieRegion.#ctor(System.Int64,System.Int64,System.Int64)
-  name: ZombieRegion(Int64, Int64, Int64)
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion__ctor_System_Int64_System_Int64_System_Int64_
-  commentId: M:NationStates.NET.ZombieRegion.#ctor(System.Int64,System.Int64,System.Int64)
-  fullName: NationStates.NET.ZombieRegion.ZombieRegion(System.Int64, System.Int64, System.Int64)
-  nameWithType: ZombieRegion.ZombieRegion(Int64, Int64, Int64)
-- uid: NationStates.NET.ZombieRegion.#ctor*
-  name: ZombieRegion
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion__ctor_
-  commentId: Overload:NationStates.NET.ZombieRegion.#ctor
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieRegion.ZombieRegion
-  nameWithType: ZombieRegion.ZombieRegion
-- uid: NationStates.NET.ZombieRegion.Dead
+  fullName: NationStates.NET.ZombieStats.ZombieStats
+  nameWithType: ZombieStats.ZombieStats
+- uid: NationStates.NET.ZombieStats.Dead
   name: Dead
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Dead
-  commentId: P:NationStates.NET.ZombieRegion.Dead
-  fullName: NationStates.NET.ZombieRegion.Dead
-  nameWithType: ZombieRegion.Dead
-- uid: NationStates.NET.ZombieRegion.Dead*
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Dead
+  commentId: P:NationStates.NET.ZombieStats.Dead
+  fullName: NationStates.NET.ZombieStats.Dead
+  nameWithType: ZombieStats.Dead
+- uid: NationStates.NET.ZombieStats.Dead*
   name: Dead
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Dead_
-  commentId: Overload:NationStates.NET.ZombieRegion.Dead
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Dead_
+  commentId: Overload:NationStates.NET.ZombieStats.Dead
   isSpec: "True"
-  fullName: NationStates.NET.ZombieRegion.Dead
-  nameWithType: ZombieRegion.Dead
-- uid: NationStates.NET.ZombieRegion.Survivors
+  fullName: NationStates.NET.ZombieStats.Dead
+  nameWithType: ZombieStats.Dead
+- uid: NationStates.NET.ZombieStats.Survivors
   name: Survivors
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Survivors
-  commentId: P:NationStates.NET.ZombieRegion.Survivors
-  fullName: NationStates.NET.ZombieRegion.Survivors
-  nameWithType: ZombieRegion.Survivors
-- uid: NationStates.NET.ZombieRegion.Survivors*
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Survivors
+  commentId: P:NationStates.NET.ZombieStats.Survivors
+  fullName: NationStates.NET.ZombieStats.Survivors
+  nameWithType: ZombieStats.Survivors
+- uid: NationStates.NET.ZombieStats.Survivors*
   name: Survivors
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Survivors_
-  commentId: Overload:NationStates.NET.ZombieRegion.Survivors
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Survivors_
+  commentId: Overload:NationStates.NET.ZombieStats.Survivors
   isSpec: "True"
-  fullName: NationStates.NET.ZombieRegion.Survivors
-  nameWithType: ZombieRegion.Survivors
-- uid: NationStates.NET.ZombieRegion.Zombies
+  fullName: NationStates.NET.ZombieStats.Survivors
+  nameWithType: ZombieStats.Survivors
+- uid: NationStates.NET.ZombieStats.Zombies
   name: Zombies
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Zombies
-  commentId: P:NationStates.NET.ZombieRegion.Zombies
-  fullName: NationStates.NET.ZombieRegion.Zombies
-  nameWithType: ZombieRegion.Zombies
-- uid: NationStates.NET.ZombieRegion.Zombies*
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Zombies
+  commentId: P:NationStates.NET.ZombieStats.Zombies
+  fullName: NationStates.NET.ZombieStats.Zombies
+  nameWithType: ZombieStats.Zombies
+- uid: NationStates.NET.ZombieStats.Zombies*
   name: Zombies
-  href: api/NationStates.NET.ZombieRegion.html#NationStates_NET_ZombieRegion_Zombies_
-  commentId: Overload:NationStates.NET.ZombieRegion.Zombies
+  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Zombies_
+  commentId: Overload:NationStates.NET.ZombieStats.Zombies
   isSpec: "True"
-  fullName: NationStates.NET.ZombieRegion.Zombies
-  nameWithType: ZombieRegion.Zombies
+  fullName: NationStates.NET.ZombieStats.Zombies
+  nameWithType: ZombieStats.Zombies
