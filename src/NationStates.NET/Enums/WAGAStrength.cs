@@ -6,17 +6,17 @@
     public enum WAGAStrength
     {
         /// <summary>
-        /// Mild.
+        /// Mild strength.
         /// </summary>
         Mild,
 
         /// <summary>
-        /// Significant.
+        /// Significant strength.
         /// </summary>
         Significant,
 
         /// <summary>
-        /// Strong.
+        /// Strong strength.
         /// </summary>
         Strong,
     }
