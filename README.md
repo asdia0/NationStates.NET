@@ -10,10 +10,16 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
   - [ ] Private shards
   - [ ] Private commands
 - [X] Region
-- [X] World
 - [X] World Assembly
-- [ ] Telegram
+- [ ] United Nations
+- [X] World
 - [ ] Trading Cards [DOING]
+- [ ] Challenge
+- [ ] Trivia
+- [ ] N-Day
+- [ ] Z-Day
+- [ ] World Assembly Secretary-General
+- [ ] Telegram
 
 ## TODO
 - [ ] Actually test stuff
