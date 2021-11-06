@@ -6,62 +6,62 @@
     public enum DispatchFactbook
     {
         /// <summary>
-        /// Defines the the culture sub-category.
+        /// Culture sub-category.
         /// </summary>
         Culture,
 
         /// <summary>
-        /// Defines the the economy sub-category.
+        /// Economy sub-category.
         /// </summary>
         Economy,
 
         /// <summary>
-        /// Defines the the geography sub-category.
+        /// Geography sub-category.
         /// </summary>
         Geography,
 
         /// <summary>
-        /// Defines the the history sub-category.
+        /// History sub-category.
         /// </summary>
         History,
 
         /// <summary>
-        /// Defines the the international sub-category.
+        /// International sub-category.
         /// </summary>
         International,
 
         /// <summary>
-        /// Defines the the legislation sub-category.
+        /// Legislation sub-category.
         /// </summary>
         Legislation,
 
         /// <summary>
-        /// Defines the the military sub-category.
+        /// Military sub-category.
         /// </summary>
         Military,
 
         /// <summary>
-        /// Defines the the miscellaneous sub-category.
+        /// Miscellaneous sub-category.
         /// </summary>
         Miscellaneous,
 
         /// <summary>
-        /// Defines the the overview sub-category.
+        /// Overview sub-category.
         /// </summary>
         Overview,
 
         /// <summary>
-        /// Defines the the politics sub-category.
+        /// Politics sub-category.
         /// </summary>
         Politics,
 
         /// <summary>
-        /// Defines the the trivia sub-category.
+        /// Trivia sub-category.
         /// </summary>
         Trivia,
 
         /// <summary>
-        /// Defines the the religion sub-category.
+        /// Religion sub-category.
         /// </summary>
         Religion,
     }
