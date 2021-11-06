@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
     /// <summary>
-    /// Rankings of political freedoms. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>.
+    /// Defines the types of political freedoms levels. <see href="https://www.nationstates.net/page=dispatch/id=777747">Source</see>.
     /// </summary>
     public enum PoliticalFreedoms
     {
