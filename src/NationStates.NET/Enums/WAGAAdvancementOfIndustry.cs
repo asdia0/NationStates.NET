@@ -21,12 +21,12 @@
         Protective_Tariffs,
 
         /// <summary>
-        /// Defines the tort reform.
+        /// Tort reform.
         /// </summary>
         Tort_Reform,
 
         /// <summary>
-        /// Commerical enterprise.
+        /// Commercial enterprise.
         /// </summary>
         Commerical_Enterprise,
     }
