@@ -113,8 +113,7 @@
         {
             this.Council = council;
 
-            XmlNode node = ParseDocument($"wa={(int)council + 1}&q=resolution+votetrack+voters+dellog+delvotes")
-                .SelectSingleNode("/WA/RESOLUTION");
+            XmlNode node = ParseDocument($"wa={(int)council + 1}&q=resolution+votetrack+voters+dellog+delvotes").SelectSingleNode("/WA/RESOLUTION");
 
             this.ID = node.SelectSingleNode("ID").InnerText;
 

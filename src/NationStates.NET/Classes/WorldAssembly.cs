@@ -86,7 +86,9 @@
         /// <returns>A string describing the outcome of the last resolution.</returns>
         public static string LastResolution(Council council)
         {
-            return ParseDocument($"wa={(int)council + 1}&q=lastresolution").SelectSingleNode("/WA/LASTRESOLUTION").InnerText;
+            return ParseDocument($"wa={(int)council + 1}&q=lastresolution")
+                .SelectSingleNode("/WA/LASTRESOLUTION")
+                .InnerText;
         }
 
         /// <summary>
@@ -98,10 +100,14 @@
         {
             HashSet<Proposal> proposals = new();
 
-            foreach (XmlNode node in ParseDocument($"wa={(int)council + 1}&q=proposals").SelectNodes("/WA/PROPOSALS/PROPOSAL"))
+            foreach (XmlNode node in ParseDocument($"wa={(int)council + 1}&q=proposals")
+                .SelectNodes("/WA/PROPOSALS/PROPOSAL"))
             {
                 string id = node.Attributes["id"].Value;
-                HashSet<string> approvals = node.SelectSingleNode("APPROVALS").InnerText.Split(":").ToHashSet();
+                HashSet<string> approvals = node.SelectSingleNode("APPROVALS")
+                    .InnerText
+                    .Split(":")
+                    .ToHashSet();
                 dynamic category;
 
                 switch (council)

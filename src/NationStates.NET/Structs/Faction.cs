@@ -92,8 +92,7 @@
         {
             this.ID = id;
 
-            XmlNode node = ParseDocument($"q=faction;id={id}")
-                .SelectSingleNode("/WORLD/FACTION");
+            XmlNode node = ParseDocument($"q=faction;id={id}").SelectSingleNode("/WORLD/FACTION");
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
             this.Description = node.SelectSingleNode("DESC").InnerText;

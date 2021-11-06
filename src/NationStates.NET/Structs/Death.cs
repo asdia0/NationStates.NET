@@ -22,11 +22,6 @@
         /// <param name="frequency">Frequency in percentage.</param>
         public Death(string cause, double frequency)
         {
-            if (frequency > 100 || frequency < 0)
-            {
-                throw new NSError("Frequency must be in the interval [0, 100].");
-            }
-
             this.Cause = cause;
             this.Frequency = frequency;
         }

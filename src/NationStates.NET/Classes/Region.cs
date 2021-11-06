@@ -161,9 +161,7 @@
         {
             get
             {
-                switch (ParseDocument($"region={this.Name}&q=embassyrmb")
-                    .SelectSingleNode("/REGION/EMBASSYRMB")
-                    .InnerText)
+                switch (ParseDocument($"region={this.Name}&q=embassyrmb").SelectSingleNode("/REGION/EMBASSYRMB").InnerText)
                 {
                     case "0":
                         return RMBPermission.None;

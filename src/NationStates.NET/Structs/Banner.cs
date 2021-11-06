@@ -38,8 +38,7 @@
             }
             else
             {
-                XmlNode node = ParseDocument($"q=banner;banner={id}")
-                    .SelectSingleNode("/WORLD/BANNERS/BANNER");
+                XmlNode node = ParseDocument($"q=banner;banner={id}").SelectSingleNode("/WORLD/BANNERS/BANNER");
 
                 this.Name = node.SelectSingleNode("NAME").InnerText;
                 this.Validity = node.SelectSingleNode("VALIDITY").InnerText;

@@ -101,8 +101,7 @@
         /// <param name="councilID">The resolution's council ID.</param>
         public Resolution(Council council, long councilID)
         {
-            XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution")
-                .SelectSingleNode("/WA/RESOLUTION");
+            XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution").SelectSingleNode("/WA/RESOLUTION");
 
             this.Council = council;
             this.CouncilID = councilID;
