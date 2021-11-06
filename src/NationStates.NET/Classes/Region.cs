@@ -580,12 +580,12 @@
         /// <param name="id">The census to compare.</param>
         /// <param name="start">The starting rank.</param>
         /// <returns>A list of twenty nations with their census rank and score.</returns>
-        public HashSet<CensusRank> CensusRank(int id, int start = 1)
+        public HashSet<CensusRegionRank> CensusRank(int id, int start = 1)
         {
             XmlNode node = ParseDocument($"region={this.Name}&q=censusranks;scale={id};start={start}")
                 .SelectSingleNode("/REGION/CENSUSRANK/NATIONS");
 
-            HashSet<CensusRank> censusRanks = new();
+            HashSet<CensusRegionRank> censusRanks = new();
 
             foreach (XmlNode nation in node.ChildNodes)
             {

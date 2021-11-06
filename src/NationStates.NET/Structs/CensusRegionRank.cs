@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a census ranking in a region.
     /// </summary>
-    public struct CensusRank
+    public struct CensusRegionRank
     {
         /// <summary>
         /// Gets the name of the nation.
@@ -21,12 +21,12 @@
         public double Score { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CensusRank"/> struct.
+        /// Initializes a new instance of the <see cref="CensusRegionRank"/> struct.
         /// </summary>
         /// <param name="name">The name of the nation.</param>
         /// <param name="rank">The nation's rank in the region.</param>
         /// <param name="score">The nation's census value.</param>
-        public CensusRank(string name, long rank, double score)
+        public CensusRegionRank(string name, long rank, double score)
         {
             this.Name = name;
             this.Rank = rank;
