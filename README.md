@@ -4,27 +4,22 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## Features
 
-### Standard API
 - [ ] Authentication
 - [ ] Nation
   - [X] Public shards
   - [ ] Private shards
   - [ ] Private commands
 - [X] Region
-- [X] World
 - [X] World Assembly
-- [ ] Telegram
+- [ ] United Nations
+- [X] World
 - [ ] Trading Cards [DOING]
-
-### Others
+- [ ] Challenge
+- [ ] Trivia
 - [ ] N-Day
 - [ ] Z-Day
 - [ ] World Assembly Secretary-General
-- [ ] United Nations
-- [ ] Challenge
-- [ ] Trivia
-- [ ] IPO
-- [ ] Best Nation
+- [ ] Telegram
 
 ## TODO
 - [ ] Actually test stuff
