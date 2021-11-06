@@ -509,7 +509,7 @@
                     BadgeType type = (BadgeType)ParseEnum(typeof(BadgeType), badge.Attributes["type"].Value);
                     long id = long.Parse(badge.InnerText);
 
-                    waBadges.Add(new Badge(type, id));
+                    waBadges.Add(new Badge(this.Name, type, id));
                 }
 
                 return waBadges;
