@@ -212,6 +212,7 @@
         {
             var jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            jsonSerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             return JsonConvert.SerializeObject(value, jsonSerializerSettings);
         }
     }
