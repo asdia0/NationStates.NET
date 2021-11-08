@@ -32,7 +32,6 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ## TODO
 
-- [ ] JSONify stuff + .ToString()
 - [ ] Standardise code
 - [ ] Actually test stuff
 - [ ] Add documentation
