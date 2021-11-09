@@ -1,12 +1,12 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.Net;
     using System.Text;
     using System.Threading;
     using System.Xml;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// A class containing useful methods.

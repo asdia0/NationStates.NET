@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
-    using System.Collections.Generic;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using static Utility;
 
     /// <summary>

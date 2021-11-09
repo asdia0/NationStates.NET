@@ -1,8 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
     using System;
     using System.Xml;
-    using Newtonsoft.Json;
     using static Utility;
 
     /// <summary>
