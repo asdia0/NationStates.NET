@@ -171,26 +171,15 @@
         {
             get
             {
-                switch (ParseDocument($"region={this.Name}&q=embassyrmb").SelectSingleNode("/REGION/EMBASSYRMB").InnerText)
+                return ParseDocument($"region={this.Name}&q=embassyrmb").SelectSingleNode("/REGION/EMBASSYRMB").InnerText switch
                 {
-                    case "0":
-                        return RMBPermission.None;
-
-                    case "con":
-                        return RMBPermission.Delegate_Founder;
-
-                    case "off":
-                        return RMBPermission.Officers;
-
-                    case "com":
-                        return RMBPermission.CommunicationOfficers;
-
-                    case "all":
-                        return RMBPermission.All;
-
-                    default:
-                        throw new NSError("Unrecognised permission string.");
-                }
+                    "0" => RMBPermission.None,
+                    "con" => RMBPermission.Delegate_Founder,
+                    "off" => RMBPermission.Officers,
+                    "com" => RMBPermission.CommunicationOfficers,
+                    "all" => RMBPermission.All,
+                    _ => throw new NSError("Unrecognised permission string."),
+                };
             }
         }
 
@@ -446,7 +435,7 @@
                 DateTime start = ParseUnix(node.SelectSingleNode("START").InnerText);
                 DateTime stop = ParseUnix(node.SelectSingleNode("STOP").InnerText);
                 string author = node.SelectSingleNode("AUTHOR").InnerText;
-                HashSet<PollOption> options = new HashSet<PollOption>();
+                HashSet<PollOption> options = new();
 
                 foreach (XmlNode option in node.SelectSingleNode("OPTIONS").ChildNodes)
                 {

@@ -356,28 +356,14 @@
                     string author = dispatch.SelectSingleNode("AUTHOR").InnerText;
                     dynamic subcategory = null;
 
-                    switch (category)
+                    subcategory = category switch
                     {
-                        case DispatchCategory.Account:
-                            subcategory = (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                            break;
-
-                        case DispatchCategory.Bulletin:
-                            subcategory = (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                            break;
-
-                        case DispatchCategory.Factbook:
-                            subcategory = (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                            break;
-
-                        case DispatchCategory.Meta:
-                            subcategory = (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                            break;
-
-                        default:
-                            throw new NSError("Dispatch subcategory does not exist.");
-                    }
-
+                        DispatchCategory.Account => (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                        DispatchCategory.Bulletin => (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                        DispatchCategory.Factbook => (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                        DispatchCategory.Meta => (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                        _ => throw new NSError("Dispatch subcategory does not exist."),
+                    };
                     DateTime created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
                     DateTime edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
                     long vews = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);

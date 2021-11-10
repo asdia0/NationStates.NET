@@ -11,7 +11,7 @@
     /// </summary>
     public static class World
     {
-        private static Dictionary<RegionTag, string> regionTagDict = new()
+        private static readonly Dictionary<RegionTag, string> RegionTagDict = new()
         {
             { RegionTag.AntiCapitalist, "Anti-Capitalist" },
             { RegionTag.AntiCommunist, "Anti-Communist" },
@@ -72,7 +72,7 @@
         {
             get
             {
-                List<Faction> factions = new List<Faction>();
+                List<Faction> factions = new();
 
                 foreach (XmlNode faction in ParseDocument("q=factions").SelectSingleNode("/WORLD/FACTIONS").ChildNodes)
                 {
@@ -210,18 +210,12 @@
             XmlNode node = ParseDocument($"censusdesc;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSDESC");
 
-            switch (entity)
+            return entity switch
             {
-                case Entity.Nation:
-                    return node.SelectSingleNode("NDESC")
-                        .InnerText;
-
-                case Entity.Region:
-                    return node.SelectSingleNode("RDESC").InnerText;
-
-                default:
-                    throw new NSError("Invalid entity.");
-            }
+                Entity.Nation => node.SelectSingleNode("NDESC").InnerText,
+                Entity.Region => node.SelectSingleNode("RDESC").InnerText,
+                _ => throw new NSError("Invalid entity."),
+            };
         }
 
         /// <summary>
@@ -244,7 +238,7 @@
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
         public static List<CensusWorldRank> CensusRanks(int id, long start)
         {
-            List<CensusWorldRank> res = new List<CensusWorldRank>();
+            List<CensusWorldRank> res = new();
 
             foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
@@ -298,7 +292,7 @@
         /// <returns>A list of dispatches fulfilling the above criteria.</returns>
         public static List<Dispatch> DispatchList(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
         {
-            List<Dispatch> dispatches = new List<Dispatch>();
+            List<Dispatch> dispatches = new();
 
             string url = "q=dispatchlist;";
 
@@ -423,13 +417,13 @@
         /// <returns>A collection of regions that satisfy the above criteria.</returns>
         public static HashSet<string> RegionsByTags(HashSet<RegionTag>? with, HashSet<RegionTag>? without)
         {
-            HashSet<string> tags = new HashSet<string>();
+            HashSet<string> tags = new();
 
             if (with != null)
             {
                 foreach (RegionTag tag in with)
                 {
-                    tags.Add((regionTagDict.Keys.Contains(tag) ? regionTagDict[tag] : tag.ToString()).ToLower());
+                    tags.Add((RegionTagDict.Keys.Contains(tag) ? RegionTagDict[tag] : tag.ToString()).ToLower());
                 }
             }
 
@@ -437,7 +431,7 @@
             {
                 foreach (RegionTag tag in without)
                 {
-                    tags.Add("-" + (regionTagDict.Keys.Contains(tag) ? regionTagDict[tag] : tag.ToString()).ToLower());
+                    tags.Add("-" + (RegionTagDict.Keys.Contains(tag) ? RegionTagDict[tag] : tag.ToString()).ToLower());
                 }
             }
 

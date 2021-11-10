@@ -103,28 +103,14 @@
             this.Category = (DispatchCategory)ParseEnum(typeof(DispatchCategory), dispatch.SelectSingleNode("CATEGORY").InnerText);
             this.Author = dispatch.SelectSingleNode("AUTHOR").InnerText;
 
-            switch (this.Category)
+            this.SubCategory = this.Category switch
             {
-                case DispatchCategory.Account:
-                    this.SubCategory = (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                    break;
-
-                case DispatchCategory.Bulletin:
-                    this.SubCategory = (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                    break;
-
-                case DispatchCategory.Factbook:
-                    this.SubCategory = (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                    break;
-
-                case DispatchCategory.Meta:
-                    this.SubCategory = (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText);
-                    break;
-
-                default:
-                    throw new NSError("Dispatch subcategory does not exist.");
-            }
-
+                DispatchCategory.Account => (DispatchAccount)ParseEnum(typeof(DispatchAccount), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                DispatchCategory.Bulletin => (DispatchBulletin)ParseEnum(typeof(DispatchBulletin), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                DispatchCategory.Factbook => (DispatchFactbook)ParseEnum(typeof(DispatchFactbook), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                DispatchCategory.Meta => (DispatchMeta)ParseEnum(typeof(DispatchMeta), dispatch.SelectSingleNode("SUBCATEGORY").InnerText),
+                _ => throw new NSError("Dispatch subcategory does not exist."),
+            };
             this.Created = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("CREATED").InnerText)).DateTime;
             this.Edited = DateTimeOffset.FromUnixTimeSeconds(long.Parse(dispatch.SelectSingleNode("EDITED").InnerText)).DateTime;
             this.Views = long.Parse(dispatch.SelectSingleNode("VIEWS").InnerText);

@@ -141,12 +141,12 @@
             {
                 case Council.General_Assembly:
                     this.Category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
-                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), Council.General_Assembly, this.Category);
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), this.Category);
                     break;
 
                 case Council.Security_Council:
                     this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
-                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), Council.Security_Council, this.Category);
+                    this.SubCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), this.Category);
                     break;
 
                 default:

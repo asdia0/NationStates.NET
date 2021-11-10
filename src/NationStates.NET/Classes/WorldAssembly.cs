@@ -108,27 +108,17 @@
                     .InnerText
                     .Split(":")
                     .ToHashSet();
-                dynamic category;
-
-                switch (council)
+                dynamic category = council switch
                 {
-                    case Council.General_Assembly:
-                        category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
-                        break;
-
-                    case Council.Security_Council:
-                        category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
-                        break;
-
-                    default:
-                        throw new NSError("Invalid council.");
-                }
-
+                    Council.General_Assembly => (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText),
+                    Council.Security_Council => (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText),
+                    _ => throw new NSError("Invalid council."),
+                };
                 DateTime created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
                 string description = node.SelectSingleNode("DESC").InnerText;
                 string name = node.SelectSingleNode("NAME").InnerText;
                 string proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
-                dynamic subCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), council, category);
+                dynamic subCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), category);
 
                 proposals.Add(new(id, approvals, category, council, created, description, name, proposer, subCategory));
             }

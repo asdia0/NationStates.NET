@@ -13,7 +13,7 @@
     /// </summary>
     public class Utility
     {
-        private static Dictionary<char, Authority> authorityDict = new Dictionary<char, Authority>
+        private static readonly Dictionary<char, Authority> AuthorityDict = new()
         {
             { 'X', Authority.Executive },
             { 'W', Authority.World_Assembly },
@@ -31,9 +31,9 @@
         /// <returns>The capitalised string.</returns>
         public static string Capitalise(string text)
         {
-            string firstChar = char.ToUpper(text[0]) + text.ToLower().Substring(1);
+            string firstChar = char.ToUpper(text[0]) + text.ToLower()[1..];
 
-            StringBuilder sb = new StringBuilder(firstChar);
+            StringBuilder sb = new(firstChar);
 
             for (int i = 0; i < sb.Length - 1; i++)
             {
@@ -73,11 +73,11 @@
         /// <returns>A collection of <see cref="Authority"/>s.</returns>
         public static HashSet<Authority> ParseAuthority(string authorities)
         {
-            HashSet<Authority> res = new HashSet<Authority>();
+            HashSet<Authority> res = new();
 
             foreach (char c in authorities)
             {
-                res.Add(authorityDict[c]);
+                res.Add(AuthorityDict[c]);
             }
 
             return res;
@@ -94,7 +94,7 @@
 
             string document = string.Empty;
 
-            using (WebClient client = new WebClient())
+            using (WebClient client = new())
             {
                 client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
 
@@ -141,7 +141,7 @@
         /// <returns>A collection of <see cref="Event"/>s.</returns>
         public static HashSet<Event> ParseEvents(XmlNode events)
         {
-            HashSet<Event> res = new HashSet<Event>();
+            HashSet<Event> res = new();
 
             foreach (XmlNode ev in events.ChildNodes)
             {
@@ -158,39 +158,23 @@
         /// Parses <see cref="GACategory"/> or <see cref="SCCategory"/>.
         /// </summary>
         /// <param name="option">The option node.</param>
-        /// <param name="council">The council the proposal/resolution was submitted in.</param>
         /// <param name="category">The category of the proposal/resolution.</param>
         /// <returns>A sub-category.</returns>
-        public static dynamic ParseSubCategory(XmlNode option, Council council, dynamic category)
+        public static dynamic ParseSubCategory(XmlNode option, dynamic category)
         {
             if (category is GACategory)
             {
-                switch (category)
+                return category switch
                 {
-                    case GACategory.Repeal:
-                        return long.Parse(option.InnerText);
-
-                    case GACategory.Bookkeeping:
-                        return GABookeeping.Sweeping;
-
-                    case GACategory.Regulation:
-                        return (GARegulation)ParseEnum(typeof(GARegulation), option.InnerText);
-
-                    case GACategory.Health:
-                        return (GAHealth)ParseEnum(typeof(GAHealth), option.InnerText);
-
-                    case GACategory.Environmental:
-                        return (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), option.InnerText);
-
-                    case GACategory.Education_And_Creativity:
-                        return (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), option.InnerText);
-
-                    case GACategory.Advancement_Of_Industry:
-                        return (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), option.InnerText);
-
-                    default:
-                        return (GAStrength)ParseEnum(typeof(GAStrength), option.InnerText);
-                }
+                    GACategory.Repeal => long.Parse(option.InnerText),
+                    GACategory.Bookkeeping => GABookeeping.Sweeping,
+                    GACategory.Regulation => (GARegulation)ParseEnum(typeof(GARegulation), option.InnerText),
+                    GACategory.Health => (GAHealth)ParseEnum(typeof(GAHealth), option.InnerText),
+                    GACategory.Environmental => (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), option.InnerText),
+                    GACategory.Education_And_Creativity => (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), option.InnerText),
+                    GACategory.Advancement_Of_Industry => (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), option.InnerText),
+                    _ => (GAStrength)ParseEnum(typeof(GAStrength), option.InnerText),
+                };
             }
             else if (category is SCCategory)
             {
