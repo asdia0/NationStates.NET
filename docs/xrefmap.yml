@@ -6800,12 +6800,12 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseEvents
   nameWithType: Utility.ParseEvents
-- uid: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,NationStates.NET.Council,System.Object)
-  name: ParseSubCategory(XmlNode, Council, Object)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseSubCategory_System_Xml_XmlNode_NationStates_NET_Council_System_Object_
-  commentId: M:NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,NationStates.NET.Council,System.Object)
-  fullName: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode, NationStates.NET.Council, System.Object)
-  nameWithType: Utility.ParseSubCategory(XmlNode, Council, Object)
+- uid: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,System.Object)
+  name: ParseSubCategory(XmlNode, Object)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseSubCategory_System_Xml_XmlNode_System_Object_
+  commentId: M:NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,System.Object)
+  fullName: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode, System.Object)
+  nameWithType: Utility.ParseSubCategory(XmlNode, Object)
 - uid: NationStates.NET.Utility.ParseSubCategory*
   name: ParseSubCategory
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseSubCategory_
