@@ -429,25 +429,7 @@
                     return null;
                 }
 
-                long pollID = long.Parse(node.Attributes["id"].Value);
-                string title = node.SelectSingleNode("TITLE").InnerText;
-                string region = node.SelectSingleNode("REGION").InnerText;
-                DateTime start = ParseUnix(node.SelectSingleNode("START").InnerText);
-                DateTime stop = ParseUnix(node.SelectSingleNode("STOP").InnerText);
-                string author = node.SelectSingleNode("AUTHOR").InnerText;
-                HashSet<PollOption> options = new();
-
-                foreach (XmlNode option in node.SelectSingleNode("OPTIONS").ChildNodes)
-                {
-                    int optionID = int.Parse(option.Attributes["id"].Value);
-                    string text = option.SelectSingleNode("OPTIONTEXT").InnerText;
-                    int votes = int.Parse(option.SelectSingleNode("VOTES").InnerText);
-                    HashSet<string> voters = option.SelectSingleNode("VOTERS").InnerText.Split(":").ToHashSet();
-
-                    options.Add(new PollOption(optionID, text, votes, voters));
-                }
-
-                return new Poll(pollID, title, region, start, stop, author, options);
+                return new Poll(long.Parse(node.Attributes["id"].Value));
             }
         }
 
