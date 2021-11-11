@@ -6,8 +6,11 @@
     {
         public static void Main()
         {
-            Nation nation = new("Dabberwocky");
-            Console.WriteLine(nation);
+            //Card card = new(2503973, 2);
+            foreach (Trade trade in World.CardTrades())
+            {
+                Console.WriteLine(trade);
+            }
         }
     }
 }

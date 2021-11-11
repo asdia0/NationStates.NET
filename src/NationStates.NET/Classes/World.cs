@@ -200,6 +200,48 @@
         }
 
         /// <summary>
+        /// Gets a list of recent trades.
+        /// </summary>
+        /// <param name="limit">The maximum amount of trades to get.</param>
+        /// <param name="sinceTime">Get trades that occurred after this time.</param>
+        /// <param name="beforeTime">Get trades that occurred before this time.</param>
+        /// <returns>A list of recent trades.</returns>
+        public static HashSet<Trade> CardTrades(int limit = 50, DateTime? sinceTime = null, DateTime? beforeTime = null)
+        {
+            HashSet<Trade> trades = new();
+
+            string url = $"q=cards+trades;limit={limit}";
+
+            if (sinceTime != null)
+            {
+                url += $";sincetime={ConvertToUnix((DateTime)sinceTime)}";
+            }
+
+            if (beforeTime != null)
+            {
+                url += $";beforetime={ConvertToUnix((DateTime)beforeTime)}";
+            }
+
+            foreach (XmlNode trade in ParseDocument(url).SelectNodes("/CARDS/TRADES/TRADE"))
+            {
+                string buyer = trade.SelectSingleNode("BUYER").InnerText;
+                string seller = trade.SelectSingleNode("SELLER").InnerText;
+
+                string priceS = trade.SelectSingleNode("PRICE").InnerText;
+                double price = (priceS != string.Empty) ? double.Parse(priceS) : 0;
+
+                DateTime timeStamp = ParseUnix(trade.SelectSingleNode("TIMESTAMP").InnerText);
+                long id = long.Parse(trade.SelectSingleNode("CARDID").InnerText);
+                int season = int.Parse(trade.SelectSingleNode("SEASON").InnerText);
+                Rarity rarity = (Rarity)ParseEnum(typeof(Rarity), trade.SelectSingleNode("CATEGORY").InnerText);
+
+                trades.Add(new(id, season, rarity, buyer, seller, price, timeStamp));
+            }
+
+            return trades;
+        }
+
+        /// <summary>
         /// Gets the description for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
