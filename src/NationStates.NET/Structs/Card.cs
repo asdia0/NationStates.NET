@@ -43,7 +43,7 @@
         public double MarketValue { get; }
 
         /// <summary>
-        /// Gets the nation's name.
+        /// Gets the card's name.
         /// </summary>
         [JsonProperty]
         public string Name { get; }
