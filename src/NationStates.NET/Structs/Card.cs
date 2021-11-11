@@ -107,7 +107,7 @@
                 DateTime timeStamp = ParseUnix(market.SelectSingleNode("TIMESTAMP").InnerText);
                 MarketType type = (MarketType)ParseEnum(typeof(MarketType), market.SelectSingleNode("TYPE").InnerText);
 
-                markets.Add(new(nation, price, timeStamp, type));
+                markets.Add(new(this.ID, this.Season, nation, price, timeStamp, type));
             }
 
             this.Markets = markets;
