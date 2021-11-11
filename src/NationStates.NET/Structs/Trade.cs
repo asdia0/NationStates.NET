@@ -16,16 +16,16 @@
         public string Buyer { get; }
 
         /// <summary>
-        /// Gets the name of the seller.
-        /// </summary>
-        [JsonProperty]
-        public string Seller { get; }
-
-        /// <summary>
         /// Gets the price the card was traded at.
         /// </summary>
         [JsonProperty]
         public double Price { get; }
+
+        /// <summary>
+        /// Gets the name of the seller.
+        /// </summary>
+        [JsonProperty]
+        public string Seller { get; }
 
         /// <summary>
         /// Gets the time at which the trade occured.

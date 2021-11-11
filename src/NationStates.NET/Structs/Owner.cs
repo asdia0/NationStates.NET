@@ -9,16 +9,16 @@
     public struct Owner
     {
         /// <summary>
-        /// Gets the name of the owner.
-        /// </summary>
-        [JsonProperty]
-        public string Nation { get; }
-
-        /// <summary>
         /// Gets the number of copies of the card the owner owns.
         /// </summary>
         [JsonProperty]
         public int Copies { get; }
+
+        /// <summary>
+        /// Gets the name of the owner.
+        /// </summary>
+        [JsonProperty]
+        public string Nation { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Owner"/> struct.
