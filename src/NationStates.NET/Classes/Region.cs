@@ -610,9 +610,9 @@
         /// <param name="offset">Number of latest messages to skip.</param>
         /// <param name="fromID">Return messages from the message with the given ID.</param>
         /// <returns>A list of RMB messages.</returns>
-        public HashSet<Post> Messages(int? limit, int? offset, ulong? fromID)
+        public HashSet<Post> Messages(int limit = 10, int? offset = null, ulong? fromID = null)
         {
-            XmlNode node = ParseDocument($"region={this.Name}&q=messages{((limit != null) ? ("&limit=" + limit.ToString()) : string.Empty)}{((offset != null) ? ("&offset=" + offset.ToString()) : string.Empty)}{((fromID != null) ? ("&fromid=" + fromID.ToString()) : string.Empty)}")
+            XmlNode node = ParseDocument($"region={this.Name}&q=messages&limit={limit}{((offset != null) ? ("&offset=" + offset.ToString()) : string.Empty)}{((fromID != null) ? ("&fromid=" + fromID.ToString()) : string.Empty)}")
                 .SelectSingleNode("/REGION/MESSAGES");
 
             HashSet<Post> messages = new();
