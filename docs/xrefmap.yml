@@ -396,12 +396,15 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Card.ToString
   nameWithType: Card.ToString
-- uid: NationStates.NET.Card.Trades
-  name: Trades
-  href: api/NationStates.NET.Card.html#NationStates_NET_Card_Trades
-  commentId: P:NationStates.NET.Card.Trades
-  fullName: NationStates.NET.Card.Trades
-  nameWithType: Card.Trades
+- uid: NationStates.NET.Card.Trades(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  name: Trades(Int32, Nullable<DateTime>, Nullable<DateTime>)
+  href: api/NationStates.NET.Card.html#NationStates_NET_Card_Trades_System_Int32_System_Nullable_System_DateTime__System_Nullable_System_DateTime__
+  commentId: M:NationStates.NET.Card.Trades(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  name.vb: Trades(Int32, Nullable(Of DateTime), Nullable(Of DateTime))
+  fullName: NationStates.NET.Card.Trades(System.Int32, System.Nullable<System.DateTime>, System.Nullable<System.DateTime>)
+  fullName.vb: NationStates.NET.Card.Trades(System.Int32, System.Nullable(Of System.DateTime), System.Nullable(Of System.DateTime))
+  nameWithType: Card.Trades(Int32, Nullable<DateTime>, Nullable<DateTime>)
+  nameWithType.vb: Card.Trades(Int32, Nullable(Of DateTime), Nullable(Of DateTime))
 - uid: NationStates.NET.Card.Trades*
   name: Trades
   href: api/NationStates.NET.Card.html#NationStates_NET_Card_Trades_
@@ -1048,6 +1051,77 @@ references:
   commentId: F:NationStates.NET.CivilRights.World_Benchmark
   fullName: NationStates.NET.CivilRights.World_Benchmark
   nameWithType: CivilRights.World_Benchmark
+- uid: NationStates.NET.Collection
+  name: Collection
+  href: api/NationStates.NET.Collection.html
+  commentId: T:NationStates.NET.Collection
+  fullName: NationStates.NET.Collection
+  nameWithType: Collection
+- uid: NationStates.NET.Collection.#ctor(System.Int64,System.DateTime,System.String)
+  name: Collection(Int64, DateTime, String)
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection__ctor_System_Int64_System_DateTime_System_String_
+  commentId: M:NationStates.NET.Collection.#ctor(System.Int64,System.DateTime,System.String)
+  fullName: NationStates.NET.Collection.Collection(System.Int64, System.DateTime, System.String)
+  nameWithType: Collection.Collection(Int64, DateTime, String)
+- uid: NationStates.NET.Collection.#ctor*
+  name: Collection
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection__ctor_
+  commentId: Overload:NationStates.NET.Collection.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.Collection
+  nameWithType: Collection.Collection
+- uid: NationStates.NET.Collection.ID
+  name: ID
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_ID
+  commentId: P:NationStates.NET.Collection.ID
+  fullName: NationStates.NET.Collection.ID
+  nameWithType: Collection.ID
+- uid: NationStates.NET.Collection.ID*
+  name: ID
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_ID_
+  commentId: Overload:NationStates.NET.Collection.ID
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.ID
+  nameWithType: Collection.ID
+- uid: NationStates.NET.Collection.LastUpdated
+  name: LastUpdated
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_LastUpdated
+  commentId: P:NationStates.NET.Collection.LastUpdated
+  fullName: NationStates.NET.Collection.LastUpdated
+  nameWithType: Collection.LastUpdated
+- uid: NationStates.NET.Collection.LastUpdated*
+  name: LastUpdated
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_LastUpdated_
+  commentId: Overload:NationStates.NET.Collection.LastUpdated
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.LastUpdated
+  nameWithType: Collection.LastUpdated
+- uid: NationStates.NET.Collection.Name
+  name: Name
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_Name
+  commentId: P:NationStates.NET.Collection.Name
+  fullName: NationStates.NET.Collection.Name
+  nameWithType: Collection.Name
+- uid: NationStates.NET.Collection.Name*
+  name: Name
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_Name_
+  commentId: Overload:NationStates.NET.Collection.Name
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.Name
+  nameWithType: Collection.Name
+- uid: NationStates.NET.Collection.ToString
+  name: ToString()
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_ToString
+  commentId: M:NationStates.NET.Collection.ToString
+  fullName: NationStates.NET.Collection.ToString()
+  nameWithType: Collection.ToString()
+- uid: NationStates.NET.Collection.ToString*
+  name: ToString
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_ToString_
+  commentId: Overload:NationStates.NET.Collection.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.ToString
+  nameWithType: Collection.ToString
 - uid: NationStates.NET.Council
   name: Council
   href: api/NationStates.NET.Council.html
@@ -3130,12 +3204,12 @@ references:
   commentId: T:NationStates.NET.Market
   fullName: NationStates.NET.Market
   nameWithType: Market
-- uid: NationStates.NET.Market.#ctor(System.String,System.Double,System.DateTime,NationStates.NET.MarketType)
-  name: Market(String, Double, DateTime, MarketType)
-  href: api/NationStates.NET.Market.html#NationStates_NET_Market__ctor_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_
-  commentId: M:NationStates.NET.Market.#ctor(System.String,System.Double,System.DateTime,NationStates.NET.MarketType)
-  fullName: NationStates.NET.Market.Market(System.String, System.Double, System.DateTime, NationStates.NET.MarketType)
-  nameWithType: Market.Market(String, Double, DateTime, MarketType)
+- uid: NationStates.NET.Market.#ctor(System.Int64,System.Int32,System.String,System.Double,System.DateTime,NationStates.NET.MarketType)
+  name: Market(Int64, Int32, String, Double, DateTime, MarketType)
+  href: api/NationStates.NET.Market.html#NationStates_NET_Market__ctor_System_Int64_System_Int32_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_
+  commentId: M:NationStates.NET.Market.#ctor(System.Int64,System.Int32,System.String,System.Double,System.DateTime,NationStates.NET.MarketType)
+  fullName: NationStates.NET.Market.Market(System.Int64, System.Int32, System.String, System.Double, System.DateTime, NationStates.NET.MarketType)
+  nameWithType: Market.Market(Int64, Int32, String, Double, DateTime, MarketType)
 - uid: NationStates.NET.Market.#ctor*
   name: Market
   href: api/NationStates.NET.Market.html#NationStates_NET_Market__ctor_
@@ -3143,6 +3217,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Market.Market
   nameWithType: Market.Market
+- uid: NationStates.NET.Market.CardID
+  name: CardID
+  href: api/NationStates.NET.Market.html#NationStates_NET_Market_CardID
+  commentId: P:NationStates.NET.Market.CardID
+  fullName: NationStates.NET.Market.CardID
+  nameWithType: Market.CardID
+- uid: NationStates.NET.Market.CardID*
+  name: CardID
+  href: api/NationStates.NET.Market.html#NationStates_NET_Market_CardID_
+  commentId: Overload:NationStates.NET.Market.CardID
+  isSpec: "True"
+  fullName: NationStates.NET.Market.CardID
+  nameWithType: Market.CardID
 - uid: NationStates.NET.Market.Nation
   name: Nation
   href: api/NationStates.NET.Market.html#NationStates_NET_Market_Nation
@@ -3169,6 +3256,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Market.Price
   nameWithType: Market.Price
+- uid: NationStates.NET.Market.Season
+  name: Season
+  href: api/NationStates.NET.Market.html#NationStates_NET_Market_Season
+  commentId: P:NationStates.NET.Market.Season
+  fullName: NationStates.NET.Market.Season
+  nameWithType: Market.Season
+- uid: NationStates.NET.Market.Season*
+  name: Season
+  href: api/NationStates.NET.Market.html#NationStates_NET_Market_Season_
+  commentId: Overload:NationStates.NET.Market.Season
+  isSpec: "True"
+  fullName: NationStates.NET.Market.Season
+  nameWithType: Market.Season
 - uid: NationStates.NET.Market.TimeStamp
   name: TimeStamp
   href: api/NationStates.NET.Market.html#NationStates_NET_Market_TimeStamp
@@ -3334,6 +3434,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Answered
   nameWithType: Nation.Answered
+- uid: NationStates.NET.Nation.Asks
+  name: Asks
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Asks
+  commentId: P:NationStates.NET.Nation.Asks
+  fullName: NationStates.NET.Nation.Asks
+  nameWithType: Nation.Asks
+- uid: NationStates.NET.Nation.Asks*
+  name: Asks
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Asks_
+  commentId: Overload:NationStates.NET.Nation.Asks
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Asks
+  nameWithType: Nation.Asks
 - uid: NationStates.NET.Nation.Banner
   name: Banner
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Banner
@@ -3360,6 +3473,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Banners
   nameWithType: Nation.Banners
+- uid: NationStates.NET.Nation.Bids
+  name: Bids
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Bids
+  commentId: P:NationStates.NET.Nation.Bids
+  fullName: NationStates.NET.Nation.Bids
+  nameWithType: Nation.Bids
+- uid: NationStates.NET.Nation.Bids*
+  name: Bids
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Bids_
+  commentId: Overload:NationStates.NET.Nation.Bids
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Bids
+  nameWithType: Nation.Bids
 - uid: NationStates.NET.Nation.Capital
   name: Capital
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Capital
@@ -3415,6 +3541,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.CensusHistory
   nameWithType: Nation.CensusHistory
+- uid: NationStates.NET.Nation.Collections
+  name: Collections
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Collections
+  commentId: P:NationStates.NET.Nation.Collections
+  fullName: NationStates.NET.Nation.Collections
+  nameWithType: Nation.Collections
+- uid: NationStates.NET.Nation.Collections*
+  name: Collections
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Collections_
+  commentId: Overload:NationStates.NET.Nation.Collections
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Collections
+  nameWithType: Nation.Collections
 - uid: NationStates.NET.Nation.Currency
   name: Currency
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Currency
@@ -5860,15 +5999,15 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Region.LastUpdate
   nameWithType: Region.LastUpdate
-- uid: NationStates.NET.Region.Messages(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.UInt64})
-  name: Messages(Nullable<Int32>, Nullable<Int32>, Nullable<UInt64>)
-  href: api/NationStates.NET.Region.html#NationStates_NET_Region_Messages_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_UInt64__
-  commentId: M:NationStates.NET.Region.Messages(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.UInt64})
-  name.vb: Messages(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of UInt64))
-  fullName: NationStates.NET.Region.Messages(System.Nullable<System.Int32>, System.Nullable<System.Int32>, System.Nullable<System.UInt64>)
-  fullName.vb: NationStates.NET.Region.Messages(System.Nullable(Of System.Int32), System.Nullable(Of System.Int32), System.Nullable(Of System.UInt64))
-  nameWithType: Region.Messages(Nullable<Int32>, Nullable<Int32>, Nullable<UInt64>)
-  nameWithType.vb: Region.Messages(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of UInt64))
+- uid: NationStates.NET.Region.Messages(System.Int32,System.Nullable{System.Int32},System.Nullable{System.UInt64})
+  name: Messages(Int32, Nullable<Int32>, Nullable<UInt64>)
+  href: api/NationStates.NET.Region.html#NationStates_NET_Region_Messages_System_Int32_System_Nullable_System_Int32__System_Nullable_System_UInt64__
+  commentId: M:NationStates.NET.Region.Messages(System.Int32,System.Nullable{System.Int32},System.Nullable{System.UInt64})
+  name.vb: Messages(Int32, Nullable(Of Int32), Nullable(Of UInt64))
+  fullName: NationStates.NET.Region.Messages(System.Int32, System.Nullable<System.Int32>, System.Nullable<System.UInt64>)
+  fullName.vb: NationStates.NET.Region.Messages(System.Int32, System.Nullable(Of System.Int32), System.Nullable(Of System.UInt64))
+  nameWithType: Region.Messages(Int32, Nullable<Int32>, Nullable<UInt64>)
+  nameWithType.vb: Region.Messages(Int32, Nullable(Of Int32), Nullable(Of UInt64))
 - uid: NationStates.NET.Region.Messages*
   name: Messages
   href: api/NationStates.NET.Region.html#NationStates_NET_Region_Messages_
@@ -7097,12 +7236,12 @@ references:
   commentId: T:NationStates.NET.Trade
   fullName: NationStates.NET.Trade
   nameWithType: Trade
-- uid: NationStates.NET.Trade.#ctor(System.String,System.String,System.Double,System.DateTime)
-  name: Trade(String, String, Double, DateTime)
-  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade__ctor_System_String_System_String_System_Double_System_DateTime_
-  commentId: M:NationStates.NET.Trade.#ctor(System.String,System.String,System.Double,System.DateTime)
-  fullName: NationStates.NET.Trade.Trade(System.String, System.String, System.Double, System.DateTime)
-  nameWithType: Trade.Trade(String, String, Double, DateTime)
+- uid: NationStates.NET.Trade.#ctor(System.Int64,System.Int32,NationStates.NET.Rarity,System.String,System.String,System.Double,System.DateTime)
+  name: Trade(Int64, Int32, Rarity, String, String, Double, DateTime)
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade__ctor_System_Int64_System_Int32_NationStates_NET_Rarity_System_String_System_String_System_Double_System_DateTime_
+  commentId: M:NationStates.NET.Trade.#ctor(System.Int64,System.Int32,NationStates.NET.Rarity,System.String,System.String,System.Double,System.DateTime)
+  fullName: NationStates.NET.Trade.Trade(System.Int64, System.Int32, NationStates.NET.Rarity, System.String, System.String, System.Double, System.DateTime)
+  nameWithType: Trade.Trade(Int64, Int32, Rarity, String, String, Double, DateTime)
 - uid: NationStates.NET.Trade.#ctor*
   name: Trade
   href: api/NationStates.NET.Trade.html#NationStates_NET_Trade__ctor_
@@ -7123,6 +7262,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Trade.Buyer
   nameWithType: Trade.Buyer
+- uid: NationStates.NET.Trade.CardID
+  name: CardID
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_CardID
+  commentId: P:NationStates.NET.Trade.CardID
+  fullName: NationStates.NET.Trade.CardID
+  nameWithType: Trade.CardID
+- uid: NationStates.NET.Trade.CardID*
+  name: CardID
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_CardID_
+  commentId: Overload:NationStates.NET.Trade.CardID
+  isSpec: "True"
+  fullName: NationStates.NET.Trade.CardID
+  nameWithType: Trade.CardID
 - uid: NationStates.NET.Trade.Price
   name: Price
   href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Price
@@ -7136,6 +7288,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Trade.Price
   nameWithType: Trade.Price
+- uid: NationStates.NET.Trade.Rarity
+  name: Rarity
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Rarity
+  commentId: P:NationStates.NET.Trade.Rarity
+  fullName: NationStates.NET.Trade.Rarity
+  nameWithType: Trade.Rarity
+- uid: NationStates.NET.Trade.Rarity*
+  name: Rarity
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Rarity_
+  commentId: Overload:NationStates.NET.Trade.Rarity
+  isSpec: "True"
+  fullName: NationStates.NET.Trade.Rarity
+  nameWithType: Trade.Rarity
+- uid: NationStates.NET.Trade.Season
+  name: Season
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Season
+  commentId: P:NationStates.NET.Trade.Season
+  fullName: NationStates.NET.Trade.Season
+  nameWithType: Trade.Season
+- uid: NationStates.NET.Trade.Season*
+  name: Season
+  href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Season_
+  commentId: Overload:NationStates.NET.Trade.Season
+  isSpec: "True"
+  fullName: NationStates.NET.Trade.Season
+  nameWithType: Trade.Season
 - uid: NationStates.NET.Trade.Seller
   name: Seller
   href: api/NationStates.NET.Trade.html#NationStates_NET_Trade_Seller
@@ -7341,6 +7519,22 @@ references:
   commentId: T:NationStates.NET.World
   fullName: NationStates.NET.World
   nameWithType: World
+- uid: NationStates.NET.World.CardTrades(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  name: CardTrades(Int32, Nullable<DateTime>, Nullable<DateTime>)
+  href: api/NationStates.NET.World.html#NationStates_NET_World_CardTrades_System_Int32_System_Nullable_System_DateTime__System_Nullable_System_DateTime__
+  commentId: M:NationStates.NET.World.CardTrades(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  name.vb: CardTrades(Int32, Nullable(Of DateTime), Nullable(Of DateTime))
+  fullName: NationStates.NET.World.CardTrades(System.Int32, System.Nullable<System.DateTime>, System.Nullable<System.DateTime>)
+  fullName.vb: NationStates.NET.World.CardTrades(System.Int32, System.Nullable(Of System.DateTime), System.Nullable(Of System.DateTime))
+  nameWithType: World.CardTrades(Int32, Nullable<DateTime>, Nullable<DateTime>)
+  nameWithType.vb: World.CardTrades(Int32, Nullable(Of DateTime), Nullable(Of DateTime))
+- uid: NationStates.NET.World.CardTrades*
+  name: CardTrades
+  href: api/NationStates.NET.World.html#NationStates_NET_World_CardTrades_
+  commentId: Overload:NationStates.NET.World.CardTrades
+  isSpec: "True"
+  fullName: NationStates.NET.World.CardTrades
+  nameWithType: World.CardTrades
 - uid: NationStates.NET.World.Census
   name: Census
   href: api/NationStates.NET.World.html#NationStates_NET_World_Census

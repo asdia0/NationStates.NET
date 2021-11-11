@@ -6,10 +6,10 @@
     {
         public static void Main()
         {
-            //Card card = new(2503973, 2);
-            foreach (Trade trade in World.CardTrades())
+            Nation nation = new("Racoda");
+            foreach (Market market in nation.Asks)
             {
-                Console.WriteLine(trade);
+                Console.WriteLine(market);
             }
         }
     }

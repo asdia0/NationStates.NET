@@ -104,19 +104,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market__ctor_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.%23ctor(System.String%2CSystem.Double%2CSystem.DateTime%2CNationStates.NET.MarketType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market__ctor_System_Int64_System_Int32_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.%23ctor(System.Int64%2CSystem.Int32%2CSystem.String%2CSystem.Double%2CSystem.DateTime%2CNationStates.NET.MarketType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L43">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L56">View Source</a>
   </span>
   <a id="NationStates_NET_Market__ctor_" data-uid="NationStates.NET.Market.#ctor*"></a>
-  <h4 id="NationStates_NET_Market__ctor_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_" data-uid="NationStates.NET.Market.#ctor(System.String,System.Double,System.DateTime,NationStates.NET.MarketType)">Market(String, Double, DateTime, MarketType)</h4>
+  <h4 id="NationStates_NET_Market__ctor_System_Int64_System_Int32_System_String_System_Double_System_DateTime_NationStates_NET_MarketType_" data-uid="NationStates.NET.Market.#ctor(System.Int64,System.Int32,System.String,System.Double,System.DateTime,NationStates.NET.MarketType)">Market(Int64, Int32, String, Double, DateTime, MarketType)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.Market.html">Market</a> struct.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Market(string nation, double price, DateTime timeStamp, MarketType type)</code></pre>
+    <pre><code class="lang-csharp hljs">public Market(long id, int season, string nation, double price, DateTime timeStamp, MarketType type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -129,9 +129,21 @@
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The card's ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">season</span></td>
+        <td><p>The card's season.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">nation</span></td>
-        <td><p>The name of the nation.</p>
+        <td><p>The name of the nation asking/bidding.</p>
 </td>
       </tr>
       <tr>
@@ -158,6 +170,38 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_CardID.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.CardID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L21">View Source</a>
+  </span>
+  <a id="NationStates_NET_Market_CardID_" data-uid="NationStates.NET.Market.CardID*"></a>
+  <h4 id="NationStates_NET_Market_CardID" data-uid="NationStates.NET.Market.CardID">CardID</h4>
+  <div class="markdown level1 summary"><p>Gets the card's ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly long CardID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_Nation.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.Nation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -165,7 +209,7 @@
   </span>
   <a id="NationStates_NET_Market_Nation_" data-uid="NationStates.NET.Market.Nation*"></a>
   <h4 id="NationStates_NET_Market_Nation" data-uid="NationStates.NET.Market.Nation">Nation</h4>
-  <div class="markdown level1 summary"><p>Gets the name of the nation.</p>
+  <div class="markdown level1 summary"><p>Gets the name of the nation asking/bidding.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -193,7 +237,7 @@ public readonly string Nation { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_Price.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.Price%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L21">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L27">View Source</a>
   </span>
   <a id="NationStates_NET_Market_Price_" data-uid="NationStates.NET.Market.Price*"></a>
   <h4 id="NationStates_NET_Market_Price" data-uid="NationStates.NET.Market.Price">Price</h4>
@@ -222,10 +266,41 @@ public readonly double Price { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_Season.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.Season%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L33">View Source</a>
+  </span>
+  <a id="NationStates_NET_Market_Season_" data-uid="NationStates.NET.Market.Season*"></a>
+  <h4 id="NationStates_NET_Market_Season" data-uid="NationStates.NET.Market.Season">Season</h4>
+  <div class="markdown level1 summary"><p>Gets the card's season.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Season { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_TimeStamp.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.TimeStamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L27">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L38">View Source</a>
   </span>
   <a id="NationStates_NET_Market_TimeStamp_" data-uid="NationStates.NET.Market.TimeStamp*"></a>
   <h4 id="NationStates_NET_Market_TimeStamp" data-uid="NationStates.NET.Market.TimeStamp">TimeStamp</h4>
@@ -257,7 +332,7 @@ public readonly DateTime TimeStamp { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_Type.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L33">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L44">View Source</a>
   </span>
   <a id="NationStates_NET_Market_Type_" data-uid="NationStates.NET.Market.Type*"></a>
   <h4 id="NationStates_NET_Market_Type" data-uid="NationStates.NET.Market.Type">Type</h4>
@@ -291,7 +366,7 @@ public readonly MarketType Type { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Market_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Market.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L55">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Market.cs/#L70">View Source</a>
   </span>
   <a id="NationStates_NET_Market_ToString_" data-uid="NationStates.NET.Market.ToString*"></a>
   <h4 id="NationStates_NET_Market_ToString" data-uid="NationStates.NET.Market.ToString">ToString()</h4>
