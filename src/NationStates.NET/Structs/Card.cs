@@ -79,12 +79,6 @@
         public string Slogan { get; }
 
         /// <summary>
-        /// Gets a list of recent trades for the card.
-        /// </summary>
-        [JsonProperty]
-        public HashSet<Trade> Trades { get; }
-
-        /// <summary>
         /// Gets the nation's type.
         /// </summary>
         [JsonProperty]
@@ -142,8 +136,33 @@
             this.Region = node.SelectSingleNode("REGION").InnerText;
             this.Slogan = node.SelectSingleNode("SLOGAN").InnerText;
 
+            this.Type = node.SelectSingleNode("TYPE").InnerText;
+        }
+
+        /// <summary>
+        /// Gets a list of recent trades for the card.
+        /// </summary>
+        /// <param name="limit">The maximum amount of trades to get.</param>
+        /// <param name="sinceTime">Get trades that occurred after this time.</param>
+        /// <param name="beforeTime">Get trades that occurred before this time.</param>
+        /// <returns>A list of recent trades for the card.</returns>
+        public HashSet<Trade> Trades(int limit = 50, DateTime? sinceTime = null, DateTime? beforeTime = null)
+        {
             HashSet<Trade> trades = new();
-            foreach (XmlNode trade in node.SelectNodes("TRADES/TRADE"))
+
+            string url = $"q=card+trades;cardid={this.ID};season={this.Season};limit={limit}";
+
+            if (sinceTime != null)
+            {
+                url += $";sincetime={ConvertToUnix((DateTime)sinceTime)}";
+            }
+
+            if (beforeTime != null)
+            {
+                url += $";beforetime={ConvertToUnix((DateTime)beforeTime)}";
+            }
+
+            foreach (XmlNode trade in ParseDocument(url).SelectNodes("/CARD/TRADES/TRADE"))
             {
                 string buyer = trade.SelectSingleNode("BUYER").InnerText;
                 string seller = trade.SelectSingleNode("SELLER").InnerText;
@@ -153,12 +172,10 @@
 
                 DateTime timeStamp = ParseUnix(trade.SelectSingleNode("TIMESTAMP").InnerText);
 
-                trades.Add(new(buyer, seller, price, timeStamp));
+                trades.Add(new(this.ID, this.Season, this.Rarity, buyer, seller, price, timeStamp));
             }
 
-            this.Trades = trades;
-
-            this.Type = node.SelectSingleNode("TYPE").InnerText;
+            return trades;
         }
 
         /// <summary>
