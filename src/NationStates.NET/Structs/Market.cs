@@ -10,16 +10,27 @@
     public struct Market
     {
         /// <summary>
-        /// Gets the name of the nation.
+        /// Gets the name of the nation asking/bidding.
         /// </summary>
         [JsonProperty]
         public string Nation { get; }
+
+        /// <summary>
+        /// Gets the card's ID.
+        /// </summary>
+        [JsonProperty]
+        public long CardID { get; }
 
         /// <summary>
         /// Gets the price asked/bid.
         /// </summary>
         [JsonProperty]
         public double Price { get; }
+
+        /// <summary>
+        /// Gets the card's season.
+        /// </summary>
+        public int Season { get; }
 
         /// <summary>
         /// Gets the time at which the ask/bid was placed.
@@ -36,12 +47,16 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Market"/> struct.
         /// </summary>
-        /// <param name="nation">The name of the nation.</param>
+        /// <param name="id">The card's ID.</param>
+        /// <param name="season">The card's season.</param>
+        /// <param name="nation">The name of the nation asking/bidding.</param>
         /// <param name="price">The price asked/bid.</param>
         /// <param name="timeStamp">The time at which the ask/bid was placed.</param>
         /// <param name="type">The type of market (ask/bid).</param>
-        public Market(string nation, double price, DateTime timeStamp, MarketType type)
+        public Market(long id, int season, string nation, double price, DateTime timeStamp, MarketType type)
         {
+            this.CardID = id;
+            this.Season = season;
             this.Nation = nation;
             this.Price = price;
             this.TimeStamp = timeStamp;
