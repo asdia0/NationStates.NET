@@ -107,7 +107,7 @@
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Poll__ctor_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.Poll.%23ctor(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Poll.cs/#L82">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Poll.cs/#L61">View Source</a>
   </span>
   <a id="NationStates_NET_Poll__ctor_" data-uid="NationStates.NET.Poll.#ctor*"></a>
   <h4 id="NationStates_NET_Poll__ctor_System_Int64_" data-uid="NationStates.NET.Poll.#ctor(System.Int64)">Poll(Int64)</h4>
@@ -132,76 +132,6 @@
         <td><span class="xref">System.Int64</span></td>
         <td><span class="parametername">id</span></td>
         <td><p>The poll's ID.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Poll__ctor_System_Int64_System_String_System_String_System_DateTime_System_DateTime_System_String_System_Collections_Generic_HashSet_NationStates_NET_PollOption__.md&amp;value=---%0Auid%3A%20NationStates.NET.Poll.%23ctor(System.Int64%2CSystem.String%2CSystem.String%2CSystem.DateTime%2CSystem.DateTime%2CSystem.String%2CSystem.Collections.Generic.HashSet%7BNationStates.NET.PollOption%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Poll.cs/#L67">View Source</a>
-  </span>
-  <a id="NationStates_NET_Poll__ctor_" data-uid="NationStates.NET.Poll.#ctor*"></a>
-  <h4 id="NationStates_NET_Poll__ctor_System_Int64_System_String_System_String_System_DateTime_System_DateTime_System_String_System_Collections_Generic_HashSet_NationStates_NET_PollOption__" data-uid="NationStates.NET.Poll.#ctor(System.Int64,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Collections.Generic.HashSet{NationStates.NET.PollOption})">Poll(Int64, String, String, DateTime, DateTime, String, HashSet&lt;PollOption&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.Poll.html">Poll</a> struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Poll(long id, string title, string region, DateTime start, DateTime stop, string author, HashSet&lt;PollOption&gt; options)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int64</span></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The poll's ID.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The poll's title.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">region</span></td>
-        <td><p>The region the poll was held in.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td><span class="parametername">start</span></td>
-        <td><p>The time at which the poll started.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td><span class="parametername">stop</span></td>
-        <td><p>The time at which the poll ended.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">author</span></td>
-        <td><p>The name of the nation that started the poll.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.PollOption.html">PollOption</a>&gt;</td>
-        <td><span class="parametername">options</span></td>
-        <td><p>A list of options and results for the polls.</p>
 </td>
       </tr>
     </tbody>
@@ -439,7 +369,7 @@ public readonly string Title { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Poll_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Poll.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Poll.cs/#L110">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Poll.cs/#L89">View Source</a>
   </span>
   <a id="NationStates_NET_Poll_ToString_" data-uid="NationStates.NET.Poll.ToString*"></a>
   <h4 id="NationStates_NET_Poll_ToString" data-uid="NationStates.NET.Poll.ToString">ToString()</h4>

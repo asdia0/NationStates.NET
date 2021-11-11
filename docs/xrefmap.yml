@@ -4689,15 +4689,6 @@ references:
   commentId: M:NationStates.NET.Poll.#ctor(System.Int64)
   fullName: NationStates.NET.Poll.Poll(System.Int64)
   nameWithType: Poll.Poll(Int64)
-- uid: NationStates.NET.Poll.#ctor(System.Int64,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Collections.Generic.HashSet{NationStates.NET.PollOption})
-  name: Poll(Int64, String, String, DateTime, DateTime, String, HashSet<PollOption>)
-  href: api/NationStates.NET.Poll.html#NationStates_NET_Poll__ctor_System_Int64_System_String_System_String_System_DateTime_System_DateTime_System_String_System_Collections_Generic_HashSet_NationStates_NET_PollOption__
-  commentId: M:NationStates.NET.Poll.#ctor(System.Int64,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Collections.Generic.HashSet{NationStates.NET.PollOption})
-  name.vb: Poll(Int64, String, String, DateTime, DateTime, String, HashSet(Of PollOption))
-  fullName: NationStates.NET.Poll.Poll(System.Int64, System.String, System.String, System.DateTime, System.DateTime, System.String, System.Collections.Generic.HashSet<NationStates.NET.PollOption>)
-  fullName.vb: NationStates.NET.Poll.Poll(System.Int64, System.String, System.String, System.DateTime, System.DateTime, System.String, System.Collections.Generic.HashSet(Of NationStates.NET.PollOption))
-  nameWithType: Poll.Poll(Int64, String, String, DateTime, DateTime, String, HashSet<PollOption>)
-  nameWithType.vb: Poll.Poll(Int64, String, String, DateTime, DateTime, String, HashSet(Of PollOption))
 - uid: NationStates.NET.Poll.#ctor*
   name: Poll
   href: api/NationStates.NET.Poll.html#NationStates_NET_Poll__ctor_
