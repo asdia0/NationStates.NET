@@ -95,6 +95,29 @@
         }
 
         /// <summary>
+        /// Gets a list of asks the nation has placed.
+        /// </summary>
+        public HashSet<Market> Asks
+        {
+            get
+            {
+                HashSet<Market> asks = new();
+
+                foreach (XmlNode ask in ParseDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/ASKS/ASK"))
+                {
+                    long id = long.Parse(ask.SelectSingleNode("CARDID").InnerText);
+                    int season = int.Parse(ask.SelectSingleNode("SEASON").InnerText);
+                    double price = double.Parse(ask.SelectSingleNode("ASK_PRICE").InnerText);
+                    DateTime timeStamp = ParseUnix(ask.SelectSingleNode("TIME_PLACED").InnerText);
+
+                    asks.Add(new(id, season, this.Name, price, timeStamp, MarketType.Ask));
+                }
+
+                return asks;
+            }
+        }
+
+        /// <summary>
         /// Gets one of the nation's banners that can be displayed.
         /// </summary>
         [JsonProperty]
@@ -127,6 +150,29 @@
                 }
 
                 return banners;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of bids the nation has placed.
+        /// </summary>
+        public HashSet<Market> Bids
+        {
+            get
+            {
+                HashSet<Market> bids = new();
+
+                foreach (XmlNode bid in ParseDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/BIDS/BID"))
+                {
+                    long id = long.Parse(bid.SelectSingleNode("CARDID").InnerText);
+                    int season = int.Parse(bid.SelectSingleNode("SEASON").InnerText);
+                    double price = double.Parse(bid.SelectSingleNode("BID_PRICE").InnerText);
+                    DateTime timeStamp = ParseUnix(bid.SelectSingleNode("TIME_PLACED").InnerText);
+
+                    bids.Add(new(id, season, this.Name, price, timeStamp, MarketType.Bid));
+                }
+
+                return bids;
             }
         }
 
@@ -184,6 +230,28 @@
                 }
 
                 return census;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of collections the nation has created.
+        /// </summary>
+        public HashSet<Collection> Collections
+        {
+            get
+            {
+                HashSet<Collection> collections = new();
+
+                foreach (XmlNode collection in ParseDocument($"q=cards+collections;nationname={this.Name}").SelectNodes("/CARDS/COLLECTIONS/COLLECTION"))
+                {
+                    long id = long.Parse(collection.SelectSingleNode("COLLECTIONID").InnerText);
+                    DateTime lastUpdated = ParseUnix(collection.SelectSingleNode("LAST_UPDATED").InnerText);
+                    string name = collection.SelectSingleNode("NAME").InnerText;
+
+                    collections.Add(new(id, lastUpdated, name));
+                }
+
+                return collections;
             }
         }
 
