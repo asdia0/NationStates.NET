@@ -80,7 +80,7 @@
         }
 
         /// <summary>
-        /// Gets the outcome for the last resolution that was voted upon in the Security Council.
+        /// Gets the outcome for the last resolution that was voted upon in the given council.
         /// </summary>
         /// <param name="council">The council to get the last resolution of.</param>
         /// <returns>A string describing the outcome of the last resolution.</returns>
