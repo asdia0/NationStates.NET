@@ -348,6 +348,36 @@
         }
 
         /// <summary>
+        /// Gets the nation's deck.
+        /// </summary>
+        public HashSet<Owner> Deck
+        {
+            get
+            {
+                Dictionary<(long, int), int> count = new();
+
+                foreach (XmlNode card in ParseDocument($"q=cards+deck;nationname={this.Name}").SelectNodes("/CARDS/DECK/CARD"))
+                {
+                    long id = long.Parse(card.SelectSingleNode("CARDID").InnerText);
+                    int season = int.Parse(card.SelectSingleNode("SEASON").InnerText);
+
+                    (long, int) info = (id, season);
+
+                    if (count.ContainsKey(info))
+                    {
+                        count[info]++;
+                    }
+                    else
+                    {
+                        count.Add(info, 1);
+                    }
+                }
+
+                return count.Select(i => new Owner(i.Key.Item1, i.Key.Item2, this.Name, i.Value)).ToHashSet();
+            }
+        }
+
+        /// <summary>
         /// Gets the nation's demonym (adjective).
         /// </summary>
         [JsonProperty]
