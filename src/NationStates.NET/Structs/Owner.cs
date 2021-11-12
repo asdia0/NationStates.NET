@@ -27,14 +27,22 @@
         public string Nation { get; }
 
         /// <summary>
+        /// Gets the card's season.
+        /// </summary>
+        [JsonProperty]
+        public int Season { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Owner"/> struct.
         /// </summary>
         /// <param name="id">The card's ID.</param>
+        /// <param name="season">The card's season.</param>
         /// <param name="nation">The name of the owner.</param>
         /// <param name="copies">The number of copies of the card the owner owns.</param>
-        public Owner(long id, string nation, int copies)
+        public Owner(long id, int season, string nation, int copies)
         {
             this.CardID = id;
+            this.Season = season;
             this.Nation = nation;
             this.Copies = copies;
         }
