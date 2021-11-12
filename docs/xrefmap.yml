@@ -7623,6 +7623,19 @@ references:
   commentId: T:NationStates.NET.World
   fullName: NationStates.NET.World
   nameWithType: World
+- uid: NationStates.NET.World.Auctions
+  name: Auctions
+  href: api/NationStates.NET.World.html#NationStates_NET_World_Auctions
+  commentId: P:NationStates.NET.World.Auctions
+  fullName: NationStates.NET.World.Auctions
+  nameWithType: World.Auctions
+- uid: NationStates.NET.World.Auctions*
+  name: Auctions
+  href: api/NationStates.NET.World.html#NationStates_NET_World_Auctions_
+  commentId: Overload:NationStates.NET.World.Auctions
+  isSpec: "True"
+  fullName: NationStates.NET.World.Auctions
+  nameWithType: World.Auctions
 - uid: NationStates.NET.World.CardTrades(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
   name: CardTrades(Int32, Nullable<DateTime>, Nullable<DateTime>)
   href: api/NationStates.NET.World.html#NationStates_NET_World_CardTrades_System_Int32_System_Nullable_System_DateTime__System_Nullable_System_DateTime__
