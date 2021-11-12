@@ -336,13 +336,14 @@
         }
 
         /// <summary>
-        /// Gets the nation's deck.
+        /// Gets the nation's deck as a tuple (card, number of copies). Will take pretty darn long to complete.
         /// </summary>
         [JsonProperty]
-        public HashSet<Owner> Deck
+        public HashSet<(Card, int)> Deck
         {
             get
             {
+                // (ID, season), copies
                 Dictionary<(long, int), int> count = new();
 
                 foreach (XmlNode card in ParseDocument($"q=cards+deck;nationname={this.Name}").SelectNodes("/CARDS/DECK/CARD"))
@@ -362,7 +363,7 @@
                     }
                 }
 
-                return count.Select(i => new Owner(i.Key.Item1, i.Key.Item2, this.Name, i.Value)).ToHashSet();
+                return count.Select(i => (new Card(i.Key.Item1, i.Key.Item2), i.Value)).ToHashSet();
             }
         }
 

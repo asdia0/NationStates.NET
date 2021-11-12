@@ -22,7 +22,7 @@
         /// Gets the URL of the nation's flag.
         /// </summary>
         [JsonProperty]
-        public string? Flag { get; }
+        public string Flag { get; }
 
         /// <summary>
         /// Gets the nation's ID.
@@ -34,13 +34,13 @@
         /// Gets a list of asks and bids for the card.
         /// </summary>
         [JsonProperty]
-        public HashSet<Market>? Markets { get; }
+        public HashSet<Market> Markets { get; }
 
         /// <summary>
         /// Gets the card's market value.
         /// </summary>
         [JsonProperty]
-        public double? MarketValue { get; }
+        public double MarketValue { get; }
 
         /// <summary>
         /// Gets the card's name.
@@ -52,7 +52,7 @@
         /// Gets a list of nations that own the card.
         /// </summary>
         [JsonProperty]
-        public HashSet<Owner>? Owners { get; }
+        public HashSet<Owner> Owners { get; }
 
         /// <summary>
         /// Gets the card's rarity.
@@ -64,7 +64,7 @@
         /// Gets the nation's region.
         /// </summary>
         [JsonProperty]
-        public string? Region { get; }
+        public string Region { get; }
 
         /// <summary>
         /// Gets the card's season.
@@ -76,13 +76,13 @@
         /// Gets the nation's slogan.
         /// </summary>
         [JsonProperty]
-        public string? Slogan { get; }
+        public string Slogan { get; }
 
         /// <summary>
         /// Gets the nation's type.
         /// </summary>
         [JsonProperty]
-        public string? Type { get; }
+        public string Type { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Card"/> struct.
@@ -137,29 +137,6 @@
             this.Slogan = node.SelectSingleNode("SLOGAN").InnerText;
 
             this.Type = node.SelectSingleNode("TYPE").InnerText;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Card"/> struct.
-        /// </summary>
-        /// <param name="id">The nation's ID.</param>
-        /// <param name="season">The card's season.</param>
-        /// <param name="name">The card's name.</param>
-        /// <param name="rarity">The card's rarity.</param>
-        public Card(long id, int season, string name, Rarity rarity)
-        {
-            this.ID = id;
-            this.Season = season;
-            this.Name = name;
-            this.Rarity = rarity;
-            this.Category = null;
-            this.Flag = null;
-            this.Markets = null;
-            this.MarketValue = null;
-            this.Owners = null;
-            this.Region = null;
-            this.Slogan = null;
-            this.Type = null;
         }
 
         /// <summary>
