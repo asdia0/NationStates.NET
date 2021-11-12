@@ -15,6 +15,12 @@
         public int Copies { get; }
 
         /// <summary>
+        /// Gets the card's ID.
+        /// </summary>
+        [JsonProperty]
+        public long CardID { get; }
+
+        /// <summary>
         /// Gets the name of the owner.
         /// </summary>
         [JsonProperty]
@@ -23,10 +29,12 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Owner"/> struct.
         /// </summary>
+        /// <param name="id">The card's ID.</param>
         /// <param name="nation">The name of the owner.</param>
         /// <param name="copies">The number of copies of the card the owner owns.</param>
-        public Owner(string nation, int copies)
+        public Owner(long id, string nation, int copies)
         {
+            this.CardID = id;
             this.Nation = nation;
             this.Copies = copies;
         }

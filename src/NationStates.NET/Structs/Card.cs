@@ -130,7 +130,7 @@
                 }
             }
 
-            this.Owners = count.Select(i => new Owner(i.Key, i.Value)).ToHashSet();
+            this.Owners = count.Select(i => new Owner(this.ID, i.Key, i.Value)).ToHashSet();
 
             this.Rarity = (Rarity)ParseEnum(typeof(Rarity), node.SelectSingleNode("CATEGORY").InnerText);
             this.Region = node.SelectSingleNode("REGION").InnerText;
