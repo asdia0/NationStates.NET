@@ -67,6 +67,17 @@
         }
 
         /// <summary>
+        /// Gets the nation's name from its DBID.
+        /// </summary>
+        /// <returns>The nation's name.</returns>
+        public static string NationNameFromID(long id)
+        {
+            return ParseDocument($"q=cards+info;nationid={id}")
+                .SelectSingleNode("/CARDS/INFO/ID")
+                .InnerText;
+        }
+
+        /// <summary>
         /// Parses a string for <see cref="Authority"/>s.
         /// </summary>
         /// <param name="authorities">The string to parse.</param>
