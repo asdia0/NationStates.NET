@@ -69,6 +69,7 @@
         /// <summary>
         /// Gets the nation's name from its DBID.
         /// </summary>
+        /// <param name="id">The nation's ID.</param>
         /// <returns>The nation's name.</returns>
         public static string NationNameFromID(long id)
         {
