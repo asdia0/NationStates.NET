@@ -17,20 +17,6 @@
         private bool nameSet = false;
 
         /// <summary>
-        /// Gets one of the nation's admirables.
-        /// </summary>
-        [JsonProperty]
-        public string Admirable
-        {
-            get
-            {
-                return ParseDocument($"nation={this.Name}&q=admirable")
-                    .SelectSingleNode("/NATION/ADMIRABLE")
-                    .InnerText;
-            }
-        }
-
-        /// <summary>
         /// Gets a list of the nation's admirables.
         /// </summary>
         [JsonProperty]
@@ -128,20 +114,6 @@
             {
                 return double.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/BANK")
-                    .InnerText);
-            }
-        }
-
-        /// <summary>
-        /// Gets one of the nation's banners that can be displayed.
-        /// </summary>
-        [JsonProperty]
-        public Banner Banner
-        {
-            get
-            {
-                return new(ParseDocument($"nation={this.Name}&q=banner")
-                    .SelectSingleNode("/NATION/BANNER")
                     .InnerText);
             }
         }
