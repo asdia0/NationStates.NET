@@ -9,16 +9,16 @@
     public struct Owner
     {
         /// <summary>
-        /// Gets the number of copies of the card the owner owns.
-        /// </summary>
-        [JsonProperty]
-        public int Copies { get; }
-
-        /// <summary>
         /// Gets the card's ID.
         /// </summary>
         [JsonProperty]
         public long CardID { get; }
+
+        /// <summary>
+        /// Gets the number of copies of the card the owner owns.
+        /// </summary>
+        [JsonProperty]
+        public int Copies { get; }
 
         /// <summary>
         /// Gets the name of the owner.

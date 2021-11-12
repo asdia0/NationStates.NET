@@ -10,16 +10,16 @@
     public struct Market
     {
         /// <summary>
-        /// Gets the name of the nation asking/bidding.
-        /// </summary>
-        [JsonProperty]
-        public string Nation { get; }
-
-        /// <summary>
         /// Gets the card's ID.
         /// </summary>
         [JsonProperty]
         public long CardID { get; }
+
+        /// <summary>
+        /// Gets the name of the nation asking/bidding.
+        /// </summary>
+        [JsonProperty]
+        public string Nation { get; }
 
         /// <summary>
         /// Gets the price asked/bid.

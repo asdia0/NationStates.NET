@@ -140,6 +140,15 @@
         }
 
         /// <summary>
+        /// Gets a JSON string representing the card.
+        /// </summary>
+        /// <returns>A JSON string representing the card.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
+        }
+
+        /// <summary>
         /// Gets a list of recent trades for the card.
         /// </summary>
         /// <param name="limit">The maximum amount of trades to get.</param>
@@ -176,15 +185,6 @@
             }
 
             return trades;
-        }
-
-        /// <summary>
-        /// Gets a JSON string representing the card.
-        /// </summary>
-        /// <returns>A JSON string representing the card.</returns>
-        public override string ToString()
-        {
-            return Serialize(this);
         }
     }
 }
