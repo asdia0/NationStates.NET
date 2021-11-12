@@ -17,8 +17,8 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Minigames
 
-- [ ] Trading Cards [DOING]
-- [ ] Challenge
+- [X] Trading Cards
+- [ ] Challenge [DOING]
 
 #### Recurring minigames
 
