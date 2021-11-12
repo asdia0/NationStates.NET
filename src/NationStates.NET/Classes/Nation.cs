@@ -97,6 +97,7 @@
         /// <summary>
         /// Gets a list of asks the nation has placed.
         /// </summary>
+        [JsonProperty]
         public HashSet<Market> Asks
         {
             get
@@ -114,6 +115,20 @@
                 }
 
                 return asks;
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's bank.
+        /// </summary>
+        [JsonProperty]
+        public double Bank
+        {
+            get
+            {
+                return double.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/BANK")
+                    .InnerText);
             }
         }
 
@@ -236,6 +251,7 @@
         /// <summary>
         /// Gets a list of collections the nation has created.
         /// </summary>
+        [JsonProperty]
         public HashSet<Collection> Collections
         {
             get
@@ -350,6 +366,7 @@
         /// <summary>
         /// Gets the nation's deck.
         /// </summary>
+        [JsonProperty]
         public HashSet<Owner> Deck
         {
             get
@@ -374,6 +391,34 @@
                 }
 
                 return count.Select(i => new Owner(i.Key.Item1, i.Key.Item2, this.Name, i.Value)).ToHashSet();
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's deck capacity.
+        /// </summary>
+        [JsonProperty]
+        public int DeckCapacity
+        {
+            get
+            {
+                return int.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/DECK_CAPACITY_RAW")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the nation's deck value.
+        /// </summary>
+        [JsonProperty]
+        public double DeckValue
+        {
+            get
+            {
+                return double.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/DECK_VALUE")
+                    .InnerText);
             }
         }
 
@@ -755,6 +800,34 @@
         }
 
         /// <summary>
+        /// Gets the time when the nation last opened a card pack.
+        /// </summary>
+        [JsonProperty]
+        public DateTime LastPackOpened
+        {
+            get
+            {
+                return ParseUnix(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/LAST_PACK_OPENED")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the time when the nation's stats were last updated.
+        /// </summary>
+        [JsonProperty]
+        public DateTime LastUpdated
+        {
+            get
+            {
+                return ParseUnix(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/LAST_VALUED")
+                    .InnerText);
+            }
+        }
+
+        /// <summary>
         /// Gets the name of the nation's leader.
         /// </summary>
         [JsonProperty]
@@ -872,6 +945,20 @@
                 }
 
                 return notables;
+            }
+        }
+
+        /// <summary>
+        /// Gets the number of cards the nation owns.
+        /// </summary>
+        [JsonProperty]
+        public int NumberOfCards
+        {
+            get
+            {
+                return int.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                    .SelectSingleNode("/CARDS/INFO/NUM_CARDS")
+                    .InnerText);
             }
         }
 
