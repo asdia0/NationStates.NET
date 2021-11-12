@@ -104,19 +104,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner__ctor_System_Int64_System_Int32_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.%23ctor(System.Int64%2CSystem.Int32%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L28">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L42">View Source</a>
   </span>
   <a id="NationStates_NET_Owner__ctor_" data-uid="NationStates.NET.Owner.#ctor*"></a>
-  <h4 id="NationStates_NET_Owner__ctor_System_String_System_Int32_" data-uid="NationStates.NET.Owner.#ctor(System.String,System.Int32)">Owner(String, Int32)</h4>
+  <h4 id="NationStates_NET_Owner__ctor_System_Int64_System_Int32_System_String_System_Int32_" data-uid="NationStates.NET.Owner.#ctor(System.Int64,System.Int32,System.String,System.Int32)">Owner(Int64, Int32, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.Owner.html">Owner</a> struct.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Owner(string nation, int copies)</code></pre>
+    <pre><code class="lang-csharp hljs">public Owner(long id, int season, string nation, int copies)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -128,6 +128,18 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The card's ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">season</span></td>
+        <td><p>The card's season.</p>
+</td>
+      </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">nation</span></td>
@@ -146,10 +158,42 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_Copies.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.Copies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_CardID.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.CardID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L14">View Source</a>
+  </span>
+  <a id="NationStates_NET_Owner_CardID_" data-uid="NationStates.NET.Owner.CardID*"></a>
+  <h4 id="NationStates_NET_Owner_CardID" data-uid="NationStates.NET.Owner.CardID">CardID</h4>
+  <div class="markdown level1 summary"><p>Gets the card's ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly long CardID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_Copies.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.Copies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L20">View Source</a>
   </span>
   <a id="NationStates_NET_Owner_Copies_" data-uid="NationStates.NET.Owner.Copies*"></a>
   <h4 id="NationStates_NET_Owner_Copies" data-uid="NationStates.NET.Owner.Copies">Copies</h4>
@@ -181,7 +225,7 @@ public readonly int Copies { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_Nation.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.Nation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L20">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L26">View Source</a>
   </span>
   <a id="NationStates_NET_Owner_Nation_" data-uid="NationStates.NET.Owner.Nation*"></a>
   <h4 id="NationStates_NET_Owner_Nation" data-uid="NationStates.NET.Owner.Nation">Nation</h4>
@@ -208,6 +252,38 @@ public readonly string Nation { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_Season.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.Season%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L32">View Source</a>
+  </span>
+  <a id="NationStates_NET_Owner_Season_" data-uid="NationStates.NET.Owner.Season*"></a>
+  <h4 id="NationStates_NET_Owner_Season" data-uid="NationStates.NET.Owner.Season">Season</h4>
+  <div class="markdown level1 summary"><p>Gets the card's season.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty]
+public readonly int Season { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -215,7 +291,7 @@ public readonly string Nation { get; }</code></pre>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Owner_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Owner.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L38">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Owner.cs/#L54">View Source</a>
   </span>
   <a id="NationStates_NET_Owner_ToString_" data-uid="NationStates.NET.Owner.ToString*"></a>
   <h4 id="NationStates_NET_Owner_ToString" data-uid="NationStates.NET.Owner.ToString">ToString()</h4>

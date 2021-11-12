@@ -3369,19 +3369,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Nation
   nameWithType: Nation.Nation
-- uid: NationStates.NET.Nation.Admirable
-  name: Admirable
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Admirable
-  commentId: P:NationStates.NET.Nation.Admirable
-  fullName: NationStates.NET.Nation.Admirable
-  nameWithType: Nation.Admirable
-- uid: NationStates.NET.Nation.Admirable*
-  name: Admirable
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Admirable_
-  commentId: Overload:NationStates.NET.Nation.Admirable
-  isSpec: "True"
-  fullName: NationStates.NET.Nation.Admirable
-  nameWithType: Nation.Admirable
 - uid: NationStates.NET.Nation.Admirables
   name: Admirables
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Admirables
@@ -3447,19 +3434,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Asks
   nameWithType: Nation.Asks
-- uid: NationStates.NET.Nation.Banner
-  name: Banner
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Banner
-  commentId: P:NationStates.NET.Nation.Banner
-  fullName: NationStates.NET.Nation.Banner
-  nameWithType: Nation.Banner
-- uid: NationStates.NET.Nation.Banner*
-  name: Banner
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Banner_
-  commentId: Overload:NationStates.NET.Nation.Banner
+- uid: NationStates.NET.Nation.Bank
+  name: Bank
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Bank
+  commentId: P:NationStates.NET.Nation.Bank
+  fullName: NationStates.NET.Nation.Bank
+  nameWithType: Nation.Bank
+- uid: NationStates.NET.Nation.Bank*
+  name: Bank
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Bank_
+  commentId: Overload:NationStates.NET.Nation.Bank
   isSpec: "True"
-  fullName: NationStates.NET.Nation.Banner
-  nameWithType: Nation.Banner
+  fullName: NationStates.NET.Nation.Bank
+  nameWithType: Nation.Bank
 - uid: NationStates.NET.Nation.Banners
   name: Banners
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Banners
@@ -3632,6 +3619,45 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Deaths
   nameWithType: Nation.Deaths
+- uid: NationStates.NET.Nation.Deck
+  name: Deck
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Deck
+  commentId: P:NationStates.NET.Nation.Deck
+  fullName: NationStates.NET.Nation.Deck
+  nameWithType: Nation.Deck
+- uid: NationStates.NET.Nation.Deck*
+  name: Deck
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Deck_
+  commentId: Overload:NationStates.NET.Nation.Deck
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Deck
+  nameWithType: Nation.Deck
+- uid: NationStates.NET.Nation.DeckCapacity
+  name: DeckCapacity
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeckCapacity
+  commentId: P:NationStates.NET.Nation.DeckCapacity
+  fullName: NationStates.NET.Nation.DeckCapacity
+  nameWithType: Nation.DeckCapacity
+- uid: NationStates.NET.Nation.DeckCapacity*
+  name: DeckCapacity
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeckCapacity_
+  commentId: Overload:NationStates.NET.Nation.DeckCapacity
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.DeckCapacity
+  nameWithType: Nation.DeckCapacity
+- uid: NationStates.NET.Nation.DeckValue
+  name: DeckValue
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeckValue
+  commentId: P:NationStates.NET.Nation.DeckValue
+  fullName: NationStates.NET.Nation.DeckValue
+  nameWithType: Nation.DeckValue
+- uid: NationStates.NET.Nation.DeckValue*
+  name: DeckValue
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeckValue_
+  commentId: Overload:NationStates.NET.Nation.DeckValue
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.DeckValue
+  nameWithType: Nation.DeckValue
 - uid: NationStates.NET.Nation.DemonymAdjective
   name: DemonymAdjective
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DemonymAdjective
@@ -3931,6 +3957,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.LastLogin
   nameWithType: Nation.LastLogin
+- uid: NationStates.NET.Nation.LastPackOpened
+  name: LastPackOpened
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_LastPackOpened
+  commentId: P:NationStates.NET.Nation.LastPackOpened
+  fullName: NationStates.NET.Nation.LastPackOpened
+  nameWithType: Nation.LastPackOpened
+- uid: NationStates.NET.Nation.LastPackOpened*
+  name: LastPackOpened
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_LastPackOpened_
+  commentId: Overload:NationStates.NET.Nation.LastPackOpened
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.LastPackOpened
+  nameWithType: Nation.LastPackOpened
+- uid: NationStates.NET.Nation.LastUpdated
+  name: LastUpdated
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_LastUpdated
+  commentId: P:NationStates.NET.Nation.LastUpdated
+  fullName: NationStates.NET.Nation.LastUpdated
+  nameWithType: Nation.LastUpdated
+- uid: NationStates.NET.Nation.LastUpdated*
+  name: LastUpdated
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_LastUpdated_
+  commentId: Overload:NationStates.NET.Nation.LastUpdated
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.LastUpdated
+  nameWithType: Nation.LastUpdated
 - uid: NationStates.NET.Nation.Leader
   name: Leader
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Leader
@@ -4022,6 +4074,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Notables
   nameWithType: Nation.Notables
+- uid: NationStates.NET.Nation.NumberOfCards
+  name: NumberOfCards
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NumberOfCards
+  commentId: P:NationStates.NET.Nation.NumberOfCards
+  fullName: NationStates.NET.Nation.NumberOfCards
+  nameWithType: Nation.NumberOfCards
+- uid: NationStates.NET.Nation.NumberOfCards*
+  name: NumberOfCards
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NumberOfCards_
+  commentId: Overload:NationStates.NET.Nation.NumberOfCards
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.NumberOfCards
+  nameWithType: Nation.NumberOfCards
 - uid: NationStates.NET.Nation.Policies
   name: Policies
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Policies
@@ -4561,12 +4626,12 @@ references:
   commentId: T:NationStates.NET.Owner
   fullName: NationStates.NET.Owner
   nameWithType: Owner
-- uid: NationStates.NET.Owner.#ctor(System.String,System.Int32)
-  name: Owner(String, Int32)
-  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner__ctor_System_String_System_Int32_
-  commentId: M:NationStates.NET.Owner.#ctor(System.String,System.Int32)
-  fullName: NationStates.NET.Owner.Owner(System.String, System.Int32)
-  nameWithType: Owner.Owner(String, Int32)
+- uid: NationStates.NET.Owner.#ctor(System.Int64,System.Int32,System.String,System.Int32)
+  name: Owner(Int64, Int32, String, Int32)
+  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner__ctor_System_Int64_System_Int32_System_String_System_Int32_
+  commentId: M:NationStates.NET.Owner.#ctor(System.Int64,System.Int32,System.String,System.Int32)
+  fullName: NationStates.NET.Owner.Owner(System.Int64, System.Int32, System.String, System.Int32)
+  nameWithType: Owner.Owner(Int64, Int32, String, Int32)
 - uid: NationStates.NET.Owner.#ctor*
   name: Owner
   href: api/NationStates.NET.Owner.html#NationStates_NET_Owner__ctor_
@@ -4574,6 +4639,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Owner.Owner
   nameWithType: Owner.Owner
+- uid: NationStates.NET.Owner.CardID
+  name: CardID
+  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_CardID
+  commentId: P:NationStates.NET.Owner.CardID
+  fullName: NationStates.NET.Owner.CardID
+  nameWithType: Owner.CardID
+- uid: NationStates.NET.Owner.CardID*
+  name: CardID
+  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_CardID_
+  commentId: Overload:NationStates.NET.Owner.CardID
+  isSpec: "True"
+  fullName: NationStates.NET.Owner.CardID
+  nameWithType: Owner.CardID
 - uid: NationStates.NET.Owner.Copies
   name: Copies
   href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_Copies
@@ -4600,6 +4678,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Owner.Nation
   nameWithType: Owner.Nation
+- uid: NationStates.NET.Owner.Season
+  name: Season
+  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_Season
+  commentId: P:NationStates.NET.Owner.Season
+  fullName: NationStates.NET.Owner.Season
+  nameWithType: Owner.Season
+- uid: NationStates.NET.Owner.Season*
+  name: Season
+  href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_Season_
+  commentId: Overload:NationStates.NET.Owner.Season
+  isSpec: "True"
+  fullName: NationStates.NET.Owner.Season
+  nameWithType: Owner.Season
 - uid: NationStates.NET.Owner.ToString
   name: ToString()
   href: api/NationStates.NET.Owner.html#NationStates_NET_Owner_ToString
@@ -7398,6 +7489,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.FormatForEnum
   nameWithType: Utility.FormatForEnum
+- uid: NationStates.NET.Utility.NationNameFromID(System.Int64)
+  name: NationNameFromID(Int64)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_NationNameFromID_System_Int64_
+  commentId: M:NationStates.NET.Utility.NationNameFromID(System.Int64)
+  fullName: NationStates.NET.Utility.NationNameFromID(System.Int64)
+  nameWithType: Utility.NationNameFromID(Int64)
+- uid: NationStates.NET.Utility.NationNameFromID*
+  name: NationNameFromID
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_NationNameFromID_
+  commentId: Overload:NationStates.NET.Utility.NationNameFromID
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.NationNameFromID
+  nameWithType: Utility.NationNameFromID
 - uid: NationStates.NET.Utility.ParseAuthority(System.String)
   name: ParseAuthority(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseAuthority_System_String_
