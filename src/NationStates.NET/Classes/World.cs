@@ -30,6 +30,27 @@
         };
 
         /// <summary>
+        /// Gets the auctions currently active.
+        /// </summary>
+        public static HashSet<Card> Auctions
+        {
+            get
+            {
+                HashSet<Card> auctions = new();
+
+                foreach (XmlNode auction in ParseDocument("q=cards+auctions").SelectNodes("/CARDS/AUCTIONS/AUCTION"))
+                {
+                    long id = long.Parse(auction.SelectSingleNode("CARDID").InnerText);
+                    int season = int.Parse(auction.SelectSingleNode("SEASON").InnerText);
+
+                    auctions.Add(new(id, season));
+                }
+
+                return auctions;
+            }
+        }
+
+        /// <summary>
         /// Gets the census world average in each census.
         /// </summary>
         public static HashSet<CensusWorld> Census
