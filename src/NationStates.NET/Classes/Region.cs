@@ -12,17 +12,17 @@
     /// </summary>
     public class Region
     {
-        private string _Name;
-
-        private bool nameSet = false;
-
-        private Dictionary<string, PostStatus> statusDict = new()
+        private readonly Dictionary<string, PostStatus> StatusDict = new()
         {
             { "0", PostStatus.Regular },
             { "1", PostStatus.SupressedViewable },
             { "2", PostStatus.Deleted },
             { "9", PostStatus.SupressedUnviewable },
         };
+
+        private string _Name;
+
+        private bool nameSet = false;
 
         /// <summary>
         /// Gets the region's census data.
@@ -622,7 +622,7 @@
                 ulong id = ulong.Parse(message.Attributes["id"].Value);
                 DateTime posted = ParseUnix(message.SelectSingleNode("TIMESTAMP").InnerText);
                 string nation = message.SelectSingleNode("NATION").InnerText;
-                PostStatus status = this.statusDict[message.SelectSingleNode("STATUS").InnerText];
+                PostStatus status = this.StatusDict[message.SelectSingleNode("STATUS").InnerText];
                 DateTime? edited = (message.SelectNodes("EDITED").Count == 0) ? null : ParseUnix(message.SelectSingleNode("EDITED").InnerText);
                 HashSet<string>? likers = message.SelectNodes("LIKERS").Count == 0 ? null : message.SelectSingleNode("LIKERS").InnerText.Split(":").ToHashSet();
                 string content = message.SelectSingleNode("MESSAGE").InnerText;
