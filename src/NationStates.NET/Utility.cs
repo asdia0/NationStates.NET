@@ -178,7 +178,7 @@
         /// <param name="option">The option node.</param>
         /// <param name="category">The category of the proposal/resolution.</param>
         /// <returns>A sub-category.</returns>
-        public static dynamic ParseSubCategory(XmlNode option, dynamic category)
+        public static dynamic ParseWASubCategory(XmlNode option, dynamic category)
         {
             if (category is GACategory)
             {

@@ -118,7 +118,7 @@
                 string description = node.SelectSingleNode("DESC").InnerText;
                 string name = node.SelectSingleNode("NAME").InnerText;
                 string proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
-                dynamic subCategory = ParseSubCategory(node.SelectSingleNode("OPTION"), category);
+                dynamic subCategory = ParseWASubCategory(node.SelectSingleNode("OPTION"), category);
 
                 proposals.Add(new(id, approvals, category, council, created, description, name, proposer, subCategory));
             }

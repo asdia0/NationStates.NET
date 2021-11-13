@@ -181,7 +181,7 @@
                     this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
                 }
 
-                this.SubCategory = ParseSubCategory(option, this.Category);
+                this.SubCategory = ParseWASubCategory(option, this.Category);
                 this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
                 this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
                 this.Description = node.SelectSingleNode("DESC").InnerText;
