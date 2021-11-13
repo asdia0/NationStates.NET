@@ -1,5 +1,6 @@
 ﻿namespace NationStates.NET
 {
+    using HtmlAgilityPack;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -91,7 +92,7 @@
         /// <returns>The formatted string.</returns>
         public static string FormatForEnum(string text)
         {
-            return text.Replace(": ", string.Empty).Replace(" - ", string.Empty).Replace(" ", "_").Replace("-", string.Empty);
+            return text.Replace(" - ", string.Empty).Replace("-", string.Empty).Replace(": ", string.Empty).Trim().Replace(" ", "_");
         }
 
         /// <summary>
@@ -209,6 +210,37 @@
                     // Identical to RepealedID
                     return long.Parse(option.InnerText);
                 }
+            }
+            else
+            {
+                throw new NSError("Invalid category type.");
+            }
+        }
+
+        /// <summary>
+        /// Parses <see cref="UNCategory"/>
+        /// </summary>
+        /// <param name="option">The option node.</param>
+        /// <param name="category">The category of the proposal/resolution.</param>
+        /// <returns>A sub-category.</returns>
+        public static dynamic ParseUNSubCategory(HtmlNode option, dynamic category)
+        {
+            string formatted = option.InnerText.Replace(option.SelectSingleNode(".//span[@class='WA_leader']").InnerText, string.Empty);
+
+            if (category is UNCategory)
+            {
+                return category switch
+                {
+                    UNCategory.Repeal => long.Parse(formatted.Trim().Replace("UN#", string.Empty)),
+                    UNCategory.Bookkeeping => GABookeeping.Sweeping,
+                    UNCategory.Regulation => (GARegulation)ParseEnum(typeof(GARegulation), formatted),
+                    UNCategory.Health => (GAHealth)ParseEnum(typeof(GAHealth), formatted),
+                    UNCategory.Environmental => (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), formatted),
+                    UNCategory.Education_And_Creativity => (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), formatted),
+                    UNCategory.Advancement_Of_Industry => (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), formatted),
+                    UNCategory.Recreational_Drug_Use => (UNRecreationalDrugUse)ParseEnum(typeof(UNRecreationalDrugUse), formatted),
+                    _ => (GAStrength)ParseEnum(typeof(GAStrength), formatted),
+                };
             }
             else
             {
