@@ -11,11 +11,13 @@
         /// <summary>
         /// Gets the card.
         /// </summary>
+        [JsonProperty]
         public Card Card { get; }
 
         /// <summary>
         /// Gets the card's rank.
         /// </summary>
+        [JsonProperty]
         public long Rank { get; }
 
         /// <summary>
