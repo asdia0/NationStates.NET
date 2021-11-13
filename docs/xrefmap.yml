@@ -425,6 +425,64 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Card.Type
   nameWithType: Card.Type
+- uid: NationStates.NET.CardValueRank
+  name: CardValueRank
+  href: api/NationStates.NET.CardValueRank.html
+  commentId: T:NationStates.NET.CardValueRank
+  fullName: NationStates.NET.CardValueRank
+  nameWithType: CardValueRank
+- uid: NationStates.NET.CardValueRank.#ctor(NationStates.NET.Card,System.Int64)
+  name: CardValueRank(Card, Int64)
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank__ctor_NationStates_NET_Card_System_Int64_
+  commentId: M:NationStates.NET.CardValueRank.#ctor(NationStates.NET.Card,System.Int64)
+  fullName: NationStates.NET.CardValueRank.CardValueRank(NationStates.NET.Card, System.Int64)
+  nameWithType: CardValueRank.CardValueRank(Card, Int64)
+- uid: NationStates.NET.CardValueRank.#ctor*
+  name: CardValueRank
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank__ctor_
+  commentId: Overload:NationStates.NET.CardValueRank.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.CardValueRank.CardValueRank
+  nameWithType: CardValueRank.CardValueRank
+- uid: NationStates.NET.CardValueRank.Card
+  name: Card
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_Card
+  commentId: P:NationStates.NET.CardValueRank.Card
+  fullName: NationStates.NET.CardValueRank.Card
+  nameWithType: CardValueRank.Card
+- uid: NationStates.NET.CardValueRank.Card*
+  name: Card
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_Card_
+  commentId: Overload:NationStates.NET.CardValueRank.Card
+  isSpec: "True"
+  fullName: NationStates.NET.CardValueRank.Card
+  nameWithType: CardValueRank.Card
+- uid: NationStates.NET.CardValueRank.Rank
+  name: Rank
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_Rank
+  commentId: P:NationStates.NET.CardValueRank.Rank
+  fullName: NationStates.NET.CardValueRank.Rank
+  nameWithType: CardValueRank.Rank
+- uid: NationStates.NET.CardValueRank.Rank*
+  name: Rank
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_Rank_
+  commentId: Overload:NationStates.NET.CardValueRank.Rank
+  isSpec: "True"
+  fullName: NationStates.NET.CardValueRank.Rank
+  nameWithType: CardValueRank.Rank
+- uid: NationStates.NET.CardValueRank.ToString
+  name: ToString()
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_ToString
+  commentId: M:NationStates.NET.CardValueRank.ToString
+  fullName: NationStates.NET.CardValueRank.ToString()
+  nameWithType: CardValueRank.ToString()
+- uid: NationStates.NET.CardValueRank.ToString*
+  name: ToString
+  href: api/NationStates.NET.CardValueRank.html#NationStates_NET_CardValueRank_ToString_
+  commentId: Overload:NationStates.NET.CardValueRank.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.CardValueRank.ToString
+  nameWithType: CardValueRank.ToString
 - uid: NationStates.NET.CensusNation
   name: CensusNation
   href: api/NationStates.NET.CensusNation.html
@@ -1276,6 +1334,12 @@ references:
   commentId: F:NationStates.NET.Council.Security_Council
   fullName: NationStates.NET.Council.Security_Council
   nameWithType: Council.Security_Council
+- uid: NationStates.NET.Council.United_Nations
+  name: United_Nations
+  href: api/NationStates.NET.Council.html#NationStates_NET_Council_United_Nations
+  commentId: F:NationStates.NET.Council.United_Nations
+  fullName: NationStates.NET.Council.United_Nations
+  nameWithType: Council.United_Nations
 - uid: NationStates.NET.Death
   name: Death
   href: api/NationStates.NET.Death.html
@@ -7580,6 +7644,126 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Trade.ToString
   nameWithType: Trade.ToString
+- uid: NationStates.NET.UNCategory
+  name: UNCategory
+  href: api/NationStates.NET.UNCategory.html
+  commentId: T:NationStates.NET.UNCategory
+  fullName: NationStates.NET.UNCategory
+  nameWithType: UNCategory
+- uid: NationStates.NET.UNCategory.Advancement_Of_Industry
+  name: Advancement_Of_Industry
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Advancement_Of_Industry
+  commentId: F:NationStates.NET.UNCategory.Advancement_Of_Industry
+  fullName: NationStates.NET.UNCategory.Advancement_Of_Industry
+  nameWithType: UNCategory.Advancement_Of_Industry
+- uid: NationStates.NET.UNCategory.Bookkeeping
+  name: Bookkeeping
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Bookkeeping
+  commentId: F:NationStates.NET.UNCategory.Bookkeeping
+  fullName: NationStates.NET.UNCategory.Bookkeeping
+  nameWithType: UNCategory.Bookkeeping
+- uid: NationStates.NET.UNCategory.Civil_Rights
+  name: Civil_Rights
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Civil_Rights
+  commentId: F:NationStates.NET.UNCategory.Civil_Rights
+  fullName: NationStates.NET.UNCategory.Civil_Rights
+  nameWithType: UNCategory.Civil_Rights
+- uid: NationStates.NET.UNCategory.Education_And_Creativity
+  name: Education_And_Creativity
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Education_And_Creativity
+  commentId: F:NationStates.NET.UNCategory.Education_And_Creativity
+  fullName: NationStates.NET.UNCategory.Education_And_Creativity
+  nameWithType: UNCategory.Education_And_Creativity
+- uid: NationStates.NET.UNCategory.Environmental
+  name: Environmental
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Environmental
+  commentId: F:NationStates.NET.UNCategory.Environmental
+  fullName: NationStates.NET.UNCategory.Environmental
+  nameWithType: UNCategory.Environmental
+- uid: NationStates.NET.UNCategory.Free_Trade
+  name: Free_Trade
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Free_Trade
+  commentId: F:NationStates.NET.UNCategory.Free_Trade
+  fullName: NationStates.NET.UNCategory.Free_Trade
+  nameWithType: UNCategory.Free_Trade
+- uid: NationStates.NET.UNCategory.Furtherment_Of_Democracy
+  name: Furtherment_Of_Democracy
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Furtherment_Of_Democracy
+  commentId: F:NationStates.NET.UNCategory.Furtherment_Of_Democracy
+  fullName: NationStates.NET.UNCategory.Furtherment_Of_Democracy
+  nameWithType: UNCategory.Furtherment_Of_Democracy
+- uid: NationStates.NET.UNCategory.Global_Disarmament
+  name: Global_Disarmament
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Global_Disarmament
+  commentId: F:NationStates.NET.UNCategory.Global_Disarmament
+  fullName: NationStates.NET.UNCategory.Global_Disarmament
+  nameWithType: UNCategory.Global_Disarmament
+- uid: NationStates.NET.UNCategory.Health
+  name: Health
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Health
+  commentId: F:NationStates.NET.UNCategory.Health
+  fullName: NationStates.NET.UNCategory.Health
+  nameWithType: UNCategory.Health
+- uid: NationStates.NET.UNCategory.International_Security
+  name: International_Security
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_International_Security
+  commentId: F:NationStates.NET.UNCategory.International_Security
+  fullName: NationStates.NET.UNCategory.International_Security
+  nameWithType: UNCategory.International_Security
+- uid: NationStates.NET.UNCategory.Moral_Decency
+  name: Moral_Decency
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Moral_Decency
+  commentId: F:NationStates.NET.UNCategory.Moral_Decency
+  fullName: NationStates.NET.UNCategory.Moral_Decency
+  nameWithType: UNCategory.Moral_Decency
+- uid: NationStates.NET.UNCategory.Political_Stability
+  name: Political_Stability
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Political_Stability
+  commentId: F:NationStates.NET.UNCategory.Political_Stability
+  fullName: NationStates.NET.UNCategory.Political_Stability
+  nameWithType: UNCategory.Political_Stability
+- uid: NationStates.NET.UNCategory.Recreational_Drug_Use
+  name: Recreational_Drug_Use
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Recreational_Drug_Use
+  commentId: F:NationStates.NET.UNCategory.Recreational_Drug_Use
+  fullName: NationStates.NET.UNCategory.Recreational_Drug_Use
+  nameWithType: UNCategory.Recreational_Drug_Use
+- uid: NationStates.NET.UNCategory.Regulation
+  name: Regulation
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Regulation
+  commentId: F:NationStates.NET.UNCategory.Regulation
+  fullName: NationStates.NET.UNCategory.Regulation
+  nameWithType: UNCategory.Regulation
+- uid: NationStates.NET.UNCategory.Repeal
+  name: Repeal
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Repeal
+  commentId: F:NationStates.NET.UNCategory.Repeal
+  fullName: NationStates.NET.UNCategory.Repeal
+  nameWithType: UNCategory.Repeal
+- uid: NationStates.NET.UNCategory.Social_Justice
+  name: Social_Justice
+  href: api/NationStates.NET.UNCategory.html#NationStates_NET_UNCategory_Social_Justice
+  commentId: F:NationStates.NET.UNCategory.Social_Justice
+  fullName: NationStates.NET.UNCategory.Social_Justice
+  nameWithType: UNCategory.Social_Justice
+- uid: NationStates.NET.UNRecreationalDrugUse
+  name: UNRecreationalDrugUse
+  href: api/NationStates.NET.UNRecreationalDrugUse.html
+  commentId: T:NationStates.NET.UNRecreationalDrugUse
+  fullName: NationStates.NET.UNRecreationalDrugUse
+  nameWithType: UNRecreationalDrugUse
+- uid: NationStates.NET.UNRecreationalDrugUse.Legalize
+  name: Legalize
+  href: api/NationStates.NET.UNRecreationalDrugUse.html#NationStates_NET_UNRecreationalDrugUse_Legalize
+  commentId: F:NationStates.NET.UNRecreationalDrugUse.Legalize
+  fullName: NationStates.NET.UNRecreationalDrugUse.Legalize
+  nameWithType: UNRecreationalDrugUse.Legalize
+- uid: NationStates.NET.UNRecreationalDrugUse.Outlaw
+  name: Outlaw
+  href: api/NationStates.NET.UNRecreationalDrugUse.html#NationStates_NET_UNRecreationalDrugUse_Outlaw
+  commentId: F:NationStates.NET.UNRecreationalDrugUse.Outlaw
+  fullName: NationStates.NET.UNRecreationalDrugUse.Outlaw
+  nameWithType: UNRecreationalDrugUse.Outlaw
 - uid: NationStates.NET.Utility
   name: Utility
   href: api/NationStates.NET.Utility.html
@@ -7703,19 +7887,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseEvents
   nameWithType: Utility.ParseEvents
-- uid: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,System.Object)
-  name: ParseSubCategory(XmlNode, Object)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseSubCategory_System_Xml_XmlNode_System_Object_
-  commentId: M:NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode,System.Object)
-  fullName: NationStates.NET.Utility.ParseSubCategory(System.Xml.XmlNode, System.Object)
-  nameWithType: Utility.ParseSubCategory(XmlNode, Object)
-- uid: NationStates.NET.Utility.ParseSubCategory*
-  name: ParseSubCategory
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseSubCategory_
-  commentId: Overload:NationStates.NET.Utility.ParseSubCategory
-  isSpec: "True"
-  fullName: NationStates.NET.Utility.ParseSubCategory
-  nameWithType: Utility.ParseSubCategory
 - uid: NationStates.NET.Utility.ParseUnix(System.String)
   name: ParseUnix(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseUnix_System_String_
@@ -7729,6 +7900,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseUnix
   nameWithType: Utility.ParseUnix
+- uid: NationStates.NET.Utility.ParseUNSubCategory(HtmlAgilityPack.HtmlNode,System.Object)
+  name: ParseUNSubCategory(HtmlNode, Object)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseUNSubCategory_HtmlAgilityPack_HtmlNode_System_Object_
+  commentId: M:NationStates.NET.Utility.ParseUNSubCategory(HtmlAgilityPack.HtmlNode,System.Object)
+  fullName: NationStates.NET.Utility.ParseUNSubCategory(HtmlAgilityPack.HtmlNode, System.Object)
+  nameWithType: Utility.ParseUNSubCategory(HtmlNode, Object)
+- uid: NationStates.NET.Utility.ParseUNSubCategory*
+  name: ParseUNSubCategory
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseUNSubCategory_
+  commentId: Overload:NationStates.NET.Utility.ParseUNSubCategory
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.ParseUNSubCategory
+  nameWithType: Utility.ParseUNSubCategory
+- uid: NationStates.NET.Utility.ParseWASubCategory(System.Xml.XmlNode,System.Object)
+  name: ParseWASubCategory(XmlNode, Object)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseWASubCategory_System_Xml_XmlNode_System_Object_
+  commentId: M:NationStates.NET.Utility.ParseWASubCategory(System.Xml.XmlNode,System.Object)
+  fullName: NationStates.NET.Utility.ParseWASubCategory(System.Xml.XmlNode, System.Object)
+  nameWithType: Utility.ParseWASubCategory(XmlNode, Object)
+- uid: NationStates.NET.Utility.ParseWASubCategory*
+  name: ParseWASubCategory
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseWASubCategory_
+  commentId: Overload:NationStates.NET.Utility.ParseWASubCategory
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.ParseWASubCategory
+  nameWithType: Utility.ParseWASubCategory
 - uid: NationStates.NET.Utility.Serialize(System.Object)
   name: Serialize(Object)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_Serialize_System_Object_
@@ -7801,6 +7998,22 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.World.CardTrades
   nameWithType: World.CardTrades
+- uid: NationStates.NET.World.CardValueRank(System.Int32,System.Nullable{NationStates.NET.Rarity})
+  name: CardValueRank(Int32, Nullable<Rarity>)
+  href: api/NationStates.NET.World.html#NationStates_NET_World_CardValueRank_System_Int32_System_Nullable_NationStates_NET_Rarity__
+  commentId: M:NationStates.NET.World.CardValueRank(System.Int32,System.Nullable{NationStates.NET.Rarity})
+  name.vb: CardValueRank(Int32, Nullable(Of Rarity))
+  fullName: NationStates.NET.World.CardValueRank(System.Int32, System.Nullable<NationStates.NET.Rarity>)
+  fullName.vb: NationStates.NET.World.CardValueRank(System.Int32, System.Nullable(Of NationStates.NET.Rarity))
+  nameWithType: World.CardValueRank(Int32, Nullable<Rarity>)
+  nameWithType.vb: World.CardValueRank(Int32, Nullable(Of Rarity))
+- uid: NationStates.NET.World.CardValueRank*
+  name: CardValueRank
+  href: api/NationStates.NET.World.html#NationStates_NET_World_CardValueRank_
+  commentId: Overload:NationStates.NET.World.CardValueRank
+  isSpec: "True"
+  fullName: NationStates.NET.World.CardValueRank
+  nameWithType: World.CardValueRank
 - uid: NationStates.NET.World.Census
   name: Census
   href: api/NationStates.NET.World.html#NationStates_NET_World_Census

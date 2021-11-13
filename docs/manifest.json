@@ -65,6 +65,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.CardValueRank.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.CardValueRank.html",
+          "hash": "keDVP6RY1oIwlqTVDHLy/7FM9vEuBa9sJ9K0l/H1q78="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/NationStates.NET.CensusNation.yml",
       "output": {
         ".html": {
@@ -177,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Council.html",
-          "hash": "SpXHljZRMu0aMWegJVuCb9ih2ZpFwCP3HJLtYlDlLK0="
+          "hash": "A25vChUAbpl0E4d+pK0WSLoNV0jv8D2xnyROZdO9D9k="
         }
       },
       "is_incremental": false,
@@ -813,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Resolution.html",
-          "hash": "2loTD59EzAW/mI9RPCR6cgNI/OvGqkunpvL0wUONNNE="
+          "hash": "k9J5YhKqiGFNQ5TA1XpxhqOy+TxXu62QB1RQPAwhs+E="
         }
       },
       "is_incremental": false,
@@ -881,11 +893,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.UNCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.UNCategory.html",
+          "hash": "xXpDc0lQTWvSCwjt/91VIObbM0SsZHqA8SgCzhROpqA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.UNRecreationalDrugUse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.UNRecreationalDrugUse.html",
+          "hash": "FrZMG/xh2nrX6dnW3TMJkbpepyfhQC2Qje7Cle4M4Pg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/NationStates.NET.Utility.yml",
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Utility.html",
-          "hash": "xbD05v2KVAWQz5zDJ+y9L3wgKAEmtK9DEIkoR0wGd5k="
+          "hash": "3Ixt/SehMOjdI1i0OMVwylhfxuuF7eLa6r2hYIWdTLo="
         }
       },
       "is_incremental": false,
@@ -909,7 +945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.World.html",
-          "hash": "C5whu9TDzFy2etvPZ8z4NIhABTKEtFiBROIwwbfgV5s="
+          "hash": "MuvpOVoSo1UNdoqqCvg2xDSs+/cV0BJWqZIWOftiJWI="
         }
       },
       "is_incremental": false,
@@ -969,7 +1005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.html",
-          "hash": "PbVuHQDXqLZLwmUeasOIM+JnMdTTtLmnJPEYxMSAZV8="
+          "hash": "F5uLkslFYR+hsT+4ir4AhIUv/VBOnH4qBFvsBrjFXWw="
         }
       },
       "is_incremental": false,
@@ -996,7 +1032,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "hHK0evlyAKFUq6zDD8vc0ugcZlK5yhixP0cvTpWoP50="
+          "hash": "PBiPEXIktDkKOcIcNuwL1bOrZwm8qGJT6JFSIv4PICU="
         }
       },
       "is_incremental": false,
@@ -1011,7 +1047,7 @@
           "hash": "E2f2N3A5C8yipiuc2MTxwPi0qjz72X/sh6N+4iKuXyY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -1040,13 +1076,13 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 1
+          "skipped_file_count": 2
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 81,
-          "skipped_file_count": 77
+          "total_file_count": 84,
+          "skipped_file_count": 74
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
