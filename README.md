@@ -12,7 +12,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
   - [ ] Private commands
 - [X] Region
 - [X] World Assembly
-- [ ] United Nations [DOING]
+- [X] United Nations
 - [X] World
 
 ### Minigames
@@ -22,7 +22,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 #### Recurring minigames
 
-- [ ] N-Day
+- [ ] N-Day [DOING]
 - [ ] Z-Day
 
 ### Misc
