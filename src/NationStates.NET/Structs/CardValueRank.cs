@@ -1,4 +1,4 @@
-﻿namespace NationStates.NET.Structs
+﻿namespace NationStates.NET
 {
     using Newtonsoft.Json;
     using static Utility;
