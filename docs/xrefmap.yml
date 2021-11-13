@@ -955,6 +955,142 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusWorldRank.ToString
   nameWithType: CensusWorldRank.ToString
+- uid: NationStates.NET.ChallengeRank
+  name: ChallengeRank
+  href: api/NationStates.NET.ChallengeRank.html
+  commentId: T:NationStates.NET.ChallengeRank
+  fullName: NationStates.NET.ChallengeRank
+  nameWithType: ChallengeRank
+- uid: NationStates.NET.ChallengeRank.#ctor(System.Int64,System.String,System.Int32,System.Int64,System.Int64,System.Int64,System.Double,System.String)
+  name: ChallengeRank(Int64, String, Int32, Int64, Int64, Int64, Double, String)
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank__ctor_System_Int64_System_String_System_Int32_System_Int64_System_Int64_System_Int64_System_Double_System_String_
+  commentId: M:NationStates.NET.ChallengeRank.#ctor(System.Int64,System.String,System.Int32,System.Int64,System.Int64,System.Int64,System.Double,System.String)
+  fullName: NationStates.NET.ChallengeRank.ChallengeRank(System.Int64, System.String, System.Int32, System.Int64, System.Int64, System.Int64, System.Double, System.String)
+  nameWithType: ChallengeRank.ChallengeRank(Int64, String, Int32, Int64, Int64, Int64, Double, String)
+- uid: NationStates.NET.ChallengeRank.#ctor*
+  name: ChallengeRank
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank__ctor_
+  commentId: Overload:NationStates.NET.ChallengeRank.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.ChallengeRank
+  nameWithType: ChallengeRank.ChallengeRank
+- uid: NationStates.NET.ChallengeRank.Level
+  name: Level
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Level
+  commentId: P:NationStates.NET.ChallengeRank.Level
+  fullName: NationStates.NET.ChallengeRank.Level
+  nameWithType: ChallengeRank.Level
+- uid: NationStates.NET.ChallengeRank.Level*
+  name: Level
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Level_
+  commentId: Overload:NationStates.NET.ChallengeRank.Level
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Level
+  nameWithType: ChallengeRank.Level
+- uid: NationStates.NET.ChallengeRank.Losses
+  name: Losses
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Losses
+  commentId: P:NationStates.NET.ChallengeRank.Losses
+  fullName: NationStates.NET.ChallengeRank.Losses
+  nameWithType: ChallengeRank.Losses
+- uid: NationStates.NET.ChallengeRank.Losses*
+  name: Losses
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Losses_
+  commentId: Overload:NationStates.NET.ChallengeRank.Losses
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Losses
+  nameWithType: ChallengeRank.Losses
+- uid: NationStates.NET.ChallengeRank.Name
+  name: Name
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Name
+  commentId: P:NationStates.NET.ChallengeRank.Name
+  fullName: NationStates.NET.ChallengeRank.Name
+  nameWithType: ChallengeRank.Name
+- uid: NationStates.NET.ChallengeRank.Name*
+  name: Name
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Name_
+  commentId: Overload:NationStates.NET.ChallengeRank.Name
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Name
+  nameWithType: ChallengeRank.Name
+- uid: NationStates.NET.ChallengeRank.Rank
+  name: Rank
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Rank
+  commentId: P:NationStates.NET.ChallengeRank.Rank
+  fullName: NationStates.NET.ChallengeRank.Rank
+  nameWithType: ChallengeRank.Rank
+- uid: NationStates.NET.ChallengeRank.Rank*
+  name: Rank
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Rank_
+  commentId: Overload:NationStates.NET.ChallengeRank.Rank
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Rank
+  nameWithType: ChallengeRank.Rank
+- uid: NationStates.NET.ChallengeRank.Score
+  name: Score
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Score
+  commentId: P:NationStates.NET.ChallengeRank.Score
+  fullName: NationStates.NET.ChallengeRank.Score
+  nameWithType: ChallengeRank.Score
+- uid: NationStates.NET.ChallengeRank.Score*
+  name: Score
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Score_
+  commentId: Overload:NationStates.NET.ChallengeRank.Score
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Score
+  nameWithType: ChallengeRank.Score
+- uid: NationStates.NET.ChallengeRank.Speciality
+  name: Speciality
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Speciality
+  commentId: P:NationStates.NET.ChallengeRank.Speciality
+  fullName: NationStates.NET.ChallengeRank.Speciality
+  nameWithType: ChallengeRank.Speciality
+- uid: NationStates.NET.ChallengeRank.Speciality*
+  name: Speciality
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Speciality_
+  commentId: Overload:NationStates.NET.ChallengeRank.Speciality
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Speciality
+  nameWithType: ChallengeRank.Speciality
+- uid: NationStates.NET.ChallengeRank.ToString
+  name: ToString()
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_ToString
+  commentId: M:NationStates.NET.ChallengeRank.ToString
+  fullName: NationStates.NET.ChallengeRank.ToString()
+  nameWithType: ChallengeRank.ToString()
+- uid: NationStates.NET.ChallengeRank.ToString*
+  name: ToString
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_ToString_
+  commentId: Overload:NationStates.NET.ChallengeRank.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.ToString
+  nameWithType: ChallengeRank.ToString
+- uid: NationStates.NET.ChallengeRank.WinRate
+  name: WinRate
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_WinRate
+  commentId: P:NationStates.NET.ChallengeRank.WinRate
+  fullName: NationStates.NET.ChallengeRank.WinRate
+  nameWithType: ChallengeRank.WinRate
+- uid: NationStates.NET.ChallengeRank.WinRate*
+  name: WinRate
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_WinRate_
+  commentId: Overload:NationStates.NET.ChallengeRank.WinRate
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.WinRate
+  nameWithType: ChallengeRank.WinRate
+- uid: NationStates.NET.ChallengeRank.Wins
+  name: Wins
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Wins
+  commentId: P:NationStates.NET.ChallengeRank.Wins
+  fullName: NationStates.NET.ChallengeRank.Wins
+  nameWithType: ChallengeRank.Wins
+- uid: NationStates.NET.ChallengeRank.Wins*
+  name: Wins
+  href: api/NationStates.NET.ChallengeRank.html#NationStates_NET_ChallengeRank_Wins_
+  commentId: Overload:NationStates.NET.ChallengeRank.Wins
+  isSpec: "True"
+  fullName: NationStates.NET.ChallengeRank.Wins
+  nameWithType: ChallengeRank.Wins
 - uid: NationStates.NET.CivilRights
   name: CivilRights
   href: api/NationStates.NET.CivilRights.html
@@ -7476,6 +7612,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ConvertToUnix
   nameWithType: Utility.ConvertToUnix
+- uid: NationStates.NET.Utility.DownloadPage(System.String)
+  name: DownloadPage(String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_DownloadPage_System_String_
+  commentId: M:NationStates.NET.Utility.DownloadPage(System.String)
+  fullName: NationStates.NET.Utility.DownloadPage(System.String)
+  nameWithType: Utility.DownloadPage(String)
+- uid: NationStates.NET.Utility.DownloadPage*
+  name: DownloadPage
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_DownloadPage_
+  commentId: Overload:NationStates.NET.Utility.DownloadPage
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.DownloadPage
+  nameWithType: Utility.DownloadPage
 - uid: NationStates.NET.Utility.FormatForEnum(System.String)
   name: FormatForEnum(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_FormatForEnum_System_String_
@@ -7743,6 +7892,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.World.CensusTitle
   nameWithType: World.CensusTitle
+- uid: NationStates.NET.World.ChallengeRank(System.Int32)
+  name: ChallengeRank(Int32)
+  href: api/NationStates.NET.World.html#NationStates_NET_World_ChallengeRank_System_Int32_
+  commentId: M:NationStates.NET.World.ChallengeRank(System.Int32)
+  fullName: NationStates.NET.World.ChallengeRank(System.Int32)
+  nameWithType: World.ChallengeRank(Int32)
+- uid: NationStates.NET.World.ChallengeRank*
+  name: ChallengeRank
+  href: api/NationStates.NET.World.html#NationStates_NET_World_ChallengeRank_
+  commentId: Overload:NationStates.NET.World.ChallengeRank
+  isSpec: "True"
+  fullName: NationStates.NET.World.ChallengeRank
+  nameWithType: World.ChallengeRank
 - uid: NationStates.NET.World.DispatchList(System.String,System.Nullable{NationStates.NET.DispatchCategory},System.Enum,System.Nullable{NationStates.NET.DispatchSort})
   name: DispatchList(String, Nullable<DispatchCategory>, Enum, Nullable<DispatchSort>)
   href: api/NationStates.NET.World.html#NationStates_NET_World_DispatchList_System_String_System_Nullable_NationStates_NET_DispatchCategory__System_Enum_System_Nullable_NationStates_NET_DispatchSort__
