@@ -1,5 +1,6 @@
 ﻿namespace NationStates.NET
 {
+    using HtmlAgilityPack;
     using Newtonsoft.Json;
     using System;
     using System.Xml;
@@ -32,7 +33,7 @@
         /// Gets the time at which the resolution was created.
         /// </summary>
         [JsonProperty]
-        public DateTime Created { get; }
+        public DateTime? Created { get; }
 
         /// <summary>
         /// Gets the body of the resolution.
@@ -119,36 +120,82 @@
         /// <param name="councilID">The resolution's council ID.</param>
         public Resolution(Council council, long councilID)
         {
-            XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution").SelectSingleNode("/WA/RESOLUTION");
-
-            this.Council = council;
-            this.CouncilID = councilID;
-
-            XmlNode option = node.SelectSingleNode("OPTION");
-
-            if (council == Council.General_Assembly)
+            if (council == Council.United_Nations)
             {
-                this.Category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
+                string html = DownloadPage($"https://www.nationstates.net/page=UN_past_resolutions/council=0?start={councilID - 1}");
+
+                var htmlDoc = new HtmlDocument();
+                htmlDoc.LoadHtml(html);
+
+                HtmlNode node = htmlDoc.DocumentNode.SelectNodes(".//div[@class='WA_thing WA_thing_historical']")[0];
+
+                this.Council = council;
+                this.CouncilID = councilID;
+                this.ID = councilID;
+                this.Category = (UNCategory)ParseEnum(typeof(UNCategory), node.SelectSingleNode(".//div[@class='WA_thing_rbox']/p[1]").InnerText.Replace("Category:", string.Empty));
+                this.SubCategory = ParseUNSubCategory(node.SelectSingleNode(".//div[@class='WA_thing_rbox']/p[2]"), this.Category);
+                this.Proposer = node.SelectSingleNode(".//span[@class='nnameblock']").InnerText;
+                this.Description = node.SelectSingleNode(".//div[@class='WA_thing_body']").InnerText;
+                this.Name = node.SelectSingleNode(".//div[@class='WA_thing_header']/h2/a").InnerText;
+                this.VotesAgainst = long.Parse(node.SelectSingleNode(".//tbody/tr[2]/td[2]/p/span").InnerText.Replace(",", string.Empty));
+                this.VotesFor = long.Parse(node.SelectSingleNode(".//tbody/tr[1]/td[2]/p/span").InnerText.Replace(",", string.Empty));
+
+                if (node.SelectNodes(".//div[@class='WA_thing_repealed']") == null)
+                {
+                    this.RepealedID = null;
+                    this.RepealedCouncilID = null;
+                }
+                else
+                {
+                    this.RepealedCouncilID = this.RepealedID = int.Parse(node.SelectSingleNode(".//div[1]/div[2]/p[2]/a/span").InnerText.Replace("UN#", string.Empty));
+                }
+
+                if (this.SubCategory is int?)
+                {
+                    this.RepealsID = this.RepealsCouncilID = this.SubCategory;
+                }
+                else
+                {
+                    this.RepealsID = this.RepealsCouncilID = null;
+                }
+
+                this.Promoted = null;
+                this.Implemented = ParseUnix(node.SelectSingleNode(".//time").Attributes["data-epoch"].Value);
+                this.Created = null;
             }
             else
             {
-                this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
-            }
+                XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution").SelectSingleNode("/WA/RESOLUTION");
 
-            this.SubCategory = ParseSubCategory(option, this.Category);
-            this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
-            this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
-            this.Description = node.SelectSingleNode("DESC").InnerText;
-            this.Name = node.SelectSingleNode("NAME").InnerText;
-            this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
-            this.ID = long.Parse(node.SelectSingleNode("RESID").InnerText);
-            this.VotesFor = long.Parse(node.SelectSingleNode("TOTAL_VOTES_FOR").InnerText);
-            this.VotesAgainst = long.Parse(node.SelectSingleNode("TOTAL_VOTES_AGAINST").InnerText);
-            this.RepealedID = node.SelectNodes("REPEALED").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALED").InnerText);
-            this.RepealedCouncilID = node.SelectNodes("REPEALED_BY").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALED_BY").InnerText);
-            this.RepealsID = node.SelectNodes("REPEALS_RESID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_RESID").InnerText);
-            this.RepealsCouncilID = node.SelectNodes("REPEALS_COUNCILID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_COUNCILID").InnerText);
-            this.Promoted = node.SelectNodes("PROMOTED").Count == 0 ? null : ParseUnix(node.SelectSingleNode("PROMOTED").InnerText);
+                this.Council = council;
+                this.CouncilID = councilID;
+
+                XmlNode option = node.SelectSingleNode("OPTION");
+
+                if (council == Council.General_Assembly)
+                {
+                    this.Category = (GACategory)ParseEnum(typeof(GACategory), node.SelectSingleNode("CATEGORY").InnerText);
+                }
+                else
+                {
+                    this.Category = (SCCategory)ParseEnum(typeof(SCCategory), node.SelectSingleNode("CATEGORY").InnerText);
+                }
+
+                this.SubCategory = ParseSubCategory(option, this.Category);
+                this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
+                this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
+                this.Description = node.SelectSingleNode("DESC").InnerText;
+                this.Name = node.SelectSingleNode("NAME").InnerText;
+                this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
+                this.ID = long.Parse(node.SelectSingleNode("RESID").InnerText);
+                this.VotesFor = long.Parse(node.SelectSingleNode("TOTAL_VOTES_FOR").InnerText);
+                this.VotesAgainst = long.Parse(node.SelectSingleNode("TOTAL_VOTES_AGAINST").InnerText);
+                this.RepealedID = node.SelectNodes("REPEALED").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALED").InnerText);
+                this.RepealedCouncilID = node.SelectNodes("REPEALED_BY").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALED_BY").InnerText);
+                this.RepealsID = node.SelectNodes("REPEALS_RESID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_RESID").InnerText);
+                this.RepealsCouncilID = node.SelectNodes("REPEALS_COUNCILID").Count == 0 ? null : int.Parse(node.SelectSingleNode("REPEALS_COUNCILID").InnerText);
+                this.Promoted = node.SelectNodes("PROMOTED").Count == 0 ? null : ParseUnix(node.SelectSingleNode("PROMOTED").InnerText);
+            }
         }
 
         /// <summary>
