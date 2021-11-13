@@ -1,5 +1,8 @@
 ﻿namespace NationStates.NET
 {
+    using Newtonsoft.Json;
+    using static Utility;
+
     /// <summary>
     /// Represents a challenge rank.
     /// </summary>
@@ -8,41 +11,49 @@
         /// <summary>
         /// Gets the nation's rank.
         /// </summary>
+        [JsonProperty]
         public long Rank { get; }
 
         /// <summary>
         /// Gets the nation's name.
         /// </summary>
+        [JsonProperty]
         public string Name { get; }
 
         /// <summary>
         /// Gets the nation's level.
         /// </summary>
+        [JsonProperty]
         public int Level { get; }
 
         /// <summary>
         /// Gets the nation's score.
         /// </summary>
+        [JsonProperty]
         public long Score { get; }
 
         /// <summary>
         /// Gets the number of times the nation has won.
         /// </summary>
+        [JsonProperty]
         public long Wins { get; }
 
         /// <summary>
         /// Gets the number of times the nation has lost.
         /// </summary>
+        [JsonProperty]
         public long Losses { get; }
 
         /// <summary>
         /// Gets the nation's win-rate.
         /// </summary>
+        [JsonProperty]
         public double WinRate { get; }
 
         /// <summary>
         /// Gets the nation's census speciality.
         /// </summary>
+        [JsonProperty]
         public string Speciality { get; }
 
         /// <summary>
@@ -66,6 +77,15 @@
             this.Losses = losses;
             this.WinRate = winRate;
             this.Speciality = speciality;
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the rank.
+        /// </summary>
+        /// <returns>A JSON string representing the rank.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
     }
 }
