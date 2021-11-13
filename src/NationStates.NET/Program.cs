@@ -6,9 +6,9 @@
     {
         public static void Main()
         {
-            foreach (ChallengeRank rank in World.ChallengeRank())
+            foreach (CardValueRank card in World.CardValueRank(1, Rarity.Legendary))
             {
-                Console.WriteLine(rank);
+                Console.WriteLine(card);
             }
         }
     }
