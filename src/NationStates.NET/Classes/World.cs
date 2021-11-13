@@ -1,5 +1,6 @@
 ﻿namespace NationStates.NET
 {
+    using HtmlAgilityPack;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -343,6 +344,45 @@
             return ParseDocument($"q=censustitle;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSTITLE")
                 .InnerText;
+        }
+
+        /// <summary>
+        /// Gets twenty nations in order of their challenge rankings.
+        /// </summary>
+        /// <param name="page">The page to search.</param>
+        /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
+        public static HashSet<ChallengeRank> ChallengeRank(int page = 1)
+        {
+            HashSet<ChallengeRank> ranks = new();
+
+            string html = DownloadPage($"https://www.nationstates.net/page=challenge/ladder={page}");
+
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
+            foreach (HtmlNode node in htmlDoc.DocumentNode.SelectNodes("//table"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (cells != null)
+                    {
+                        long rank = long.Parse(cells[0].InnerText);
+                        string name = cells[1].SelectSingleNode(".//span[@class='nname']").InnerText;
+                        int level = int.Parse(cells[2].InnerText.Replace(",", string.Empty));
+                        long score = long.Parse(cells[3].InnerText.Replace(",", string.Empty));
+                        string speciality = cells[4].InnerText;
+                        long wins = long.Parse(cells[5].InnerText.Replace(",", string.Empty));
+                        long losses = long.Parse(cells[6].InnerText.Replace(",", string.Empty));
+                        double winRate = double.Parse(cells[7].InnerText.Replace("%", string.Empty));
+
+                        ranks.Add(new(rank, name, level, score, wins, losses, winRate, speciality));
+                    }
+                }
+            }
+
+            return ranks;
         }
 
         /// <summary>

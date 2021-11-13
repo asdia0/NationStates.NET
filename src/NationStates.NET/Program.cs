@@ -6,8 +6,10 @@
     {
         public static void Main()
         {
-            Nation nation = new("Dabberwocky");
-            Console.WriteLine(Utility.NationNameFromID(nation.DBID));
+            foreach (ChallengeRank rank in World.ChallengeRank())
+            {
+                Console.WriteLine(rank);
+            }
         }
     }
 }
