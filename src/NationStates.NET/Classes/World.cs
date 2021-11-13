@@ -264,6 +264,48 @@
         }
 
         /// <summary>
+        /// Gets fifty cards in order of their value. To filter cards, <paramref name="rarity"/> should be set.
+        /// </summary>
+        /// <param name="start">The starting rank of the first card.</param>
+        /// <param name="rarity">The sole rarity to get. Set as `null` to get cards of any rarity.</param>
+        /// <returns>A list of fifty cards.</returns>
+        public static HashSet<Card> CardValueRank(int start = 1, Rarity? rarity = null)
+        {
+            HashSet<Card> ranks = new();
+
+            string html = DownloadPage($"https://www.nationstates.net/nation=dabberwocky/page=deck/show_market=cards{(rarity == null ? string.Empty : "/?filter=" + rarity)}/start={start - 1}");
+
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
+            bool firstDone = false;
+
+            foreach (HtmlNode node in htmlDoc.DocumentNode.SelectNodes("//tbody"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (firstDone)
+                    {
+                        string info = cells[2].SelectSingleNode(".//a[@class='nref cardnameblock']").Attributes["href"].Value;
+
+                        long id = long.Parse(info.Split("/")[2].Replace("card=", string.Empty));
+                        int season = int.Parse(info.Split("/")[3].Replace("season=", string.Empty));
+
+                        ranks.Add(new(id, season));
+                    }
+                    else
+                    {
+                        firstDone = true;
+                    }
+                }
+            }
+
+            return ranks;
+        }
+
+        /// <summary>
         /// Gets the description for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
