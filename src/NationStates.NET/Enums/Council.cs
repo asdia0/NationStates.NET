@@ -14,5 +14,10 @@
         /// The Security Council.
         /// </summary>
         Security_Council,
+
+        /// <summary>
+        /// The United Nations.
+        /// </summary>
+        United_Nations,
     }
 }
