@@ -12,13 +12,13 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
   - [ ] Private commands
 - [X] Region
 - [X] World Assembly
-- [ ] United Nations
+- [ ] United Nations [DOING]
 - [X] World
 
 ### Minigames
 
 - [X] Trading Cards
-- [ ] Challenge [DOING]
+- [X] Challenge
 
 #### Recurring minigames
 
