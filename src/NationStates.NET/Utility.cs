@@ -57,6 +57,34 @@
         }
 
         /// <summary>
+        /// Downloads a webpage.
+        /// </summary>
+        /// <param name="path">The path to the webpage.</param>
+        /// <returns>The webpage contents.</returns>
+        public static string DownloadPage(string path)
+        {
+            using (WebClient client = new())
+            {
+                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
+
+                try
+                {
+                    Thread.Sleep(600);
+                    return client.DownloadString(path);
+                }
+                catch (WebException e)
+                {
+                    if (e.Message.Contains("(429)"))
+                    {
+                        throw new NSError("Too many requests. Try again in 15 minutes.");
+                    }
+
+                    throw new NSError(e.Message);
+                }
+            }
+        }
+
+        /// <summary>
         /// Formats a string for enum parsing.
         /// </summary>
         /// <param name="text">The string to format.</param>
@@ -103,30 +131,7 @@
         public static XmlElement ParseDocument(string path)
         {
             XmlDocument doc = new();
-
-            string document = string.Empty;
-
-            using (WebClient client = new())
-            {
-                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
-
-                try
-                {
-                    Thread.Sleep(600);
-                    document = client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
-                }
-                catch (WebException e)
-                {
-                    if (e.Message.Contains("(429)"))
-                    {
-                        throw new NSError("Too many requests. Try again in 15 minutes.");
-                    }
-
-                    throw new NSError(e.Message);
-                }
-            }
-
-            doc.LoadXml(document);
+            doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11"));
             return doc.DocumentElement;
         }
 
