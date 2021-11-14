@@ -135,7 +135,7 @@
         }
 
         /// <summary>
-        /// Parses an HTMl document from a webpage.
+        /// Parses an HTML document from a webpage.
         /// </summary>
         /// <param name="path">The webpage to parse the HTML document from.</param>
         /// <returns>An <see cref="HtmlNode"/>.</returns>
