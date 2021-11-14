@@ -31,7 +31,6 @@
             this.Rank = rank;
         }
 
-
         /// <summary>
         /// Gets a JSON string representing the rank.
         /// </summary>
