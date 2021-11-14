@@ -64,24 +64,22 @@
         /// <returns>The webpage contents.</returns>
         public static string DownloadPage(string path)
         {
-            using (WebClient client = new())
+            using WebClient client = new();
+            client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
+
+            try
             {
-                client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
-
-                try
+                Thread.Sleep(600);
+                return client.DownloadString(path);
+            }
+            catch (WebException e)
+            {
+                if (e.Message.Contains("(429)"))
                 {
-                    Thread.Sleep(600);
-                    return client.DownloadString(path);
+                    throw new NSError("Too many requests. Try again in 15 minutes.");
                 }
-                catch (WebException e)
-                {
-                    if (e.Message.Contains("(429)"))
-                    {
-                        throw new NSError("Too many requests. Try again in 15 minutes.");
-                    }
 
-                    throw new NSError(e.Message);
-                }
+                throw new NSError(e.Message);
             }
         }
 
@@ -218,7 +216,7 @@
         }
 
         /// <summary>
-        /// Parses <see cref="UNCategory"/>
+        /// Parses <see cref="UNCategory"/>.
         /// </summary>
         /// <param name="option">The option node.</param>
         /// <param name="category">The category of the proposal/resolution.</param>
