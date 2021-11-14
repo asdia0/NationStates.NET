@@ -4610,12 +4610,12 @@ references:
   commentId: T:NationStates.NET.NDay
   fullName: NationStates.NET.NDay
   nameWithType: NDay
-- uid: NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64)
-  name: NDay(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
-  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay__ctor_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_
-  commentId: M:NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64)
-  fullName: NationStates.NET.NDay.NDay(System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64)
-  nameWithType: NDay.NDay(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+- uid: NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int32,System.Int32,System.Int64,System.Int64,System.Int64,System.Int64)
+  name: NDay(Int64, Int64, Int64, Int64, Int32, Int32, Int64, Int64, Int64, Int64)
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay__ctor_System_Int64_System_Int64_System_Int64_System_Int64_System_Int32_System_Int32_System_Int64_System_Int64_System_Int64_System_Int64_
+  commentId: M:NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int32,System.Int32,System.Int64,System.Int64,System.Int64,System.Int64)
+  fullName: NationStates.NET.NDay.NDay(System.Int64, System.Int64, System.Int64, System.Int64, System.Int32, System.Int32, System.Int64, System.Int64, System.Int64, System.Int64)
+  nameWithType: NDay.NDay(Int64, Int64, Int64, Int64, Int32, Int32, Int64, Int64, Int64, Int64)
 - uid: NationStates.NET.NDay.#ctor*
   name: NDay
   href: api/NationStates.NET.NDay.html#NationStates_NET_NDay__ctor_
