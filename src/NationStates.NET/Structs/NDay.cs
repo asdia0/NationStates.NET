@@ -6,7 +6,7 @@
     using static Utility;
 
     /// <summary>
-    /// Represents information about an entity during N-Day.
+    /// Represents an entity's N-Day statistics.
     /// </summary>
     public struct NDay
     {
