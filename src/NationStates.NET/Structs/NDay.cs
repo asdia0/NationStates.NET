@@ -91,7 +91,7 @@
         /// <param name="targets">The amount of targets the entity has in total.</param>
         public NDay(string faction, long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
         {
-            this.Faction;
+            this.Faction = faction;
             this.Incoming = incoming;
             this.Intercepts = intercepts;
             this.Launches = launches;
