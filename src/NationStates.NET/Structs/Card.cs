@@ -91,7 +91,7 @@
         /// <param name="season">The card's season.</param>
         public Card(long id, int season)
         {
-            XmlNode node = ParseDocument($"q=card+info+markets+owners+trades;cardid={id};season={season}")
+            XmlNode node = ParseXMLDocument($"q=card+info+markets+owners+trades;cardid={id};season={season}")
                 .SelectSingleNode("/CARD");
 
             this.ID = id;
@@ -171,7 +171,7 @@
                 url += $";beforetime={ConvertToUnix((DateTime)beforeTime)}";
             }
 
-            foreach (XmlNode trade in ParseDocument(url).SelectNodes("/CARD/TRADES/TRADE"))
+            foreach (XmlNode trade in ParseXMLDocument(url).SelectNodes("/CARD/TRADES/TRADE"))
             {
                 string buyer = trade.SelectSingleNode("BUYER").InnerText;
                 string seller = trade.SelectSingleNode("SELLER").InnerText;

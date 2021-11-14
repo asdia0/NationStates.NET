@@ -100,7 +100,7 @@
         /// <returns>The nation's name.</returns>
         public static string NationNameFromID(long id)
         {
-            return ParseDocument($"q=cards+info;nationid={id}")
+            return ParseXMLDocument($"q=cards+info;nationid={id}")
                 .SelectSingleNode("/CARDS/INFO/ID")
                 .InnerText;
         }
@@ -127,7 +127,7 @@
         /// </summary>
         /// <param name="path">The webpage to parse the XML document from.</param>
         /// <returns>An <see cref="XmlDocument"/>.</returns>
-        public static XmlElement ParseDocument(string path)
+        public static XmlElement ParseXMLDocument(string path)
         {
             XmlDocument doc = new();
             doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11"));

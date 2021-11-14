@@ -18,7 +18,7 @@
         {
             get
             {
-                return ParseDocument("wa=1&q=delegates")
+                return ParseXMLDocument("wa=1&q=delegates")
                     .SelectSingleNode("/WA/DELEGATES")
                     .InnerText
                     .Split(",")
@@ -33,7 +33,7 @@
         {
             get
             {
-                return ParseEvents(ParseDocument($"wa=1&q=happenings")
+                return ParseEvents(ParseXMLDocument($"wa=1&q=happenings")
                     .SelectSingleNode("/WA/HAPPENINGS"));
             }
         }
@@ -45,7 +45,7 @@
         {
             get
             {
-                return ParseDocument("wa=1&q=members")
+                return ParseXMLDocument("wa=1&q=members")
                     .SelectSingleNode("/WA/MEMBERS")
                     .InnerText
                     .Split(",")
@@ -60,7 +60,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument("wa=1&q=numdelegates")
+                return int.Parse(ParseXMLDocument("wa=1&q=numdelegates")
                     .SelectSingleNode("/WA/NUMDELEGATES")
                     .InnerText);
             }
@@ -73,7 +73,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument("wa=1&q=numnations")
+                return long.Parse(ParseXMLDocument("wa=1&q=numnations")
                     .SelectSingleNode("/WA/NUMNATIONS")
                     .InnerText);
             }
@@ -86,7 +86,7 @@
         /// <returns>A string describing the outcome of the last resolution.</returns>
         public static string LastResolution(Council council)
         {
-            return ParseDocument($"wa={(int)council + 1}&q=lastresolution")
+            return ParseXMLDocument($"wa={(int)council + 1}&q=lastresolution")
                 .SelectSingleNode("/WA/LASTRESOLUTION")
                 .InnerText;
         }
@@ -100,7 +100,7 @@
         {
             HashSet<Proposal> proposals = new();
 
-            foreach (XmlNode node in ParseDocument($"wa={(int)council + 1}&q=proposals")
+            foreach (XmlNode node in ParseXMLDocument($"wa={(int)council + 1}&q=proposals")
                 .SelectNodes("/WA/PROPOSALS/PROPOSAL"))
             {
                 string id = node.Attributes["id"].Value;

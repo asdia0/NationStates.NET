@@ -72,7 +72,7 @@
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
 
-            XmlNode node = ParseDocument($"q=faction;id={id}").SelectSingleNode("/WORLD/FACTION");
+            XmlNode node = ParseXMLDocument($"q=faction;id={id}").SelectSingleNode("/WORLD/FACTION");
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
             this.Description = node.SelectSingleNode("DESC").InnerText;

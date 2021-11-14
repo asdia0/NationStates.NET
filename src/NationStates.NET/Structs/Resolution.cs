@@ -165,7 +165,7 @@
             }
             else
             {
-                XmlNode node = ParseDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution").SelectSingleNode("/WA/RESOLUTION");
+                XmlNode node = ParseXMLDocument($"q=wa={(int)council + 1}&id={councilID}&q=resolution").SelectSingleNode("/WA/RESOLUTION");
 
                 this.Council = council;
                 this.CouncilID = councilID;

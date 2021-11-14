@@ -97,7 +97,7 @@
         {
             this.ID = id;
 
-            XmlNode dispatch = ParseDocument($"q=dispatch;dispatchid={id}").SelectSingleNode("/WORLD/DISPATCH");
+            XmlNode dispatch = ParseXMLDocument($"q=dispatch;dispatchid={id}").SelectSingleNode("/WORLD/DISPATCH");
 
             this.Title = dispatch.SelectSingleNode("TITLE").InnerText;
             this.Category = (DispatchCategory)ParseEnum(typeof(DispatchCategory), dispatch.SelectSingleNode("CATEGORY").InnerText);

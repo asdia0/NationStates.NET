@@ -39,7 +39,7 @@
             {
                 HashSet<Card> auctions = new();
 
-                foreach (XmlNode auction in ParseDocument("q=cards+auctions").SelectNodes("/CARDS/AUCTIONS/AUCTION"))
+                foreach (XmlNode auction in ParseXMLDocument("q=cards+auctions").SelectNodes("/CARDS/AUCTIONS/AUCTION"))
                 {
                     long id = long.Parse(auction.SelectSingleNode("CARDID").InnerText);
                     int season = int.Parse(auction.SelectSingleNode("SEASON").InnerText);
@@ -60,7 +60,7 @@
             {
                 HashSet<CensusWorld> censusAverages = new();
 
-                foreach (XmlNode census in ParseDocument("q=census;scale=all").SelectSingleNode("CENSUS").ChildNodes)
+                foreach (XmlNode census in ParseXMLDocument("q=census;scale=all").SelectSingleNode("CENSUS").ChildNodes)
                 {
                     int id = int.Parse(census.Attributes["id"].Value);
                     double score = double.Parse(census
@@ -81,7 +81,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument("q=censusid")
+                return int.Parse(ParseXMLDocument("q=censusid")
                     .SelectSingleNode("CENSUSID")
                     .InnerText);
             }
@@ -96,7 +96,7 @@
             {
                 List<Faction> factions = new();
 
-                foreach (XmlNode faction in ParseDocument("q=factions").SelectSingleNode("/WORLD/FACTIONS").ChildNodes)
+                foreach (XmlNode faction in ParseXMLDocument("q=factions").SelectSingleNode("/WORLD/FACTIONS").ChildNodes)
                 {
                     factions.Add(new Faction(long.Parse(faction.Attributes["id"].Value)));
                 }
@@ -113,7 +113,7 @@
         {
             get
             {
-                return ParseDocument("q=featuredregion")
+                return ParseXMLDocument("q=featuredregion")
                     .SelectSingleNode("/WORLD/FEATUREDREGION")
                     .InnerText;
             }
@@ -126,7 +126,7 @@
         {
             get
             {
-                return ulong.Parse(ParseDocument("q=lasteventid")
+                return ulong.Parse(ParseXMLDocument("q=lasteventid")
                     .SelectSingleNode("/WORLD/LASTEVENTID")
                     .InnerText);
             }
@@ -139,7 +139,7 @@
         {
             get
             {
-                return ParseDocument("q=nations")
+                return ParseXMLDocument("q=nations")
                     .SelectSingleNode("/WORLD/NATIONS")
                     .InnerText
                     .Split(",")
@@ -154,7 +154,7 @@
         {
             get
             {
-                return ParseDocument("q=newnations")
+                return ParseXMLDocument("q=newnations")
                     .SelectSingleNode("/WORLD/NEWNATIONS")
                     .InnerText
                     .Split(",")
@@ -169,7 +169,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument("q=numnations")
+                return long.Parse(ParseXMLDocument("q=numnations")
                     .SelectSingleNode("/WORLD/NUMNATIONS")
                     .InnerText);
             }
@@ -182,7 +182,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument("q=numregions")
+                return long.Parse(ParseXMLDocument("q=numregions")
                     .SelectSingleNode("/WORLD/NUMREGIONS")
                     .InnerText);
             }
@@ -195,7 +195,7 @@
         {
             get
             {
-                return ParseDocument("q=regions")
+                return ParseXMLDocument("q=regions")
                     .SelectSingleNode("/WORLD/REGIONS")
                     .InnerText
                     .Split(",")
@@ -210,7 +210,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument("q=tgqueue")
+                XmlNode node = ParseXMLDocument("q=tgqueue")
                     .SelectSingleNode("/WORLD/TGQUEUE");
 
                 long manual = long.Parse(node.SelectSingleNode("MANUAL").InnerText);
@@ -244,7 +244,7 @@
                 url += $";beforetime={ConvertToUnix((DateTime)beforeTime)}";
             }
 
-            foreach (XmlNode trade in ParseDocument(url).SelectNodes("/CARDS/TRADES/TRADE"))
+            foreach (XmlNode trade in ParseXMLDocument(url).SelectNodes("/CARDS/TRADES/TRADE"))
             {
                 string buyer = trade.SelectSingleNode("BUYER").InnerText;
                 string seller = trade.SelectSingleNode("SELLER").InnerText;
@@ -315,7 +315,7 @@
         /// <returns>The description for the specified census.</returns>
         public static string CensusDescription(int id, Entity entity)
         {
-            XmlNode node = ParseDocument($"censusdesc;scale={id}")
+            XmlNode node = ParseXMLDocument($"censusdesc;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSDESC");
 
             return entity switch
@@ -333,7 +333,7 @@
         /// <returns>The name of the specified census.</returns>
         public static string CensusName(int id)
         {
-            return ParseDocument($"q=censusname&scale={id}")
+            return ParseXMLDocument($"q=censusname&scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSNAME")
                 .InnerText;
         }
@@ -348,7 +348,7 @@
         {
             List<CensusWorldRank> res = new();
 
-            foreach (XmlNode nation in ParseDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
+            foreach (XmlNode nation in ParseXMLDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
                 string name = nation
                     .SelectSingleNode("NAME")
@@ -373,7 +373,7 @@
         /// <returns>The scale of the specified census.</returns>
         public static string CensusScale(int id)
         {
-            return ParseDocument($"q=censusscale;scale={id}")
+            return ParseXMLDocument($"q=censusscale;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSSCALE")
                 .InnerText;
         }
@@ -385,7 +385,7 @@
         /// <returns>The title of the specified census.</returns>
         public static string CensusTitle(int id)
         {
-            return ParseDocument($"q=censustitle;scale={id}")
+            return ParseXMLDocument($"q=censustitle;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSTITLE")
                 .InnerText;
         }
@@ -493,7 +493,7 @@
                 url += $"dispatchsort={sort}";
             }
 
-            foreach (XmlNode dispatch in ParseDocument(url).SelectSingleNode("DISPATCHLIST").ChildNodes)
+            foreach (XmlNode dispatch in ParseXMLDocument(url).SelectSingleNode("DISPATCHLIST").ChildNodes)
             {
                 dispatches.Add(new(ulong.Parse(dispatch.Attributes["id"].Value)));
             }
@@ -552,7 +552,7 @@
                 url += $"beforeTime={((DateTimeOffset)beforeTime).ToUnixTimeSeconds()};";
             }
 
-            return ParseEvents(ParseDocument(url)
+            return ParseEvents(ParseXMLDocument(url)
                 .SelectSingleNode("/WORLD/HAPPENINGS"));
         }
 
@@ -582,7 +582,7 @@
                 }
             }
 
-            return ParseDocument($"q=regionsbytag;tags={string.Join(",", tags)}")
+            return ParseXMLDocument($"q=regionsbytag;tags={string.Join(",", tags)}")
                 .SelectSingleNode("/WORLD/REGIONSBYTAGS")
                 .InnerText
                 .Split(",")

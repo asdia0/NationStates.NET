@@ -24,7 +24,7 @@
         {
             get
             {
-                XmlNodeList doc = ParseDocument($"nation={this.Name}&q=admirables")
+                XmlNodeList doc = ParseXMLDocument($"nation={this.Name}&q=admirables")
                     .SelectNodes("/NATION/ADMIRABLES/ADMIRABLE");
 
                 HashSet<string> admirables = new();
@@ -46,7 +46,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=animal")
+                return ParseXMLDocument($"nation={this.Name}&q=animal")
                     .SelectSingleNode("/NATION/ANIMAL")
                     .InnerText;
             }
@@ -60,7 +60,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=animaltrait")
+                return ParseXMLDocument($"nation={this.Name}&q=animaltrait")
                     .SelectSingleNode("/NATION/ANIMALTRAIT")
                     .InnerText;
             }
@@ -74,7 +74,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument($"nation={this.Name}&q=answered")
+                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=answered")
                     .SelectSingleNode("/NATION/ISSUES_ANSWERED")
                     .InnerText);
             }
@@ -90,7 +90,7 @@
             {
                 HashSet<Market> asks = new();
 
-                foreach (XmlNode ask in ParseDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/ASKS/ASK"))
+                foreach (XmlNode ask in ParseXMLDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/ASKS/ASK"))
                 {
                     long id = long.Parse(ask.SelectSingleNode("CARDID").InnerText);
                     int season = int.Parse(ask.SelectSingleNode("SEASON").InnerText);
@@ -112,7 +112,7 @@
         {
             get
             {
-                return double.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return double.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/BANK")
                     .InnerText);
             }
@@ -126,7 +126,7 @@
         {
             get
             {
-                XmlNodeList doc = ParseDocument($"nation={this.Name}&q=banners")
+                XmlNodeList doc = ParseXMLDocument($"nation={this.Name}&q=banners")
                     .SelectNodes("/NATION/BANNERS/BANNER");
 
                 HashSet<Banner> banners = new();
@@ -149,7 +149,7 @@
             {
                 HashSet<Market> bids = new();
 
-                foreach (XmlNode bid in ParseDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/BIDS/BID"))
+                foreach (XmlNode bid in ParseXMLDocument($"q=cards+asksbids;nationname={this.Name}").SelectNodes("/CARDS/BIDS/BID"))
                 {
                     long id = long.Parse(bid.SelectSingleNode("CARDID").InnerText);
                     int season = int.Parse(bid.SelectSingleNode("SEASON").InnerText);
@@ -171,7 +171,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=capital")
+                return ParseXMLDocument($"nation={this.Name}&q=capital")
                     .SelectSingleNode("/NATION/CAPITAL")
                     .InnerText;
             }
@@ -185,7 +185,7 @@
         {
             get
             {
-                return (NationCategory)ParseEnum(typeof(NationCategory), ParseDocument($"nation={this.Name}&q=category")
+                return (NationCategory)ParseEnum(typeof(NationCategory), ParseXMLDocument($"nation={this.Name}&q=category")
                     .SelectSingleNode("/NATION/CATEGORY")
                     .InnerText);
             }
@@ -199,7 +199,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank")
+                XmlNode node = ParseXMLDocument($"nation={this.Name.Replace(" ", "_")};q=census;scale=all;mode=score+rank+rrank+prank+prrank")
                     .SelectSingleNode("/NATION/CENSUS");
 
                 HashSet<CensusNation> census = new();
@@ -230,7 +230,7 @@
             {
                 HashSet<Collection> collections = new();
 
-                foreach (XmlNode collection in ParseDocument($"q=cards+collections;nationname={this.Name}").SelectNodes("/CARDS/COLLECTIONS/COLLECTION"))
+                foreach (XmlNode collection in ParseXMLDocument($"q=cards+collections;nationname={this.Name}").SelectNodes("/CARDS/COLLECTIONS/COLLECTION"))
                 {
                     long id = long.Parse(collection.SelectSingleNode("COLLECTIONID").InnerText);
                     DateTime lastUpdated = ParseUnix(collection.SelectSingleNode("LAST_UPDATED").InnerText);
@@ -251,7 +251,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=currency")
+                return ParseXMLDocument($"nation={this.Name}&q=currency")
                     .SelectSingleNode("/NATION/CURRENCY")
                     .InnerText;
             }
@@ -265,7 +265,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=customcapital")
+                return ParseXMLDocument($"nation={this.Name}&q=customcapital")
                     .SelectSingleNode("/NATION/CAPITAL")
                     .InnerText;
             }
@@ -279,7 +279,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=customleader")
+                return ParseXMLDocument($"nation={this.Name}&q=customleader")
                     .SelectSingleNode("/NATION/LEADER")
                     .InnerText;
             }
@@ -293,7 +293,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=customreligion")
+                return ParseXMLDocument($"nation={this.Name}&q=customreligion")
                     .SelectSingleNode("/NATION/RELIGION")
                     .InnerText;
             }
@@ -307,7 +307,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument($"nation={this.Name}&q=dbid")
+                return long.Parse(ParseXMLDocument($"nation={this.Name}&q=dbid")
                     .SelectSingleNode("/NATION/DBID")
                     .InnerText);
             }
@@ -321,7 +321,7 @@
         {
             get
             {
-                XmlNodeList list = ParseDocument($"nation={this.Name}&q=deaths")
+                XmlNodeList list = ParseXMLDocument($"nation={this.Name}&q=deaths")
                     .SelectNodes("/NATION/DEATHS/DEATH");
 
                 HashSet<Death> deaths = new();
@@ -346,7 +346,7 @@
                 // (ID, season), copies
                 Dictionary<(long, int), int> count = new();
 
-                foreach (XmlNode card in ParseDocument($"q=cards+deck;nationname={this.Name}").SelectNodes("/CARDS/DECK/CARD"))
+                foreach (XmlNode card in ParseXMLDocument($"q=cards+deck;nationname={this.Name}").SelectNodes("/CARDS/DECK/CARD"))
                 {
                     long id = long.Parse(card.SelectSingleNode("CARDID").InnerText);
                     int season = int.Parse(card.SelectSingleNode("SEASON").InnerText);
@@ -375,7 +375,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return int.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/DECK_CAPACITY_RAW")
                     .InnerText);
             }
@@ -389,7 +389,7 @@
         {
             get
             {
-                return double.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return double.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/DECK_VALUE")
                     .InnerText);
             }
@@ -403,7 +403,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=demonym")
+                return ParseXMLDocument($"nation={this.Name}&q=demonym")
                     .SelectSingleNode("/NATION/DEMONYM")
                     .InnerText;
             }
@@ -417,7 +417,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=demonym2")
+                return ParseXMLDocument($"nation={this.Name}&q=demonym2")
                     .SelectSingleNode("/NATION/DEMONYM2")
                     .InnerText;
             }
@@ -431,7 +431,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=demonym2plural")
+                return ParseXMLDocument($"nation={this.Name}&q=demonym2plural")
                     .SelectSingleNode("/NATION/DEMONYM2PLURAL")
                     .InnerText;
             }
@@ -445,7 +445,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument($"nation={this.Name}&q=dispatches")
+                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=dispatches")
                     .SelectSingleNode("/NATION/DISPATCHES")
                     .InnerText);
             }
@@ -459,7 +459,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=dispatchlist")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=dispatchlist")
                     .SelectSingleNode("/NATION/DISPATCHLIST");
 
                 HashSet<Dispatch> dispatchList = new();
@@ -500,7 +500,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=endorsements")
+                return ParseXMLDocument($"nation={this.Name}&q=endorsements")
                     .SelectSingleNode("/NATION/ENDORSEMENTS")
                     .InnerText
                     .Split(",")
@@ -516,7 +516,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument($"nation={this.Name}&q=factbooks")
+                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=factbooks")
                     .SelectSingleNode("/NATION/FACTBOOKS")
                     .InnerText);
             }
@@ -530,7 +530,7 @@
         {
             get
             {
-                return ParseUnix(ParseDocument($"nation={this.Name}&q=firstlogin")
+                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=firstlogin")
                     .SelectSingleNode("/NATION/FIRSTLOGIN")
                     .InnerText);
             }
@@ -544,7 +544,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=flag")
+                return ParseXMLDocument($"nation={this.Name}&q=flag")
                     .SelectSingleNode("/NATION/FLAG")
                     .InnerText;
             }
@@ -558,7 +558,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=founded")
+                return ParseXMLDocument($"nation={this.Name}&q=founded")
                     .SelectSingleNode("/NATION/FOUNDED")
                     .InnerText;
             }
@@ -572,7 +572,7 @@
         {
             get
             {
-                return ParseUnix(ParseDocument($"nation={this.Name}&q=foundedtime")
+                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=foundedtime")
                     .SelectSingleNode("/NATION/FOUNDEDTIME")
                     .InnerText);
             }
@@ -586,7 +586,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=freedom")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=freedom")
                     .SelectSingleNode("/NATION/FREEDOM");
 
                 CivilRights civil = (CivilRights)ParseEnum(typeof(CivilRights), node.SelectSingleNode("CIVILRIGHTS").InnerText);
@@ -605,7 +605,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=fullname")
+                return ParseXMLDocument($"nation={this.Name}&q=fullname")
                     .SelectSingleNode("/NATION/FULLNAME")
                     .InnerText;
             }
@@ -619,7 +619,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=gavote")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=gavote")
                     .SelectSingleNode("/NATION/GAVOTE");
 
                 if (node.InnerText == string.Empty)
@@ -641,7 +641,7 @@
         {
             get
             {
-                return ulong.Parse(ParseDocument($"nation={this.Name}&q=gdp")
+                return ulong.Parse(ParseXMLDocument($"nation={this.Name}&q=gdp")
                     .SelectSingleNode("/NATION/GDP")
                     .InnerText);
             }
@@ -655,7 +655,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=govt")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=govt")
                     .SelectSingleNode("/NATION/GOVT");
 
                 double administration = double.Parse(node.SelectSingleNode("ADMINISTRATION").InnerText);
@@ -683,7 +683,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=govtdesc")
+                return ParseXMLDocument($"nation={this.Name}&q=govtdesc")
                     .SelectSingleNode("/NATION/GOVTDESC")
                     .InnerText;
             }
@@ -697,7 +697,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=govtpriority")
+                return ParseXMLDocument($"nation={this.Name}&q=govtpriority")
                     .SelectSingleNode("/NATION/GOVTPRIORITY")
                     .InnerText;
             }
@@ -711,7 +711,7 @@
         {
             get
             {
-                return ParseEvents(ParseDocument($"nation={this.Name}&q=happenings")
+                return ParseEvents(ParseXMLDocument($"nation={this.Name}&q=happenings")
                     .SelectSingleNode("/NATION/HAPPENINGS"));
             }
         }
@@ -724,7 +724,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument($"nation={this.Name}&q=income")
+                return long.Parse(ParseXMLDocument($"nation={this.Name}&q=income")
                     .SelectSingleNode("/NATION/INCOME")
                     .InnerText);
             }
@@ -738,7 +738,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=industrydesc")
+                return ParseXMLDocument($"nation={this.Name}&q=industrydesc")
                     .SelectSingleNode("/NATION/INDUSTRYDESC")
                     .InnerText;
             }
@@ -752,7 +752,7 @@
         {
             get
             {
-                return (Influence)ParseEnum(typeof(Influence), ParseDocument($"nation={this.Name}&q=influence")
+                return (Influence)ParseEnum(typeof(Influence), ParseXMLDocument($"nation={this.Name}&q=influence")
                     .SelectSingleNode("/NATION/INFLUENCE")
                     .InnerText);
             }
@@ -766,7 +766,7 @@
         {
             get
             {
-                return ParseUnix(ParseDocument($"nation={this.Name}&q=lastlogin")
+                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=lastlogin")
                     .SelectSingleNode("/NATION/LASTLOGIN")
                     .InnerText);
             }
@@ -780,7 +780,7 @@
         {
             get
             {
-                return ParseUnix(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return ParseUnix(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/LAST_PACK_OPENED")
                     .InnerText);
             }
@@ -794,7 +794,7 @@
         {
             get
             {
-                return ParseUnix(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return ParseUnix(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/LAST_VALUED")
                     .InnerText);
             }
@@ -808,7 +808,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=leader")
+                return ParseXMLDocument($"nation={this.Name}&q=leader")
                     .SelectSingleNode("/NATION/LEADER")
                     .InnerText;
             }
@@ -822,7 +822,7 @@
         {
             get
             {
-                XmlNodeList list = ParseDocument($"nation={this.Name}&q=legislation")
+                XmlNodeList list = ParseXMLDocument($"nation={this.Name}&q=legislation")
                     .SelectNodes("/NATION/LEGISLATION/LAW");
 
                 HashSet<string> legislation = new();
@@ -844,7 +844,7 @@
         {
             get
             {
-                return (Industry)ParseEnum(typeof(Industry), ParseDocument($"nation={this.Name}&q=majorindustry")
+                return (Industry)ParseEnum(typeof(Industry), ParseXMLDocument($"nation={this.Name}&q=majorindustry")
                     .SelectSingleNode("/NATION/MAJORINDUSTRY")
                     .InnerText);
             }
@@ -858,7 +858,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=motto")
+                return ParseXMLDocument($"nation={this.Name}&q=motto")
                     .SelectSingleNode("/NATION/MOTTO")
                     .InnerText;
             }
@@ -893,7 +893,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=notable")
+                return ParseXMLDocument($"nation={this.Name}&q=notable")
                     .SelectSingleNode("/NATION/NOTABLE")
                     .InnerText;
             }
@@ -907,7 +907,7 @@
         {
             get
             {
-                XmlNodeList list = ParseDocument($"nation={this.Name}&q=notables")
+                XmlNodeList list = ParseXMLDocument($"nation={this.Name}&q=notables")
                     .SelectNodes("/NATION/NOTABLES/NOTABLE");
 
                 HashSet<string> notables = new();
@@ -929,7 +929,7 @@
         {
             get
             {
-                return int.Parse(ParseDocument($"q=cards+info;nationname={this.Name}")
+                return int.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/NUM_CARDS")
                     .InnerText);
             }
@@ -943,7 +943,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=policies")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=policies")
                     .SelectSingleNode("/NATION/POLICIES");
 
                 HashSet<Policy> policies = new();
@@ -969,7 +969,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument($"nation={this.Name}&q=poorest")
+                return long.Parse(ParseXMLDocument($"nation={this.Name}&q=poorest")
                     .SelectSingleNode("/NATION/POOREST")
                     .InnerText);
             }
@@ -983,7 +983,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument($"nation={this.Name}&q=population")
+                return long.Parse(ParseXMLDocument($"nation={this.Name}&q=population")
                     .SelectSingleNode("/NATION/POPULATION")
                     .InnerText);
             }
@@ -997,7 +997,7 @@
         {
             get
             {
-                return double.Parse(ParseDocument($"nation={this.Name}&q=publicsector")
+                return double.Parse(ParseXMLDocument($"nation={this.Name}&q=publicsector")
                     .SelectSingleNode("/NATION/PUBLICSECTOR")
                     .InnerText);
             }
@@ -1011,7 +1011,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=region")
+                return ParseXMLDocument($"nation={this.Name}&q=region")
                     .SelectSingleNode("/NATION/REGION")
                     .InnerText;
             }
@@ -1025,7 +1025,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=religion")
+                return ParseXMLDocument($"nation={this.Name}&q=religion")
                     .SelectSingleNode("/NATION/RELIGION")
                     .InnerText;
             }
@@ -1039,7 +1039,7 @@
         {
             get
             {
-                return long.Parse(ParseDocument($"nation={this.Name}&q=richest")
+                return long.Parse(ParseXMLDocument($"nation={this.Name}&q=richest")
                     .SelectSingleNode("/NATION/RICHEST")
                     .InnerText);
             }
@@ -1053,7 +1053,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=scvote")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=scvote")
                     .SelectSingleNode("/NATION/SCVOTE");
 
                 if (node.InnerText == string.Empty)
@@ -1075,7 +1075,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=sectors")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=sectors")
                     .SelectSingleNode("/NATION/SECTORS");
 
                 HashSet<Sector> sectors = new();
@@ -1097,7 +1097,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=sensibilities")
+                return ParseXMLDocument($"nation={this.Name}&q=sensibilities")
                     .SelectSingleNode("/NATION/SENSIBILITIES")
                     .InnerText;
             }
@@ -1111,7 +1111,7 @@
         {
             get
             {
-                return double.Parse(ParseDocument($"nation={this.Name}&q=tax")
+                return double.Parse(ParseXMLDocument($"nation={this.Name}&q=tax")
                     .SelectSingleNode("/NATION/TAX")
                     .InnerText);
             }
@@ -1125,7 +1125,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=tgcancampaign")
+                return ParseXMLDocument($"nation={this.Name}&q=tgcancampaign")
                     .SelectSingleNode("/NATION/TGCANCAMPAIGN")
                     .InnerText == "1";
             }
@@ -1139,7 +1139,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=tgcanrecruit")
+                return ParseXMLDocument($"nation={this.Name}&q=tgcanrecruit")
                     .SelectSingleNode("/NATION/TGCANRECRUIT")
                     .InnerText == "1";
             }
@@ -1153,7 +1153,7 @@
         {
             get
             {
-                return ParseDocument($"nation={this.Name}&q=type")
+                return ParseXMLDocument($"nation={this.Name}&q=type")
                     .SelectSingleNode("/NATION/TYPE")
                     .InnerText;
             }
@@ -1167,7 +1167,7 @@
         {
             get
             {
-                return (Membership)ParseEnum(typeof(Membership), ParseDocument($"nation={this.Name}&q=wa")
+                return (Membership)ParseEnum(typeof(Membership), ParseXMLDocument($"nation={this.Name}&q=wa")
                     .SelectSingleNode("/NATION/UNSTATUS")
                     .InnerText
                     .Replace("WA ", string.Empty));
@@ -1182,7 +1182,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=wabadges")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=wabadges")
                     .SelectSingleNode("/NATION/WABADGES");
 
                 HashSet<Badge> wabadges = new();
@@ -1207,7 +1207,7 @@
         {
             get
             {
-                XmlNode node = ParseDocument($"nation={this.Name}&q=zombie")
+                XmlNode node = ParseXMLDocument($"nation={this.Name}&q=zombie")
                     .SelectSingleNode("/NATION/ZOMBIE");
 
                 ZombieAction action = (ZombieAction)ParseEnum(typeof(ZombieAction), node.SelectSingleNode("ZACTION").InnerText);
@@ -1237,7 +1237,7 @@
         /// <returns>A list of all census data recorded during the time period.</returns>
         public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
         {
-            XmlNode node = ParseDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
+            XmlNode node = ParseXMLDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/NATION/CENSUS");
 
             HashSet<CensusRecord> records = new();
