@@ -290,7 +290,7 @@
                         long id = long.Parse(info.Split("/")[2].Replace("card=", string.Empty));
                         int season = int.Parse(info.Split("/")[3].Replace("season=", string.Empty));
 
-                        ranks.Add(new(new(id, season), rank));
+                        ranks.Add(new(id, season, rank));
                     }
                     else
                     {
