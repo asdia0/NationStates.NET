@@ -9,34 +9,10 @@
     public struct ChallengeRank
     {
         /// <summary>
-        /// Gets the nation's rank.
-        /// </summary>
-        [JsonProperty]
-        public long Rank { get; }
-
-        /// <summary>
-        /// Gets the nation's name.
-        /// </summary>
-        [JsonProperty]
-        public string Name { get; }
-
-        /// <summary>
         /// Gets the nation's level.
         /// </summary>
         [JsonProperty]
         public int Level { get; }
-
-        /// <summary>
-        /// Gets the nation's score.
-        /// </summary>
-        [JsonProperty]
-        public long Score { get; }
-
-        /// <summary>
-        /// Gets the number of times the nation has won.
-        /// </summary>
-        [JsonProperty]
-        public long Wins { get; }
 
         /// <summary>
         /// Gets the number of times the nation has lost.
@@ -45,16 +21,40 @@
         public long Losses { get; }
 
         /// <summary>
-        /// Gets the nation's win-rate.
+        /// Gets the nation's name.
         /// </summary>
         [JsonProperty]
-        public double WinRate { get; }
+        public string Name { get; }
+
+        /// <summary>
+        /// Gets the nation's rank.
+        /// </summary>
+        [JsonProperty]
+        public long Rank { get; }
+
+        /// <summary>
+        /// Gets the nation's score.
+        /// </summary>
+        [JsonProperty]
+        public long Score { get; }
 
         /// <summary>
         /// Gets the nation's census speciality.
         /// </summary>
         [JsonProperty]
         public string Speciality { get; }
+
+        /// <summary>
+        /// Gets the nation's win-rate.
+        /// </summary>
+        [JsonProperty]
+        public double WinRate { get; }
+
+        /// <summary>
+        /// Gets the number of times the nation has won.
+        /// </summary>
+        [JsonProperty]
+        public long Wins { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChallengeRank"/> struct.

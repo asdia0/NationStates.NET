@@ -123,31 +123,6 @@
         }
 
         /// <summary>
-        /// Parses an XML document from a webpage.
-        /// </summary>
-        /// <param name="path">The webpage to parse the XML document from.</param>
-        /// <returns>An <see cref="XmlDocument"/>.</returns>
-        public static XmlElement ParseXMLDocument(string path)
-        {
-            XmlDocument doc = new();
-            doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11"));
-            return doc.DocumentElement;
-        }
-
-        /// <summary>
-        /// Parses an HTML document from a webpage.
-        /// </summary>
-        /// <param name="path">The webpage to parse the HTML document from.</param>
-        /// <returns>An <see cref="HtmlNode"/>.</returns>
-        public static HtmlNode ParseHTMLDocument(string path)
-        {
-            string html = DownloadPage(path);
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(html);
-            return htmlDoc.DocumentNode;
-        }
-
-        /// <summary>
         /// Parses an enum from text.
         /// </summary>
         /// <param name="type">The type of enum to parse to.</param>
@@ -181,6 +156,60 @@
             }
 
             return res;
+        }
+
+        /// <summary>
+        /// Parses an HTML document from a webpage.
+        /// </summary>
+        /// <param name="path">The webpage to parse the HTML document from.</param>
+        /// <returns>An <see cref="HtmlNode"/>.</returns>
+        public static HtmlNode ParseHTMLDocument(string path)
+        {
+            string html = DownloadPage(path);
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+            return htmlDoc.DocumentNode;
+        }
+
+        /// <summary>
+        /// Parses a string for <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="unix">The string to parse.</param>
+        /// <returns>A <see cref="DateTime"/>.</returns>
+        public static DateTime ParseUnix(string unix)
+        {
+            return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
+        }
+
+        /// <summary>
+        /// Parses <see cref="UNCategory"/>.
+        /// </summary>
+        /// <param name="option">The option node.</param>
+        /// <param name="category">The category of the proposal/resolution.</param>
+        /// <returns>A sub-category.</returns>
+        public static dynamic ParseUNSubCategory(HtmlNode option, dynamic category)
+        {
+            string formatted = option.InnerText.Replace(option.SelectSingleNode(".//span[@class='WA_leader']").InnerText, string.Empty);
+
+            if (category is UNCategory)
+            {
+                return category switch
+                {
+                    UNCategory.Repeal => long.Parse(formatted.Trim().Replace("UN#", string.Empty)),
+                    UNCategory.Bookkeeping => GABookeeping.Sweeping,
+                    UNCategory.Regulation => (GARegulation)ParseEnum(typeof(GARegulation), formatted),
+                    UNCategory.Health => (GAHealth)ParseEnum(typeof(GAHealth), formatted),
+                    UNCategory.Environmental => (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), formatted),
+                    UNCategory.Education_And_Creativity => (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), formatted),
+                    UNCategory.Advancement_Of_Industry => (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), formatted),
+                    UNCategory.Recreational_Drug_Use => (UNRecreationalDrugUse)ParseEnum(typeof(UNRecreationalDrugUse), formatted),
+                    _ => (GAStrength)ParseEnum(typeof(GAStrength), formatted),
+                };
+            }
+            else
+            {
+                throw new NSError("Invalid category type.");
+            }
         }
 
         /// <summary>
@@ -229,44 +258,15 @@
         }
 
         /// <summary>
-        /// Parses <see cref="UNCategory"/>.
+        /// Parses an XML document from a webpage.
         /// </summary>
-        /// <param name="option">The option node.</param>
-        /// <param name="category">The category of the proposal/resolution.</param>
-        /// <returns>A sub-category.</returns>
-        public static dynamic ParseUNSubCategory(HtmlNode option, dynamic category)
+        /// <param name="path">The webpage to parse the XML document from.</param>
+        /// <returns>An <see cref="XmlDocument"/>.</returns>
+        public static XmlElement ParseXMLDocument(string path)
         {
-            string formatted = option.InnerText.Replace(option.SelectSingleNode(".//span[@class='WA_leader']").InnerText, string.Empty);
-
-            if (category is UNCategory)
-            {
-                return category switch
-                {
-                    UNCategory.Repeal => long.Parse(formatted.Trim().Replace("UN#", string.Empty)),
-                    UNCategory.Bookkeeping => GABookeeping.Sweeping,
-                    UNCategory.Regulation => (GARegulation)ParseEnum(typeof(GARegulation), formatted),
-                    UNCategory.Health => (GAHealth)ParseEnum(typeof(GAHealth), formatted),
-                    UNCategory.Environmental => (GAEnvironmental)ParseEnum(typeof(GAEnvironmental), formatted),
-                    UNCategory.Education_And_Creativity => (GAEducationAndCreativity)ParseEnum(typeof(GAEducationAndCreativity), formatted),
-                    UNCategory.Advancement_Of_Industry => (GAAdvancementOfIndustry)ParseEnum(typeof(GAAdvancementOfIndustry), formatted),
-                    UNCategory.Recreational_Drug_Use => (UNRecreationalDrugUse)ParseEnum(typeof(UNRecreationalDrugUse), formatted),
-                    _ => (GAStrength)ParseEnum(typeof(GAStrength), formatted),
-                };
-            }
-            else
-            {
-                throw new NSError("Invalid category type.");
-            }
-        }
-
-        /// <summary>
-        /// Parses a string for <see cref="DateTime"/>.
-        /// </summary>
-        /// <param name="unix">The string to parse.</param>
-        /// <returns>A <see cref="DateTime"/>.</returns>
-        public static DateTime ParseUnix(string unix)
-        {
-            return DateTimeOffset.FromUnixTimeSeconds(long.Parse(unix)).DateTime;
+            XmlDocument doc = new();
+            doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11"));
+            return doc.DocumentElement;
         }
 
         /// <summary>

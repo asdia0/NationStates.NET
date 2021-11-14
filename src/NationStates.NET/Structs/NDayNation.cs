@@ -9,12 +9,6 @@
     public struct NDayNation
     {
         /// <summary>
-        /// Gets the nation's stats.
-        /// </summary>
-        [JsonProperty]
-        public NDay Stats { get; }
-
-        /// <summary>
         /// Gets the faction the nation is in.
         /// </summary>
         [JsonProperty]
@@ -25,6 +19,12 @@
         /// </summary>
         [JsonProperty]
         public Specialty Specialty { get; }
+
+        /// <summary>
+        /// Gets the nation's stats.
+        /// </summary>
+        [JsonProperty]
+        public NDay Stats { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NDayNation"/> struct.
