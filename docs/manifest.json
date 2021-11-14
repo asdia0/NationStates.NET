@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.ChallengeRank.html",
-          "hash": "lF0YkKN8M/d/PfDrzKCLQ18lpYJb79zdyaO5iN4Z8/Q="
+          "hash": "zVX/tP5vNnBD5836jZZNYFAGZjgshfJCQ0ek3L+7FLI="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Faction.html",
-          "hash": "vsPEHMF6LWX59CkmjB1LYy2QSBoB3wdoVuGb+DIi+RE="
+          "hash": "zmlRjr7gJO7JsXWWFDtswHmQO+VSJsNVLmAvSIuIVD8="
         }
       },
       "is_incremental": false,
@@ -581,6 +581,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.NDay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.NDay.html",
+          "hash": "P+snrxd0BSGAGrJZKwf+YnjED57h0igsasYuyVaWies="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.NDayNation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.NDayNation.html",
+          "hash": "hzmOIFpH/ZOdneIdM9py1294nTWBV7zAZlBVnCbqh7o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/NationStates.NET.NSError.yml",
       "output": {
         ".html": {
@@ -597,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Nation.html",
-          "hash": "BA2WLA8yMO17tdBZlSoaoQn2/gbF+6G/VcCMI3Ib/nY="
+          "hash": "qasPhL2fAArI17kFyebkT299e7i8cejbVphp3ZqowDk="
         }
       },
       "is_incremental": false,
@@ -801,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Region.html",
-          "hash": "qEfyVbEDzIa95572Hh6r7TELmJysWGMsERsYl1DiQ3U="
+          "hash": "uO31QZGvh4lfqy7dUICYT4+mQhjx6zWvpRwhC1kn5XA="
         }
       },
       "is_incremental": false,
@@ -825,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Resolution.html",
-          "hash": "k9J5YhKqiGFNQ5TA1XpxhqOy+TxXu62QB1RQPAwhs+E="
+          "hash": "jM3SaVDOsuSALHGUSBUTJFJqJ2yKkvCpkFJ+35krB/g="
         }
       },
       "is_incremental": false,
@@ -862,6 +886,18 @@
         ".html": {
           "relative_path": "api/NationStates.NET.SectorType.html",
           "hash": "NqzcPXNbh6LtPJY21MOdIrEwn0A3UgRzA6BLB9gmrWo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.Specialty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.Specialty.html",
+          "hash": "/8UGdrBGqLs4gzMcdCbrv8dewO8uA04Yl1nTc8L1ZfI="
         }
       },
       "is_incremental": false,
@@ -921,7 +957,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.Utility.html",
-          "hash": "3Ixt/SehMOjdI1i0OMVwylhfxuuF7eLa6r2hYIWdTLo="
+          "hash": "CIh2gahlSJKOC6IYYd0iUhWnkEwT0WLn6aOalHL2Hzs="
         }
       },
       "is_incremental": false,
@@ -945,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.World.html",
-          "hash": "MuvpOVoSo1UNdoqqCvg2xDSs+/cV0BJWqZIWOftiJWI="
+          "hash": "sMm9IA4zPKq+hS+uhC/dUtJxmRoy39Tgv6LDJ8AFWW0="
         }
       },
       "is_incremental": false,
@@ -965,6 +1001,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.ZDay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.ZDay.html",
+          "hash": "wXRUUNI6+bnBLlDD4jLbP8sb7vJSxkNe9B7NgCz7lwE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NationStates.NET.ZDayNation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NationStates.NET.ZDayNation.html",
+          "hash": "xFCK4i++4Q43xo92A7UsQr84WLCkIjKgSF5RSpV94F0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/NationStates.NET.ZombieAction.yml",
       "output": {
         ".html": {
@@ -977,35 +1037,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NationStates.NET.ZombieNation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/NationStates.NET.ZombieNation.html",
-          "hash": "eQIsEMmQiq0ymjq2F+wAqz5S4ooLZt9NL749nUN5Woo="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/NationStates.NET.ZombieStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/NationStates.NET.ZombieStats.html",
-          "hash": "NJBIMqoSQW9NvE2cp7qTvJ5H3blPyHNFMexnjhDMzJk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/NationStates.NET.yml",
       "output": {
         ".html": {
           "relative_path": "api/NationStates.NET.html",
-          "hash": "F5uLkslFYR+hsT+4ir4AhIUv/VBOnH4qBFvsBrjFXWw="
+          "hash": "VqULpvdwNy7ptcT2iX7mf1IMqrNhGN1aVcNt5xgHwus="
         }
       },
       "is_incremental": false,
@@ -1032,7 +1068,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "PBiPEXIktDkKOcIcNuwL1bOrZwm8qGJT6JFSIv4PICU="
+          "hash": "RKB1K75hgKCUbX2iT1IqrFdmhBzDBlEOSD2tGlAIbvc="
         }
       },
       "is_incremental": false,
@@ -1081,7 +1117,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 84,
+          "total_file_count": 87,
           "skipped_file_count": 74
         },
         "TocDocumentProcessor": {

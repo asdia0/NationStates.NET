@@ -2310,32 +2310,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Faction.ID
   nameWithType: Faction.ID
-- uid: NationStates.NET.Faction.Incoming
-  name: Incoming
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Incoming
-  commentId: P:NationStates.NET.Faction.Incoming
-  fullName: NationStates.NET.Faction.Incoming
-  nameWithType: Faction.Incoming
-- uid: NationStates.NET.Faction.Incoming*
-  name: Incoming
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Incoming_
-  commentId: Overload:NationStates.NET.Faction.Incoming
+- uid: NationStates.NET.Faction.Info
+  name: Info
+  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Info
+  commentId: P:NationStates.NET.Faction.Info
+  fullName: NationStates.NET.Faction.Info
+  nameWithType: Faction.Info
+- uid: NationStates.NET.Faction.Info*
+  name: Info
+  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Info_
+  commentId: Overload:NationStates.NET.Faction.Info
   isSpec: "True"
-  fullName: NationStates.NET.Faction.Incoming
-  nameWithType: Faction.Incoming
-- uid: NationStates.NET.Faction.Launches
-  name: Launches
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Launches
-  commentId: P:NationStates.NET.Faction.Launches
-  fullName: NationStates.NET.Faction.Launches
-  nameWithType: Faction.Launches
-- uid: NationStates.NET.Faction.Launches*
-  name: Launches
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Launches_
-  commentId: Overload:NationStates.NET.Faction.Launches
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Launches
-  nameWithType: Faction.Launches
+  fullName: NationStates.NET.Faction.Info
+  nameWithType: Faction.Info
 - uid: NationStates.NET.Faction.Name
   name: Name
   href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Name
@@ -2349,45 +2336,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Faction.Name
   nameWithType: Faction.Name
-- uid: NationStates.NET.Faction.Nukes
-  name: Nukes
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Nukes
-  commentId: P:NationStates.NET.Faction.Nukes
-  fullName: NationStates.NET.Faction.Nukes
-  nameWithType: Faction.Nukes
-- uid: NationStates.NET.Faction.Nukes*
-  name: Nukes
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Nukes_
-  commentId: Overload:NationStates.NET.Faction.Nukes
+- uid: NationStates.NET.Faction.Nations
+  name: Nations
+  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Nations
+  commentId: P:NationStates.NET.Faction.Nations
+  fullName: NationStates.NET.Faction.Nations
+  nameWithType: Faction.Nations
+- uid: NationStates.NET.Faction.Nations*
+  name: Nations
+  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Nations_
+  commentId: Overload:NationStates.NET.Faction.Nations
   isSpec: "True"
-  fullName: NationStates.NET.Faction.Nukes
-  nameWithType: Faction.Nukes
-- uid: NationStates.NET.Faction.Production
-  name: Production
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Production
-  commentId: P:NationStates.NET.Faction.Production
-  fullName: NationStates.NET.Faction.Production
-  nameWithType: Faction.Production
-- uid: NationStates.NET.Faction.Production*
-  name: Production
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Production_
-  commentId: Overload:NationStates.NET.Faction.Production
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Production
-  nameWithType: Faction.Production
-- uid: NationStates.NET.Faction.Radiation
-  name: Radiation
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Radiation
-  commentId: P:NationStates.NET.Faction.Radiation
-  fullName: NationStates.NET.Faction.Radiation
-  nameWithType: Faction.Radiation
-- uid: NationStates.NET.Faction.Radiation*
-  name: Radiation
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Radiation_
-  commentId: Overload:NationStates.NET.Faction.Radiation
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Radiation
-  nameWithType: Faction.Radiation
+  fullName: NationStates.NET.Faction.Nations
+  nameWithType: Faction.Nations
 - uid: NationStates.NET.Faction.Region
   name: Region
   href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Region
@@ -2414,58 +2375,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Faction.Score
   nameWithType: Faction.Score
-- uid: NationStates.NET.Faction.Shields
-  name: Shields
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Shields
-  commentId: P:NationStates.NET.Faction.Shields
-  fullName: NationStates.NET.Faction.Shields
-  nameWithType: Faction.Shields
-- uid: NationStates.NET.Faction.Shields*
-  name: Shields
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Shields_
-  commentId: Overload:NationStates.NET.Faction.Shields
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Shields
-  nameWithType: Faction.Shields
-- uid: NationStates.NET.Faction.Strikes
-  name: Strikes
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Strikes
-  commentId: P:NationStates.NET.Faction.Strikes
-  fullName: NationStates.NET.Faction.Strikes
-  nameWithType: Faction.Strikes
-- uid: NationStates.NET.Faction.Strikes*
-  name: Strikes
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Strikes_
-  commentId: Overload:NationStates.NET.Faction.Strikes
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Strikes
-  nameWithType: Faction.Strikes
-- uid: NationStates.NET.Faction.Targeted
-  name: Targeted
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Targeted
-  commentId: P:NationStates.NET.Faction.Targeted
-  fullName: NationStates.NET.Faction.Targeted
-  nameWithType: Faction.Targeted
-- uid: NationStates.NET.Faction.Targeted*
-  name: Targeted
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Targeted_
-  commentId: Overload:NationStates.NET.Faction.Targeted
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Targeted
-  nameWithType: Faction.Targeted
-- uid: NationStates.NET.Faction.Targets
-  name: Targets
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Targets
-  commentId: P:NationStates.NET.Faction.Targets
-  fullName: NationStates.NET.Faction.Targets
-  nameWithType: Faction.Targets
-- uid: NationStates.NET.Faction.Targets*
-  name: Targets
-  href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_Targets_
-  commentId: Overload:NationStates.NET.Faction.Targets
-  isSpec: "True"
-  fullName: NationStates.NET.Faction.Targets
-  nameWithType: Faction.Targets
 - uid: NationStates.NET.Faction.ToString
   name: ToString()
   href: api/NationStates.NET.Faction.html#NationStates_NET_Faction_ToString
@@ -4248,19 +4157,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Name
   nameWithType: Nation.Name
-- uid: NationStates.NET.Nation.Notable
-  name: Notable
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notable
-  commentId: P:NationStates.NET.Nation.Notable
-  fullName: NationStates.NET.Nation.Notable
-  nameWithType: Nation.Notable
-- uid: NationStates.NET.Nation.Notable*
-  name: Notable
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notable_
-  commentId: Overload:NationStates.NET.Nation.Notable
-  isSpec: "True"
-  fullName: NationStates.NET.Nation.Notable
-  nameWithType: Nation.Notable
 - uid: NationStates.NET.Nation.Notables
   name: Notables
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notables
@@ -4274,6 +4170,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Notables
   nameWithType: Nation.Notables
+- uid: NationStates.NET.Nation.Nuke
+  name: Nuke
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Nuke
+  commentId: P:NationStates.NET.Nation.Nuke
+  fullName: NationStates.NET.Nation.Nuke
+  nameWithType: Nation.Nuke
+- uid: NationStates.NET.Nation.Nuke*
+  name: Nuke
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Nuke_
+  commentId: Overload:NationStates.NET.Nation.Nuke
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Nuke
+  nameWithType: Nation.Nuke
 - uid: NationStates.NET.Nation.NumberOfCards
   name: NumberOfCards
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NumberOfCards
@@ -4695,6 +4604,239 @@ references:
   commentId: F:NationStates.NET.NationCategory.Tyranny_By_Majority
   fullName: NationStates.NET.NationCategory.Tyranny_By_Majority
   nameWithType: NationCategory.Tyranny_By_Majority
+- uid: NationStates.NET.NDay
+  name: NDay
+  href: api/NationStates.NET.NDay.html
+  commentId: T:NationStates.NET.NDay
+  fullName: NationStates.NET.NDay
+  nameWithType: NDay
+- uid: NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64)
+  name: NDay(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay__ctor_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_System_Int64_
+  commentId: M:NationStates.NET.NDay.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64)
+  fullName: NationStates.NET.NDay.NDay(System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64)
+  nameWithType: NDay.NDay(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+- uid: NationStates.NET.NDay.#ctor*
+  name: NDay
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay__ctor_
+  commentId: Overload:NationStates.NET.NDay.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.NDay
+  nameWithType: NDay.NDay
+- uid: NationStates.NET.NDay.Incoming
+  name: Incoming
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Incoming
+  commentId: P:NationStates.NET.NDay.Incoming
+  fullName: NationStates.NET.NDay.Incoming
+  nameWithType: NDay.Incoming
+- uid: NationStates.NET.NDay.Incoming*
+  name: Incoming
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Incoming_
+  commentId: Overload:NationStates.NET.NDay.Incoming
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Incoming
+  nameWithType: NDay.Incoming
+- uid: NationStates.NET.NDay.Intercepts
+  name: Intercepts
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Intercepts
+  commentId: P:NationStates.NET.NDay.Intercepts
+  fullName: NationStates.NET.NDay.Intercepts
+  nameWithType: NDay.Intercepts
+- uid: NationStates.NET.NDay.Intercepts*
+  name: Intercepts
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Intercepts_
+  commentId: Overload:NationStates.NET.NDay.Intercepts
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Intercepts
+  nameWithType: NDay.Intercepts
+- uid: NationStates.NET.NDay.Launches
+  name: Launches
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Launches
+  commentId: P:NationStates.NET.NDay.Launches
+  fullName: NationStates.NET.NDay.Launches
+  nameWithType: NDay.Launches
+- uid: NationStates.NET.NDay.Launches*
+  name: Launches
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Launches_
+  commentId: Overload:NationStates.NET.NDay.Launches
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Launches
+  nameWithType: NDay.Launches
+- uid: NationStates.NET.NDay.Nukes
+  name: Nukes
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Nukes
+  commentId: P:NationStates.NET.NDay.Nukes
+  fullName: NationStates.NET.NDay.Nukes
+  nameWithType: NDay.Nukes
+- uid: NationStates.NET.NDay.Nukes*
+  name: Nukes
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Nukes_
+  commentId: Overload:NationStates.NET.NDay.Nukes
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Nukes
+  nameWithType: NDay.Nukes
+- uid: NationStates.NET.NDay.Production
+  name: Production
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Production
+  commentId: P:NationStates.NET.NDay.Production
+  fullName: NationStates.NET.NDay.Production
+  nameWithType: NDay.Production
+- uid: NationStates.NET.NDay.Production*
+  name: Production
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Production_
+  commentId: Overload:NationStates.NET.NDay.Production
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Production
+  nameWithType: NDay.Production
+- uid: NationStates.NET.NDay.Radiation
+  name: Radiation
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Radiation
+  commentId: P:NationStates.NET.NDay.Radiation
+  fullName: NationStates.NET.NDay.Radiation
+  nameWithType: NDay.Radiation
+- uid: NationStates.NET.NDay.Radiation*
+  name: Radiation
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Radiation_
+  commentId: Overload:NationStates.NET.NDay.Radiation
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Radiation
+  nameWithType: NDay.Radiation
+- uid: NationStates.NET.NDay.Shields
+  name: Shields
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Shields
+  commentId: P:NationStates.NET.NDay.Shields
+  fullName: NationStates.NET.NDay.Shields
+  nameWithType: NDay.Shields
+- uid: NationStates.NET.NDay.Shields*
+  name: Shields
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Shields_
+  commentId: Overload:NationStates.NET.NDay.Shields
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Shields
+  nameWithType: NDay.Shields
+- uid: NationStates.NET.NDay.Strikes
+  name: Strikes
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Strikes
+  commentId: P:NationStates.NET.NDay.Strikes
+  fullName: NationStates.NET.NDay.Strikes
+  nameWithType: NDay.Strikes
+- uid: NationStates.NET.NDay.Strikes*
+  name: Strikes
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Strikes_
+  commentId: Overload:NationStates.NET.NDay.Strikes
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Strikes
+  nameWithType: NDay.Strikes
+- uid: NationStates.NET.NDay.Targeted
+  name: Targeted
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Targeted
+  commentId: P:NationStates.NET.NDay.Targeted
+  fullName: NationStates.NET.NDay.Targeted
+  nameWithType: NDay.Targeted
+- uid: NationStates.NET.NDay.Targeted*
+  name: Targeted
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Targeted_
+  commentId: Overload:NationStates.NET.NDay.Targeted
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Targeted
+  nameWithType: NDay.Targeted
+- uid: NationStates.NET.NDay.Targets
+  name: Targets
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Targets
+  commentId: P:NationStates.NET.NDay.Targets
+  fullName: NationStates.NET.NDay.Targets
+  nameWithType: NDay.Targets
+- uid: NationStates.NET.NDay.Targets*
+  name: Targets
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_Targets_
+  commentId: Overload:NationStates.NET.NDay.Targets
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.Targets
+  nameWithType: NDay.Targets
+- uid: NationStates.NET.NDay.ToString
+  name: ToString()
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_ToString
+  commentId: M:NationStates.NET.NDay.ToString
+  fullName: NationStates.NET.NDay.ToString()
+  nameWithType: NDay.ToString()
+- uid: NationStates.NET.NDay.ToString*
+  name: ToString
+  href: api/NationStates.NET.NDay.html#NationStates_NET_NDay_ToString_
+  commentId: Overload:NationStates.NET.NDay.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.NDay.ToString
+  nameWithType: NDay.ToString
+- uid: NationStates.NET.NDayNation
+  name: NDayNation
+  href: api/NationStates.NET.NDayNation.html
+  commentId: T:NationStates.NET.NDayNation
+  fullName: NationStates.NET.NDayNation
+  nameWithType: NDayNation
+- uid: NationStates.NET.NDayNation.#ctor(NationStates.NET.NDay,System.String,NationStates.NET.Specialty)
+  name: NDayNation(NDay, String, Specialty)
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation__ctor_NationStates_NET_NDay_System_String_NationStates_NET_Specialty_
+  commentId: M:NationStates.NET.NDayNation.#ctor(NationStates.NET.NDay,System.String,NationStates.NET.Specialty)
+  fullName: NationStates.NET.NDayNation.NDayNation(NationStates.NET.NDay, System.String, NationStates.NET.Specialty)
+  nameWithType: NDayNation.NDayNation(NDay, String, Specialty)
+- uid: NationStates.NET.NDayNation.#ctor*
+  name: NDayNation
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation__ctor_
+  commentId: Overload:NationStates.NET.NDayNation.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.NDayNation.NDayNation
+  nameWithType: NDayNation.NDayNation
+- uid: NationStates.NET.NDayNation.Faction
+  name: Faction
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Faction
+  commentId: P:NationStates.NET.NDayNation.Faction
+  fullName: NationStates.NET.NDayNation.Faction
+  nameWithType: NDayNation.Faction
+- uid: NationStates.NET.NDayNation.Faction*
+  name: Faction
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Faction_
+  commentId: Overload:NationStates.NET.NDayNation.Faction
+  isSpec: "True"
+  fullName: NationStates.NET.NDayNation.Faction
+  nameWithType: NDayNation.Faction
+- uid: NationStates.NET.NDayNation.Specialty
+  name: Specialty
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Specialty
+  commentId: P:NationStates.NET.NDayNation.Specialty
+  fullName: NationStates.NET.NDayNation.Specialty
+  nameWithType: NDayNation.Specialty
+- uid: NationStates.NET.NDayNation.Specialty*
+  name: Specialty
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Specialty_
+  commentId: Overload:NationStates.NET.NDayNation.Specialty
+  isSpec: "True"
+  fullName: NationStates.NET.NDayNation.Specialty
+  nameWithType: NDayNation.Specialty
+- uid: NationStates.NET.NDayNation.Stats
+  name: Stats
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Stats
+  commentId: P:NationStates.NET.NDayNation.Stats
+  fullName: NationStates.NET.NDayNation.Stats
+  nameWithType: NDayNation.Stats
+- uid: NationStates.NET.NDayNation.Stats*
+  name: Stats
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_Stats_
+  commentId: Overload:NationStates.NET.NDayNation.Stats
+  isSpec: "True"
+  fullName: NationStates.NET.NDayNation.Stats
+  nameWithType: NDayNation.Stats
+- uid: NationStates.NET.NDayNation.ToString
+  name: ToString()
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_ToString
+  commentId: M:NationStates.NET.NDayNation.ToString
+  fullName: NationStates.NET.NDayNation.ToString()
+  nameWithType: NDayNation.ToString()
+- uid: NationStates.NET.NDayNation.ToString*
+  name: ToString
+  href: api/NationStates.NET.NDayNation.html#NationStates_NET_NDayNation_ToString_
+  commentId: Overload:NationStates.NET.NDayNation.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.NDayNation.ToString
+  nameWithType: NDayNation.ToString
 - uid: NationStates.NET.NSError
   name: NSError
   href: api/NationStates.NET.NSError.html
@@ -7450,6 +7592,36 @@ references:
   commentId: F:NationStates.NET.SectorType.Public
   fullName: NationStates.NET.SectorType.Public
   nameWithType: SectorType.Public
+- uid: NationStates.NET.Specialty
+  name: Specialty
+  href: api/NationStates.NET.Specialty.html
+  commentId: T:NationStates.NET.Specialty
+  fullName: NationStates.NET.Specialty
+  nameWithType: Specialty
+- uid: NationStates.NET.Specialty.Economic
+  name: Economic
+  href: api/NationStates.NET.Specialty.html#NationStates_NET_Specialty_Economic
+  commentId: F:NationStates.NET.Specialty.Economic
+  fullName: NationStates.NET.Specialty.Economic
+  nameWithType: Specialty.Economic
+- uid: NationStates.NET.Specialty.Intel
+  name: Intel
+  href: api/NationStates.NET.Specialty.html#NationStates_NET_Specialty_Intel
+  commentId: F:NationStates.NET.Specialty.Intel
+  fullName: NationStates.NET.Specialty.Intel
+  nameWithType: Specialty.Intel
+- uid: NationStates.NET.Specialty.Military
+  name: Military
+  href: api/NationStates.NET.Specialty.html#NationStates_NET_Specialty_Military
+  commentId: F:NationStates.NET.Specialty.Military
+  fullName: NationStates.NET.Specialty.Military
+  nameWithType: Specialty.Military
+- uid: NationStates.NET.Specialty.Strategic
+  name: Strategic
+  href: api/NationStates.NET.Specialty.html#NationStates_NET_Specialty_Strategic
+  commentId: F:NationStates.NET.Specialty.Strategic
+  fullName: NationStates.NET.Specialty.Strategic
+  nameWithType: Specialty.Strategic
 - uid: NationStates.NET.TelegramQueue
   name: TelegramQueue
   href: api/NationStates.NET.TelegramQueue.html
@@ -7848,19 +8020,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseAuthority
   nameWithType: Utility.ParseAuthority
-- uid: NationStates.NET.Utility.ParseDocument(System.String)
-  name: ParseDocument(String)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseDocument_System_String_
-  commentId: M:NationStates.NET.Utility.ParseDocument(System.String)
-  fullName: NationStates.NET.Utility.ParseDocument(System.String)
-  nameWithType: Utility.ParseDocument(String)
-- uid: NationStates.NET.Utility.ParseDocument*
-  name: ParseDocument
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseDocument_
-  commentId: Overload:NationStates.NET.Utility.ParseDocument
-  isSpec: "True"
-  fullName: NationStates.NET.Utility.ParseDocument
-  nameWithType: Utility.ParseDocument
 - uid: NationStates.NET.Utility.ParseEnum(System.Type,System.String)
   name: ParseEnum(Type, String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseEnum_System_Type_System_String_
@@ -7887,6 +8046,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseEvents
   nameWithType: Utility.ParseEvents
+- uid: NationStates.NET.Utility.ParseHTMLDocument(System.String)
+  name: ParseHTMLDocument(String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseHTMLDocument_System_String_
+  commentId: M:NationStates.NET.Utility.ParseHTMLDocument(System.String)
+  fullName: NationStates.NET.Utility.ParseHTMLDocument(System.String)
+  nameWithType: Utility.ParseHTMLDocument(String)
+- uid: NationStates.NET.Utility.ParseHTMLDocument*
+  name: ParseHTMLDocument
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseHTMLDocument_
+  commentId: Overload:NationStates.NET.Utility.ParseHTMLDocument
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.ParseHTMLDocument
+  nameWithType: Utility.ParseHTMLDocument
 - uid: NationStates.NET.Utility.ParseUnix(System.String)
   name: ParseUnix(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseUnix_System_String_
@@ -7926,6 +8098,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseWASubCategory
   nameWithType: Utility.ParseWASubCategory
+- uid: NationStates.NET.Utility.ParseXMLDocument(System.String)
+  name: ParseXMLDocument(String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_System_String_
+  commentId: M:NationStates.NET.Utility.ParseXMLDocument(System.String)
+  fullName: NationStates.NET.Utility.ParseXMLDocument(System.String)
+  nameWithType: Utility.ParseXMLDocument(String)
+- uid: NationStates.NET.Utility.ParseXMLDocument*
+  name: ParseXMLDocument
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_
+  commentId: Overload:NationStates.NET.Utility.ParseXMLDocument
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.ParseXMLDocument
+  nameWithType: Utility.ParseXMLDocument
 - uid: NationStates.NET.Utility.Serialize(System.Object)
   name: Serialize(Object)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_Serialize_System_Object_
@@ -8380,6 +8565,151 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.WorldAssembly.Proposals
   nameWithType: WorldAssembly.Proposals
+- uid: NationStates.NET.ZDay
+  name: ZDay
+  href: api/NationStates.NET.ZDay.html
+  commentId: T:NationStates.NET.ZDay
+  fullName: NationStates.NET.ZDay
+  nameWithType: ZDay
+- uid: NationStates.NET.ZDay.#ctor(System.Int64,System.Int64,System.Int64)
+  name: ZDay(Int64, Int64, Int64)
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay__ctor_System_Int64_System_Int64_System_Int64_
+  commentId: M:NationStates.NET.ZDay.#ctor(System.Int64,System.Int64,System.Int64)
+  fullName: NationStates.NET.ZDay.ZDay(System.Int64, System.Int64, System.Int64)
+  nameWithType: ZDay.ZDay(Int64, Int64, Int64)
+- uid: NationStates.NET.ZDay.#ctor*
+  name: ZDay
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay__ctor_
+  commentId: Overload:NationStates.NET.ZDay.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.ZDay.ZDay
+  nameWithType: ZDay.ZDay
+- uid: NationStates.NET.ZDay.Dead
+  name: Dead
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Dead
+  commentId: P:NationStates.NET.ZDay.Dead
+  fullName: NationStates.NET.ZDay.Dead
+  nameWithType: ZDay.Dead
+- uid: NationStates.NET.ZDay.Dead*
+  name: Dead
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Dead_
+  commentId: Overload:NationStates.NET.ZDay.Dead
+  isSpec: "True"
+  fullName: NationStates.NET.ZDay.Dead
+  nameWithType: ZDay.Dead
+- uid: NationStates.NET.ZDay.Survivors
+  name: Survivors
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Survivors
+  commentId: P:NationStates.NET.ZDay.Survivors
+  fullName: NationStates.NET.ZDay.Survivors
+  nameWithType: ZDay.Survivors
+- uid: NationStates.NET.ZDay.Survivors*
+  name: Survivors
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Survivors_
+  commentId: Overload:NationStates.NET.ZDay.Survivors
+  isSpec: "True"
+  fullName: NationStates.NET.ZDay.Survivors
+  nameWithType: ZDay.Survivors
+- uid: NationStates.NET.ZDay.ToString
+  name: ToString()
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_ToString
+  commentId: M:NationStates.NET.ZDay.ToString
+  fullName: NationStates.NET.ZDay.ToString()
+  nameWithType: ZDay.ToString()
+- uid: NationStates.NET.ZDay.ToString*
+  name: ToString
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_ToString_
+  commentId: Overload:NationStates.NET.ZDay.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.ZDay.ToString
+  nameWithType: ZDay.ToString
+- uid: NationStates.NET.ZDay.Zombies
+  name: Zombies
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Zombies
+  commentId: P:NationStates.NET.ZDay.Zombies
+  fullName: NationStates.NET.ZDay.Zombies
+  nameWithType: ZDay.Zombies
+- uid: NationStates.NET.ZDay.Zombies*
+  name: Zombies
+  href: api/NationStates.NET.ZDay.html#NationStates_NET_ZDay_Zombies_
+  commentId: Overload:NationStates.NET.ZDay.Zombies
+  isSpec: "True"
+  fullName: NationStates.NET.ZDay.Zombies
+  nameWithType: ZDay.Zombies
+- uid: NationStates.NET.ZDayNation
+  name: ZDayNation
+  href: api/NationStates.NET.ZDayNation.html
+  commentId: T:NationStates.NET.ZDayNation
+  fullName: NationStates.NET.ZDayNation
+  nameWithType: ZDayNation
+- uid: NationStates.NET.ZDayNation.#ctor(NationStates.NET.ZombieAction,System.Nullable{NationStates.NET.ZombieAction},System.Int64,System.Int64,System.Int64)
+  name: ZDayNation(ZombieAction, Nullable<ZombieAction>, Int64, Int64, Int64)
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation__ctor_NationStates_NET_ZombieAction_System_Nullable_NationStates_NET_ZombieAction__System_Int64_System_Int64_System_Int64_
+  commentId: M:NationStates.NET.ZDayNation.#ctor(NationStates.NET.ZombieAction,System.Nullable{NationStates.NET.ZombieAction},System.Int64,System.Int64,System.Int64)
+  name.vb: ZDayNation(ZombieAction, Nullable(Of ZombieAction), Int64, Int64, Int64)
+  fullName: NationStates.NET.ZDayNation.ZDayNation(NationStates.NET.ZombieAction, System.Nullable<NationStates.NET.ZombieAction>, System.Int64, System.Int64, System.Int64)
+  fullName.vb: NationStates.NET.ZDayNation.ZDayNation(NationStates.NET.ZombieAction, System.Nullable(Of NationStates.NET.ZombieAction), System.Int64, System.Int64, System.Int64)
+  nameWithType: ZDayNation.ZDayNation(ZombieAction, Nullable<ZombieAction>, Int64, Int64, Int64)
+  nameWithType.vb: ZDayNation.ZDayNation(ZombieAction, Nullable(Of ZombieAction), Int64, Int64, Int64)
+- uid: NationStates.NET.ZDayNation.#ctor*
+  name: ZDayNation
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation__ctor_
+  commentId: Overload:NationStates.NET.ZDayNation.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayNation.ZDayNation
+  nameWithType: ZDayNation.ZDayNation
+- uid: NationStates.NET.ZDayNation.Action
+  name: Action
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_Action
+  commentId: P:NationStates.NET.ZDayNation.Action
+  fullName: NationStates.NET.ZDayNation.Action
+  nameWithType: ZDayNation.Action
+- uid: NationStates.NET.ZDayNation.Action*
+  name: Action
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_Action_
+  commentId: Overload:NationStates.NET.ZDayNation.Action
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayNation.Action
+  nameWithType: ZDayNation.Action
+- uid: NationStates.NET.ZDayNation.IntendedAction
+  name: IntendedAction
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_IntendedAction
+  commentId: P:NationStates.NET.ZDayNation.IntendedAction
+  fullName: NationStates.NET.ZDayNation.IntendedAction
+  nameWithType: ZDayNation.IntendedAction
+- uid: NationStates.NET.ZDayNation.IntendedAction*
+  name: IntendedAction
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_IntendedAction_
+  commentId: Overload:NationStates.NET.ZDayNation.IntendedAction
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayNation.IntendedAction
+  nameWithType: ZDayNation.IntendedAction
+- uid: NationStates.NET.ZDayNation.Stats
+  name: Stats
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_Stats
+  commentId: P:NationStates.NET.ZDayNation.Stats
+  fullName: NationStates.NET.ZDayNation.Stats
+  nameWithType: ZDayNation.Stats
+- uid: NationStates.NET.ZDayNation.Stats*
+  name: Stats
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_Stats_
+  commentId: Overload:NationStates.NET.ZDayNation.Stats
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayNation.Stats
+  nameWithType: ZDayNation.Stats
+- uid: NationStates.NET.ZDayNation.ToString
+  name: ToString()
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_ToString
+  commentId: M:NationStates.NET.ZDayNation.ToString
+  fullName: NationStates.NET.ZDayNation.ToString()
+  nameWithType: ZDayNation.ToString()
+- uid: NationStates.NET.ZDayNation.ToString*
+  name: ToString
+  href: api/NationStates.NET.ZDayNation.html#NationStates_NET_ZDayNation_ToString_
+  commentId: Overload:NationStates.NET.ZDayNation.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayNation.ToString
+  nameWithType: ZDayNation.ToString
 - uid: NationStates.NET.ZombieAction
   name: ZombieAction
   href: api/NationStates.NET.ZombieAction.html
@@ -8404,148 +8734,3 @@ references:
   commentId: F:NationStates.NET.ZombieAction.Research
   fullName: NationStates.NET.ZombieAction.Research
   nameWithType: ZombieAction.Research
-- uid: NationStates.NET.ZombieNation
-  name: ZombieNation
-  href: api/NationStates.NET.ZombieNation.html
-  commentId: T:NationStates.NET.ZombieNation
-  fullName: NationStates.NET.ZombieNation
-  nameWithType: ZombieNation
-- uid: NationStates.NET.ZombieNation.#ctor(NationStates.NET.ZombieAction,System.Nullable{NationStates.NET.ZombieAction},System.Int64,System.Int64,System.Int64)
-  name: ZombieNation(ZombieAction, Nullable<ZombieAction>, Int64, Int64, Int64)
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation__ctor_NationStates_NET_ZombieAction_System_Nullable_NationStates_NET_ZombieAction__System_Int64_System_Int64_System_Int64_
-  commentId: M:NationStates.NET.ZombieNation.#ctor(NationStates.NET.ZombieAction,System.Nullable{NationStates.NET.ZombieAction},System.Int64,System.Int64,System.Int64)
-  name.vb: ZombieNation(ZombieAction, Nullable(Of ZombieAction), Int64, Int64, Int64)
-  fullName: NationStates.NET.ZombieNation.ZombieNation(NationStates.NET.ZombieAction, System.Nullable<NationStates.NET.ZombieAction>, System.Int64, System.Int64, System.Int64)
-  fullName.vb: NationStates.NET.ZombieNation.ZombieNation(NationStates.NET.ZombieAction, System.Nullable(Of NationStates.NET.ZombieAction), System.Int64, System.Int64, System.Int64)
-  nameWithType: ZombieNation.ZombieNation(ZombieAction, Nullable<ZombieAction>, Int64, Int64, Int64)
-  nameWithType.vb: ZombieNation.ZombieNation(ZombieAction, Nullable(Of ZombieAction), Int64, Int64, Int64)
-- uid: NationStates.NET.ZombieNation.#ctor*
-  name: ZombieNation
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation__ctor_
-  commentId: Overload:NationStates.NET.ZombieNation.#ctor
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.ZombieNation
-  nameWithType: ZombieNation.ZombieNation
-- uid: NationStates.NET.ZombieNation.Action
-  name: Action
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Action
-  commentId: P:NationStates.NET.ZombieNation.Action
-  fullName: NationStates.NET.ZombieNation.Action
-  nameWithType: ZombieNation.Action
-- uid: NationStates.NET.ZombieNation.Action*
-  name: Action
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Action_
-  commentId: Overload:NationStates.NET.ZombieNation.Action
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.Action
-  nameWithType: ZombieNation.Action
-- uid: NationStates.NET.ZombieNation.IntendedAction
-  name: IntendedAction
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_IntendedAction
-  commentId: P:NationStates.NET.ZombieNation.IntendedAction
-  fullName: NationStates.NET.ZombieNation.IntendedAction
-  nameWithType: ZombieNation.IntendedAction
-- uid: NationStates.NET.ZombieNation.IntendedAction*
-  name: IntendedAction
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_IntendedAction_
-  commentId: Overload:NationStates.NET.ZombieNation.IntendedAction
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.IntendedAction
-  nameWithType: ZombieNation.IntendedAction
-- uid: NationStates.NET.ZombieNation.Stats
-  name: Stats
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Stats
-  commentId: P:NationStates.NET.ZombieNation.Stats
-  fullName: NationStates.NET.ZombieNation.Stats
-  nameWithType: ZombieNation.Stats
-- uid: NationStates.NET.ZombieNation.Stats*
-  name: Stats
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_Stats_
-  commentId: Overload:NationStates.NET.ZombieNation.Stats
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.Stats
-  nameWithType: ZombieNation.Stats
-- uid: NationStates.NET.ZombieNation.ToString
-  name: ToString()
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_ToString
-  commentId: M:NationStates.NET.ZombieNation.ToString
-  fullName: NationStates.NET.ZombieNation.ToString()
-  nameWithType: ZombieNation.ToString()
-- uid: NationStates.NET.ZombieNation.ToString*
-  name: ToString
-  href: api/NationStates.NET.ZombieNation.html#NationStates_NET_ZombieNation_ToString_
-  commentId: Overload:NationStates.NET.ZombieNation.ToString
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieNation.ToString
-  nameWithType: ZombieNation.ToString
-- uid: NationStates.NET.ZombieStats
-  name: ZombieStats
-  href: api/NationStates.NET.ZombieStats.html
-  commentId: T:NationStates.NET.ZombieStats
-  fullName: NationStates.NET.ZombieStats
-  nameWithType: ZombieStats
-- uid: NationStates.NET.ZombieStats.#ctor(System.Int64,System.Int64,System.Int64)
-  name: ZombieStats(Int64, Int64, Int64)
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats__ctor_System_Int64_System_Int64_System_Int64_
-  commentId: M:NationStates.NET.ZombieStats.#ctor(System.Int64,System.Int64,System.Int64)
-  fullName: NationStates.NET.ZombieStats.ZombieStats(System.Int64, System.Int64, System.Int64)
-  nameWithType: ZombieStats.ZombieStats(Int64, Int64, Int64)
-- uid: NationStates.NET.ZombieStats.#ctor*
-  name: ZombieStats
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats__ctor_
-  commentId: Overload:NationStates.NET.ZombieStats.#ctor
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieStats.ZombieStats
-  nameWithType: ZombieStats.ZombieStats
-- uid: NationStates.NET.ZombieStats.Dead
-  name: Dead
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Dead
-  commentId: P:NationStates.NET.ZombieStats.Dead
-  fullName: NationStates.NET.ZombieStats.Dead
-  nameWithType: ZombieStats.Dead
-- uid: NationStates.NET.ZombieStats.Dead*
-  name: Dead
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Dead_
-  commentId: Overload:NationStates.NET.ZombieStats.Dead
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieStats.Dead
-  nameWithType: ZombieStats.Dead
-- uid: NationStates.NET.ZombieStats.Survivors
-  name: Survivors
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Survivors
-  commentId: P:NationStates.NET.ZombieStats.Survivors
-  fullName: NationStates.NET.ZombieStats.Survivors
-  nameWithType: ZombieStats.Survivors
-- uid: NationStates.NET.ZombieStats.Survivors*
-  name: Survivors
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Survivors_
-  commentId: Overload:NationStates.NET.ZombieStats.Survivors
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieStats.Survivors
-  nameWithType: ZombieStats.Survivors
-- uid: NationStates.NET.ZombieStats.ToString
-  name: ToString()
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_ToString
-  commentId: M:NationStates.NET.ZombieStats.ToString
-  fullName: NationStates.NET.ZombieStats.ToString()
-  nameWithType: ZombieStats.ToString()
-- uid: NationStates.NET.ZombieStats.ToString*
-  name: ToString
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_ToString_
-  commentId: Overload:NationStates.NET.ZombieStats.ToString
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieStats.ToString
-  nameWithType: ZombieStats.ToString
-- uid: NationStates.NET.ZombieStats.Zombies
-  name: Zombies
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Zombies
-  commentId: P:NationStates.NET.ZombieStats.Zombies
-  fullName: NationStates.NET.ZombieStats.Zombies
-  nameWithType: ZombieStats.Zombies
-- uid: NationStates.NET.ZombieStats.Zombies*
-  name: Zombies
-  href: api/NationStates.NET.ZombieStats.html#NationStates_NET_ZombieStats_Zombies_
-  commentId: Overload:NationStates.NET.ZombieStats.Zombies
-  isSpec: "True"
-  fullName: NationStates.NET.ZombieStats.Zombies
-  nameWithType: ZombieStats.Zombies
