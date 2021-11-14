@@ -427,7 +427,7 @@
         /// <param name="subCategory">The dispatch's sub-category.</param>
         /// <param name="sort">The sort to use.</param>
         /// <returns>A list of dispatches fulfilling the above criteria.</returns>
-        public static List<Dispatch> Disatches(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
+        public static List<Dispatch> Disatches(string? author = null, DispatchCategory? category = null, Enum? subCategory = null, DispatchSort? sort = null)
         {
             List<Dispatch> dispatches = new();
 
@@ -438,7 +438,7 @@
                 url += $"dispatchauthor={author.Replace(" ", "_")}";
             }
 
-            if (category != null)
+            if (category != null && subCategory != null)
             {
                 switch (category)
                 {
