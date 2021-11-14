@@ -492,43 +492,26 @@
         }
 
         /// <summary>
-        /// Gets fifty factions in order of their score.
+        /// Gets fifty factions in order of a N-Day property..
         /// </summary>
+        /// <param name="sort">The property to sort by.</param>
         /// <param name="page">The page to search. Each page contains fifty factions.</param>
         /// <returns>A list of fifty factions.</returns>
-        public static HashSet<FactionRank> FactionsByScore(int page = 1)
+        public static HashSet<FactionRank> FactionsByProperty(NDaySort sort, int page = 1)
         {
             HashSet<FactionRank> factions = new();
 
-            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions?start={page - 1}").SelectNodes("//table/tbody"))
+            string url;
+            if (sort == NDaySort.Score)
             {
-                foreach (HtmlNode row in node.SelectNodes("tr"))
-                {
-                    HtmlNodeCollection cells = row.SelectNodes("td");
-
-                    if (cells != null)
-                    {
-                        long id = long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty));
-                        long rank = long.Parse(cells[0].InnerText.Replace(".", string.Empty));
-
-                        factions.Add(new(id, rank));
-                    }
-                }
+                url = $"https://www.nationstates.net/page=factions?start={page - 1}";
+            }
+            else
+            {
+                url = $"https://www.nationstates.net/page=factions/view={sort.ToString().ToLower()}/start={page - 1}";
             }
 
-            return factions;
-        }
-
-        /// <summary>
-        /// Gets fifty factions in order of their number of nations.
-        /// </summary>
-        /// <param name="page">The page to search. Each page contains fifty factions.</param>
-        /// <returns>A list of fifty factions.</returns>
-        public static HashSet<FactionRank> FactionsByNations(int page = 1)
-        {
-            HashSet<FactionRank> factions = new();
-
-            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions/view=nations/start={page - 1}").SelectNodes("//table/tbody"))
+            foreach (HtmlNode node in ParseHTMLDocument(url).SelectNodes("//table/tbody"))
             {
                 foreach (HtmlNode row in node.SelectNodes("tr"))
                 {
