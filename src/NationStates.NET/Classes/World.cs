@@ -339,9 +339,9 @@
         /// <param name="id">The census ID.</param>
         /// <param name="start">The start rank.</param>
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static List<CensusRank> NationsByCensusScore(int id, long start)
+        public static HashSet<CensusRank> NationsByCensusScore(int id, long start)
         {
-            List<CensusRank> res = new();
+            HashSet<CensusRank> res = new();
 
             foreach (XmlNode nation in ParseXMLDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
@@ -501,6 +501,31 @@
             List<Faction> factions = new();
 
             foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions?start={page - 1}").SelectNodes("//table/tbody"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (cells != null)
+                    {
+                        factions.Add(new(long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty))));
+                    }
+                }
+            }
+
+            return factions;
+        }
+
+        /// <summary>
+        /// Gets fifty factions in order of their number of nations.
+        /// </summary>
+        /// <param name="page">The page to search. Each page contains fifty factions.</param>
+        /// <returns>A list of fifty factions.</returns>
+        public static List<Faction> FactionsByNations(int page = 1)
+        {
+            List<Faction> factions = new();
+
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions/view=nations/start={page - 1}").SelectNodes("//table/tbody"))
             {
                 foreach (HtmlNode row in node.SelectNodes("tr"))
                 {
