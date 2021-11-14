@@ -6,7 +6,7 @@
     /// <summary>
     /// Represents a card value rank.
     /// </summary>
-    public struct MarketValueRank
+    public struct CardRank
     {
         /// <summary>
         /// Gets the card's ID.
@@ -27,12 +27,12 @@
         public long Rank { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarketValueRank"/> struct.
+        /// Initializes a new instance of the <see cref="CardRank"/> struct.
         /// </summary>
         /// <param name="id">The card's ID.</param>
         /// <param name="season">The card's season.</param>
         /// <param name="rank">The card's rank.</param>
-        public MarketValueRank(long id, int season, long rank)
+        public CardRank(long id, int season, long rank)
         {
             this.ID = id;
             this.Season = season;
