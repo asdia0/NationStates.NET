@@ -88,7 +88,7 @@
             long radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
             long intercepts = long.Parse(htmlNode.SelectSingleNode(".//a[@title='Intercepts']").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
 
-            this.Info = new(this.Name, incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);
+            this.Info = new(incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);
         }
 
         /// <summary>
