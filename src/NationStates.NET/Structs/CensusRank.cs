@@ -38,7 +38,7 @@
         /// <param name="id">The census ID.</param>
         /// <param name="name">The nation's name.</param>
         /// <param name="score">The nation's score.</param>
-        /// <param name="rank">The nation's rank in the world.</param>
+        /// <param name="rank">The nation's rank.</param>
         public CensusRank(int id, string name, double score, long rank)
         {
             this.ID = id;
