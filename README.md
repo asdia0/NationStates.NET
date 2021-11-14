@@ -22,8 +22,8 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 #### Recurring minigames
 
-- [ ] N-Day [DOING]
-- [ ] Z-Day
+- [X] N-Day
+- [ ] Z-Day [DOING]
 
 ### Misc
 
