@@ -75,7 +75,7 @@
             this.Founded = ParseUnix(node.SelectSingleNode("FOUNDED").InnerText);
             this.Region = node.SelectSingleNode("REGION").InnerText;
             this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
-            this.Nations = long.Parse(htmlNode.SelectSingleNode("/html/body/div[3]/div/h2/a[2]").InnerText.Replace("NATIONS", string.Empty).Replace(",", string.Empty));
+            this.Nations = long.Parse(htmlNode.SelectSingleNode(".//a[@title='Nations']").InnerText.Replace("NATIONS", string.Empty).Replace(",", string.Empty));
 
             long production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             long nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
@@ -86,7 +86,7 @@
             long targeted = long.Parse(node.SelectSingleNode("TARGETED").InnerText);
             long strikes = long.Parse(node.SelectSingleNode("STRIKES").InnerText);
             long radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
-            long intercepts = long.Parse(htmlNode.SelectSingleNode("/html/body/div[3]/div/h2/a[8]").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
+            long intercepts = long.Parse(htmlNode.SelectSingleNode(".//a[@title='Intercepts']").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
 
             this.Info = new(incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);
         }
