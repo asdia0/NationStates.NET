@@ -269,7 +269,7 @@
         /// <param name="start">The starting rank of the first card.</param>
         /// <param name="rarity">The sole rarity to get. Set as `null` to get cards of any rarity.</param>
         /// <returns>A list of fifty cards.</returns>
-        public static HashSet<CardValueRank> CardValueRank(int start = 1, Rarity? rarity = null)
+        public static HashSet<CardValueRank> CardValueRanks(int start = 1, Rarity? rarity = null)
         {
             HashSet<CardValueRank> ranks = new();
 
@@ -390,7 +390,7 @@
         /// </summary>
         /// <param name="page">The page to search.</param>
         /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
-        public static HashSet<Challenge> ChallengeRank(int page = 1)
+        public static HashSet<Challenge> ChallengeRanks(int page = 1)
         {
             HashSet<Challenge> ranks = new();
 
@@ -427,7 +427,7 @@
         /// <param name="subCategory">The dispatch's sub-category.</param>
         /// <param name="sort">The sort to use.</param>
         /// <returns>A list of dispatches fulfilling the above criteria.</returns>
-        public static List<Dispatch> DispatchList(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
+        public static List<Dispatch> Disatches(string? author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)
         {
             List<Dispatch> dispatches = new();
 
