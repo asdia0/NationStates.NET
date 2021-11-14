@@ -269,9 +269,9 @@
         /// <param name="start">The starting rank of the first card.</param>
         /// <param name="rarity">The sole rarity to get. Set as `null` to get cards of any rarity.</param>
         /// <returns>A list of fifty cards.</returns>
-        public static HashSet<CardValueRank> CardsByMarketValue(int start = 1, Rarity? rarity = null)
+        public static HashSet<MarketValueRank> CardsByMarketValue(int start = 1, Rarity? rarity = null)
         {
-            HashSet<CardValueRank> ranks = new();
+            HashSet<MarketValueRank> ranks = new();
 
             bool firstDone = false;
 
