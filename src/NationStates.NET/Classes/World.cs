@@ -390,9 +390,9 @@
         /// </summary>
         /// <param name="page">The page to search.</param>
         /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
-        public static HashSet<ChallengeRank> ChallengeRank(int page = 1)
+        public static HashSet<Challenge> ChallengeRank(int page = 1)
         {
-            HashSet<ChallengeRank> ranks = new();
+            HashSet<Challenge> ranks = new();
 
             foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder={page}").SelectNodes("//table"))
             {

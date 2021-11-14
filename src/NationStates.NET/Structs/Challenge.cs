@@ -4,9 +4,9 @@
     using static Utility;
 
     /// <summary>
-    /// Represents a challenge rank.
+    /// Represents information about a nation's challenge statistics.
     /// </summary>
-    public struct ChallengeRank
+    public struct Challenge
     {
         /// <summary>
         /// Gets the nation's level.
@@ -57,7 +57,7 @@
         public long Wins { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChallengeRank"/> struct.
+        /// Initializes a new instance of the <see cref="Challenge"/> struct.
         /// </summary>
         /// <param name="rank">The nation's rank.</param>
         /// <param name="name">The nation's name.</param>
@@ -67,7 +67,7 @@
         /// <param name="losses">The number of times the nation has lost.</param>
         /// <param name="winRate">The nation's win-rate.</param>
         /// <param name="speciality">The nation's census speciality.</param>
-        public ChallengeRank(long rank, string name, int level, long score, long wins, long losses, double winRate, string speciality)
+        public Challenge(long rank, string name, int level, long score, long wins, long losses, double winRate, string speciality)
         {
             this.Rank = rank;
             this.Name = name;
