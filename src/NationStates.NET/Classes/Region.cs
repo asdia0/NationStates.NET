@@ -525,7 +525,7 @@
         /// Gets the region's Z-Day information.
         /// </summary>
         [JsonProperty]
-        public ZombieStats Zombie
+        public ZDay Zombie
         {
             get
             {
@@ -536,7 +536,7 @@
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
 
-                return new ZombieStats(survivors, zombies, dead);
+                return new ZDay(survivors, zombies, dead);
             }
         }
 

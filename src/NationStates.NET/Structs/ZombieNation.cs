@@ -24,7 +24,7 @@
         /// Gets the nation's stats.
         /// </summary>
         [JsonProperty]
-        public ZombieStats Stats { get; }
+        public ZDay Stats { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ZombieNation"/> struct.
