@@ -388,13 +388,13 @@
         /// <summary>
         /// Gets twenty nations in order of their challenge rankings.
         /// </summary>
-        /// <param name="page">The page to search. Each page contains twenty nations.</param>
+        /// <param name="start">The start rank.</param>
         /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
-        public static HashSet<Challenge> NationsByChallengeScore(int page = 1)
+        public static HashSet<Challenge> NationsByChallengeScore(long start = 1)
         {
             HashSet<Challenge> ranks = new();
 
-            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder={page}").SelectNodes("//table"))
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder=1/start={start - 1}").SelectNodes("//table"))
             {
                 foreach (HtmlNode row in node.SelectNodes("tr"))
                 {
@@ -489,6 +489,31 @@
             }
 
             return dispatches;
+        }
+
+        /// <summary>
+        /// Gets fifty factions in order of their score.
+        /// </summary>
+        /// <param name="page">The page to search. Each page contains fifty factions.</param>
+        /// <returns>A list of fifty factions.</returns>
+        public static List<Faction> FactionsByScore(int page = 1)
+        {
+            List<Faction> factions = new();
+
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions?start={page - 1}").SelectNodes("//table/tbody"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (cells != null)
+                    {
+                        factions.Add(new(long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty))));
+                    }
+                }
+            }
+
+            return factions;
         }
 
         /// <summary>
