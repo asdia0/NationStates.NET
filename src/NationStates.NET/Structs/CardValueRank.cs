@@ -9,10 +9,16 @@
     public struct CardValueRank
     {
         /// <summary>
-        /// Gets the card.
+        /// Gets the card's ID.
         /// </summary>
         [JsonProperty]
-        public Card Card { get; }
+        public int ID { get; }
+
+        /// <summary>
+        /// Gets the card's season.
+        /// </summary>
+        [JsonProperty]
+        public int Season { get; }
 
         /// <summary>
         /// Gets the card's rank.
@@ -23,11 +29,13 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="CardValueRank"/> struct.
         /// </summary>
-        /// <param name="card">The card.</param>
+        /// <param name="id">The card's ID.</param>
+        /// <param name="season">The card's season.</param>
         /// <param name="rank">The card's rank.</param>
-        public CardValueRank(Card card, long rank)
+        public CardValueRank(int id, int season, long rank)
         {
-            this.Card = card;
+            this.ID = id;
+            this.Season = season;
             this.Rank = rank;
         }
 
