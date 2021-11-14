@@ -1189,7 +1189,7 @@
         /// Gets the nation's Z-Day information.
         /// </summary>
         [JsonProperty]
-        public ZombieNation Zombie
+        public ZDayNation Zombie
         {
             get
             {
@@ -1202,7 +1202,7 @@
                 long zombies = long.Parse(node.SelectSingleNode("ZOMBIES").InnerText);
                 long dead = long.Parse(node.SelectSingleNode("DEAD").InnerText);
 
-                return new ZombieNation(action, intendedAction, survivors, zombies, dead);
+                return new ZDayNation(action, intendedAction, survivors, zombies, dead);
             }
         }
 
