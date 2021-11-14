@@ -77,7 +77,7 @@
             this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             this.Nations = long.Parse(htmlNode.SelectSingleNode(".//a[@title='Nations']").InnerText.Replace("NATIONS", string.Empty).Replace(",", string.Empty));
 
-            long production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            int production = int.Parse(node.SelectSingleNode("SCORE").InnerText);
             long nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
             long shields = long.Parse(node.SelectSingleNode("SHIELD").InnerText);
             long targets = long.Parse(node.SelectSingleNode("TARGETS").InnerText);
@@ -85,7 +85,7 @@
             long incoming = long.Parse(node.SelectSingleNode("INCOMING").InnerText);
             long targeted = long.Parse(node.SelectSingleNode("TARGETED").InnerText);
             long strikes = long.Parse(node.SelectSingleNode("STRIKES").InnerText);
-            long radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
+            int radiation = int.Parse(node.SelectSingleNode("RADIATION").InnerText);
             long intercepts = long.Parse(htmlNode.SelectSingleNode(".//a[@title='Intercepts']").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
 
             this.Info = new(incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);

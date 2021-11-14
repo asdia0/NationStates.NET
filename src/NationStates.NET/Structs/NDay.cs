@@ -36,13 +36,13 @@
         /// Gets the amount of production points the entity has in total.
         /// </summary>
         [JsonProperty]
-        public long Production { get; }
+        public int Production { get; }
 
         /// <summary>
         /// Gets the total number of radiation the entity has received.
         /// </summary>
         [JsonProperty]
-        public long Radiation { get; }
+        public int Radiation { get; }
 
         /// <summary>
         /// Gets the amount of shields the entity has in total.
@@ -81,7 +81,7 @@
         /// <param name="strikes">The total number of radiation imposed onto other entities.</param>
         /// <param name="targeted">The number of nukes targeted towards the entity.</param>
         /// <param name="targets">The amount of targets the entity has in total.</param>
-        public NDay(long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
+        public NDay(long incoming, long intercepts, long launches, long nukes, int production, int radiation, long shields, long strikes, long targeted, long targets)
         {
             this.Incoming = incoming;
             this.Intercepts = intercepts;

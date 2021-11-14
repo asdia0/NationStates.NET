@@ -923,8 +923,8 @@
                 long intercepts = long.Parse(node.SelectSingleNode(".//a[@title='Intercepts']").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
                 long launches = long.Parse(node.SelectSingleNode(".//a[@title='Launches']").InnerText.Replace("LAUNCHES", string.Empty).Replace(",", string.Empty));
                 long nukes = long.Parse(node.SelectSingleNode(".//a[@title='Nukes']").InnerText.Replace("NUKES", string.Empty).Replace(",", string.Empty));
-                long production = long.Parse(node.SelectSingleNode(".//a[@title='Production']").InnerText.Replace("PRODUCTION", string.Empty).Replace(",", string.Empty));
-                long radiation = long.Parse(node.SelectSingleNode(".//a[@title='Radiation']").InnerText.Replace("RADIATION", string.Empty).Replace("%", string.Empty));
+                int production = int.Parse(node.SelectSingleNode(".//a[@title='Production']").InnerText.Replace("PRODUCTION", string.Empty).Replace(",", string.Empty));
+                int radiation = int.Parse(node.SelectSingleNode(".//a[@title='Radiation']").InnerText.Replace("RADIATION", string.Empty).Replace("%", string.Empty));
                 long shields = long.Parse(node.SelectSingleNode(".//a[@title='Shield']").InnerText.Replace("SHIELD", string.Empty).Replace(",", string.Empty));
                 long strikes = long.Parse(node.SelectSingleNode(".//a[@title='Strikes']").InnerText.Replace("STRIKES", string.Empty).Replace(",", string.Empty));
                 long targeted = long.Parse(node.SelectSingleNode(".//a[@title='Targeted']").InnerText.Replace("TARGETED", string.Empty).Replace(",", string.Empty));
