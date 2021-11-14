@@ -339,9 +339,9 @@
         /// <param name="id">The census ID.</param>
         /// <param name="start">The start rank.</param>
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static List<CensusWorldRank> CensusRanks(int id, long start)
+        public static List<CensusRank> CensusRanks(int id, long start)
         {
-            List<CensusWorldRank> res = new();
+            List<CensusRank> res = new();
 
             foreach (XmlNode nation in ParseXMLDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
             {
@@ -355,7 +355,7 @@
                     .SelectSingleNode("RANK")
                     .InnerText);
 
-                res.Add(new CensusWorldRank(id, name, score, rank));
+                res.Add(new CensusRank(id, name, score, rank));
             }
 
             return res;

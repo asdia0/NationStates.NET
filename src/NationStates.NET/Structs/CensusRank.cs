@@ -4,9 +4,9 @@
     using static Utility;
 
     /// <summary>
-    /// Represents a world census record.
+    /// Represents a census rank.
     /// </summary>
-    public struct CensusWorldRank
+    public struct CensusRank
     {
         /// <summary>
         /// Gets the census ID.
@@ -33,13 +33,13 @@
         public double Score { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CensusWorldRank"/> struct.
+        /// Initializes a new instance of the <see cref="CensusRank"/> struct.
         /// </summary>
         /// <param name="id">The census ID.</param>
         /// <param name="name">The nation's name.</param>
         /// <param name="score">The nation's score.</param>
         /// <param name="rank">The nation's rank in the world.</param>
-        public CensusWorldRank(int id, string name, double score, long rank)
+        public CensusRank(int id, string name, double score, long rank)
         {
             this.ID = id;
             this.Name = name;
