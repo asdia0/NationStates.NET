@@ -496,9 +496,9 @@
         /// </summary>
         /// <param name="page">The page to search. Each page contains fifty factions.</param>
         /// <returns>A list of fifty factions.</returns>
-        public static List<Faction> FactionsByScore(int page = 1)
+        public static HashSet<FactionRank> FactionsByScore(int page = 1)
         {
-            List<Faction> factions = new();
+            HashSet<FactionRank> factions = new();
 
             foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions?start={page - 1}").SelectNodes("//table/tbody"))
             {
@@ -508,7 +508,10 @@
 
                     if (cells != null)
                     {
-                        factions.Add(new(long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty))));
+                        long id = long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty));
+                        long rank = long.Parse(cells[0].InnerText.Replace(".", string.Empty));
+
+                        factions.Add(new(id, rank));
                     }
                 }
             }
@@ -521,9 +524,9 @@
         /// </summary>
         /// <param name="page">The page to search. Each page contains fifty factions.</param>
         /// <returns>A list of fifty factions.</returns>
-        public static List<Faction> FactionsByNations(int page = 1)
+        public static HashSet<FactionRank> FactionsByNations(int page = 1)
         {
-            List<Faction> factions = new();
+            HashSet<FactionRank> factions = new();
 
             foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=factions/view=nations/start={page - 1}").SelectNodes("//table/tbody"))
             {
@@ -533,7 +536,10 @@
 
                     if (cells != null)
                     {
-                        factions.Add(new(long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty))));
+                        long id = long.Parse(cells[3].SelectSingleNode("./a").Attributes["href"].Value.Split("/")[2].Replace("fid=", string.Empty));
+                        long rank = long.Parse(cells[0].InnerText.Replace(".", string.Empty));
+
+                        factions.Add(new(id, rank));
                     }
                 }
             }
