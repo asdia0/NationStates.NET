@@ -12,7 +12,7 @@
         /// Gets the card's ID.
         /// </summary>
         [JsonProperty]
-        public int ID { get; }
+        public long ID { get; }
 
         /// <summary>
         /// Gets the card's season.
@@ -32,7 +32,7 @@
         /// <param name="id">The card's ID.</param>
         /// <param name="season">The card's season.</param>
         /// <param name="rank">The card's rank.</param>
-        public CardValueRank(int id, int season, long rank)
+        public CardValueRank(long id, int season, long rank)
         {
             this.ID = id;
             this.Season = season;
