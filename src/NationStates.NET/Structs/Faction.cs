@@ -33,7 +33,7 @@
         /// Gets information about the faction.
         /// </summary>
         [JsonProperty]
-        public NukeInfo Info { get; }
+        public NDay Info { get; }
 
         /// <summary>
         /// Gets the faction's name.
@@ -54,7 +54,7 @@
         public string Region { get; }
 
         /// <summary>
-        /// Gets the score of the faction (<see cref="NukeInfo.Strikes"/> - <see cref="NukeInfo.Radiation"/>).
+        /// Gets the score of the faction (<see cref="NDay.Strikes"/> - <see cref="NDay.Radiation"/>).
         /// </summary>
         [JsonProperty]
         public long Score { get; }

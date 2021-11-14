@@ -8,7 +8,7 @@
     /// <summary>
     /// Represents information about an entity during N-Day.
     /// </summary>
-    public struct NukeInfo
+    public struct NDay
     {
         /// <summary>
         /// Gets the current amount of nukes incoming towards the entity.
@@ -71,7 +71,7 @@
         public long Targets { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NukeInfo"/> struct.
+        /// Initializes a new instance of the <see cref="NDay"/> struct.
         /// </summary>
         /// <param name="incoming">The current amount of nukes incoming towards the entity.</param>
         /// <param name="intercepts">The number of nukes the entity has intercepted.</param>
@@ -83,7 +83,7 @@
         /// <param name="strikes">The total number of radiation imposed onto other entities.</param>
         /// <param name="targeted">The number of nukes targeted towards the entity.</param>
         /// <param name="targets">The amount of targets the entity has in total.</param>
-        public NukeInfo(long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
+        public NDay(long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
         {
             this.Incoming = incoming;
             this.Intercepts = intercepts;
