@@ -912,7 +912,7 @@
         /// Gets the nation's N-Day information.
         /// </summary>
         [JsonProperty]
-        public NDay Nuke
+        public NDayNation Nuke
         {
             get
             {
@@ -929,8 +929,8 @@
                 long strikes = long.Parse(node.SelectSingleNode(".//a[@title='Strikes']").InnerText.Replace("STRIKES", string.Empty).Replace(",", string.Empty));
                 long targeted = long.Parse(node.SelectSingleNode(".//a[@title='Targeted']").InnerText.Replace("TARGETED", string.Empty).Replace(",", string.Empty));
                 long targets = long.Parse(node.SelectSingleNode(".//a[@title='Targets']").InnerText.Replace("TARGETS", string.Empty).Replace(",", string.Empty));
-
-                return new(faction, incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);
+                Specialty specialty = ParseEnum(typeof(Specialty), node.SelectSingleNode(".//h1[@class='nukeh1']/span[@class='fancylike']").InnerText.Replace(" Specialist", string.Empty));
+                return new(new(incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets), faction, specialty);
             }
         }
 
