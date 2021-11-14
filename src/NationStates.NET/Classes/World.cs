@@ -388,7 +388,7 @@
         /// <summary>
         /// Gets twenty nations in order of their challenge rankings.
         /// </summary>
-        /// <param name="page">The page to search.</param>
+        /// <param name="page">The page to search. Each page contains twenty nations.</param>
         /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
         public static HashSet<Challenge> NationsByChallengeScore(int page = 1)
         {
