@@ -427,7 +427,7 @@
         /// <param name="subCategory">The dispatch's sub-category.</param>
         /// <param name="sort">The sort to use.</param>
         /// <returns>A list of dispatches fulfilling the above criteria.</returns>
-        public static List<Dispatch> Disatches(string? author = null, DispatchCategory? category = null, Enum? subCategory = null, DispatchSort? sort = null)
+        public static List<Dispatch> Dispatches(string? author = null, DispatchCategory? category = null, Enum? subCategory = null, DispatchSort? sort = null)
         {
             List<Dispatch> dispatches = new();
 
