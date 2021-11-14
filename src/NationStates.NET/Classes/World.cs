@@ -339,7 +339,7 @@
         /// <param name="id">The census ID.</param>
         /// <param name="start">The start rank.</param>
         /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static List<CensusRank> CensusByScore(int id, long start)
+        public static List<CensusRank> NationsByCensusScore(int id, long start)
         {
             List<CensusRank> res = new();
 
@@ -390,7 +390,7 @@
         /// </summary>
         /// <param name="page">The page to search.</param>
         /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
-        public static HashSet<Challenge> ChallengeByScore(int page = 1)
+        public static HashSet<Challenge> NationsByChallengeScore(int page = 1)
         {
             HashSet<Challenge> ranks = new();
 
