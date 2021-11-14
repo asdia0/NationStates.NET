@@ -135,6 +135,19 @@
         }
 
         /// <summary>
+        /// Parses an HTMl document from a webpage.
+        /// </summary>
+        /// <param name="path">The webpage to parse the HTML document from.</param>
+        /// <returns>An <see cref="HtmlNode"/>.</returns>
+        public static HtmlNode ParseHTMLDocument(string path)
+        {
+            string html = DownloadPage(path);
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+            return htmlDoc.DocumentNode;
+        }
+
+        /// <summary>
         /// Parses an enum from text.
         /// </summary>
         /// <param name="type">The type of enum to parse to.</param>
