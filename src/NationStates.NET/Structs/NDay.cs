@@ -71,8 +71,14 @@
         public long Targets { get; }
 
         /// <summary>
+        /// Gets the name of the entity/entity's faction.
+        /// </summary>
+        public string Faction { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="NDay"/> struct.
         /// </summary>
+        /// <param name="Faction">The name of the entity/entity's faction.</param>
         /// <param name="incoming">The current amount of nukes incoming towards the entity.</param>
         /// <param name="intercepts">The number of nukes the entity has intercepted.</param>
         /// <param name="launches">THe current amount of nukes launched by the entity.</param>
@@ -83,8 +89,9 @@
         /// <param name="strikes">The total number of radiation imposed onto other entities.</param>
         /// <param name="targeted">The number of nukes targeted towards the entity.</param>
         /// <param name="targets">The amount of targets the entity has in total.</param>
-        public NDay(long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
+        public NDay(string faction, long incoming, long intercepts, long launches, long nukes, long production, long radiation, long shields, long strikes, long targeted, long targets)
         {
+            this.Faction;
             this.Incoming = incoming;
             this.Intercepts = intercepts;
             this.Launches = launches;
