@@ -1,5 +1,6 @@
 ﻿namespace NationStates.NET
 {
+    using HtmlAgilityPack;
     using Newtonsoft.Json;
     using System;
     using System.Xml;
@@ -29,16 +30,10 @@
         public long ID { get; }
 
         /// <summary>
-        /// Gets the current amount of nukes incoming towards the faction.
+        /// Gets information about the faction.
         /// </summary>
         [JsonProperty]
-        public long Incoming { get; }
-
-        /// <summary>
-        /// Gets the current amount of nukes launched by the faction.
-        /// </summary>
-        [JsonProperty]
-        public long Launches { get; }
+        public NukeInfo Info { get; }
 
         /// <summary>
         /// Gets the faction's name.
@@ -47,22 +42,10 @@
         public string Name { get; }
 
         /// <summary>
-        /// Gets the amount of nukes the faction has in total.
+        /// Gets the number of nations in the faction.
         /// </summary>
         [JsonProperty]
-        public long Nukes { get; }
-
-        /// <summary>
-        /// Gets the amount of production points the faction has in total.
-        /// </summary>
-        [JsonProperty]
-        public long Production { get; }
-
-        /// <summary>
-        /// Gets the total number of radiation in the faction.
-        /// </summary>
-        [JsonProperty]
-        public long Radiation { get; }
+        public long Nations { get; }
 
         /// <summary>
         /// Gets the region that founded the faction.
@@ -71,34 +54,10 @@
         public string Region { get; }
 
         /// <summary>
-        /// Gets the score of the faction (<see cref="Strikes"/> - <see cref="Radiation"/>).
+        /// Gets the score of the faction (<see cref="NukeInfo.Strikes"/> - <see cref="NukeInfo.Radiation"/>).
         /// </summary>
         [JsonProperty]
         public long Score { get; }
-
-        /// <summary>
-        /// Gets the amount of shields the faction has in total.
-        /// </summary>
-        [JsonProperty]
-        public long Shields { get; }
-
-        /// <summary>
-        /// Gets the total number of radiation imposed onto other factions.
-        /// </summary>
-        [JsonProperty]
-        public long Strikes { get; }
-
-        /// <summary>
-        /// Gets the number of nukes targeted towards the faction.
-        /// </summary>
-        [JsonProperty]
-        public long Targeted { get; }
-
-        /// <summary>
-        /// Gets the amount of targets the faction has in total.
-        /// </summary>
-        [JsonProperty]
-        public long Targets { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Faction"/> struct.
@@ -108,6 +67,11 @@
         {
             this.ID = id;
 
+            string html = DownloadPage($"https://www.nationstates.net/page=faction/fid={id}");
+
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
             XmlNode node = ParseDocument($"q=faction;id={id}").SelectSingleNode("/WORLD/FACTION");
 
             this.Name = node.SelectSingleNode("NAME").InnerText;
@@ -115,15 +79,20 @@
             this.Founded = ParseUnix(node.SelectSingleNode("FOUNDED").InnerText);
             this.Region = node.SelectSingleNode("REGION").InnerText;
             this.Score = long.Parse(node.SelectSingleNode("SCORE").InnerText);
-            this.Production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
-            this.Nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
-            this.Shields = long.Parse(node.SelectSingleNode("SHIELD").InnerText);
-            this.Targets = long.Parse(node.SelectSingleNode("TARGETS").InnerText);
-            this.Launches = long.Parse(node.SelectSingleNode("LAUNCHES").InnerText);
-            this.Incoming = long.Parse(node.SelectSingleNode("INCOMING").InnerText);
-            this.Targeted = long.Parse(node.SelectSingleNode("TARGETED").InnerText);
-            this.Strikes = long.Parse(node.SelectSingleNode("STRIKES").InnerText);
-            this.Radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
+            this.Nations = long.Parse(htmlDoc.DocumentNode.SelectSingleNode("/html/body/div[3]/div/h2/a[2]").InnerText.Replace("NATIONS", string.Empty).Replace(",", string.Empty));
+
+            long production = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            long nukes = long.Parse(node.SelectSingleNode("SCORE").InnerText);
+            long shields = long.Parse(node.SelectSingleNode("SHIELD").InnerText);
+            long targets = long.Parse(node.SelectSingleNode("TARGETS").InnerText);
+            long launches = long.Parse(node.SelectSingleNode("LAUNCHES").InnerText);
+            long incoming = long.Parse(node.SelectSingleNode("INCOMING").InnerText);
+            long targeted = long.Parse(node.SelectSingleNode("TARGETED").InnerText);
+            long strikes = long.Parse(node.SelectSingleNode("STRIKES").InnerText);
+            long radiation = long.Parse(node.SelectSingleNode("RADIATION").InnerText);
+            long intercepts = long.Parse(htmlDoc.DocumentNode.SelectSingleNode("/html/body/div[3]/div/h2/a[8]").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
+
+            this.Info = new(incoming, intercepts, launches, nukes, production, radiation, shields, strikes, targeted, targets);
         }
 
         /// <summary>
