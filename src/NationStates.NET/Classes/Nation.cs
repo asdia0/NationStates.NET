@@ -886,20 +886,6 @@
         }
 
         /// <summary>
-        /// Gets one the nation's notable characteristic.
-        /// </summary>
-        [JsonProperty]
-        public string Notable
-        {
-            get
-            {
-                return ParseXMLDocument($"nation={this.Name}&q=notable")
-                    .SelectSingleNode("/NATION/NOTABLE")
-                    .InnerText;
-            }
-        }
-
-        /// <summary>
         /// Gets a list of the nation's notable characteristics.
         /// </summary>
         [JsonProperty]
