@@ -490,6 +490,62 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CardsByMarketValue_System_Int32_System_Nullable_NationStates_NET_Rarity__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CardsByMarketValue(System.Int32%2CSystem.Nullable%7BNationStates.NET.Rarity%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L272">View Source</a>
+  </span>
+  <a id="NationStates_NET_World_CardsByMarketValue_" data-uid="NationStates.NET.World.CardsByMarketValue*"></a>
+  <h4 id="NationStates_NET_World_CardsByMarketValue_System_Int32_System_Nullable_NationStates_NET_Rarity__" data-uid="NationStates.NET.World.CardsByMarketValue(System.Int32,System.Nullable{NationStates.NET.Rarity})">CardsByMarketValue(Int32, Nullable&lt;Rarity&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets fifty cards in order of their value. To filter cards, <code data-dev-comment-type="paramref" class="paramref">rarity</code> should be set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HashSet&lt;CardRank&gt; CardsByMarketValue(int start = 1, Rarity? rarity = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting rank of the first card.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="NationStates.NET.Rarity.html">Rarity</a>&gt;</td>
+        <td><span class="parametername">rarity</span></td>
+        <td><p>The sole rarity to get. Set as <code>null</code> to get cards of any rarity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.CardRank.html">CardRank</a>&gt;</td>
+        <td><p>A list of fifty cards.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CardTrades_System_Int32_System_Nullable_System_DateTime__System_Nullable_System_DateTime__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CardTrades(System.Int32%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -546,62 +602,6 @@
       <tr>
         <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.Trade.html">Trade</a>&gt;</td>
         <td><p>A list of recent trades.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CardValueRank_System_Int32_System_Nullable_NationStates_NET_Rarity__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CardValueRank(System.Int32%2CSystem.Nullable%7BNationStates.NET.Rarity%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L272">View Source</a>
-  </span>
-  <a id="NationStates_NET_World_CardValueRank_" data-uid="NationStates.NET.World.CardValueRank*"></a>
-  <h4 id="NationStates_NET_World_CardValueRank_System_Int32_System_Nullable_NationStates_NET_Rarity__" data-uid="NationStates.NET.World.CardValueRank(System.Int32,System.Nullable{NationStates.NET.Rarity})">CardValueRank(Int32, Nullable&lt;Rarity&gt;)</h4>
-  <div class="markdown level1 summary"><p>Gets fifty cards in order of their value. To filter cards, <code data-dev-comment-type="paramref" class="paramref">rarity</code> should be set.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HashSet&lt;CardValueRank&gt; CardValueRank(int start = 1, Rarity? rarity = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">start</span></td>
-        <td><p>The starting rank of the first card.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="NationStates.NET.Rarity.html">Rarity</a>&gt;</td>
-        <td><span class="parametername">rarity</span></td>
-        <td><p>The sole rarity to get. Set as <code>null</code> to get cards of any rarity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.CardValueRank.html">CardValueRank</a>&gt;</td>
-        <td><p>A list of fifty cards.</p>
 </td>
       </tr>
     </tbody>
@@ -714,62 +714,6 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CensusRanks_System_Int32_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CensusRanks(System.Int32%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L342">View Source</a>
-  </span>
-  <a id="NationStates_NET_World_CensusRanks_" data-uid="NationStates.NET.World.CensusRanks*"></a>
-  <h4 id="NationStates_NET_World_CensusRanks_System_Int32_System_Int64_" data-uid="NationStates.NET.World.CensusRanks(System.Int32,System.Int64)">CensusRanks(Int32, Int64)</h4>
-  <div class="markdown level1 summary"><p>Gets the twenty nations after a specfied rank for a census.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;CensusWorldRank&gt; CensusRanks(int id, long start)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The census ID.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int64</span></td>
-        <td><span class="parametername">start</span></td>
-        <td><p>The start rank.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="NationStates.NET.CensusWorldRank.html">CensusWorldRank</a>&gt;</td>
-        <td><p>The twenty nations after the specified rank for the specified census.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_CensusScale_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.CensusScale(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -870,69 +814,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_ChallengeRank_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.ChallengeRank(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L393">View Source</a>
-  </span>
-  <a id="NationStates_NET_World_ChallengeRank_" data-uid="NationStates.NET.World.ChallengeRank*"></a>
-  <h4 id="NationStates_NET_World_ChallengeRank_System_Int32_" data-uid="NationStates.NET.World.ChallengeRank(System.Int32)">ChallengeRank(Int32)</h4>
-  <div class="markdown level1 summary"><p>Gets twenty nations in order of their challenge rankings.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HashSet&lt;ChallengeRank&gt; ChallengeRank(int page = 1)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">page</span></td>
-        <td><p>The page to search.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.ChallengeRank.html">ChallengeRank</a>&gt;</td>
-        <td><p>A list of twenty nations with their challenge rank and relevant information.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_DispatchList_System_String_System_Nullable_NationStates_NET_DispatchCategory__System_Enum_System_Nullable_NationStates_NET_DispatchSort__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.DispatchList(System.String%2CSystem.Nullable%7BNationStates.NET.DispatchCategory%7D%2CSystem.Enum%2CSystem.Nullable%7BNationStates.NET.DispatchSort%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_Dispatches_System_String_System_Nullable_NationStates_NET_DispatchCategory__System_Enum_System_Nullable_NationStates_NET_DispatchSort__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.Dispatches(System.String%2CSystem.Nullable%7BNationStates.NET.DispatchCategory%7D%2CSystem.Enum%2CSystem.Nullable%7BNationStates.NET.DispatchSort%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L430">View Source</a>
   </span>
-  <a id="NationStates_NET_World_DispatchList_" data-uid="NationStates.NET.World.DispatchList*"></a>
-  <h4 id="NationStates_NET_World_DispatchList_System_String_System_Nullable_NationStates_NET_DispatchCategory__System_Enum_System_Nullable_NationStates_NET_DispatchSort__" data-uid="NationStates.NET.World.DispatchList(System.String,System.Nullable{NationStates.NET.DispatchCategory},System.Enum,System.Nullable{NationStates.NET.DispatchSort})">DispatchList(String, Nullable&lt;DispatchCategory&gt;, Enum, Nullable&lt;DispatchSort&gt;)</h4>
+  <a id="NationStates_NET_World_Dispatches_" data-uid="NationStates.NET.World.Dispatches*"></a>
+  <h4 id="NationStates_NET_World_Dispatches_System_String_System_Nullable_NationStates_NET_DispatchCategory__System_Enum_System_Nullable_NationStates_NET_DispatchSort__" data-uid="NationStates.NET.World.Dispatches(System.String,System.Nullable{NationStates.NET.DispatchCategory},System.Enum,System.Nullable{NationStates.NET.DispatchSort})">Dispatches(String, Nullable&lt;DispatchCategory&gt;, Enum, Nullable&lt;DispatchSort&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets a list of dispatches fulfilling certain criteria.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;Dispatch&gt; DispatchList(string author, DispatchCategory? category, Enum subCategory, DispatchSort? sort)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;Dispatch&gt; Dispatches(string author = null, DispatchCategory? category = null, Enum subCategory = null, DispatchSort? sort = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -988,10 +882,66 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_FactionsByProperty_NationStates_NET_NDaySort_System_Int32_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.FactionsByProperty(NationStates.NET.NDaySort%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L500">View Source</a>
+  </span>
+  <a id="NationStates_NET_World_FactionsByProperty_" data-uid="NationStates.NET.World.FactionsByProperty*"></a>
+  <h4 id="NationStates_NET_World_FactionsByProperty_NationStates_NET_NDaySort_System_Int32_" data-uid="NationStates.NET.World.FactionsByProperty(NationStates.NET.NDaySort,System.Int32)">FactionsByProperty(NDaySort, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets fifty factions in order of a N-Day property..</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HashSet&lt;FactionRank&gt; FactionsByProperty(NDaySort sort, int page = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NationStates.NET.NDaySort.html">NDaySort</a></td>
+        <td><span class="parametername">sort</span></td>
+        <td><p>The property to sort by.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">page</span></td>
+        <td><p>The page to search. Each page contains fifty factions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.FactionRank.html">FactionRank</a>&gt;</td>
+        <td><p>A list of fifty factions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_Happenings_System_Collections_Generic_HashSet_System_String__System_Nullable_NationStates_NET_Entity__System_Collections_Generic_HashSet_NationStates_NET_EventType__System_Nullable_System_Int32__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.Happenings(System.Collections.Generic.HashSet%7BSystem.String%7D%2CSystem.Nullable%7BNationStates.NET.Entity%7D%2CSystem.Collections.Generic.HashSet%7BNationStates.NET.EventType%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L506">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L545">View Source</a>
   </span>
   <a id="NationStates_NET_World_Happenings_" data-uid="NationStates.NET.World.Happenings*"></a>
   <h4 id="NationStates_NET_World_Happenings_System_Collections_Generic_HashSet_System_String__System_Nullable_NationStates_NET_Entity__System_Collections_Generic_HashSet_NationStates_NET_EventType__System_Nullable_System_Int32__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__" data-uid="NationStates.NET.World.Happenings(System.Collections.Generic.HashSet{System.String},System.Nullable{NationStates.NET.Entity},System.Collections.Generic.HashSet{NationStates.NET.EventType},System.Nullable{System.Int32},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">Happenings(HashSet&lt;String&gt;, Nullable&lt;Entity&gt;, HashSet&lt;EventType&gt;, Nullable&lt;Int32&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;)</h4>
@@ -1080,10 +1030,116 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_NationsByCensusScore_System_Int32_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.NationsByCensusScore(System.Int32%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L342">View Source</a>
+  </span>
+  <a id="NationStates_NET_World_NationsByCensusScore_" data-uid="NationStates.NET.World.NationsByCensusScore*"></a>
+  <h4 id="NationStates_NET_World_NationsByCensusScore_System_Int32_System_Int64_" data-uid="NationStates.NET.World.NationsByCensusScore(System.Int32,System.Int64)">NationsByCensusScore(Int32, Int64)</h4>
+  <div class="markdown level1 summary"><p>Gets the twenty nations after a specfied rank for a census.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HashSet&lt;CensusRank&gt; NationsByCensusScore(int id, long start)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The census ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The start rank.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.CensusRank.html">CensusRank</a>&gt;</td>
+        <td><p>The twenty nations after the specified rank for the specified census.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_NationsByChallengeScore_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.World.NationsByChallengeScore(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L393">View Source</a>
+  </span>
+  <a id="NationStates_NET_World_NationsByChallengeScore_" data-uid="NationStates.NET.World.NationsByChallengeScore*"></a>
+  <h4 id="NationStates_NET_World_NationsByChallengeScore_System_Int64_" data-uid="NationStates.NET.World.NationsByChallengeScore(System.Int64)">NationsByChallengeScore(Int64)</h4>
+  <div class="markdown level1 summary"><p>Gets twenty nations in order of their challenge rankings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HashSet&lt;Challenge&gt; NationsByChallengeScore(long start = 1L)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The start rank.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="NationStates.NET.Challenge.html">Challenge</a>&gt;</td>
+        <td><p>A list of twenty nations with their challenge rank and relevant information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_World_RegionsByTags_System_Collections_Generic_HashSet_NationStates_NET_RegionTag__System_Collections_Generic_HashSet_NationStates_NET_RegionTag__.md&amp;value=---%0Auid%3A%20NationStates.NET.World.RegionsByTags(System.Collections.Generic.HashSet%7BNationStates.NET.RegionTag%7D%2CSystem.Collections.Generic.HashSet%7BNationStates.NET.RegionTag%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L555">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Classes/World.cs/#L594">View Source</a>
   </span>
   <a id="NationStates_NET_World_RegionsByTags_" data-uid="NationStates.NET.World.RegionsByTags*"></a>
   <h4 id="NationStates_NET_World_RegionsByTags_System_Collections_Generic_HashSet_NationStates_NET_RegionTag__System_Collections_Generic_HashSet_NationStates_NET_RegionTag__" data-uid="NationStates.NET.World.RegionsByTags(System.Collections.Generic.HashSet{NationStates.NET.RegionTag},System.Collections.Generic.HashSet{NationStates.NET.RegionTag})">RegionsByTags(HashSet&lt;RegionTag&gt;, HashSet&lt;RegionTag&gt;)</h4>
