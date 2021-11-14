@@ -122,12 +122,7 @@
         {
             if (council == Council.United_Nations)
             {
-                string html = DownloadPage($"https://www.nationstates.net/page=UN_past_resolutions/council=0?start={councilID - 1}");
-
-                var htmlDoc = new HtmlDocument();
-                htmlDoc.LoadHtml(html);
-
-                HtmlNode node = htmlDoc.DocumentNode.SelectNodes(".//div[@class='WA_thing WA_thing_historical']")[0];
+                HtmlNode node = ParseHTMLDocument($"https://www.nationstates.net/page=UN_past_resolutions/council=0?start={councilID - 1}").SelectNodes(".//div[@class='WA_thing WA_thing_historical']")[0];
 
                 this.Council = council;
                 this.CouncilID = councilID;

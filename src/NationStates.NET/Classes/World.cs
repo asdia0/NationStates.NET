@@ -273,14 +273,9 @@
         {
             HashSet<CardValueRank> ranks = new();
 
-            string html = DownloadPage($"https://www.nationstates.net/page=deck/show_market=cards{(rarity == null ? string.Empty : "/filter=" + rarity.ToString().ToLower())}?start={start - 1}");
-
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(html);
-
             bool firstDone = false;
 
-            foreach (HtmlNode node in htmlDoc.DocumentNode.SelectNodes("//tbody"))
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=deck/show_market=cards{(rarity == null ? string.Empty : "/filter=" + rarity.ToString().ToLower())}?start={start - 1}").SelectNodes("//tbody"))
             {
                 foreach (HtmlNode row in node.SelectNodes("tr"))
                 {
@@ -399,12 +394,7 @@
         {
             HashSet<ChallengeRank> ranks = new();
 
-            string html = DownloadPage($"https://www.nationstates.net/page=challenge/ladder={page}");
-
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(html);
-
-            foreach (HtmlNode node in htmlDoc.DocumentNode.SelectNodes("//table"))
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder={page}").SelectNodes("//table"))
             {
                 foreach (HtmlNode row in node.SelectNodes("tr"))
                 {
