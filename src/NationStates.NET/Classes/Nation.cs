@@ -237,7 +237,7 @@
                     DateTime lastUpdated = ParseUnix(collection.SelectSingleNode("LAST_UPDATED").InnerText);
                     string name = collection.SelectSingleNode("NAME").InnerText;
 
-                    collections.Add(new(id, lastUpdated, name));
+                    collections.Add(new(this.Name, id, lastUpdated, name));
                 }
 
                 return collections;

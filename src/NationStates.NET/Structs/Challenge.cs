@@ -24,7 +24,7 @@
         /// Gets the nation's name.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Nation { get; }
 
         /// <summary>
         /// Gets the nation's rank.
@@ -60,17 +60,17 @@
         /// Initializes a new instance of the <see cref="Challenge"/> struct.
         /// </summary>
         /// <param name="rank">The nation's rank.</param>
-        /// <param name="name">The nation's name.</param>
+        /// <param name="nation">The nation's name.</param>
         /// <param name="level">The nation's level.</param>
         /// <param name="score">The nation's score.</param>
         /// <param name="wins">The number of times the nation has won.</param>
         /// <param name="losses">The number of times the nation has lost.</param>
         /// <param name="winRate">The nation's win-rate.</param>
         /// <param name="speciality">The nation's census speciality.</param>
-        public Challenge(long rank, string name, int level, long score, long wins, long losses, double winRate, string speciality)
+        public Challenge(long rank, string nation, int level, long score, long wins, long losses, double winRate, string speciality)
         {
             this.Rank = rank;
-            this.Name = name;
+            this.Nation = nation;
             this.Level = level;
             this.Score = score;
             this.Wins = wins;

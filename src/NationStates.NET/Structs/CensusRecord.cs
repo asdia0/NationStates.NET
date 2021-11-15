@@ -19,7 +19,7 @@
         /// Gets the name of the entity.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Entity { get; }
 
         /// <summary>
         /// Gets the value of the census data.
@@ -37,13 +37,13 @@
         /// Initializes a new instance of the <see cref="CensusRecord"/> struct.
         /// </summary>
         /// <param name="id">The record's census ID.</param>
-        /// <param name="name">The name of the entity.</param>
+        /// <param name="entity">The name of the entity.</param>
         /// <param name="score">The value of the census data.</param>
         /// <param name="timestamp">The time the census was recorded at.</param>
-        public CensusRecord(int id, string name, double score, DateTime timestamp)
+        public CensusRecord(int id, string entity, double score, DateTime timestamp)
         {
             this.ID = id;
-            this.Name = name;
+            this.Entity = entity;
             this.Score = score;
             this.Timestamp = timestamp;
         }

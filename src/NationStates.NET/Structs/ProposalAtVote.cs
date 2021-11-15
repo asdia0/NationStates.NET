@@ -60,10 +60,10 @@
         public string ID { get; }
 
         /// <summary>
-        /// Gets the proposal's name.
+        /// Gets the proposal's title.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Title { get; }
 
         /// <summary>
         /// Gets the name of the nation that proposed the proposal.
@@ -193,7 +193,7 @@
             this.DelegateVotesFor = delegateVotesFor;
 
             this.Description = node.SelectSingleNode("DESC").InnerText;
-            this.Name = node.SelectSingleNode("NAME").InnerText;
+            this.Title = node.SelectSingleNode("NAME").InnerText;
             this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
             this.TotalNationsAgainst = long.Parse(node.SelectSingleNode("TOTAL_NATIONS_AGAINST").InnerText);
             this.TotalNationsFor = long.Parse(node.SelectSingleNode("TOTAL_NATIONS_FOR").InnerText);

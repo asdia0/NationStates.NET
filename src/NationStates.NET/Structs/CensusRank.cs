@@ -15,19 +15,19 @@
         public int ID { get; }
 
         /// <summary>
-        /// Gets the nation's name.
+        /// Gets the entity's name.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Entity { get; }
 
         /// <summary>
-        /// Gets the nation's rank.
+        /// Gets the entity's rank.
         /// </summary>
         [JsonProperty]
         public long Rank { get; }
 
         /// <summary>
-        /// Gets the nation's score.
+        /// Gets the entity's score.
         /// </summary>
         [JsonProperty]
         public double Score { get; }
@@ -36,13 +36,13 @@
         /// Initializes a new instance of the <see cref="CensusRank"/> struct.
         /// </summary>
         /// <param name="id">The census ID.</param>
-        /// <param name="name">The nation's name.</param>
-        /// <param name="score">The nation's score.</param>
-        /// <param name="rank">The nation's rank.</param>
-        public CensusRank(int id, string name, double score, long rank)
+        /// <param name="entity">The entity's name.</param>
+        /// <param name="score">The entity's score.</param>
+        /// <param name="rank">The entity's rank.</param>
+        public CensusRank(int id, string entity, double score, long rank)
         {
             this.ID = id;
-            this.Name = name;
+            this.Entity = entity;
             this.Score = score;
             this.Rank = rank;
         }

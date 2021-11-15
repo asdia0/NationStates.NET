@@ -18,7 +18,7 @@
         /// Gets the name of the nation.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Nation { get; }
 
         /// <summary>
         /// Gets the nation's regional rank as a percentage.
@@ -54,16 +54,16 @@
         /// Initializes a new instance of the <see cref="CensusNation"/> struct.
         /// </summary>
         /// <param name="id">The census ID.</param>
-        /// <param name="name">The name of the nation.</param>
+        /// <param name="nation">The name of the nation.</param>
         /// <param name="score">The value of the census data.</param>
         /// <param name="worldRank">The nation's world rank.</param>
         /// <param name="regionRank">The nation's regional rank.</param>
         /// <param name="worldPercentage">The nation's world rank as a percentage.</param>
         /// <param name="regionPercentage">The nation's regional rank as a percentage.</param>
-        public CensusNation(int id, string name, double score, long worldRank, long regionRank, double worldPercentage, double regionPercentage)
+        public CensusNation(int id, string nation, double score, long worldRank, long regionRank, double worldPercentage, double regionPercentage)
         {
             this.ID = id;
-            this.Name = name;
+            this.Nation = nation;
             this.Score = score;
             this.WorldRank = worldRank;
             this.RegionRank = regionRank;

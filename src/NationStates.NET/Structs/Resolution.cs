@@ -54,10 +54,10 @@
         public DateTime Implemented { get; }
 
         /// <summary>
-        /// Gets the resolution's name.
+        /// Gets the resolution's title.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Title { get; }
 
         /// <summary>
         /// Gets the time of promotion.
@@ -131,7 +131,7 @@
                 this.SubCategory = ParseUNSubCategory(node.SelectSingleNode(".//div[@class='WA_thing_rbox']/p[2]"), this.Category);
                 this.Proposer = node.SelectSingleNode(".//span[@class='nnameblock']").InnerText;
                 this.Description = node.SelectSingleNode(".//div[@class='WA_thing_body']").InnerText;
-                this.Name = node.SelectSingleNode(".//div[@class='WA_thing_header']/h2/a").InnerText;
+                this.Title = node.SelectSingleNode(".//div[@class='WA_thing_header']/h2/a").InnerText;
                 this.VotesAgainst = long.Parse(node.SelectSingleNode(".//tbody/tr[2]/td[2]/p/span").InnerText.Replace(",", string.Empty));
                 this.VotesFor = long.Parse(node.SelectSingleNode(".//tbody/tr[1]/td[2]/p/span").InnerText.Replace(",", string.Empty));
 
@@ -180,7 +180,7 @@
                 this.Created = ParseUnix(node.SelectSingleNode("CREATED").InnerText);
                 this.Implemented = ParseUnix(node.SelectSingleNode("IMPLEMENTED").InnerText);
                 this.Description = node.SelectSingleNode("DESC").InnerText;
-                this.Name = node.SelectSingleNode("NAME").InnerText;
+                this.Title = node.SelectSingleNode("NAME").InnerText;
                 this.Proposer = node.SelectSingleNode("PROPOSED_BY").InnerText;
                 this.ID = long.Parse(node.SelectSingleNode("RESID").InnerText);
                 this.VotesFor = long.Parse(node.SelectSingleNode("TOTAL_VOTES_FOR").InnerText);

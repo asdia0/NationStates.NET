@@ -18,7 +18,7 @@
         /// Gets the name of the entity that has the badge.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Entity { get; }
 
         /// <summary>
         /// Gets type of World Assembly badge.
@@ -29,12 +29,12 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Badge"/> struct.
         /// </summary>
-        /// <param name="name">The name of the entity that has the badge.</param>
+        /// <param name="entity">The name of the entity that has the badge.</param>
         /// <param name="type">Type of World Assembly badge.</param>
         /// <param name="id">ID of Security Council resolution that granted the World Assembly badge.</param>
-        public Badge(string name, BadgeType type, long id)
+        public Badge(string entity, BadgeType type, long id)
         {
-            this.Name = name;
+            this.Entity = entity;
             this.Type = type;
             this.ID = id;
         }

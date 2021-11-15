@@ -22,19 +22,27 @@
         public DateTime LastUpdated { get; }
 
         /// <summary>
-        /// Gets the name of the collection.
+        /// Gets the collection's name.
         /// </summary>
         [JsonProperty]
         public string Name { get; }
 
         /// <summary>
+        /// Gets the name of the nation that owns the collection.
+        /// </summary>
+        [JsonProperty]
+        public string Nation { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Collection"/> struct.
         /// </summary>
+        /// <param name="nation">The name of the nation that owns the collection.</param>
         /// <param name="id">The collection's ID.</param>
         /// <param name="lastUpdated">The time at which the collection was last updated.</param>
         /// <param name="name">The name of the collection.</param>
-        public Collection(long id, DateTime lastUpdated, string name)
+        public Collection(string nation, long id, DateTime lastUpdated, string name)
         {
+            this.Nation = nation;
             this.ID = id;
             this.LastUpdated = lastUpdated;
             this.Name = name;

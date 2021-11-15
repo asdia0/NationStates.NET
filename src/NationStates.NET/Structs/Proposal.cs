@@ -47,10 +47,10 @@
         public string ID { get; }
 
         /// <summary>
-        /// Gets the proposal's name.
+        /// Gets the proposal's title.
         /// </summary>
         [JsonProperty]
-        public string Name { get; }
+        public string Title { get; }
 
         /// <summary>
         /// Gets the name of the nation that proposed the proposal.
@@ -84,7 +84,7 @@
             this.Council = council;
             this.Created = created;
             this.Description = description;
-            this.Name = name;
+            this.Title = name;
             this.Proposer = proposer;
             this.SubCategory = subCategory;
         }
