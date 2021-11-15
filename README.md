@@ -23,11 +23,11 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 #### Recurring minigames
 
 - [X] N-Day
-- [ ] Z-Day [DOING]
+- [X] Z-Day
 
 ### Misc
 
-- [ ] Authentication
+- [ ] Authentication [DOING]
 - [ ] Telegram
 
 ## TODO
