@@ -4,6 +4,7 @@
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Text;
     using System.Threading;
@@ -23,6 +24,14 @@
             { 'C', Authority.Communications },
             { 'E', Authority.Embassies },
             { 'P', Authority.Polls },
+        };
+
+        private static readonly Dictionary<string, string> Zeroes = new()
+        {
+            { "thousand", string.Empty },
+            { "million", "000" },
+            { "billion", "000000" },
+            { "trillion", "000000000" },
         };
 
         /// <summary>
@@ -255,6 +264,19 @@
             {
                 throw new NSError("Invalid category type.");
             }
+        }
+
+        /// <summary>
+        /// Parses a string of a written standard notation (e.g. "1.39 trillion").
+        /// </summary>
+        /// <param name="number">The written standard notation.</param>
+        /// <returns>A <see cref="long"/>.</returns>
+        public static long ParseWrittenStandardNotation(string number)
+        {
+            double numberPart = double.Parse(number.Split(" ")[0]);
+            string zeroes = Zeroes[number.Split(" ")[1]];
+
+            return long.Parse((numberPart * 1000).ToString() + zeroes);
         }
 
         /// <summary>
