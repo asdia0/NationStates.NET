@@ -10,16 +10,16 @@
     public struct CensusRecord
     {
         /// <summary>
-        /// Gets the record's census ID.
-        /// </summary>
-        [JsonProperty]
-        public int ID { get; }
-
-        /// <summary>
         /// Gets the name of the entity.
         /// </summary>
         [JsonProperty]
         public string Entity { get; }
+
+        /// <summary>
+        /// Gets the record's census ID.
+        /// </summary>
+        [JsonProperty]
+        public int ID { get; }
 
         /// <summary>
         /// Gets the value of the census data.

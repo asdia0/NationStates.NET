@@ -9,16 +9,16 @@
     public struct CensusRank
     {
         /// <summary>
-        /// Gets the census ID.
-        /// </summary>
-        [JsonProperty]
-        public int ID { get; }
-
-        /// <summary>
         /// Gets the entity's name.
         /// </summary>
         [JsonProperty]
         public string Entity { get; }
+
+        /// <summary>
+        /// Gets the census ID.
+        /// </summary>
+        [JsonProperty]
+        public int ID { get; }
 
         /// <summary>
         /// Gets the entity's rank.

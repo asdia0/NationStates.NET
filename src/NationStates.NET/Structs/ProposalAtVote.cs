@@ -60,12 +60,6 @@
         public string ID { get; }
 
         /// <summary>
-        /// Gets the proposal's title.
-        /// </summary>
-        [JsonProperty]
-        public string Title { get; }
-
-        /// <summary>
         /// Gets the name of the nation that proposed the proposal.
         /// </summary>
         [JsonProperty]
@@ -76,6 +70,12 @@
         /// </summary>
         [JsonProperty]
         public dynamic SubCategory { get; }
+
+        /// <summary>
+        /// Gets the proposal's title.
+        /// </summary>
+        [JsonProperty]
+        public string Title { get; }
 
         /// <summary>
         /// Gets the number of nations against the proposal.

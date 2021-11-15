@@ -15,16 +15,16 @@
         public long ID { get; }
 
         /// <summary>
-        /// Gets the card's season.
-        /// </summary>
-        [JsonProperty]
-        public int Season { get; }
-
-        /// <summary>
         /// Gets the card's rank.
         /// </summary>
         [JsonProperty]
         public long Rank { get; }
+
+        /// <summary>
+        /// Gets the card's season.
+        /// </summary>
+        [JsonProperty]
+        public int Season { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CardRank"/> struct.

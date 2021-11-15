@@ -9,16 +9,16 @@
     public struct ZDayRegionRank
     {
         /// <summary>
-        /// Gets the region's score.
-        /// </summary>
-        [JsonProperty]
-        public long Score { get; }
-
-        /// <summary>
         /// Gets the region's name.
         /// </summary>
         [JsonProperty]
         public string Region { get; }
+
+        /// <summary>
+        /// Gets the region's score.
+        /// </summary>
+        [JsonProperty]
+        public long Score { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ZDayRegionRank"/> struct.

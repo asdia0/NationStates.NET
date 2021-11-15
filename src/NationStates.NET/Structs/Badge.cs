@@ -9,16 +9,16 @@
     public struct Badge
     {
         /// <summary>
-        /// Gets the ID of Security Council resolution that granted the World Assembly badge.
-        /// </summary>
-        [JsonProperty]
-        public long ID { get; }
-
-        /// <summary>
         /// Gets the name of the entity that has the badge.
         /// </summary>
         [JsonProperty]
         public string Entity { get; }
+
+        /// <summary>
+        /// Gets the ID of Security Council resolution that granted the World Assembly badge.
+        /// </summary>
+        [JsonProperty]
+        public long ID { get; }
 
         /// <summary>
         /// Gets type of World Assembly badge.

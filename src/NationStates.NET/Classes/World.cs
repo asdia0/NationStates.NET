@@ -222,6 +222,45 @@
         }
 
         /// <summary>
+        /// Gets fifty cards in order of their value. To filter cards, <paramref name="rarity"/> should be set.
+        /// </summary>
+        /// <param name="start">The starting rank of the first card.</param>
+        /// <param name="rarity">The sole rarity to get. Set as `null` to get cards of any rarity.</param>
+        /// <returns>A list of fifty cards.</returns>
+        public static HashSet<CardRank> CardsByMarketValue(int start = 1, Rarity? rarity = null)
+        {
+            HashSet<CardRank> ranks = new();
+
+            bool firstDone = false;
+
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=deck/show_market=cards{(rarity == null ? string.Empty : "/filter=" + rarity.ToString().ToLower())}?start={start - 1}").SelectNodes("//tbody"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (firstDone)
+                    {
+                        long rank = long.Parse(cells[0].InnerText.Replace(".", string.Empty));
+
+                        string info = cells[2].SelectSingleNode(".//a[@class='nref cardnameblock']").Attributes["href"].Value;
+
+                        long id = long.Parse(info.Split("/")[2].Replace("card=", string.Empty));
+                        int season = int.Parse(info.Split("/")[3].Replace("season=", string.Empty));
+
+                        ranks.Add(new(id, season, rank));
+                    }
+                    else
+                    {
+                        firstDone = true;
+                    }
+                }
+            }
+
+            return ranks;
+        }
+
+        /// <summary>
         /// Gets a list of recent trades.
         /// </summary>
         /// <param name="limit">The maximum amount of trades to get.</param>
@@ -264,45 +303,6 @@
         }
 
         /// <summary>
-        /// Gets fifty cards in order of their value. To filter cards, <paramref name="rarity"/> should be set.
-        /// </summary>
-        /// <param name="start">The starting rank of the first card.</param>
-        /// <param name="rarity">The sole rarity to get. Set as `null` to get cards of any rarity.</param>
-        /// <returns>A list of fifty cards.</returns>
-        public static HashSet<CardRank> CardsByMarketValue(int start = 1, Rarity? rarity = null)
-        {
-            HashSet<CardRank> ranks = new();
-
-            bool firstDone = false;
-
-            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=deck/show_market=cards{(rarity == null ? string.Empty : "/filter=" + rarity.ToString().ToLower())}?start={start - 1}").SelectNodes("//tbody"))
-            {
-                foreach (HtmlNode row in node.SelectNodes("tr"))
-                {
-                    HtmlNodeCollection cells = row.SelectNodes("td");
-
-                    if (firstDone)
-                    {
-                        long rank = long.Parse(cells[0].InnerText.Replace(".", string.Empty));
-
-                        string info = cells[2].SelectSingleNode(".//a[@class='nref cardnameblock']").Attributes["href"].Value;
-
-                        long id = long.Parse(info.Split("/")[2].Replace("card=", string.Empty));
-                        int season = int.Parse(info.Split("/")[3].Replace("season=", string.Empty));
-
-                        ranks.Add(new(id, season, rank));
-                    }
-                    else
-                    {
-                        firstDone = true;
-                    }
-                }
-            }
-
-            return ranks;
-        }
-
-        /// <summary>
         /// Gets the description for a census.
         /// </summary>
         /// <param name="id">The census ID.</param>
@@ -334,34 +334,6 @@
         }
 
         /// <summary>
-        /// Gets the twenty nations after a specfied rank for a census.
-        /// </summary>
-        /// <param name="id">The census ID.</param>
-        /// <param name="start">The start rank.</param>
-        /// <returns>The twenty nations after the specified rank for the specified census.</returns>
-        public static HashSet<CensusRank> NationsByCensusScore(int id, long start)
-        {
-            HashSet<CensusRank> res = new();
-
-            foreach (XmlNode nation in ParseXMLDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
-            {
-                string name = nation
-                    .SelectSingleNode("NAME")
-                    .InnerText;
-                double score = double.Parse(nation
-                    .SelectSingleNode("SCORE")
-                    .InnerText);
-                long rank = long.Parse(nation
-                    .SelectSingleNode("RANK")
-                    .InnerText);
-
-                res.Add(new CensusRank(id, name, score, rank));
-            }
-
-            return res;
-        }
-
-        /// <summary>
         /// Gets the scale of the census.
         /// </summary>
         /// <param name="id">The ID of the census. </param>
@@ -383,40 +355,6 @@
             return ParseXMLDocument($"q=censustitle;scale={id}")
                 .SelectSingleNode("/WORLD/CENSUSTITLE")
                 .InnerText;
-        }
-
-        /// <summary>
-        /// Gets twenty nations in order of their challenge rankings.
-        /// </summary>
-        /// <param name="start">The start rank.</param>
-        /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
-        public static HashSet<Challenge> NationsByChallengeScore(long start = 1)
-        {
-            HashSet<Challenge> ranks = new();
-
-            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder=1/start={start - 1}").SelectNodes("//table"))
-            {
-                foreach (HtmlNode row in node.SelectNodes("tr"))
-                {
-                    HtmlNodeCollection cells = row.SelectNodes("td");
-
-                    if (cells != null)
-                    {
-                        long rank = long.Parse(cells[0].InnerText);
-                        string name = cells[1].SelectSingleNode(".//span[@class='nname']").InnerText;
-                        int level = int.Parse(cells[2].InnerText.Replace(",", string.Empty));
-                        long score = long.Parse(cells[3].InnerText.Replace(",", string.Empty));
-                        string speciality = cells[4].InnerText;
-                        long wins = long.Parse(cells[5].InnerText.Replace(",", string.Empty));
-                        long losses = long.Parse(cells[6].InnerText.Replace(",", string.Empty));
-                        double winRate = double.Parse(cells[7].InnerText.Replace("%", string.Empty));
-
-                        ranks.Add(new(rank, name, level, score, wins, losses, winRate, speciality));
-                    }
-                }
-            }
-
-            return ranks;
         }
 
         /// <summary>
@@ -583,6 +521,68 @@
 
             return ParseEvents(ParseXMLDocument(url)
                 .SelectSingleNode("/WORLD/HAPPENINGS"));
+        }
+
+        /// <summary>
+        /// Gets the twenty nations after a specfied rank for a census.
+        /// </summary>
+        /// <param name="id">The census ID.</param>
+        /// <param name="start">The start rank.</param>
+        /// <returns>The twenty nations after the specified rank for the specified census.</returns>
+        public static HashSet<CensusRank> NationsByCensusScore(int id, long start)
+        {
+            HashSet<CensusRank> res = new();
+
+            foreach (XmlNode nation in ParseXMLDocument($"q=censusranks;scale={id}&start={start}").SelectSingleNode("/CENSUSRANKS/NATIONS").ChildNodes)
+            {
+                string name = nation
+                    .SelectSingleNode("NAME")
+                    .InnerText;
+                double score = double.Parse(nation
+                    .SelectSingleNode("SCORE")
+                    .InnerText);
+                long rank = long.Parse(nation
+                    .SelectSingleNode("RANK")
+                    .InnerText);
+
+                res.Add(new CensusRank(id, name, score, rank));
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// Gets twenty nations in order of their challenge rankings.
+        /// </summary>
+        /// <param name="start">The start rank.</param>
+        /// <returns>A list of twenty nations with their challenge rank and relevant information.</returns>
+        public static HashSet<Challenge> NationsByChallengeScore(long start = 1)
+        {
+            HashSet<Challenge> ranks = new();
+
+            foreach (HtmlNode node in ParseHTMLDocument($"https://www.nationstates.net/page=challenge/ladder=1/start={start - 1}").SelectNodes("//table"))
+            {
+                foreach (HtmlNode row in node.SelectNodes("tr"))
+                {
+                    HtmlNodeCollection cells = row.SelectNodes("td");
+
+                    if (cells != null)
+                    {
+                        long rank = long.Parse(cells[0].InnerText);
+                        string name = cells[1].SelectSingleNode(".//span[@class='nname']").InnerText;
+                        int level = int.Parse(cells[2].InnerText.Replace(",", string.Empty));
+                        long score = long.Parse(cells[3].InnerText.Replace(",", string.Empty));
+                        string speciality = cells[4].InnerText;
+                        long wins = long.Parse(cells[5].InnerText.Replace(",", string.Empty));
+                        long losses = long.Parse(cells[6].InnerText.Replace(",", string.Empty));
+                        double winRate = double.Parse(cells[7].InnerText.Replace("%", string.Empty));
+
+                        ranks.Add(new(rank, name, level, score, wins, losses, winRate, speciality));
+                    }
+                }
+            }
+
+            return ranks;
         }
 
         /// <summary>

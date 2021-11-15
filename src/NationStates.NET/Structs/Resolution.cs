@@ -54,12 +54,6 @@
         public DateTime Implemented { get; }
 
         /// <summary>
-        /// Gets the resolution's title.
-        /// </summary>
-        [JsonProperty]
-        public string Title { get; }
-
-        /// <summary>
         /// Gets the time of promotion.
         /// </summary>
         [JsonProperty]
@@ -100,6 +94,12 @@
         /// </summary>
         [JsonProperty]
         public dynamic SubCategory { get; }
+
+        /// <summary>
+        /// Gets the resolution's title.
+        /// </summary>
+        [JsonProperty]
+        public string Title { get; }
 
         /// <summary>
         /// Gets the number of votes for the resolution.
