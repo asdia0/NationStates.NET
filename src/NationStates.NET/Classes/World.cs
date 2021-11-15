@@ -617,5 +617,29 @@
                 .Split(",")
                 .ToHashSet();
         }
+
+        /// <summary>
+        /// Gets 100 regions during Z-Day in order of a Z-Day category.
+        /// </summary>
+        /// <param name="sort">The category to sort by.</param>
+        /// <returns>A list of 100 regions during Z-Day.</returns>
+        public static HashSet<ZDayRegionRank> ZDayRegionsByCategory(ZDaySort sort)
+        {
+            HashSet<ZDayRegionRank> ranks = new();
+
+            foreach (string region in ParseHTMLDocument("https://www.nationstates.net/page=zday_tally").SelectSingleNode($".//div[@id='zoverview']/ol[{(int)sort} + 1]").SelectSingleNode(".//li").InnerText.Split("\n"))
+            {
+                if (region == string.Empty)
+                {
+                    continue;
+                }
+
+                string name = region.Split(": ")[0];
+                long score = ParseWrittenStandardNotation(region.Split(": ")[1]);
+                ranks.Add(new(name, score));
+            }
+
+            return ranks;
+        }
     }
 }
