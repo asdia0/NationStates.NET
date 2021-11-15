@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Badge
+    <title>Struct ZDayRegionRank
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Badge
+    <meta name="title" content="Struct ZDayRegionRank
    ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -68,12 +68,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NationStates.NET.Badge">
+            <article class="content wrap" id="_content" data-uid="NationStates.NET.ZDayRegionRank">
   
   
-  <h1 id="NationStates_NET_Badge" data-uid="NationStates.NET.Badge" class="text-break">Struct Badge
+  <h1 id="NationStates_NET_ZDayRegionRank" data-uid="NationStates.NET.ZDayRegionRank" class="text-break">Struct ZDayRegionRank
   </h1>
-  <div class="markdown level0 summary"><p>Represents a World Assembly badge.</p>
+  <div class="markdown level0 summary"><p>Defines a region's Z-Day rank.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -96,27 +96,27 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NationStates.NET.html">NationStates.NET</a></h6>
   <h6><strong>Assembly</strong>: NationStates.NET.dll</h6>
-  <h5 id="NationStates_NET_Badge_syntax">Syntax</h5>
+  <h5 id="NationStates_NET_ZDayRegionRank_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Badge</code></pre>
+    <pre><code class="lang-csharp hljs">public struct ZDayRegionRank</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge__ctor_System_String_NationStates_NET_BadgeType_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.%23ctor(System.String%2CNationStates.NET.BadgeType%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_ZDayRegionRank__ctor_System_String_System_Int64_.md&amp;value=---%0Auid%3A%20NationStates.NET.ZDayRegionRank.%23ctor(System.String%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L35">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/ZDayRegionRank.cs/#L28">View Source</a>
   </span>
-  <a id="NationStates_NET_Badge__ctor_" data-uid="NationStates.NET.Badge.#ctor*"></a>
-  <h4 id="NationStates_NET_Badge__ctor_System_String_NationStates_NET_BadgeType_System_Int64_" data-uid="NationStates.NET.Badge.#ctor(System.String,NationStates.NET.BadgeType,System.Int64)">Badge(String, BadgeType, Int64)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.Badge.html">Badge</a> struct.</p>
+  <a id="NationStates_NET_ZDayRegionRank__ctor_" data-uid="NationStates.NET.ZDayRegionRank.#ctor*"></a>
+  <h4 id="NationStates_NET_ZDayRegionRank__ctor_System_String_System_Int64_" data-uid="NationStates.NET.ZDayRegionRank.#ctor(System.String,System.Int64)">ZDayRegionRank(String, Int64)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NationStates.NET.ZDayRegionRank.html">ZDayRegionRank</a> struct.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Badge(string entity, BadgeType type, long id)</code></pre>
+    <pre><code class="lang-csharp hljs">public ZDayRegionRank(string region, long score)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -130,20 +130,14 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">entity</span></td>
-        <td><p>The name of the entity that has the badge.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="NationStates.NET.BadgeType.html">BadgeType</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>Type of World Assembly badge.</p>
+        <td><span class="parametername">region</span></td>
+        <td><p>The region's name.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int64</span></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>ID of Security Council resolution that granted the World Assembly badge.</p>
+        <td><span class="parametername">score</span></td>
+        <td><p>The region's score.</p>
 </td>
       </tr>
     </tbody>
@@ -152,20 +146,20 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_Entity.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.Entity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_ZDayRegionRank_Region.md&amp;value=---%0Auid%3A%20NationStates.NET.ZDayRegionRank.Region%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L20">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/ZDayRegionRank.cs/#L20">View Source</a>
   </span>
-  <a id="NationStates_NET_Badge_Entity_" data-uid="NationStates.NET.Badge.Entity*"></a>
-  <h4 id="NationStates_NET_Badge_Entity" data-uid="NationStates.NET.Badge.Entity">Entity</h4>
-  <div class="markdown level1 summary"><p>Gets the name of the entity that has the badge.</p>
+  <a id="NationStates_NET_ZDayRegionRank_Region_" data-uid="NationStates.NET.ZDayRegionRank.Region*"></a>
+  <h4 id="NationStates_NET_ZDayRegionRank_Region" data-uid="NationStates.NET.ZDayRegionRank.Region">Region</h4>
+  <div class="markdown level1 summary"><p>Gets the region's name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonProperty]
-public readonly string Entity { get; }</code></pre>
+public readonly string Region { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -184,20 +178,20 @@ public readonly string Entity { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_ID.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_ZDayRegionRank_Score.md&amp;value=---%0Auid%3A%20NationStates.NET.ZDayRegionRank.Score%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L14">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/ZDayRegionRank.cs/#L14">View Source</a>
   </span>
-  <a id="NationStates_NET_Badge_ID_" data-uid="NationStates.NET.Badge.ID*"></a>
-  <h4 id="NationStates_NET_Badge_ID" data-uid="NationStates.NET.Badge.ID">ID</h4>
-  <div class="markdown level1 summary"><p>Gets the ID of Security Council resolution that granted the World Assembly badge.</p>
+  <a id="NationStates_NET_ZDayRegionRank_Score_" data-uid="NationStates.NET.ZDayRegionRank.Score*"></a>
+  <h4 id="NationStates_NET_ZDayRegionRank_Score" data-uid="NationStates.NET.ZDayRegionRank.Score">Score</h4>
+  <div class="markdown level1 summary"><p>Gets the region's score.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonProperty]
-public readonly long ID { get; }</code></pre>
+public readonly long Score { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -214,50 +208,18 @@ public readonly long ID { get; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_Type.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L26">View Source</a>
-  </span>
-  <a id="NationStates_NET_Badge_Type_" data-uid="NationStates.NET.Badge.Type*"></a>
-  <h4 id="NationStates_NET_Badge_Type" data-uid="NationStates.NET.Badge.Type">Type</h4>
-  <div class="markdown level1 summary"><p>Gets type of World Assembly badge.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty]
-public readonly BadgeType Type { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NationStates.NET.BadgeType.html">BadgeType</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_ZDayRegionRank_ToString.md&amp;value=---%0Auid%3A%20NationStates.NET.ZDayRegionRank.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L46">View Source</a>
+    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/ZDayRegionRank.cs/#L38">View Source</a>
   </span>
-  <a id="NationStates_NET_Badge_ToString_" data-uid="NationStates.NET.Badge.ToString*"></a>
-  <h4 id="NationStates_NET_Badge_ToString" data-uid="NationStates.NET.Badge.ToString">ToString()</h4>
-  <div class="markdown level1 summary"><p>Gets a JSON string representing the badge.</p>
+  <a id="NationStates_NET_ZDayRegionRank_ToString_" data-uid="NationStates.NET.ZDayRegionRank.ToString*"></a>
+  <h4 id="NationStates_NET_ZDayRegionRank_ToString" data-uid="NationStates.NET.ZDayRegionRank.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a JSON string representing the region during Z-Day.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -275,7 +237,7 @@ public readonly BadgeType Type { get; }</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>A JSON string representing the badge.</p>
+        <td><p>A JSON string representing the region during Z-Day.</p>
 </td>
       </tr>
     </tbody>
@@ -290,10 +252,10 @@ public readonly BadgeType Type { get; }</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_Badge.md&amp;value=---%0Auid%3A%20NationStates.NET.Badge%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/new/main/apiSpec/new?filename=NationStates_NET_ZDayRegionRank.md&amp;value=---%0Auid%3A%20NationStates.NET.ZDayRegionRank%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/Badge.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/asdia0/NationStates.NET/blob/main/src/NationStates.NET/Structs/ZDayRegionRank.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -74,6 +74,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Badge.Badge
   nameWithType: Badge.Badge
+- uid: NationStates.NET.Badge.Entity
+  name: Entity
+  href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_Entity
+  commentId: P:NationStates.NET.Badge.Entity
+  fullName: NationStates.NET.Badge.Entity
+  nameWithType: Badge.Entity
+- uid: NationStates.NET.Badge.Entity*
+  name: Entity
+  href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_Entity_
+  commentId: Overload:NationStates.NET.Badge.Entity
+  isSpec: "True"
+  fullName: NationStates.NET.Badge.Entity
+  nameWithType: Badge.Entity
 - uid: NationStates.NET.Badge.ID
   name: ID
   href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_ID
@@ -87,19 +100,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Badge.ID
   nameWithType: Badge.ID
-- uid: NationStates.NET.Badge.Name
-  name: Name
-  href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_Name
-  commentId: P:NationStates.NET.Badge.Name
-  fullName: NationStates.NET.Badge.Name
-  nameWithType: Badge.Name
-- uid: NationStates.NET.Badge.Name*
-  name: Name
-  href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_Name_
-  commentId: Overload:NationStates.NET.Badge.Name
-  isSpec: "True"
-  fullName: NationStates.NET.Badge.Name
-  nameWithType: Badge.Name
 - uid: NationStates.NET.Badge.ToString
   name: ToString()
   href: api/NationStates.NET.Badge.html#NationStates_NET_Badge_ToString
@@ -528,19 +528,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusNation.ID
   nameWithType: CensusNation.ID
-- uid: NationStates.NET.CensusNation.Name
-  name: Name
-  href: api/NationStates.NET.CensusNation.html#NationStates_NET_CensusNation_Name
-  commentId: P:NationStates.NET.CensusNation.Name
-  fullName: NationStates.NET.CensusNation.Name
-  nameWithType: CensusNation.Name
-- uid: NationStates.NET.CensusNation.Name*
-  name: Name
-  href: api/NationStates.NET.CensusNation.html#NationStates_NET_CensusNation_Name_
-  commentId: Overload:NationStates.NET.CensusNation.Name
+- uid: NationStates.NET.CensusNation.Nation
+  name: Nation
+  href: api/NationStates.NET.CensusNation.html#NationStates_NET_CensusNation_Nation
+  commentId: P:NationStates.NET.CensusNation.Nation
+  fullName: NationStates.NET.CensusNation.Nation
+  nameWithType: CensusNation.Nation
+- uid: NationStates.NET.CensusNation.Nation*
+  name: Nation
+  href: api/NationStates.NET.CensusNation.html#NationStates_NET_CensusNation_Nation_
+  commentId: Overload:NationStates.NET.CensusNation.Nation
   isSpec: "True"
-  fullName: NationStates.NET.CensusNation.Name
-  nameWithType: CensusNation.Name
+  fullName: NationStates.NET.CensusNation.Nation
+  nameWithType: CensusNation.Nation
 - uid: NationStates.NET.CensusNation.RegionPercentage
   name: RegionPercentage
   href: api/NationStates.NET.CensusNation.html#NationStates_NET_CensusNation_RegionPercentage
@@ -638,6 +638,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRank.CensusRank
   nameWithType: CensusRank.CensusRank
+- uid: NationStates.NET.CensusRank.Entity
+  name: Entity
+  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Entity
+  commentId: P:NationStates.NET.CensusRank.Entity
+  fullName: NationStates.NET.CensusRank.Entity
+  nameWithType: CensusRank.Entity
+- uid: NationStates.NET.CensusRank.Entity*
+  name: Entity
+  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Entity_
+  commentId: Overload:NationStates.NET.CensusRank.Entity
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRank.Entity
+  nameWithType: CensusRank.Entity
 - uid: NationStates.NET.CensusRank.ID
   name: ID
   href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_ID
@@ -651,19 +664,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRank.ID
   nameWithType: CensusRank.ID
-- uid: NationStates.NET.CensusRank.Name
-  name: Name
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Name
-  commentId: P:NationStates.NET.CensusRank.Name
-  fullName: NationStates.NET.CensusRank.Name
-  nameWithType: CensusRank.Name
-- uid: NationStates.NET.CensusRank.Name*
-  name: Name
-  href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Name_
-  commentId: Overload:NationStates.NET.CensusRank.Name
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRank.Name
-  nameWithType: CensusRank.Name
 - uid: NationStates.NET.CensusRank.Rank
   name: Rank
   href: api/NationStates.NET.CensusRank.html#NationStates_NET_CensusRank_Rank
@@ -722,6 +722,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRecord.CensusRecord
   nameWithType: CensusRecord.CensusRecord
+- uid: NationStates.NET.CensusRecord.Entity
+  name: Entity
+  href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_Entity
+  commentId: P:NationStates.NET.CensusRecord.Entity
+  fullName: NationStates.NET.CensusRecord.Entity
+  nameWithType: CensusRecord.Entity
+- uid: NationStates.NET.CensusRecord.Entity*
+  name: Entity
+  href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_Entity_
+  commentId: Overload:NationStates.NET.CensusRecord.Entity
+  isSpec: "True"
+  fullName: NationStates.NET.CensusRecord.Entity
+  nameWithType: CensusRecord.Entity
 - uid: NationStates.NET.CensusRecord.ID
   name: ID
   href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_ID
@@ -735,19 +748,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRecord.ID
   nameWithType: CensusRecord.ID
-- uid: NationStates.NET.CensusRecord.Name
-  name: Name
-  href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_Name
-  commentId: P:NationStates.NET.CensusRecord.Name
-  fullName: NationStates.NET.CensusRecord.Name
-  nameWithType: CensusRecord.Name
-- uid: NationStates.NET.CensusRecord.Name*
-  name: Name
-  href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_Name_
-  commentId: Overload:NationStates.NET.CensusRecord.Name
-  isSpec: "True"
-  fullName: NationStates.NET.CensusRecord.Name
-  nameWithType: CensusRecord.Name
 - uid: NationStates.NET.CensusRecord.Score
   name: Score
   href: api/NationStates.NET.CensusRecord.html#NationStates_NET_CensusRecord_Score
@@ -819,19 +819,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.CensusRegion.ID
   nameWithType: CensusRegion.ID
-- uid: NationStates.NET.CensusRegion.Name
-  name: Name
-  href: api/NationStates.NET.CensusRegion.html#NationStates_NET_CensusRegion_Name
-  commentId: P:NationStates.NET.CensusRegion.Name
-  fullName: NationStates.NET.CensusRegion.Name
-  nameWithType: CensusRegion.Name
-- uid: NationStates.NET.CensusRegion.Name*
-  name: Name
-  href: api/NationStates.NET.CensusRegion.html#NationStates_NET_CensusRegion_Name_
-  commentId: Overload:NationStates.NET.CensusRegion.Name
+- uid: NationStates.NET.CensusRegion.Region
+  name: Region
+  href: api/NationStates.NET.CensusRegion.html#NationStates_NET_CensusRegion_Region
+  commentId: P:NationStates.NET.CensusRegion.Region
+  fullName: NationStates.NET.CensusRegion.Region
+  nameWithType: CensusRegion.Region
+- uid: NationStates.NET.CensusRegion.Region*
+  name: Region
+  href: api/NationStates.NET.CensusRegion.html#NationStates_NET_CensusRegion_Region_
+  commentId: Overload:NationStates.NET.CensusRegion.Region
   isSpec: "True"
-  fullName: NationStates.NET.CensusRegion.Name
-  nameWithType: CensusRegion.Name
+  fullName: NationStates.NET.CensusRegion.Region
+  nameWithType: CensusRegion.Region
 - uid: NationStates.NET.CensusRegion.Score
   name: Score
   href: api/NationStates.NET.CensusRegion.html#NationStates_NET_CensusRegion_Score
@@ -987,19 +987,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Challenge.Losses
   nameWithType: Challenge.Losses
-- uid: NationStates.NET.Challenge.Name
-  name: Name
-  href: api/NationStates.NET.Challenge.html#NationStates_NET_Challenge_Name
-  commentId: P:NationStates.NET.Challenge.Name
-  fullName: NationStates.NET.Challenge.Name
-  nameWithType: Challenge.Name
-- uid: NationStates.NET.Challenge.Name*
-  name: Name
-  href: api/NationStates.NET.Challenge.html#NationStates_NET_Challenge_Name_
-  commentId: Overload:NationStates.NET.Challenge.Name
+- uid: NationStates.NET.Challenge.Nation
+  name: Nation
+  href: api/NationStates.NET.Challenge.html#NationStates_NET_Challenge_Nation
+  commentId: P:NationStates.NET.Challenge.Nation
+  fullName: NationStates.NET.Challenge.Nation
+  nameWithType: Challenge.Nation
+- uid: NationStates.NET.Challenge.Nation*
+  name: Nation
+  href: api/NationStates.NET.Challenge.html#NationStates_NET_Challenge_Nation_
+  commentId: Overload:NationStates.NET.Challenge.Nation
   isSpec: "True"
-  fullName: NationStates.NET.Challenge.Name
-  nameWithType: Challenge.Name
+  fullName: NationStates.NET.Challenge.Nation
+  nameWithType: Challenge.Nation
 - uid: NationStates.NET.Challenge.Rank
   name: Rank
   href: api/NationStates.NET.Challenge.html#NationStates_NET_Challenge_Rank
@@ -1180,12 +1180,12 @@ references:
   commentId: T:NationStates.NET.Collection
   fullName: NationStates.NET.Collection
   nameWithType: Collection
-- uid: NationStates.NET.Collection.#ctor(System.Int64,System.DateTime,System.String)
-  name: Collection(Int64, DateTime, String)
-  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection__ctor_System_Int64_System_DateTime_System_String_
-  commentId: M:NationStates.NET.Collection.#ctor(System.Int64,System.DateTime,System.String)
-  fullName: NationStates.NET.Collection.Collection(System.Int64, System.DateTime, System.String)
-  nameWithType: Collection.Collection(Int64, DateTime, String)
+- uid: NationStates.NET.Collection.#ctor(System.String,System.Int64,System.DateTime,System.String)
+  name: Collection(String, Int64, DateTime, String)
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection__ctor_System_String_System_Int64_System_DateTime_System_String_
+  commentId: M:NationStates.NET.Collection.#ctor(System.String,System.Int64,System.DateTime,System.String)
+  fullName: NationStates.NET.Collection.Collection(System.String, System.Int64, System.DateTime, System.String)
+  nameWithType: Collection.Collection(String, Int64, DateTime, String)
 - uid: NationStates.NET.Collection.#ctor*
   name: Collection
   href: api/NationStates.NET.Collection.html#NationStates_NET_Collection__ctor_
@@ -1232,6 +1232,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Collection.Name
   nameWithType: Collection.Name
+- uid: NationStates.NET.Collection.Nation
+  name: Nation
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_Nation
+  commentId: P:NationStates.NET.Collection.Nation
+  fullName: NationStates.NET.Collection.Nation
+  nameWithType: Collection.Nation
+- uid: NationStates.NET.Collection.Nation*
+  name: Nation
+  href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_Nation_
+  commentId: Overload:NationStates.NET.Collection.Nation
+  isSpec: "True"
+  fullName: NationStates.NET.Collection.Nation
+  nameWithType: Collection.Nation
 - uid: NationStates.NET.Collection.ToString
   name: ToString()
   href: api/NationStates.NET.Collection.html#NationStates_NET_Collection_ToString
@@ -5842,19 +5855,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Proposal.ID
   nameWithType: Proposal.ID
-- uid: NationStates.NET.Proposal.Name
-  name: Name
-  href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_Name
-  commentId: P:NationStates.NET.Proposal.Name
-  fullName: NationStates.NET.Proposal.Name
-  nameWithType: Proposal.Name
-- uid: NationStates.NET.Proposal.Name*
-  name: Name
-  href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_Name_
-  commentId: Overload:NationStates.NET.Proposal.Name
-  isSpec: "True"
-  fullName: NationStates.NET.Proposal.Name
-  nameWithType: Proposal.Name
 - uid: NationStates.NET.Proposal.Proposer
   name: Proposer
   href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_Proposer
@@ -5881,6 +5881,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Proposal.SubCategory
   nameWithType: Proposal.SubCategory
+- uid: NationStates.NET.Proposal.Title
+  name: Title
+  href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_Title
+  commentId: P:NationStates.NET.Proposal.Title
+  fullName: NationStates.NET.Proposal.Title
+  nameWithType: Proposal.Title
+- uid: NationStates.NET.Proposal.Title*
+  name: Title
+  href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_Title_
+  commentId: Overload:NationStates.NET.Proposal.Title
+  isSpec: "True"
+  fullName: NationStates.NET.Proposal.Title
+  nameWithType: Proposal.Title
 - uid: NationStates.NET.Proposal.ToString
   name: ToString()
   href: api/NationStates.NET.Proposal.html#NationStates_NET_Proposal_ToString
@@ -6017,19 +6030,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.ProposalAtVote.ID
   nameWithType: ProposalAtVote.ID
-- uid: NationStates.NET.ProposalAtVote.Name
-  name: Name
-  href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_Name
-  commentId: P:NationStates.NET.ProposalAtVote.Name
-  fullName: NationStates.NET.ProposalAtVote.Name
-  nameWithType: ProposalAtVote.Name
-- uid: NationStates.NET.ProposalAtVote.Name*
-  name: Name
-  href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_Name_
-  commentId: Overload:NationStates.NET.ProposalAtVote.Name
-  isSpec: "True"
-  fullName: NationStates.NET.ProposalAtVote.Name
-  nameWithType: ProposalAtVote.Name
 - uid: NationStates.NET.ProposalAtVote.Proposer
   name: Proposer
   href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_Proposer
@@ -6056,6 +6056,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.ProposalAtVote.SubCategory
   nameWithType: ProposalAtVote.SubCategory
+- uid: NationStates.NET.ProposalAtVote.Title
+  name: Title
+  href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_Title
+  commentId: P:NationStates.NET.ProposalAtVote.Title
+  fullName: NationStates.NET.ProposalAtVote.Title
+  nameWithType: ProposalAtVote.Title
+- uid: NationStates.NET.ProposalAtVote.Title*
+  name: Title
+  href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_Title_
+  commentId: Overload:NationStates.NET.ProposalAtVote.Title
+  isSpec: "True"
+  fullName: NationStates.NET.ProposalAtVote.Title
+  nameWithType: ProposalAtVote.Title
 - uid: NationStates.NET.ProposalAtVote.ToString
   name: ToString()
   href: api/NationStates.NET.ProposalAtVote.html#NationStates_NET_ProposalAtVote_ToString
@@ -7354,19 +7367,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Resolution.Implemented
   nameWithType: Resolution.Implemented
-- uid: NationStates.NET.Resolution.Name
-  name: Name
-  href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_Name
-  commentId: P:NationStates.NET.Resolution.Name
-  fullName: NationStates.NET.Resolution.Name
-  nameWithType: Resolution.Name
-- uid: NationStates.NET.Resolution.Name*
-  name: Name
-  href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_Name_
-  commentId: Overload:NationStates.NET.Resolution.Name
-  isSpec: "True"
-  fullName: NationStates.NET.Resolution.Name
-  nameWithType: Resolution.Name
 - uid: NationStates.NET.Resolution.Promoted
   name: Promoted
   href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_Promoted
@@ -7458,6 +7458,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Resolution.SubCategory
   nameWithType: Resolution.SubCategory
+- uid: NationStates.NET.Resolution.Title
+  name: Title
+  href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_Title
+  commentId: P:NationStates.NET.Resolution.Title
+  fullName: NationStates.NET.Resolution.Title
+  nameWithType: Resolution.Title
+- uid: NationStates.NET.Resolution.Title*
+  name: Title
+  href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_Title_
+  commentId: Overload:NationStates.NET.Resolution.Title
+  isSpec: "True"
+  fullName: NationStates.NET.Resolution.Title
+  nameWithType: Resolution.Title
 - uid: NationStates.NET.Resolution.ToString
   name: ToString()
   href: api/NationStates.NET.Resolution.html#NationStates_NET_Resolution_ToString
@@ -8163,6 +8176,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseWASubCategory
   nameWithType: Utility.ParseWASubCategory
+- uid: NationStates.NET.Utility.ParseWrittenStandardNotation(System.String)
+  name: ParseWrittenStandardNotation(String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseWrittenStandardNotation_System_String_
+  commentId: M:NationStates.NET.Utility.ParseWrittenStandardNotation(System.String)
+  fullName: NationStates.NET.Utility.ParseWrittenStandardNotation(System.String)
+  nameWithType: Utility.ParseWrittenStandardNotation(String)
+- uid: NationStates.NET.Utility.ParseWrittenStandardNotation*
+  name: ParseWrittenStandardNotation
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseWrittenStandardNotation_
+  commentId: Overload:NationStates.NET.Utility.ParseWrittenStandardNotation
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.ParseWrittenStandardNotation
+  nameWithType: Utility.ParseWrittenStandardNotation
 - uid: NationStates.NET.Utility.ParseXMLDocument(System.String)
   name: ParseXMLDocument(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_System_String_
@@ -8546,6 +8572,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.World.TelegramQueue
   nameWithType: World.TelegramQueue
+- uid: NationStates.NET.World.ZDayRegionsByCategory(NationStates.NET.ZDaySort)
+  name: ZDayRegionsByCategory(ZDaySort)
+  href: api/NationStates.NET.World.html#NationStates_NET_World_ZDayRegionsByCategory_NationStates_NET_ZDaySort_
+  commentId: M:NationStates.NET.World.ZDayRegionsByCategory(NationStates.NET.ZDaySort)
+  fullName: NationStates.NET.World.ZDayRegionsByCategory(NationStates.NET.ZDaySort)
+  nameWithType: World.ZDayRegionsByCategory(ZDaySort)
+- uid: NationStates.NET.World.ZDayRegionsByCategory*
+  name: ZDayRegionsByCategory
+  href: api/NationStates.NET.World.html#NationStates_NET_World_ZDayRegionsByCategory_
+  commentId: Overload:NationStates.NET.World.ZDayRegionsByCategory
+  isSpec: "True"
+  fullName: NationStates.NET.World.ZDayRegionsByCategory
+  nameWithType: World.ZDayRegionsByCategory
 - uid: NationStates.NET.WorldAssembly
   name: WorldAssembly
   href: api/NationStates.NET.WorldAssembly.html
@@ -8788,6 +8827,100 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.ZDayNation.ToString
   nameWithType: ZDayNation.ToString
+- uid: NationStates.NET.ZDayRegionRank
+  name: ZDayRegionRank
+  href: api/NationStates.NET.ZDayRegionRank.html
+  commentId: T:NationStates.NET.ZDayRegionRank
+  fullName: NationStates.NET.ZDayRegionRank
+  nameWithType: ZDayRegionRank
+- uid: NationStates.NET.ZDayRegionRank.#ctor(System.String,System.Int64)
+  name: ZDayRegionRank(String, Int64)
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank__ctor_System_String_System_Int64_
+  commentId: M:NationStates.NET.ZDayRegionRank.#ctor(System.String,System.Int64)
+  fullName: NationStates.NET.ZDayRegionRank.ZDayRegionRank(System.String, System.Int64)
+  nameWithType: ZDayRegionRank.ZDayRegionRank(String, Int64)
+- uid: NationStates.NET.ZDayRegionRank.#ctor*
+  name: ZDayRegionRank
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank__ctor_
+  commentId: Overload:NationStates.NET.ZDayRegionRank.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayRegionRank.ZDayRegionRank
+  nameWithType: ZDayRegionRank.ZDayRegionRank
+- uid: NationStates.NET.ZDayRegionRank.Region
+  name: Region
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_Region
+  commentId: P:NationStates.NET.ZDayRegionRank.Region
+  fullName: NationStates.NET.ZDayRegionRank.Region
+  nameWithType: ZDayRegionRank.Region
+- uid: NationStates.NET.ZDayRegionRank.Region*
+  name: Region
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_Region_
+  commentId: Overload:NationStates.NET.ZDayRegionRank.Region
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayRegionRank.Region
+  nameWithType: ZDayRegionRank.Region
+- uid: NationStates.NET.ZDayRegionRank.Score
+  name: Score
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_Score
+  commentId: P:NationStates.NET.ZDayRegionRank.Score
+  fullName: NationStates.NET.ZDayRegionRank.Score
+  nameWithType: ZDayRegionRank.Score
+- uid: NationStates.NET.ZDayRegionRank.Score*
+  name: Score
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_Score_
+  commentId: Overload:NationStates.NET.ZDayRegionRank.Score
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayRegionRank.Score
+  nameWithType: ZDayRegionRank.Score
+- uid: NationStates.NET.ZDayRegionRank.ToString
+  name: ToString()
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_ToString
+  commentId: M:NationStates.NET.ZDayRegionRank.ToString
+  fullName: NationStates.NET.ZDayRegionRank.ToString()
+  nameWithType: ZDayRegionRank.ToString()
+- uid: NationStates.NET.ZDayRegionRank.ToString*
+  name: ToString
+  href: api/NationStates.NET.ZDayRegionRank.html#NationStates_NET_ZDayRegionRank_ToString_
+  commentId: Overload:NationStates.NET.ZDayRegionRank.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.ZDayRegionRank.ToString
+  nameWithType: ZDayRegionRank.ToString
+- uid: NationStates.NET.ZDaySort
+  name: ZDaySort
+  href: api/NationStates.NET.ZDaySort.html
+  commentId: T:NationStates.NET.ZDaySort
+  fullName: NationStates.NET.ZDaySort
+  nameWithType: ZDaySort
+- uid: NationStates.NET.ZDaySort.MostDead
+  name: MostDead
+  href: api/NationStates.NET.ZDaySort.html#NationStates_NET_ZDaySort_MostDead
+  commentId: F:NationStates.NET.ZDaySort.MostDead
+  fullName: NationStates.NET.ZDaySort.MostDead
+  nameWithType: ZDaySort.MostDead
+- uid: NationStates.NET.ZDaySort.MostSurvivors
+  name: MostSurvivors
+  href: api/NationStates.NET.ZDaySort.html#NationStates_NET_ZDaySort_MostSurvivors
+  commentId: F:NationStates.NET.ZDaySort.MostSurvivors
+  fullName: NationStates.NET.ZDaySort.MostSurvivors
+  nameWithType: ZDaySort.MostSurvivors
+- uid: NationStates.NET.ZDaySort.MostSurvivorsNoQuarantine
+  name: MostSurvivorsNoQuarantine
+  href: api/NationStates.NET.ZDaySort.html#NationStates_NET_ZDaySort_MostSurvivorsNoQuarantine
+  commentId: F:NationStates.NET.ZDaySort.MostSurvivorsNoQuarantine
+  fullName: NationStates.NET.ZDaySort.MostSurvivorsNoQuarantine
+  nameWithType: ZDaySort.MostSurvivorsNoQuarantine
+- uid: NationStates.NET.ZDaySort.MostSurvivorsNoZombies
+  name: MostSurvivorsNoZombies
+  href: api/NationStates.NET.ZDaySort.html#NationStates_NET_ZDaySort_MostSurvivorsNoZombies
+  commentId: F:NationStates.NET.ZDaySort.MostSurvivorsNoZombies
+  fullName: NationStates.NET.ZDaySort.MostSurvivorsNoZombies
+  nameWithType: ZDaySort.MostSurvivorsNoZombies
+- uid: NationStates.NET.ZDaySort.MostZombies
+  name: MostZombies
+  href: api/NationStates.NET.ZDaySort.html#NationStates_NET_ZDaySort_MostZombies
+  commentId: F:NationStates.NET.ZDaySort.MostZombies
+  fullName: NationStates.NET.ZDaySort.MostZombies
+  nameWithType: ZDaySort.MostZombies
 - uid: NationStates.NET.ZombieAction
   name: ZombieAction
   href: api/NationStates.NET.ZombieAction.html
