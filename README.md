@@ -27,7 +27,8 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Misc
 
-- [ ] Authentication [DOING]
+- [ ] Authentication
+- [ ] Verification [DOING]
 - [ ] Telegram
 
 ## TODO
