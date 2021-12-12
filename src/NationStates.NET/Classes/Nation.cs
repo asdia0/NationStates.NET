@@ -516,8 +516,51 @@
             }
         }
 
+        public string Investigate
+        {
+            get
+            {
+                Dictionary<string, string> header = new()
+                {
+                    { "X-Pin", this.Pin },
+                };
+
+                return DownloadPage($"https://www.nationstates.net/cgi-bin/api.cgi?nation={this.Name}&q=issues", header);
+            }
+        }
+
         /// <summary>
-        /// Gets a list of the nations in the nation's dossier.
+        /// Gets the issues that the nation faces.
+        /// </summary>
+        public HashSet<Issue> Issues
+        {
+            get
+            {
+                HashSet<Issue> issues = new();
+
+                foreach (XmlElement issue in ParseXMLDocument($"nation={this.Name}&q=issues", this.Pin).SelectNodes("/NATION/ISSUES/ISSUE"))
+                {
+                    int id = int.Parse(issue.Attributes["id"].Value);
+                    string title = issue.SelectSingleNode("/TITLE").InnerText;
+                    string text = issue.SelectSingleNode("/TEXT").InnerText;
+                    string author = issue.SelectSingleNode("/AUTHOR").InnerText;
+                    string editor = issue.SelectSingleNode("/EDITOR").InnerText;
+                    List<string> options = new();
+
+                    foreach (XmlElement option in issue.SelectNodes("/OPTION"))
+                    {
+                        options.Add(option.InnerText);
+                    }
+
+                    issues.Add(new(id, title, text, options, author, editor));
+                }
+
+                return issues;
+            }
+        }
+
+        /// <summary>
+        /// Gets the list of the nations in the nation's dossier.
         /// </summary>
         public HashSet<string> NationDossier
         {
@@ -535,7 +578,7 @@
         }
 
         /// <summary>
-        /// Gets a list of the regions in the nation's dossier.
+        /// Gets the list of the regions in the nation's dossier.
         /// </summary>
         public HashSet<string> RegionDossier
         {
