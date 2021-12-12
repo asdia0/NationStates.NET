@@ -918,7 +918,7 @@
             {
                 HtmlNode node = Utility.ParseHTMLDocument($"https://www.nationstates.net/nation={this.Name}/page=nukes");
                 HtmlNode factionNode = node.SelectSingleNode(".//div[@class='nukenfaction']/p/a[@class='factionname']");
-                string? faction = (factionNode == null) ? null : factionNode.InnerText;
+                string? faction = factionNode?.InnerText;
                 long incoming = long.Parse(node.SelectSingleNode(".//a[@title='Incoming']").InnerText.Replace("INCOMING", string.Empty).Replace(",", string.Empty));
                 long intercepts = long.Parse(node.SelectSingleNode(".//a[@title='Intercepts']").InnerText.Replace("INTERCEPTS", string.Empty).Replace(",", string.Empty));
                 long launches = long.Parse(node.SelectSingleNode(".//a[@title='Launches']").InnerText.Replace("LAUNCHES", string.Empty).Replace(",", string.Empty));
@@ -1240,6 +1240,21 @@
         public Nation(string name)
         {
             this.Name = name;
+        }
+
+        /// <summary>
+        /// Gets the current X-Autologin password for safer use of private commands.
+        /// </summary>
+        /// <param name="password">The nation's password. It will not be saved.</param>
+        /// <returns>The X-Autologin password.</returns>
+        public string GetAutoLogin(string password)
+        {
+            Dictionary<string, string> headers = new()
+            {
+                { "X-Password", password },
+            };
+
+            return GetResponseHeaders($"nation={this.Name}&q=unread", headers).GetValues("X-Autologin").First();
         }
 
         /// <summary>

@@ -69,11 +69,20 @@
         /// Downloads a webpage.
         /// </summary>
         /// <param name="path">The path to the webpage.</param>
+        /// <param name="headers">A list of optional additional headers.</param>
         /// <returns>The webpage contents.</returns>
-        public static string DownloadPage(string path)
+        public static string DownloadPage(string path, Dictionary<string, string>? headers = null)
         {
             using WebClient client = new();
             client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
+
+            if (headers != null)
+            {
+                foreach (string key in headers.Keys)
+                {
+                    client.Headers.Add(key, headers[key]);
+                }
+            }
 
             try
             {
@@ -99,6 +108,42 @@
         public static string FormatForEnum(string text)
         {
             return text.Replace(" - ", string.Empty).Replace("-", string.Empty).Replace(": ", string.Empty).Trim().Replace(" ", "_");
+        }
+
+        /// <summary>
+        /// Gets the response headers from a request.
+        /// </summary>
+        /// <param name="path">The path to the webpage.</param>
+        /// <param name="headers">A list of optional additional headers.</param>
+        /// <returns>The response headers.</returns>
+        public static WebHeaderCollection GetResponseHeaders(string path, Dictionary<string, string>? headers = null)
+        {
+            using WebClient client = new();
+            client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
+
+            if (headers != null)
+            {
+                foreach (string key in headers.Keys)
+                {
+                    client.Headers.Add(key, headers[key]);
+                }
+            }
+
+            try
+            {
+                Thread.Sleep(600);
+                client.OpenRead("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
+                return client.ResponseHeaders;
+            }
+            catch (WebException e)
+            {
+                if (e.Message.Contains("(429)"))
+                {
+                    throw new NSError("Too many requests. Try again in 15 minutes.");
+                }
+
+                throw new NSError(e.Message);
+            }
         }
 
         /// <summary>
