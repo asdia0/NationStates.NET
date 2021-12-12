@@ -27,15 +27,6 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Misc
 
-- [ ] Authentication
-- [ ] Verification [DOING]
+- [ ] Authentication [DOING]
+- [X] Verification
 - [ ] Telegram
-
-## TODO
-
-- [ ] Standardise code
-- [ ] Actually test stuff
-- [ ] Add documentation
-- [ ] Convert the project into a library
-- [ ] Upload the project to NuGet
-- [ ] Add an example project
