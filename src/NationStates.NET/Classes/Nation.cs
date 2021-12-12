@@ -541,13 +541,13 @@
                 foreach (XmlElement issue in ParseXMLDocument($"nation={this.Name}&q=issues", this.Pin).SelectNodes("/NATION/ISSUES/ISSUE"))
                 {
                     int id = int.Parse(issue.Attributes["id"].Value);
-                    string title = issue.SelectSingleNode("/TITLE").InnerText;
-                    string text = issue.SelectSingleNode("/TEXT").InnerText;
-                    string author = issue.SelectSingleNode("/AUTHOR").InnerText;
-                    string editor = issue.SelectSingleNode("/EDITOR").InnerText;
+                    string title = issue.SelectSingleNode("TITLE").InnerText;
+                    string text = issue.SelectSingleNode("TEXT").InnerText;
+                    string author = issue.SelectSingleNode("AUTHOR").InnerText;
+                    string editor = issue.SelectSingleNode("EDITOR").InnerText;
                     List<string> options = new();
 
-                    foreach (XmlElement option in issue.SelectNodes("/OPTION"))
+                    foreach (XmlElement option in issue.SelectNodes("OPTION"))
                     {
                         options.Add(option.InnerText);
                     }
