@@ -1272,6 +1272,16 @@
         }
 
         /// <summary>
+        /// Verifies if the user owns the nation by comparing the checksum code from https://www.nationstates.net/page=verify_login.
+        /// </summary>
+        /// <param name="checksum">The checksum code to compare.</param>
+        /// <returns>A boolean verifying the user's ownership over the nation.</returns>
+        public bool Verify(string checksum)
+        {
+            return DownloadPage($"a=verify&nation={this.Name}&checksum={checksum}").Trim() == "1";
+        }
+
+        /// <summary>
         /// Gets a JSON string representing the nation.
         /// </summary>
         /// <returns>A JSON string representing the nation.</returns>

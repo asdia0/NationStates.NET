@@ -78,7 +78,7 @@
             try
             {
                 Thread.Sleep(600);
-                return client.DownloadString(path);
+                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
             }
             catch (WebException e)
             {
