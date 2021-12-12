@@ -212,20 +212,6 @@
         }
 
         /// <summary>
-        /// Gets the time the region was founded in natural language.
-        /// </summary>
-        [JsonProperty]
-        public string Founded
-        {
-            get
-            {
-                return ParseXMLDocument($"region={this.Name}&q=founded")
-                    .SelectSingleNode("/REGION/FOUNDED")
-                    .InnerText;
-            }
-        }
-
-        /// <summary>
         /// Gets the time the region was founded.
         /// </summary>
         [JsonProperty]
