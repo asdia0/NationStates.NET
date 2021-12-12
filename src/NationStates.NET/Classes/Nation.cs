@@ -17,6 +17,8 @@
 
         private bool nameSet = false;
 
+        private string? _Pin;
+
         /// <summary>
         /// Gets a list of the nation's admirables.
         /// </summary>
@@ -102,6 +104,27 @@
                 }
 
                 return asks;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the nation's pin code for safer use of private shards and commands. To set it, input the nation's password. The password will not be stored.
+        /// </summary>
+        public string? Pin
+        {
+            get
+            {
+                return this._Pin;
+            }
+
+            set
+            {
+                Dictionary<string, string> headers = new()
+                {
+                    { "X-Password", value },
+                };
+
+                this._Pin = GetResponseHeaders($"nation={this.Name}&q=unread", headers).GetValues("X-Pin").First();
             }
         }
 
@@ -490,6 +513,42 @@
                 }
 
                 return dispatchList;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of the nations in the nation's dossier.
+        /// </summary>
+        public HashSet<string> NationDossier
+        {
+            get
+            {
+                HashSet<string> dossier = new();
+
+                foreach (XmlElement nation in ParseXMLDocument($"nation={this.Name}&q=dossier", this.Pin).SelectNodes("/NATION/DOSSIER/NATION"))
+                {
+                    dossier.Add(nation.InnerText);
+                }
+
+                return dossier;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of the regions in the nation's dossier.
+        /// </summary>
+        public HashSet<string> RegionDossier
+        {
+            get
+            {
+                HashSet<string> dossier = new();
+
+                foreach (XmlElement region in ParseXMLDocument($"nation={this.Name}&q=rdossier", this.Pin).SelectNodes("/NATION/RDOSSIER/REGION"))
+                {
+                    dossier.Add(region.InnerText);
+                }
+
+                return dossier;
             }
         }
 
@@ -1243,21 +1302,6 @@
         }
 
         /// <summary>
-        /// Gets the current X-Autologin password for safer use of private shards and commands.
-        /// </summary>
-        /// <param name="password">The nation's password. It will not be saved.</param>
-        /// <returns>The X-Autologin password.</returns>
-        public string GetAutoLogin(string password)
-        {
-            Dictionary<string, string> headers = new()
-            {
-                { "X-Password", password },
-            };
-
-            return GetResponseHeaders($"nation={this.Name}&q=unread", headers).GetValues("X-Autologin").First();
-        }
-
-        /// <summary>
         /// Gets census data from a time period.
         /// </summary>
         /// <param name="start">The start of the time period as a UNIX timestamp.</param>
@@ -1293,7 +1337,7 @@
         /// <returns>A boolean verifying the user's ownership over the nation.</returns>
         public bool Verify(string checksum)
         {
-            return DownloadPage($"a=verify&nation={this.Name}&checksum={checksum}").Trim() == "1";
+            return DownloadPage($"https://www.nationstates.net/cgi-bin/api.cgi?a=verify&nation={this.Name}&checksum={checksum}").Trim() == "1";
         }
 
         /// <summary>

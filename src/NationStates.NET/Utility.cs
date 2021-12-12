@@ -87,7 +87,7 @@
             try
             {
                 Thread.Sleep(600);
-                return client.DownloadString("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
+                return client.DownloadString(path);
             }
             catch (WebException e)
             {
@@ -216,9 +216,15 @@
         /// </summary>
         /// <param name="path">The webpage to parse the HTML document from.</param>
         /// <returns>An <see cref="HtmlNode"/>.</returns>
-        public static HtmlNode ParseHTMLDocument(string path)
+        public static HtmlNode ParseHTMLDocument(string path, string pin = null)
         {
-            string html = DownloadPage(path);
+            Dictionary<string, string> headers = new();
+            if (pin != null)
+            {
+                headers.Add("X-Pin", pin);
+            }
+
+            string html = DownloadPage(path, headers);
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
             return htmlDoc.DocumentNode;
@@ -328,10 +334,16 @@
         /// </summary>
         /// <param name="path">The webpage to parse the XML document from.</param>
         /// <returns>An <see cref="XmlDocument"/>.</returns>
-        public static XmlElement ParseXMLDocument(string path)
+        public static XmlElement ParseXMLDocument(string path, string pin = null)
         {
+            Dictionary<string, string> headers = new();
+            if (pin != null)
+            {
+                headers.Add("X-Pin", pin);
+            }
+
             XmlDocument doc = new();
-            doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11"));
+            doc.LoadXml(DownloadPage("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11", headers));
             return doc.DocumentElement;
         }
 
