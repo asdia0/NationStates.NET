@@ -55,7 +55,7 @@
         /// Gets the URL to the subject of the notice.
         /// </summary>
         [JsonProperty]
-        public string WhoURL { get; }
+        public string? WhoURL { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Notice"/> struct.
@@ -68,7 +68,7 @@
         /// <param name="who">The subject of the notice.</param>
         /// <param name="whoURL">The URL to the subject of the notice.</param>
         /// <param name="isNew">A value indicating whether the notice is new.</param>
-        public Notice(string title, NoticeType type, string text, string url, DateTime timestamp, string who, string whoURL, bool isNew)
+        public Notice(string title, NoticeType type, string text, string url, DateTime timestamp, string who, string? whoURL, bool isNew)
         {
             this.Title = title;
             this.Type = type;
