@@ -215,6 +215,7 @@
         /// Parses an HTML document from a webpage.
         /// </summary>
         /// <param name="path">The webpage to parse the HTML document from.</param>
+        /// <param name="pin">The nation's PIN.</param>
         /// <returns>An <see cref="HtmlNode"/>.</returns>
         public static HtmlNode ParseHTMLDocument(string path, string pin = null)
         {
@@ -333,6 +334,7 @@
         /// Parses an XML document from a webpage.
         /// </summary>
         /// <param name="path">The webpage to parse the XML document from.</param>
+        /// <param name="pin">The nation's PIN.</param>
         /// <returns>An <see cref="XmlDocument"/>.</returns>
         public static XmlElement ParseXMLDocument(string path, string pin = null)
         {
