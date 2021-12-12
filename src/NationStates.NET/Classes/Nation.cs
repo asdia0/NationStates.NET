@@ -13,11 +13,30 @@
     /// </summary>
     public class Nation
     {
+        private static readonly Dictionary<string, NoticeType> NoticeTypeDict = new()
+        {
+            { "U", NoticeType.Banner },
+            { "C", NoticeType.Card },
+            { "DM", NoticeType.DispatchMention },
+            { "DP", NoticeType.DispatchPin },
+            { "DQ", NoticeType.DispatchQuote },
+            { "EMB", NoticeType.Embassy },
+            { "END", NoticeType.EndorsementGained },
+            { "UNEND", NoticeType.EndorsementLost },
+            { "I", NoticeType.Issue },
+            { "P", NoticeType.Policy },
+            { "T", NoticeType.Rank },
+            { "RMBL", NoticeType.RMBLike },
+            { "RMBM", NoticeType.RMBMention },
+            { "RMBQ", NoticeType.RMBQuote },
+            { "TG", NoticeType.Telegram },
+        };
+
         private string _Name;
 
-        private bool nameSet = false;
-
         private string? _Pin;
+
+        private bool nameSet = false;
 
         /// <summary>
         /// Gets a list of the nation's admirables.
@@ -104,27 +123,6 @@
                 }
 
                 return asks;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the nation's pin code for safer use of private shards and commands. To set it, input the nation's password. The password will not be stored.
-        /// </summary>
-        public string? Pin
-        {
-            get
-            {
-                return this._Pin;
-            }
-
-            set
-            {
-                Dictionary<string, string> headers = new()
-                {
-                    { "X-Password", value },
-                };
-
-                this._Pin = GetResponseHeaders($"nation={this.Name}&q=unread", headers).GetValues("X-Pin").First();
             }
         }
 
@@ -516,85 +514,6 @@
             }
         }
 
-        public string Investigate
-        {
-            get
-            {
-                Dictionary<string, string> header = new()
-                {
-                    { "X-Pin", this.Pin },
-                };
-
-                return DownloadPage($"https://www.nationstates.net/cgi-bin/api.cgi?nation={this.Name}&q=issues", header);
-            }
-        }
-
-        /// <summary>
-        /// Gets the issues that the nation faces.
-        /// </summary>
-        public HashSet<Issue> Issues
-        {
-            get
-            {
-                HashSet<Issue> issues = new();
-
-                foreach (XmlElement issue in ParseXMLDocument($"nation={this.Name}&q=issues", this.Pin).SelectNodes("/NATION/ISSUES/ISSUE"))
-                {
-                    int id = int.Parse(issue.Attributes["id"].Value);
-                    string title = issue.SelectSingleNode("TITLE").InnerText;
-                    string text = issue.SelectSingleNode("TEXT").InnerText;
-                    string author = issue.SelectSingleNode("AUTHOR").InnerText;
-                    string editor = issue.SelectSingleNode("EDITOR").InnerText;
-                    List<string> options = new();
-
-                    foreach (XmlElement option in issue.SelectNodes("OPTION"))
-                    {
-                        options.Add(option.InnerText);
-                    }
-
-                    issues.Add(new(id, title, text, options, author, editor));
-                }
-
-                return issues;
-            }
-        }
-
-        /// <summary>
-        /// Gets the list of the nations in the nation's dossier.
-        /// </summary>
-        public HashSet<string> NationDossier
-        {
-            get
-            {
-                HashSet<string> dossier = new();
-
-                foreach (XmlElement nation in ParseXMLDocument($"nation={this.Name}&q=dossier", this.Pin).SelectNodes("/NATION/DOSSIER/NATION"))
-                {
-                    dossier.Add(nation.InnerText);
-                }
-
-                return dossier;
-            }
-        }
-
-        /// <summary>
-        /// Gets the list of the regions in the nation's dossier.
-        /// </summary>
-        public HashSet<string> RegionDossier
-        {
-            get
-            {
-                HashSet<string> dossier = new();
-
-                foreach (XmlElement region in ParseXMLDocument($"nation={this.Name}&q=rdossier", this.Pin).SelectNodes("/NATION/RDOSSIER/REGION"))
-                {
-                    dossier.Add(region.InnerText);
-                }
-
-                return dossier;
-            }
-        }
-
         /// <summary>
         /// Gets a list of the nation's endorsements.
         /// </summary>
@@ -654,24 +573,10 @@
         }
 
         /// <summary>
-        /// Gets the time the nation was founded in natural language.
-        /// </summary>
-        [JsonProperty]
-        public string Founded
-        {
-            get
-            {
-                return ParseXMLDocument($"nation={this.Name}&q=founded")
-                    .SelectSingleNode("/NATION/FOUNDED")
-                    .InnerText;
-            }
-        }
-
-        /// <summary>
         /// Gets the time the nation was founded.
         /// </summary>
         [JsonProperty]
-        public DateTime FoundedTime
+        public DateTime Founded
         {
             get
             {
@@ -862,6 +767,78 @@
         }
 
         /// <summary>
+        /// Gets the nation's unread stuff.
+        /// </summary>
+        public Unread Unread
+        {
+            get
+            {
+                XmlElement node = ParseXMLDocument($"nation={this.Name}&q=unread", this.Pin);
+
+                int issues = int.Parse(node.SelectSingleNode("/NATION/UNREAD/ISSUES").InnerText);
+                int telegrams = int.Parse(node.SelectSingleNode("/NATION/UNREAD/TELEGRAMS").InnerText);
+                int notices = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NOTICES").InnerText);
+                int messages = int.Parse(node.SelectSingleNode("/NATION/UNREAD/RMB").InnerText);
+                int worldAssembly = int.Parse(node.SelectSingleNode("/NATION/UNREAD/WA").InnerText);
+                int news = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NEWS").InnerText);
+
+                return new(issues, telegrams, notices, messages, worldAssembly, news);
+            }
+        }
+
+        /// <summary>
+        /// Gets the number of unopened trading card packs the nation has.
+        /// </summary>
+        public int Packs
+        {
+            get
+            {
+                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=packs", this.Pin).SelectSingleNode("NATION/PACKS").InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the time at which the nation will encounter the next issue.
+        /// </summary>
+        public DateTime NextIssueTime
+        {
+            get
+            {
+                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=nextissuetime", this.Pin).SelectSingleNode("/NATION/NEXTISSUETIME").InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the issues that the nation faces.
+        /// </summary>
+        public HashSet<Issue> Issues
+        {
+            get
+            {
+                HashSet<Issue> issues = new();
+
+                foreach (XmlElement issue in ParseXMLDocument($"nation={this.Name}&q=issues", this.Pin).SelectNodes("/NATION/ISSUES/ISSUE"))
+                {
+                    int id = int.Parse(issue.Attributes["id"].Value);
+                    string title = issue.SelectSingleNode("TITLE").InnerText;
+                    string text = issue.SelectSingleNode("TEXT").InnerText;
+                    string author = issue.SelectSingleNode("AUTHOR").InnerText;
+                    string editor = issue.SelectSingleNode("EDITOR").InnerText;
+                    List<string> options = new();
+
+                    foreach (XmlElement option in issue.SelectNodes("OPTION"))
+                    {
+                        options.Add(option.InnerText);
+                    }
+
+                    issues.Add(new(id, title, text, options, author, editor));
+                }
+
+                return issues;
+            }
+        }
+
+        /// <summary>
         /// Gets the time the nation last logged in.
         /// </summary>
         [JsonProperty]
@@ -989,6 +966,24 @@
         }
 
         /// <summary>
+        /// Gets the list of the nations in the nation's dossier.
+        /// </summary>
+        public HashSet<string> NationDossier
+        {
+            get
+            {
+                HashSet<string> dossier = new();
+
+                foreach (XmlElement nation in ParseXMLDocument($"nation={this.Name}&q=dossier", this.Pin).SelectNodes("/NATION/DOSSIER/NATION"))
+                {
+                    dossier.Add(nation.InnerText);
+                }
+
+                return dossier;
+            }
+        }
+
+        /// <summary>
         /// Gets a list of the nation's notable characteristics.
         /// </summary>
         [JsonProperty]
@@ -1047,6 +1042,27 @@
                 return int.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/NUM_CARDS")
                     .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the nation's pin code for safer use of private shards and commands. To set it, input the nation's password. The password will not be stored.
+        /// </summary>
+        public string? Pin
+        {
+            get
+            {
+                return this._Pin;
+            }
+
+            set
+            {
+                Dictionary<string, string> headers = new()
+                {
+                    { "X-Password", value },
+                };
+
+                this._Pin = GetResponseHeaders($"nation={this.Name}&q=unread", headers).GetValues("X-Pin").First();
             }
         }
 
@@ -1129,6 +1145,24 @@
                 return ParseXMLDocument($"nation={this.Name}&q=region")
                     .SelectSingleNode("/NATION/REGION")
                     .InnerText;
+            }
+        }
+
+        /// <summary>
+        /// Gets the list of the regions in the nation's dossier.
+        /// </summary>
+        public HashSet<string> RegionDossier
+        {
+            get
+            {
+                HashSet<string> dossier = new();
+
+                foreach (XmlElement region in ParseXMLDocument($"nation={this.Name}&q=rdossier", this.Pin).SelectNodes("/NATION/RDOSSIER/REGION"))
+                {
+                    dossier.Add(region.InnerText);
+                }
+
+                return dossier;
             }
         }
 
@@ -1350,7 +1384,7 @@
         /// <param name="start">The start of the time period as a UNIX timestamp.</param>
         /// <param name="end">The end of the time period as a UNIX timestamp.</param>
         /// <returns>A list of all census data recorded during the time period.</returns>
-        public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
+        public HashSet<CensusRecord> CensusHistory(DateTime? start = null, DateTime? end = null)
         {
             XmlNode node = ParseXMLDocument($"nation={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/NATION/CENSUS");
@@ -1374,13 +1408,40 @@
         }
 
         /// <summary>
-        /// Verifies if the user owns the nation by comparing the checksum code from https://www.nationstates.net/page=verify_login.
+        /// Gets a list of notices.
         /// </summary>
-        /// <param name="checksum">The checksum code to compare.</param>
-        /// <returns>A boolean verifying the user's ownership over the nation.</returns>
-        public bool Verify(string checksum)
+        /// <param name="from">The time to start getting notices from.</param>
+        /// <returns>A list of notices.</returns>
+        public HashSet<Notice> Notices(DateTime? from = null)
         {
-            return DownloadPage($"https://www.nationstates.net/cgi-bin/api.cgi?a=verify&nation={this.Name}&checksum={checksum}").Trim() == "1";
+            HashSet<Notice> notices = new();
+
+            foreach (XmlElement notice in ParseXMLDocument($"nation={this.Name}&q=notices{(from == null ? string.Empty : "&from=" + ConvertToUnix((DateTime)from).ToString())}", this.Pin).SelectNodes("/NATION/NOTICES/NOTICE"))
+            {
+                string title = notice.SelectSingleNode("TITLE").InnerText;
+                NoticeType type = NoticeTypeDict[notice.SelectSingleNode("TYPE").InnerText];
+                string text = notice.SelectSingleNode("TEXT").InnerText;
+                string url = notice.SelectSingleNode("URL").InnerText;
+                DateTime timestamp = ParseUnix(notice.SelectSingleNode("TIMESTAMP").InnerText);
+                string who = notice.SelectSingleNode("WHO").InnerText;
+                string? whoURL = null;
+
+                if (notice.SelectSingleNode("WHO_URL") != null)
+                {
+                    whoURL = notice.SelectSingleNode("WHO_URL").InnerText;
+                }
+
+                bool isNew = false;
+
+                if (notice.SelectSingleNode("NEW") != null && notice.SelectSingleNode("NEW").InnerText == "1")
+                {
+                    isNew = true;
+                }
+
+                notices.Add(new(title, type, text, url, timestamp, who, whoURL, isNew));
+            }
+
+            return notices;
         }
 
         /// <summary>
@@ -1390,6 +1451,25 @@
         public override string ToString()
         {
             return Serialize(this);
+        }
+
+        /// <summary>
+        /// Register a login.
+        /// </summary>
+        /// <returns>A boolean indicating whether the ping was successful.</returns>
+        public bool Ping()
+        {
+            return ParseXMLDocument($"nation={this.Name}&q=ping", this.Pin).SelectSingleNode("NATION/PING").InnerText == "1";
+        }
+
+        /// <summary>
+        /// Verifies if the user owns the nation by comparing the checksum code from https://www.nationstates.net/page=verify_login.
+        /// </summary>
+        /// <param name="checksum">The checksum code to compare.</param>
+        /// <returns>A boolean verifying the user's ownership over the nation.</returns>
+        public bool Verify(string checksum)
+        {
+            return DownloadPage($"https://www.nationstates.net/cgi-bin/api.cgi?a=verify&nation={this.Name}&checksum={checksum}").Trim() == "1";
         }
     }
 }
