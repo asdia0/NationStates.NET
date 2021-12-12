@@ -555,7 +555,7 @@
         /// <param name="start">The start of the time period as a UNIX timestamp.</param>
         /// <param name="end">The end of the time period as a UNIX timestamp.</param>
         /// <returns>A list of all census data recorded during the time period.</returns>
-        public HashSet<CensusRecord> CensusHistory(DateTime? start, DateTime? end)
+        public HashSet<CensusRecord> CensusHistory(DateTime? start = null, DateTime? end = null)
         {
             XmlNode node = ParseXMLDocument($"region={this.Name}&q=census&scale=all&mode=history{((start != null) ? "&from=" + ConvertToUnix((DateTime)start) : string.Empty)}{((end != null) ? "&to=" + ConvertToUnix((DateTime)end) : string.Empty)}")
                 .SelectSingleNode("/REGION/CENSUS");

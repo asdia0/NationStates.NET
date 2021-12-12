@@ -480,7 +480,7 @@
         /// <param name="sinceTime">Get events since a certain time.</param>
         /// <param name="beforeTime">Get events before a certain time.</param>
         /// <returns>A collection of events satisfying the above criteria.</returns>
-        public static HashSet<Event> Happenings(HashSet<string>? entities, Entity? entityType, HashSet<EventType>? eventTypes, int? limit, ulong? sinceID, ulong? beforeID, DateTime? sinceTime, DateTime? beforeTime)
+        public static HashSet<Event> Happenings(HashSet<string>? entities = null, Entity? entityType = null, HashSet<EventType>? eventTypes = null, int? limit = null, ulong? sinceID = null, ulong? beforeID = null, DateTime? sinceTime = null, DateTime? beforeTime = null)
         {
             string url = "q=happenings;";
 
