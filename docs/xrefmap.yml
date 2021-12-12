@@ -3307,6 +3307,119 @@ references:
   commentId: F:NationStates.NET.Influence.ZeroBroker
   fullName: NationStates.NET.Influence.ZeroBroker
   nameWithType: Influence.ZeroBroker
+- uid: NationStates.NET.Issue
+  name: Issue
+  href: api/NationStates.NET.Issue.html
+  commentId: T:NationStates.NET.Issue
+  fullName: NationStates.NET.Issue
+  nameWithType: Issue
+- uid: NationStates.NET.Issue.#ctor(System.Int32,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String)
+  name: Issue(Int32, String, String, List<String>, String, String)
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue__ctor_System_Int32_System_String_System_String_System_Collections_Generic_List_System_String__System_String_System_String_
+  commentId: M:NationStates.NET.Issue.#ctor(System.Int32,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String)
+  name.vb: Issue(Int32, String, String, List(Of String), String, String)
+  fullName: NationStates.NET.Issue.Issue(System.Int32, System.String, System.String, System.Collections.Generic.List<System.String>, System.String, System.String)
+  fullName.vb: NationStates.NET.Issue.Issue(System.Int32, System.String, System.String, System.Collections.Generic.List(Of System.String), System.String, System.String)
+  nameWithType: Issue.Issue(Int32, String, String, List<String>, String, String)
+  nameWithType.vb: Issue.Issue(Int32, String, String, List(Of String), String, String)
+- uid: NationStates.NET.Issue.#ctor*
+  name: Issue
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue__ctor_
+  commentId: Overload:NationStates.NET.Issue.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Issue
+  nameWithType: Issue.Issue
+- uid: NationStates.NET.Issue.Author
+  name: Author
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Author
+  commentId: P:NationStates.NET.Issue.Author
+  fullName: NationStates.NET.Issue.Author
+  nameWithType: Issue.Author
+- uid: NationStates.NET.Issue.Author*
+  name: Author
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Author_
+  commentId: Overload:NationStates.NET.Issue.Author
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Author
+  nameWithType: Issue.Author
+- uid: NationStates.NET.Issue.Editor
+  name: Editor
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Editor
+  commentId: P:NationStates.NET.Issue.Editor
+  fullName: NationStates.NET.Issue.Editor
+  nameWithType: Issue.Editor
+- uid: NationStates.NET.Issue.Editor*
+  name: Editor
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Editor_
+  commentId: Overload:NationStates.NET.Issue.Editor
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Editor
+  nameWithType: Issue.Editor
+- uid: NationStates.NET.Issue.ID
+  name: ID
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_ID
+  commentId: P:NationStates.NET.Issue.ID
+  fullName: NationStates.NET.Issue.ID
+  nameWithType: Issue.ID
+- uid: NationStates.NET.Issue.ID*
+  name: ID
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_ID_
+  commentId: Overload:NationStates.NET.Issue.ID
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.ID
+  nameWithType: Issue.ID
+- uid: NationStates.NET.Issue.Options
+  name: Options
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Options
+  commentId: P:NationStates.NET.Issue.Options
+  fullName: NationStates.NET.Issue.Options
+  nameWithType: Issue.Options
+- uid: NationStates.NET.Issue.Options*
+  name: Options
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Options_
+  commentId: Overload:NationStates.NET.Issue.Options
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Options
+  nameWithType: Issue.Options
+- uid: NationStates.NET.Issue.Text
+  name: Text
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Text
+  commentId: P:NationStates.NET.Issue.Text
+  fullName: NationStates.NET.Issue.Text
+  nameWithType: Issue.Text
+- uid: NationStates.NET.Issue.Text*
+  name: Text
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Text_
+  commentId: Overload:NationStates.NET.Issue.Text
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Text
+  nameWithType: Issue.Text
+- uid: NationStates.NET.Issue.Title
+  name: Title
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Title
+  commentId: P:NationStates.NET.Issue.Title
+  fullName: NationStates.NET.Issue.Title
+  nameWithType: Issue.Title
+- uid: NationStates.NET.Issue.Title*
+  name: Title
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_Title_
+  commentId: Overload:NationStates.NET.Issue.Title
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.Title
+  nameWithType: Issue.Title
+- uid: NationStates.NET.Issue.ToString
+  name: ToString()
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_ToString
+  commentId: M:NationStates.NET.Issue.ToString
+  fullName: NationStates.NET.Issue.ToString()
+  nameWithType: Issue.ToString()
+- uid: NationStates.NET.Issue.ToString*
+  name: ToString
+  href: api/NationStates.NET.Issue.html#NationStates_NET_Issue_ToString_
+  commentId: Overload:NationStates.NET.Issue.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.Issue.ToString
+  nameWithType: Issue.ToString
 - uid: NationStates.NET.Market
   name: Market
   href: api/NationStates.NET.Market.html
@@ -3478,6 +3591,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Nation
   nameWithType: Nation.Nation
+- uid: NationStates.NET.Nation.AddDispatch(System.String,System.String,NationStates.NET.DispatchCategory,System.Enum)
+  name: AddDispatch(String, String, DispatchCategory, Enum)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_AddDispatch_System_String_System_String_NationStates_NET_DispatchCategory_System_Enum_
+  commentId: M:NationStates.NET.Nation.AddDispatch(System.String,System.String,NationStates.NET.DispatchCategory,System.Enum)
+  fullName: NationStates.NET.Nation.AddDispatch(System.String, System.String, NationStates.NET.DispatchCategory, System.Enum)
+  nameWithType: Nation.AddDispatch(String, String, DispatchCategory, Enum)
+- uid: NationStates.NET.Nation.AddDispatch*
+  name: AddDispatch
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_AddDispatch_
+  commentId: Overload:NationStates.NET.Nation.AddDispatch
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.AddDispatch
+  nameWithType: Nation.AddDispatch
+- uid: NationStates.NET.Nation.AddressIssue(System.Int32,System.Int32)
+  name: AddressIssue(Int32, Int32)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_AddressIssue_System_Int32_System_Int32_
+  commentId: M:NationStates.NET.Nation.AddressIssue(System.Int32,System.Int32)
+  fullName: NationStates.NET.Nation.AddressIssue(System.Int32, System.Int32)
+  nameWithType: Nation.AddressIssue(Int32, Int32)
+- uid: NationStates.NET.Nation.AddressIssue*
+  name: AddressIssue
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_AddressIssue_
+  commentId: Overload:NationStates.NET.Nation.AddressIssue
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.AddressIssue
+  nameWithType: Nation.AddressIssue
 - uid: NationStates.NET.Nation.Admirables
   name: Admirables
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Admirables
@@ -3767,6 +3906,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.DeckValue
   nameWithType: Nation.DeckValue
+- uid: NationStates.NET.Nation.DeleteDispatch(System.Int64)
+  name: DeleteDispatch(Int64)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeleteDispatch_System_Int64_
+  commentId: M:NationStates.NET.Nation.DeleteDispatch(System.Int64)
+  fullName: NationStates.NET.Nation.DeleteDispatch(System.Int64)
+  nameWithType: Nation.DeleteDispatch(Int64)
+- uid: NationStates.NET.Nation.DeleteDispatch*
+  name: DeleteDispatch
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DeleteDispatch_
+  commentId: Overload:NationStates.NET.Nation.DeleteDispatch
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.DeleteDispatch
+  nameWithType: Nation.DeleteDispatch
 - uid: NationStates.NET.Nation.DemonymAdjective
   name: DemonymAdjective
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_DemonymAdjective
@@ -3832,6 +3984,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.DispatchList
   nameWithType: Nation.DispatchList
+- uid: NationStates.NET.Nation.EditDispatch(System.Int64,System.String,System.String,NationStates.NET.DispatchCategory,System.Enum)
+  name: EditDispatch(Int64, String, String, DispatchCategory, Enum)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_EditDispatch_System_Int64_System_String_System_String_NationStates_NET_DispatchCategory_System_Enum_
+  commentId: M:NationStates.NET.Nation.EditDispatch(System.Int64,System.String,System.String,NationStates.NET.DispatchCategory,System.Enum)
+  fullName: NationStates.NET.Nation.EditDispatch(System.Int64, System.String, System.String, NationStates.NET.DispatchCategory, System.Enum)
+  nameWithType: Nation.EditDispatch(Int64, String, String, DispatchCategory, Enum)
+- uid: NationStates.NET.Nation.EditDispatch*
+  name: EditDispatch
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_EditDispatch_
+  commentId: Overload:NationStates.NET.Nation.EditDispatch
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.EditDispatch
+  nameWithType: Nation.EditDispatch
 - uid: NationStates.NET.Nation.Endorsements
   name: Endorsements
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Endorsements
@@ -3897,19 +4062,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Founded
   nameWithType: Nation.Founded
-- uid: NationStates.NET.Nation.FoundedTime
-  name: FoundedTime
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_FoundedTime
-  commentId: P:NationStates.NET.Nation.FoundedTime
-  fullName: NationStates.NET.Nation.FoundedTime
-  nameWithType: Nation.FoundedTime
-- uid: NationStates.NET.Nation.FoundedTime*
-  name: FoundedTime
-  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_FoundedTime_
-  commentId: Overload:NationStates.NET.Nation.FoundedTime
-  isSpec: "True"
-  fullName: NationStates.NET.Nation.FoundedTime
-  nameWithType: Nation.FoundedTime
 - uid: NationStates.NET.Nation.Freedom
   name: Freedom
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Freedom
@@ -3962,6 +4114,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.GDP
   nameWithType: Nation.GDP
+- uid: NationStates.NET.Nation.GiftCard(System.Int64,System.Int32,System.String)
+  name: GiftCard(Int64, Int32, String)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_GiftCard_System_Int64_System_Int32_System_String_
+  commentId: M:NationStates.NET.Nation.GiftCard(System.Int64,System.Int32,System.String)
+  fullName: NationStates.NET.Nation.GiftCard(System.Int64, System.Int32, System.String)
+  nameWithType: Nation.GiftCard(Int64, Int32, String)
+- uid: NationStates.NET.Nation.GiftCard*
+  name: GiftCard
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_GiftCard_
+  commentId: Overload:NationStates.NET.Nation.GiftCard
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.GiftCard
+  nameWithType: Nation.GiftCard
 - uid: NationStates.NET.Nation.Government
   name: Government
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Government
@@ -4053,6 +4218,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Influence
   nameWithType: Nation.Influence
+- uid: NationStates.NET.Nation.Issues
+  name: Issues
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Issues
+  commentId: P:NationStates.NET.Nation.Issues
+  fullName: NationStates.NET.Nation.Issues
+  nameWithType: Nation.Issues
+- uid: NationStates.NET.Nation.Issues*
+  name: Issues
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Issues_
+  commentId: Overload:NationStates.NET.Nation.Issues
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Issues
+  nameWithType: Nation.Issues
 - uid: NationStates.NET.Nation.LastLogin
   name: LastLogin
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_LastLogin
@@ -4157,6 +4335,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Name
   nameWithType: Nation.Name
+- uid: NationStates.NET.Nation.NationDossier
+  name: NationDossier
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NationDossier
+  commentId: P:NationStates.NET.Nation.NationDossier
+  fullName: NationStates.NET.Nation.NationDossier
+  nameWithType: Nation.NationDossier
+- uid: NationStates.NET.Nation.NationDossier*
+  name: NationDossier
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NationDossier_
+  commentId: Overload:NationStates.NET.Nation.NationDossier
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.NationDossier
+  nameWithType: Nation.NationDossier
+- uid: NationStates.NET.Nation.NextIssueTime
+  name: NextIssueTime
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NextIssueTime
+  commentId: P:NationStates.NET.Nation.NextIssueTime
+  fullName: NationStates.NET.Nation.NextIssueTime
+  nameWithType: Nation.NextIssueTime
+- uid: NationStates.NET.Nation.NextIssueTime*
+  name: NextIssueTime
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_NextIssueTime_
+  commentId: Overload:NationStates.NET.Nation.NextIssueTime
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.NextIssueTime
+  nameWithType: Nation.NextIssueTime
 - uid: NationStates.NET.Nation.Notables
   name: Notables
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notables
@@ -4170,6 +4374,22 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Notables
   nameWithType: Nation.Notables
+- uid: NationStates.NET.Nation.Notices(System.Nullable{System.DateTime})
+  name: Notices(Nullable<DateTime>)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notices_System_Nullable_System_DateTime__
+  commentId: M:NationStates.NET.Nation.Notices(System.Nullable{System.DateTime})
+  name.vb: Notices(Nullable(Of DateTime))
+  fullName: NationStates.NET.Nation.Notices(System.Nullable<System.DateTime>)
+  fullName.vb: NationStates.NET.Nation.Notices(System.Nullable(Of System.DateTime))
+  nameWithType: Nation.Notices(Nullable<DateTime>)
+  nameWithType.vb: Nation.Notices(Nullable(Of DateTime))
+- uid: NationStates.NET.Nation.Notices*
+  name: Notices
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Notices_
+  commentId: Overload:NationStates.NET.Nation.Notices
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Notices
+  nameWithType: Nation.Notices
 - uid: NationStates.NET.Nation.Nuke
   name: Nuke
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Nuke
@@ -4196,6 +4416,45 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.NumberOfCards
   nameWithType: Nation.NumberOfCards
+- uid: NationStates.NET.Nation.Packs
+  name: Packs
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Packs
+  commentId: P:NationStates.NET.Nation.Packs
+  fullName: NationStates.NET.Nation.Packs
+  nameWithType: Nation.Packs
+- uid: NationStates.NET.Nation.Packs*
+  name: Packs
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Packs_
+  commentId: Overload:NationStates.NET.Nation.Packs
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Packs
+  nameWithType: Nation.Packs
+- uid: NationStates.NET.Nation.Pin
+  name: Pin
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Pin
+  commentId: P:NationStates.NET.Nation.Pin
+  fullName: NationStates.NET.Nation.Pin
+  nameWithType: Nation.Pin
+- uid: NationStates.NET.Nation.Pin*
+  name: Pin
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Pin_
+  commentId: Overload:NationStates.NET.Nation.Pin
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Pin
+  nameWithType: Nation.Pin
+- uid: NationStates.NET.Nation.Ping
+  name: Ping()
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Ping
+  commentId: M:NationStates.NET.Nation.Ping
+  fullName: NationStates.NET.Nation.Ping()
+  nameWithType: Nation.Ping()
+- uid: NationStates.NET.Nation.Ping*
+  name: Ping
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Ping_
+  commentId: Overload:NationStates.NET.Nation.Ping
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Ping
+  nameWithType: Nation.Ping
 - uid: NationStates.NET.Nation.Policies
   name: Policies
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Policies
@@ -4261,6 +4520,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Region
   nameWithType: Nation.Region
+- uid: NationStates.NET.Nation.RegionDossier
+  name: RegionDossier
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_RegionDossier
+  commentId: P:NationStates.NET.Nation.RegionDossier
+  fullName: NationStates.NET.Nation.RegionDossier
+  nameWithType: Nation.RegionDossier
+- uid: NationStates.NET.Nation.RegionDossier*
+  name: RegionDossier
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_RegionDossier_
+  commentId: Overload:NationStates.NET.Nation.RegionDossier
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.RegionDossier
+  nameWithType: Nation.RegionDossier
 - uid: NationStates.NET.Nation.Religion
   name: Religion
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Religion
@@ -4391,6 +4663,32 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Nation.Type
   nameWithType: Nation.Type
+- uid: NationStates.NET.Nation.Unread
+  name: Unread
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Unread
+  commentId: P:NationStates.NET.Nation.Unread
+  fullName: NationStates.NET.Nation.Unread
+  nameWithType: Nation.Unread
+- uid: NationStates.NET.Nation.Unread*
+  name: Unread
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Unread_
+  commentId: Overload:NationStates.NET.Nation.Unread
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Unread
+  nameWithType: Nation.Unread
+- uid: NationStates.NET.Nation.Verify(System.String)
+  name: Verify(String)
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Verify_System_String_
+  commentId: M:NationStates.NET.Nation.Verify(System.String)
+  fullName: NationStates.NET.Nation.Verify(System.String)
+  nameWithType: Nation.Verify(String)
+- uid: NationStates.NET.Nation.Verify*
+  name: Verify
+  href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_Verify_
+  commentId: Overload:NationStates.NET.Nation.Verify
+  isSpec: "True"
+  fullName: NationStates.NET.Nation.Verify
+  nameWithType: Nation.Verify
 - uid: NationStates.NET.Nation.WA
   name: WA
   href: api/NationStates.NET.Nation.html#NationStates_NET_Nation_WA
@@ -4915,6 +5213,238 @@ references:
   commentId: F:NationStates.NET.NDaySort.Targets
   fullName: NationStates.NET.NDaySort.Targets
   nameWithType: NDaySort.Targets
+- uid: NationStates.NET.Notice
+  name: Notice
+  href: api/NationStates.NET.Notice.html
+  commentId: T:NationStates.NET.Notice
+  fullName: NationStates.NET.Notice
+  nameWithType: Notice
+- uid: NationStates.NET.Notice.#ctor(System.String,NationStates.NET.NoticeType,System.String,System.String,System.DateTime,System.String,System.String,System.Boolean)
+  name: Notice(String, NoticeType, String, String, DateTime, String, String, Boolean)
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice__ctor_System_String_NationStates_NET_NoticeType_System_String_System_String_System_DateTime_System_String_System_String_System_Boolean_
+  commentId: M:NationStates.NET.Notice.#ctor(System.String,NationStates.NET.NoticeType,System.String,System.String,System.DateTime,System.String,System.String,System.Boolean)
+  fullName: NationStates.NET.Notice.Notice(System.String, NationStates.NET.NoticeType, System.String, System.String, System.DateTime, System.String, System.String, System.Boolean)
+  nameWithType: Notice.Notice(String, NoticeType, String, String, DateTime, String, String, Boolean)
+- uid: NationStates.NET.Notice.#ctor*
+  name: Notice
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice__ctor_
+  commentId: Overload:NationStates.NET.Notice.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Notice
+  nameWithType: Notice.Notice
+- uid: NationStates.NET.Notice.New
+  name: New
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_New
+  commentId: P:NationStates.NET.Notice.New
+  fullName: NationStates.NET.Notice.New
+  nameWithType: Notice.New
+- uid: NationStates.NET.Notice.New*
+  name: New
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_New_
+  commentId: Overload:NationStates.NET.Notice.New
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.New
+  nameWithType: Notice.New
+- uid: NationStates.NET.Notice.Text
+  name: Text
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Text
+  commentId: P:NationStates.NET.Notice.Text
+  fullName: NationStates.NET.Notice.Text
+  nameWithType: Notice.Text
+- uid: NationStates.NET.Notice.Text*
+  name: Text
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Text_
+  commentId: Overload:NationStates.NET.Notice.Text
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Text
+  nameWithType: Notice.Text
+- uid: NationStates.NET.Notice.Timestamp
+  name: Timestamp
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Timestamp
+  commentId: P:NationStates.NET.Notice.Timestamp
+  fullName: NationStates.NET.Notice.Timestamp
+  nameWithType: Notice.Timestamp
+- uid: NationStates.NET.Notice.Timestamp*
+  name: Timestamp
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Timestamp_
+  commentId: Overload:NationStates.NET.Notice.Timestamp
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Timestamp
+  nameWithType: Notice.Timestamp
+- uid: NationStates.NET.Notice.Title
+  name: Title
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Title
+  commentId: P:NationStates.NET.Notice.Title
+  fullName: NationStates.NET.Notice.Title
+  nameWithType: Notice.Title
+- uid: NationStates.NET.Notice.Title*
+  name: Title
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Title_
+  commentId: Overload:NationStates.NET.Notice.Title
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Title
+  nameWithType: Notice.Title
+- uid: NationStates.NET.Notice.ToString
+  name: ToString()
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_ToString
+  commentId: M:NationStates.NET.Notice.ToString
+  fullName: NationStates.NET.Notice.ToString()
+  nameWithType: Notice.ToString()
+- uid: NationStates.NET.Notice.ToString*
+  name: ToString
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_ToString_
+  commentId: Overload:NationStates.NET.Notice.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.ToString
+  nameWithType: Notice.ToString
+- uid: NationStates.NET.Notice.Type
+  name: Type
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Type
+  commentId: P:NationStates.NET.Notice.Type
+  fullName: NationStates.NET.Notice.Type
+  nameWithType: Notice.Type
+- uid: NationStates.NET.Notice.Type*
+  name: Type
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Type_
+  commentId: Overload:NationStates.NET.Notice.Type
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Type
+  nameWithType: Notice.Type
+- uid: NationStates.NET.Notice.URL
+  name: URL
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_URL
+  commentId: P:NationStates.NET.Notice.URL
+  fullName: NationStates.NET.Notice.URL
+  nameWithType: Notice.URL
+- uid: NationStates.NET.Notice.URL*
+  name: URL
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_URL_
+  commentId: Overload:NationStates.NET.Notice.URL
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.URL
+  nameWithType: Notice.URL
+- uid: NationStates.NET.Notice.Who
+  name: Who
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Who
+  commentId: P:NationStates.NET.Notice.Who
+  fullName: NationStates.NET.Notice.Who
+  nameWithType: Notice.Who
+- uid: NationStates.NET.Notice.Who*
+  name: Who
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_Who_
+  commentId: Overload:NationStates.NET.Notice.Who
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.Who
+  nameWithType: Notice.Who
+- uid: NationStates.NET.Notice.WhoURL
+  name: WhoURL
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_WhoURL
+  commentId: P:NationStates.NET.Notice.WhoURL
+  fullName: NationStates.NET.Notice.WhoURL
+  nameWithType: Notice.WhoURL
+- uid: NationStates.NET.Notice.WhoURL*
+  name: WhoURL
+  href: api/NationStates.NET.Notice.html#NationStates_NET_Notice_WhoURL_
+  commentId: Overload:NationStates.NET.Notice.WhoURL
+  isSpec: "True"
+  fullName: NationStates.NET.Notice.WhoURL
+  nameWithType: Notice.WhoURL
+- uid: NationStates.NET.NoticeType
+  name: NoticeType
+  href: api/NationStates.NET.NoticeType.html
+  commentId: T:NationStates.NET.NoticeType
+  fullName: NationStates.NET.NoticeType
+  nameWithType: NoticeType
+- uid: NationStates.NET.NoticeType.Banner
+  name: Banner
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Banner
+  commentId: F:NationStates.NET.NoticeType.Banner
+  fullName: NationStates.NET.NoticeType.Banner
+  nameWithType: NoticeType.Banner
+- uid: NationStates.NET.NoticeType.Card
+  name: Card
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Card
+  commentId: F:NationStates.NET.NoticeType.Card
+  fullName: NationStates.NET.NoticeType.Card
+  nameWithType: NoticeType.Card
+- uid: NationStates.NET.NoticeType.DispatchMention
+  name: DispatchMention
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_DispatchMention
+  commentId: F:NationStates.NET.NoticeType.DispatchMention
+  fullName: NationStates.NET.NoticeType.DispatchMention
+  nameWithType: NoticeType.DispatchMention
+- uid: NationStates.NET.NoticeType.DispatchPin
+  name: DispatchPin
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_DispatchPin
+  commentId: F:NationStates.NET.NoticeType.DispatchPin
+  fullName: NationStates.NET.NoticeType.DispatchPin
+  nameWithType: NoticeType.DispatchPin
+- uid: NationStates.NET.NoticeType.DispatchQuote
+  name: DispatchQuote
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_DispatchQuote
+  commentId: F:NationStates.NET.NoticeType.DispatchQuote
+  fullName: NationStates.NET.NoticeType.DispatchQuote
+  nameWithType: NoticeType.DispatchQuote
+- uid: NationStates.NET.NoticeType.Embassy
+  name: Embassy
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Embassy
+  commentId: F:NationStates.NET.NoticeType.Embassy
+  fullName: NationStates.NET.NoticeType.Embassy
+  nameWithType: NoticeType.Embassy
+- uid: NationStates.NET.NoticeType.EndorsementGained
+  name: EndorsementGained
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_EndorsementGained
+  commentId: F:NationStates.NET.NoticeType.EndorsementGained
+  fullName: NationStates.NET.NoticeType.EndorsementGained
+  nameWithType: NoticeType.EndorsementGained
+- uid: NationStates.NET.NoticeType.EndorsementLost
+  name: EndorsementLost
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_EndorsementLost
+  commentId: F:NationStates.NET.NoticeType.EndorsementLost
+  fullName: NationStates.NET.NoticeType.EndorsementLost
+  nameWithType: NoticeType.EndorsementLost
+- uid: NationStates.NET.NoticeType.Issue
+  name: Issue
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Issue
+  commentId: F:NationStates.NET.NoticeType.Issue
+  fullName: NationStates.NET.NoticeType.Issue
+  nameWithType: NoticeType.Issue
+- uid: NationStates.NET.NoticeType.Policy
+  name: Policy
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Policy
+  commentId: F:NationStates.NET.NoticeType.Policy
+  fullName: NationStates.NET.NoticeType.Policy
+  nameWithType: NoticeType.Policy
+- uid: NationStates.NET.NoticeType.Rank
+  name: Rank
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Rank
+  commentId: F:NationStates.NET.NoticeType.Rank
+  fullName: NationStates.NET.NoticeType.Rank
+  nameWithType: NoticeType.Rank
+- uid: NationStates.NET.NoticeType.RMBLike
+  name: RMBLike
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_RMBLike
+  commentId: F:NationStates.NET.NoticeType.RMBLike
+  fullName: NationStates.NET.NoticeType.RMBLike
+  nameWithType: NoticeType.RMBLike
+- uid: NationStates.NET.NoticeType.RMBMention
+  name: RMBMention
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_RMBMention
+  commentId: F:NationStates.NET.NoticeType.RMBMention
+  fullName: NationStates.NET.NoticeType.RMBMention
+  nameWithType: NoticeType.RMBMention
+- uid: NationStates.NET.NoticeType.RMBQuote
+  name: RMBQuote
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_RMBQuote
+  commentId: F:NationStates.NET.NoticeType.RMBQuote
+  fullName: NationStates.NET.NoticeType.RMBQuote
+  nameWithType: NoticeType.RMBQuote
+- uid: NationStates.NET.NoticeType.Telegram
+  name: Telegram
+  href: api/NationStates.NET.NoticeType.html#NationStates_NET_NoticeType_Telegram
+  commentId: F:NationStates.NET.NoticeType.Telegram
+  fullName: NationStates.NET.NoticeType.Telegram
+  nameWithType: NoticeType.Telegram
 - uid: NationStates.NET.NSError
   name: NSError
   href: api/NationStates.NET.NSError.html
@@ -6419,19 +6949,6 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Region.Founded
   nameWithType: Region.Founded
-- uid: NationStates.NET.Region.FoundedTime
-  name: FoundedTime
-  href: api/NationStates.NET.Region.html#NationStates_NET_Region_FoundedTime
-  commentId: P:NationStates.NET.Region.FoundedTime
-  fullName: NationStates.NET.Region.FoundedTime
-  nameWithType: Region.FoundedTime
-- uid: NationStates.NET.Region.FoundedTime*
-  name: FoundedTime
-  href: api/NationStates.NET.Region.html#NationStates_NET_Region_FoundedTime_
-  commentId: Overload:NationStates.NET.Region.FoundedTime
-  isSpec: "True"
-  fullName: NationStates.NET.Region.FoundedTime
-  nameWithType: Region.FoundedTime
 - uid: NationStates.NET.Region.Founder
   name: Founder
   href: api/NationStates.NET.Region.html#NationStates_NET_Region_Founder
@@ -7996,6 +8513,116 @@ references:
   commentId: F:NationStates.NET.UNCategory.Social_Justice
   fullName: NationStates.NET.UNCategory.Social_Justice
   nameWithType: UNCategory.Social_Justice
+- uid: NationStates.NET.Unread
+  name: Unread
+  href: api/NationStates.NET.Unread.html
+  commentId: T:NationStates.NET.Unread
+  fullName: NationStates.NET.Unread
+  nameWithType: Unread
+- uid: NationStates.NET.Unread.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Unread(Int32, Int32, Int32, Int32, Int32, Int32)
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread__ctor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:NationStates.NET.Unread.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: NationStates.NET.Unread.Unread(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: Unread.Unread(Int32, Int32, Int32, Int32, Int32, Int32)
+- uid: NationStates.NET.Unread.#ctor*
+  name: Unread
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread__ctor_
+  commentId: Overload:NationStates.NET.Unread.#ctor
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.Unread
+  nameWithType: Unread.Unread
+- uid: NationStates.NET.Unread.Issues
+  name: Issues
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Issues
+  commentId: P:NationStates.NET.Unread.Issues
+  fullName: NationStates.NET.Unread.Issues
+  nameWithType: Unread.Issues
+- uid: NationStates.NET.Unread.Issues*
+  name: Issues
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Issues_
+  commentId: Overload:NationStates.NET.Unread.Issues
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.Issues
+  nameWithType: Unread.Issues
+- uid: NationStates.NET.Unread.Messages
+  name: Messages
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Messages
+  commentId: P:NationStates.NET.Unread.Messages
+  fullName: NationStates.NET.Unread.Messages
+  nameWithType: Unread.Messages
+- uid: NationStates.NET.Unread.Messages*
+  name: Messages
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Messages_
+  commentId: Overload:NationStates.NET.Unread.Messages
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.Messages
+  nameWithType: Unread.Messages
+- uid: NationStates.NET.Unread.News
+  name: News
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_News
+  commentId: P:NationStates.NET.Unread.News
+  fullName: NationStates.NET.Unread.News
+  nameWithType: Unread.News
+- uid: NationStates.NET.Unread.News*
+  name: News
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_News_
+  commentId: Overload:NationStates.NET.Unread.News
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.News
+  nameWithType: Unread.News
+- uid: NationStates.NET.Unread.Notices
+  name: Notices
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Notices
+  commentId: P:NationStates.NET.Unread.Notices
+  fullName: NationStates.NET.Unread.Notices
+  nameWithType: Unread.Notices
+- uid: NationStates.NET.Unread.Notices*
+  name: Notices
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Notices_
+  commentId: Overload:NationStates.NET.Unread.Notices
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.Notices
+  nameWithType: Unread.Notices
+- uid: NationStates.NET.Unread.Telegrams
+  name: Telegrams
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Telegrams
+  commentId: P:NationStates.NET.Unread.Telegrams
+  fullName: NationStates.NET.Unread.Telegrams
+  nameWithType: Unread.Telegrams
+- uid: NationStates.NET.Unread.Telegrams*
+  name: Telegrams
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_Telegrams_
+  commentId: Overload:NationStates.NET.Unread.Telegrams
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.Telegrams
+  nameWithType: Unread.Telegrams
+- uid: NationStates.NET.Unread.ToString
+  name: ToString()
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_ToString
+  commentId: M:NationStates.NET.Unread.ToString
+  fullName: NationStates.NET.Unread.ToString()
+  nameWithType: Unread.ToString()
+- uid: NationStates.NET.Unread.ToString*
+  name: ToString
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_ToString_
+  commentId: Overload:NationStates.NET.Unread.ToString
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.ToString
+  nameWithType: Unread.ToString
+- uid: NationStates.NET.Unread.WorldAssembly
+  name: WorldAssembly
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_WorldAssembly
+  commentId: P:NationStates.NET.Unread.WorldAssembly
+  fullName: NationStates.NET.Unread.WorldAssembly
+  nameWithType: Unread.WorldAssembly
+- uid: NationStates.NET.Unread.WorldAssembly*
+  name: WorldAssembly
+  href: api/NationStates.NET.Unread.html#NationStates_NET_Unread_WorldAssembly_
+  commentId: Overload:NationStates.NET.Unread.WorldAssembly
+  isSpec: "True"
+  fullName: NationStates.NET.Unread.WorldAssembly
+  nameWithType: Unread.WorldAssembly
 - uid: NationStates.NET.UNRecreationalDrugUse
   name: UNRecreationalDrugUse
   href: api/NationStates.NET.UNRecreationalDrugUse.html
@@ -8020,6 +8647,19 @@ references:
   commentId: T:NationStates.NET.Utility
   fullName: NationStates.NET.Utility
   nameWithType: Utility
+- uid: NationStates.NET.Utility.AddZeroIfSingleDigitNumber(System.Int32)
+  name: AddZeroIfSingleDigitNumber(Int32)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_AddZeroIfSingleDigitNumber_System_Int32_
+  commentId: M:NationStates.NET.Utility.AddZeroIfSingleDigitNumber(System.Int32)
+  fullName: NationStates.NET.Utility.AddZeroIfSingleDigitNumber(System.Int32)
+  nameWithType: Utility.AddZeroIfSingleDigitNumber(Int32)
+- uid: NationStates.NET.Utility.AddZeroIfSingleDigitNumber*
+  name: AddZeroIfSingleDigitNumber
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_AddZeroIfSingleDigitNumber_
+  commentId: Overload:NationStates.NET.Utility.AddZeroIfSingleDigitNumber
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.AddZeroIfSingleDigitNumber
+  nameWithType: Utility.AddZeroIfSingleDigitNumber
 - uid: NationStates.NET.Utility.Capitalise(System.String)
   name: Capitalise(String)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_Capitalise_System_String_
@@ -8033,6 +8673,19 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.Capitalise
   nameWithType: Utility.Capitalise
+- uid: NationStates.NET.Utility.CheckCategoryAndSubCategory(NationStates.NET.DispatchCategory,System.Enum)
+  name: CheckCategoryAndSubCategory(DispatchCategory, Enum)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_CheckCategoryAndSubCategory_NationStates_NET_DispatchCategory_System_Enum_
+  commentId: M:NationStates.NET.Utility.CheckCategoryAndSubCategory(NationStates.NET.DispatchCategory,System.Enum)
+  fullName: NationStates.NET.Utility.CheckCategoryAndSubCategory(NationStates.NET.DispatchCategory, System.Enum)
+  nameWithType: Utility.CheckCategoryAndSubCategory(DispatchCategory, Enum)
+- uid: NationStates.NET.Utility.CheckCategoryAndSubCategory*
+  name: CheckCategoryAndSubCategory
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_CheckCategoryAndSubCategory_
+  commentId: Overload:NationStates.NET.Utility.CheckCategoryAndSubCategory
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.CheckCategoryAndSubCategory
+  nameWithType: Utility.CheckCategoryAndSubCategory
 - uid: NationStates.NET.Utility.ConvertToUnix(System.DateTime)
   name: ConvertToUnix(DateTime)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ConvertToUnix_System_DateTime_
@@ -8046,12 +8699,15 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ConvertToUnix
   nameWithType: Utility.ConvertToUnix
-- uid: NationStates.NET.Utility.DownloadPage(System.String)
-  name: DownloadPage(String)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_DownloadPage_System_String_
-  commentId: M:NationStates.NET.Utility.DownloadPage(System.String)
-  fullName: NationStates.NET.Utility.DownloadPage(System.String)
-  nameWithType: Utility.DownloadPage(String)
+- uid: NationStates.NET.Utility.DownloadPage(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name: DownloadPage(String, Dictionary<String, String>)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_DownloadPage_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:NationStates.NET.Utility.DownloadPage(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: DownloadPage(String, Dictionary(Of String, String))
+  fullName: NationStates.NET.Utility.DownloadPage(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: NationStates.NET.Utility.DownloadPage(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
+  nameWithType: Utility.DownloadPage(String, Dictionary<String, String>)
+  nameWithType.vb: Utility.DownloadPage(String, Dictionary(Of String, String))
 - uid: NationStates.NET.Utility.DownloadPage*
   name: DownloadPage
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_DownloadPage_
@@ -8072,6 +8728,35 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.FormatForEnum
   nameWithType: Utility.FormatForEnum
+- uid: NationStates.NET.Utility.GetDispatchCategoryFromSubCategory(System.Enum)
+  name: GetDispatchCategoryFromSubCategory(Enum)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_GetDispatchCategoryFromSubCategory_System_Enum_
+  commentId: M:NationStates.NET.Utility.GetDispatchCategoryFromSubCategory(System.Enum)
+  fullName: NationStates.NET.Utility.GetDispatchCategoryFromSubCategory(System.Enum)
+  nameWithType: Utility.GetDispatchCategoryFromSubCategory(Enum)
+- uid: NationStates.NET.Utility.GetDispatchCategoryFromSubCategory*
+  name: GetDispatchCategoryFromSubCategory
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_GetDispatchCategoryFromSubCategory_
+  commentId: Overload:NationStates.NET.Utility.GetDispatchCategoryFromSubCategory
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.GetDispatchCategoryFromSubCategory
+  nameWithType: Utility.GetDispatchCategoryFromSubCategory
+- uid: NationStates.NET.Utility.GetResponseHeaders(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name: GetResponseHeaders(String, Dictionary<String, String>)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_GetResponseHeaders_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:NationStates.NET.Utility.GetResponseHeaders(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: GetResponseHeaders(String, Dictionary(Of String, String))
+  fullName: NationStates.NET.Utility.GetResponseHeaders(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: NationStates.NET.Utility.GetResponseHeaders(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
+  nameWithType: Utility.GetResponseHeaders(String, Dictionary<String, String>)
+  nameWithType.vb: Utility.GetResponseHeaders(String, Dictionary(Of String, String))
+- uid: NationStates.NET.Utility.GetResponseHeaders*
+  name: GetResponseHeaders
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_GetResponseHeaders_
+  commentId: Overload:NationStates.NET.Utility.GetResponseHeaders
+  isSpec: "True"
+  fullName: NationStates.NET.Utility.GetResponseHeaders
+  nameWithType: Utility.GetResponseHeaders
 - uid: NationStates.NET.Utility.NationNameFromID(System.Int64)
   name: NationNameFromID(Int64)
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_NationNameFromID_System_Int64_
@@ -8124,12 +8809,12 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseEvents
   nameWithType: Utility.ParseEvents
-- uid: NationStates.NET.Utility.ParseHTMLDocument(System.String)
-  name: ParseHTMLDocument(String)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseHTMLDocument_System_String_
-  commentId: M:NationStates.NET.Utility.ParseHTMLDocument(System.String)
-  fullName: NationStates.NET.Utility.ParseHTMLDocument(System.String)
-  nameWithType: Utility.ParseHTMLDocument(String)
+- uid: NationStates.NET.Utility.ParseHTMLDocument(System.String,System.String)
+  name: ParseHTMLDocument(String, String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseHTMLDocument_System_String_System_String_
+  commentId: M:NationStates.NET.Utility.ParseHTMLDocument(System.String,System.String)
+  fullName: NationStates.NET.Utility.ParseHTMLDocument(System.String, System.String)
+  nameWithType: Utility.ParseHTMLDocument(String, String)
 - uid: NationStates.NET.Utility.ParseHTMLDocument*
   name: ParseHTMLDocument
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseHTMLDocument_
@@ -8189,12 +8874,12 @@ references:
   isSpec: "True"
   fullName: NationStates.NET.Utility.ParseWrittenStandardNotation
   nameWithType: Utility.ParseWrittenStandardNotation
-- uid: NationStates.NET.Utility.ParseXMLDocument(System.String)
-  name: ParseXMLDocument(String)
-  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_System_String_
-  commentId: M:NationStates.NET.Utility.ParseXMLDocument(System.String)
-  fullName: NationStates.NET.Utility.ParseXMLDocument(System.String)
-  nameWithType: Utility.ParseXMLDocument(String)
+- uid: NationStates.NET.Utility.ParseXMLDocument(System.String,System.String)
+  name: ParseXMLDocument(String, String)
+  href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_System_String_System_String_
+  commentId: M:NationStates.NET.Utility.ParseXMLDocument(System.String,System.String)
+  fullName: NationStates.NET.Utility.ParseXMLDocument(System.String, System.String)
+  nameWithType: Utility.ParseXMLDocument(String, String)
 - uid: NationStates.NET.Utility.ParseXMLDocument*
   name: ParseXMLDocument
   href: api/NationStates.NET.Utility.html#NationStates_NET_Utility_ParseXMLDocument_
