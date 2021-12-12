@@ -1243,7 +1243,7 @@
         }
 
         /// <summary>
-        /// Gets the current X-Autologin password for safer use of private commands.
+        /// Gets the current X-Autologin password for safer use of private shards and commands.
         /// </summary>
         /// <param name="password">The nation's password. It will not be saved.</param>
         /// <returns>The X-Autologin password.</returns>
