@@ -6,10 +6,10 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Entities
 
-- [ ] Nation
+- [X] Nation
   - [X] Public shards
   - [X] Private shards
-  - [ ] Private commands
+  - [X] Private commands
 - [X] Region
 - [X] World Assembly
 - [X] United Nations
