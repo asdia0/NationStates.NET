@@ -215,7 +215,7 @@
         /// Gets the time the region was founded.
         /// </summary>
         [JsonProperty]
-        public DateTime FoundedTime
+        public DateTime Founded
         {
             get
             {
