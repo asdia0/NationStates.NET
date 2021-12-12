@@ -1408,6 +1408,18 @@
         }
 
         /// <summary>
+        /// Addresses an issue.
+        /// </summary>
+        /// <param name="id">The issue's ID.</param>
+        /// <param name="option">The option to select. Option IDs begin from 0. To dismiss the issue, input `-1`.</param>
+        /// <returns>A value indicating whether the issue has been answered successfully.</returns>
+        public bool AddressIssue(int id, int option)
+        {
+            XmlElement node = ParseXMLDocument($"nation={this.Name}&c=issue&issue={id}&option={option}", this.Pin);
+            return node.SelectSingleNode("/NATION/ISSUE/OK").InnerText == "1";
+        }
+
+        /// <summary>
         /// Gets a list of notices.
         /// </summary>
         /// <param name="from">The time to start getting notices from.</param>
