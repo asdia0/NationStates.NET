@@ -8,7 +8,7 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 - [ ] Nation
   - [X] Public shards
-  - [ ] Private shards
+  - [X] Private shards
   - [ ] Private commands
 - [X] Region
 - [X] World Assembly
