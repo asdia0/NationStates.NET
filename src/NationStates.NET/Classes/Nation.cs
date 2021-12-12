@@ -1418,6 +1418,67 @@
         }
 
         /// <summary>
+        /// Gifts a trading card.
+        /// </summary>
+        /// <param name="cardID">The ID of the card.</param>
+        /// <param name="season">The card's season.</param>
+        /// <param name="receiver">The name of the nation receiving the card.</param>
+        public void GiftCard(long cardID, int season, string receiver)
+        {
+            string token = ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=execute&token={token}", this.Pin);
+        }
+
+        /// <summary>
+        /// Add a dispatch.
+        /// </summary>
+        /// <param name="title">The title of the dispatch.</param>
+        /// <param name="text">The content of the dispatch.</param>
+        /// <param name="category">The dispatch's category.</param>
+        /// <param name="subCategory">The dispatch's sub-category. The sub-category should be of the type <see cref="DispatchAccount"/>,
+        /// <see cref="DispatchBulletin"/>, <see cref="DispatchFactbook"/> or <see cref="DispatchMeta"/>.</param>
+        public void AddDispatch(string title, string text, DispatchCategory category, Enum subCategory)
+        {
+            CheckCategoryAndSubCategory(category, subCategory);
+
+            string categoryS = $"{(int)category}";
+            string subCategoryS = $"{categoryS}{AddZeroIfSingleDigitNumber((int)ParseEnum(GetDispatchCategoryFromSubCategory(subCategory), subCategory.ToString()))}";
+
+            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=execute&token={token}", this.Pin);
+        }
+
+        /// <summary>
+        /// Edit a dispatch.
+        /// </summary>
+        /// <param name="id">The ID of the dispatch.</param>
+        /// <param name="title">The title of the dispatch.</param>
+        /// <param name="text">The content of the dispatch.</param>
+        /// <param name="category">The dispatch's category.</param>
+        /// <param name="subCategory">The dispatch's sub-category. The sub-category should be of the type <see cref="DispatchAccount"/>,
+        /// <see cref="DispatchBulletin"/>, <see cref="DispatchFactbook"/> or <see cref="DispatchMeta"/>.</param>
+        public void EditDispatch(long id, string title, string text, DispatchCategory category, Enum subCategory)
+        {
+            CheckCategoryAndSubCategory(category, subCategory);
+
+            string categoryS = $"{(int)category}";
+            string subCategoryS = $"{categoryS}{AddZeroIfSingleDigitNumber((int)ParseEnum(GetDispatchCategoryFromSubCategory(subCategory), subCategory.ToString()))}";
+
+            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=edit&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&dispatchid={id}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=edit&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&dispatchid={id}&mode=execute&token={token}", this.Pin);
+        }
+
+        /// <summary>
+        /// Edit a dispatch.
+        /// </summary>
+        /// <param name="id">The ID of the dispatch.</param>
+        public void DeleteDispatch(long id)
+        {
+            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=execute&token={token}", this.Pin);
+        }
+
+        /// <summary>
         /// Gets a list of notices.
         /// </summary>
         /// <param name="from">The time to start getting notices from.</param>

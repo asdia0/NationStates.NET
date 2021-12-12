@@ -8,21 +8,21 @@
         /// <summary>
         /// Campaign sub-category.
         /// </summary>
-        Campaign,
+        Campaign = 85,
 
         /// <summary>
         /// News sub-category.
         /// </summary>
-        News,
+        News = 15,
 
         /// <summary>
         /// Opinion sub-category.
         /// </summary>
-        Opinion,
+        Opinion = 25,
 
         /// <summary>
         /// Policy sub-category.
         /// </summary>
-        Policy,
+        Policy = 5,
     }
 }

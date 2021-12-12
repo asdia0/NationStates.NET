@@ -8,11 +8,11 @@
         /// <summary>
         /// Gameplay sub-category.
         /// </summary>
-        Gameplay,
+        Gameplay = 35,
 
         /// <summary>
         /// Reference sub-category.
         /// </summary>
-        Reference,
+        Reference = 45,
     }
 }

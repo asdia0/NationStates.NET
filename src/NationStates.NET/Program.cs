@@ -1,12 +1,13 @@
 ﻿namespace NationStates.NET
 {
     using System;
+    using System.Linq;
 
     public class Program
     {
         public static void Main()
         {
-            Console.WriteLine(new Faction(2));
+
         }
     }
 }

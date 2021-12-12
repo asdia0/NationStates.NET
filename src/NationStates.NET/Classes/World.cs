@@ -378,40 +378,7 @@
 
             if (category != null && subCategory != null)
             {
-                switch (category)
-                {
-                    case DispatchCategory.Account:
-                        if (!Enum.IsDefined(typeof(DispatchAccount), subCategory))
-                        {
-                            throw new NSError("Sub-category type must be DispatchAccount.");
-                        }
-
-                        break;
-
-                    case DispatchCategory.Bulletin:
-                        if (!Enum.IsDefined(typeof(DispatchBulletin), subCategory))
-                        {
-                            throw new NSError("Sub-category type must be DispatchBulletin.");
-                        }
-
-                        break;
-
-                    case DispatchCategory.Factbook:
-                        if (!Enum.IsDefined(typeof(DispatchFactbook), subCategory))
-                        {
-                            throw new NSError("Sub-category type must be DispatchFactbook.");
-                        }
-
-                        break;
-
-                    case DispatchCategory.Meta:
-                        if (!Enum.IsDefined(typeof(DispatchMeta), subCategory))
-                        {
-                            throw new NSError("Sub-category type must be DispatchMeta.");
-                        }
-
-                        break;
-                }
+                CheckCategoryAndSubCategory((DispatchCategory)category, (Enum)subCategory);
 
                 url += $"dispatchcategory={category}:{subCategory}";
             }

@@ -8,61 +8,61 @@
         /// <summary>
         /// Culture sub-category.
         /// </summary>
-        Culture,
+        Culture = 3,
 
         /// <summary>
         /// Economy sub-category.
         /// </summary>
-        Economy,
+        Economy = 8,
 
         /// <summary>
         /// Geography sub-category.
         /// </summary>
-        Geography,
+        Geography = 2,
 
         /// <summary>
         /// History sub-category.
         /// </summary>
-        History,
+        History = 1,
 
         /// <summary>
         /// International sub-category.
         /// </summary>
-        International,
+        International = 9,
 
         /// <summary>
         /// Legislation sub-category.
         /// </summary>
-        Legislation,
+        Legislation = 5,
 
         /// <summary>
         /// Military sub-category.
         /// </summary>
-        Military,
+        Military = 7,
 
         /// <summary>
         /// Miscellaneous sub-category.
         /// </summary>
-        Miscellaneous,
+        Miscellaneous = 11,
 
         /// <summary>
         /// Overview sub-category.
         /// </summary>
-        Overview,
+        Overview = 0,
 
         /// <summary>
         /// Politics sub-category.
         /// </summary>
-        Politics,
+        Politics = 4,
 
         /// <summary>
         /// Trivia sub-category.
         /// </summary>
-        Trivia,
+        Trivia = 10,
 
         /// <summary>
         /// Religion sub-category.
         /// </summary>
-        Religion,
+        Religion = 6,
     }
 }

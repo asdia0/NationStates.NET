@@ -8,21 +8,21 @@
         /// <summary>
         /// Account category.
         /// </summary>
-        Account,
+        Account = 5,
 
         /// <summary>
         /// Bulletin category.
         /// </summary>
-        Bulletin,
+        Bulletin = 3,
 
         /// <summary>
         /// Factbook category.
         /// </summary>
-        Factbook,
+        Factbook = 1,
 
         /// <summary>
         /// Meta category.
         /// </summary>
-        Meta,
+        Meta = 8,
     }
 }

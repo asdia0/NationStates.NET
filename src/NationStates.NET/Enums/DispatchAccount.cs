@@ -8,41 +8,41 @@
         /// <summary>
         /// Culture sub-category.
         /// </summary>
-        Culture,
+        Culture = 65,
 
         /// <summary>
         /// Diplomacy sub-category.
         /// </summary>
-        Diplomacy,
+        Diplomacy = 45,
 
         /// <summary>
         /// Drama sub-category.
         /// </summary>
-        Drama,
+        Drama = 35,
 
         /// <summary>
         /// Miscellaneous sub-category.
         /// </summary>
-        Other,
+        Other = 95,
 
         /// <summary>
         /// Military sub-category.
         /// </summary>
-        Military,
+        Military = 5,
 
         /// <summary>
         /// Science sub-category.
         /// </summary>
-        Science,
+        Science = 55,
 
         /// <summary>
         /// Sport sub-category.
         /// </summary>
-        Sport,
+        Sport = 25,
 
         /// <summary>
         /// Trade sub-category.
         /// </summary>
-        Trade,
+        Trade = 15,
     }
 }
