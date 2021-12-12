@@ -15,10 +15,16 @@
         public int Issues { get; }
 
         /// <summary>
-        /// Gets the number of unread telegrams.
+        /// Gets the number of unread messages.
         /// </summary>
         [JsonProperty]
-        public int Telegrams { get; }
+        public int Messages { get; }
+
+        /// <summary>
+        /// Gets the number of unread news articles.
+        /// </summary>
+        [JsonProperty]
+        public int News { get; }
 
         /// <summary>
         /// Gets the number of unread notices.
@@ -27,22 +33,16 @@
         public int Notices { get; }
 
         /// <summary>
-        /// Gets the number of unread messages.
+        /// Gets the number of unread telegrams.
         /// </summary>
         [JsonProperty]
-        public int Messages { get; }
+        public int Telegrams { get; }
 
         /// <summary>
         /// Gets the number of World Assembly proposals to vote on.
         /// </summary>
         [JsonProperty]
         public int WorldAssembly { get; }
-
-        /// <summary>
-        /// Gets the number of unread news articles.
-        /// </summary>
-        [JsonProperty]
-        public int News { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Unread"/> struct.

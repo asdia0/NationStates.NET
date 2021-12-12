@@ -767,48 +767,6 @@
         }
 
         /// <summary>
-        /// Gets the nation's unread stuff.
-        /// </summary>
-        public Unread Unread
-        {
-            get
-            {
-                XmlElement node = ParseXMLDocument($"nation={this.Name}&q=unread", this.Pin);
-
-                int issues = int.Parse(node.SelectSingleNode("/NATION/UNREAD/ISSUES").InnerText);
-                int telegrams = int.Parse(node.SelectSingleNode("/NATION/UNREAD/TELEGRAMS").InnerText);
-                int notices = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NOTICES").InnerText);
-                int messages = int.Parse(node.SelectSingleNode("/NATION/UNREAD/RMB").InnerText);
-                int worldAssembly = int.Parse(node.SelectSingleNode("/NATION/UNREAD/WA").InnerText);
-                int news = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NEWS").InnerText);
-
-                return new(issues, telegrams, notices, messages, worldAssembly, news);
-            }
-        }
-
-        /// <summary>
-        /// Gets the number of unopened trading card packs the nation has.
-        /// </summary>
-        public int Packs
-        {
-            get
-            {
-                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=packs", this.Pin).SelectSingleNode("NATION/PACKS").InnerText);
-            }
-        }
-
-        /// <summary>
-        /// Gets the time at which the nation will encounter the next issue.
-        /// </summary>
-        public DateTime NextIssueTime
-        {
-            get
-            {
-                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=nextissuetime", this.Pin).SelectSingleNode("/NATION/NEXTISSUETIME").InnerText);
-            }
-        }
-
-        /// <summary>
         /// Gets the issues that the nation faces.
         /// </summary>
         public HashSet<Issue> Issues
@@ -984,6 +942,17 @@
         }
 
         /// <summary>
+        /// Gets the time at which the nation will encounter the next issue.
+        /// </summary>
+        public DateTime NextIssueTime
+        {
+            get
+            {
+                return ParseUnix(ParseXMLDocument($"nation={this.Name}&q=nextissuetime", this.Pin).SelectSingleNode("/NATION/NEXTISSUETIME").InnerText);
+            }
+        }
+
+        /// <summary>
         /// Gets a list of the nation's notable characteristics.
         /// </summary>
         [JsonProperty]
@@ -1042,6 +1011,17 @@
                 return int.Parse(ParseXMLDocument($"q=cards+info;nationname={this.Name}")
                     .SelectSingleNode("/CARDS/INFO/NUM_CARDS")
                     .InnerText);
+            }
+        }
+
+        /// <summary>
+        /// Gets the number of unopened trading card packs the nation has.
+        /// </summary>
+        public int Packs
+        {
+            get
+            {
+                return int.Parse(ParseXMLDocument($"nation={this.Name}&q=packs", this.Pin).SelectSingleNode("NATION/PACKS").InnerText);
             }
         }
 
@@ -1309,6 +1289,26 @@
         }
 
         /// <summary>
+        /// Gets the nation's unread stuff.
+        /// </summary>
+        public Unread Unread
+        {
+            get
+            {
+                XmlElement node = ParseXMLDocument($"nation={this.Name}&q=unread", this.Pin);
+
+                int issues = int.Parse(node.SelectSingleNode("/NATION/UNREAD/ISSUES").InnerText);
+                int telegrams = int.Parse(node.SelectSingleNode("/NATION/UNREAD/TELEGRAMS").InnerText);
+                int notices = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NOTICES").InnerText);
+                int messages = int.Parse(node.SelectSingleNode("/NATION/UNREAD/RMB").InnerText);
+                int worldAssembly = int.Parse(node.SelectSingleNode("/NATION/UNREAD/WA").InnerText);
+                int news = int.Parse(node.SelectSingleNode("/NATION/UNREAD/NEWS").InnerText);
+
+                return new(issues, telegrams, notices, messages, worldAssembly, news);
+            }
+        }
+
+        /// <summary>
         /// Gets the nation's World Assembly status.
         /// </summary>
         [JsonProperty]
@@ -1379,6 +1379,35 @@
         }
 
         /// <summary>
+        /// Add a dispatch.
+        /// </summary>
+        /// <param name="title">The title of the dispatch.</param>
+        /// <param name="text">The content of the dispatch.</param>
+        /// <param name="category">The dispatch's category.</param>
+        /// <param name="subCategory">The dispatch's sub-category. The sub-category should be of the type <see cref="DispatchAccount"/>,
+        /// <see cref="DispatchBulletin"/>, <see cref="DispatchFactbook"/> or <see cref="DispatchMeta"/>.</param>
+        public void AddDispatch(string title, string text, DispatchCategory category, Enum subCategory)
+        {
+            CheckCategoryAndSubCategory(category, subCategory);
+
+            string categoryS = $"{(int)category}";
+            string subCategoryS = $"{categoryS}{AddZeroIfSingleDigitNumber((int)ParseEnum(GetDispatchCategoryFromSubCategory(subCategory), subCategory.ToString()))}";
+
+            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=execute&token={token}", this.Pin);
+        }
+
+        /// <summary>
+        /// Addresses an issue.
+        /// </summary>
+        /// <param name="id">The issue's ID.</param>
+        /// <param name="option">The option to select. Option IDs begin from 0. To dismiss the issue, input `-1`.</param>
+        public void AddressIssue(int id, int option)
+        {
+            ParseXMLDocument($"nation={this.Name}&c=issue&issue={id}&option={option}", this.Pin);
+        }
+
+        /// <summary>
         /// Gets census data from a time period.
         /// </summary>
         /// <param name="start">The start of the time period as a UNIX timestamp.</param>
@@ -1408,44 +1437,13 @@
         }
 
         /// <summary>
-        /// Addresses an issue.
+        /// Edit a dispatch.
         /// </summary>
-        /// <param name="id">The issue's ID.</param>
-        /// <param name="option">The option to select. Option IDs begin from 0. To dismiss the issue, input `-1`.</param>
-        public void AddressIssue(int id, int option)
+        /// <param name="id">The ID of the dispatch.</param>
+        public void DeleteDispatch(long id)
         {
-            ParseXMLDocument($"nation={this.Name}&c=issue&issue={id}&option={option}", this.Pin);
-        }
-
-        /// <summary>
-        /// Gifts a trading card.
-        /// </summary>
-        /// <param name="cardID">The ID of the card.</param>
-        /// <param name="season">The card's season.</param>
-        /// <param name="receiver">The name of the nation receiving the card.</param>
-        public void GiftCard(long cardID, int season, string receiver)
-        {
-            string token = ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
-            ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=execute&token={token}", this.Pin);
-        }
-
-        /// <summary>
-        /// Add a dispatch.
-        /// </summary>
-        /// <param name="title">The title of the dispatch.</param>
-        /// <param name="text">The content of the dispatch.</param>
-        /// <param name="category">The dispatch's category.</param>
-        /// <param name="subCategory">The dispatch's sub-category. The sub-category should be of the type <see cref="DispatchAccount"/>,
-        /// <see cref="DispatchBulletin"/>, <see cref="DispatchFactbook"/> or <see cref="DispatchMeta"/>.</param>
-        public void AddDispatch(string title, string text, DispatchCategory category, Enum subCategory)
-        {
-            CheckCategoryAndSubCategory(category, subCategory);
-
-            string categoryS = $"{(int)category}";
-            string subCategoryS = $"{categoryS}{AddZeroIfSingleDigitNumber((int)ParseEnum(GetDispatchCategoryFromSubCategory(subCategory), subCategory.ToString()))}";
-
-            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
-            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=add&title={title}&text={text}&category={categoryS}&subcategory={subCategoryS}&mode=execute&token={token}", this.Pin);
+            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=execute&token={token}", this.Pin);
         }
 
         /// <summary>
@@ -1469,13 +1467,15 @@
         }
 
         /// <summary>
-        /// Edit a dispatch.
+        /// Gifts a trading card.
         /// </summary>
-        /// <param name="id">The ID of the dispatch.</param>
-        public void DeleteDispatch(long id)
+        /// <param name="cardID">The ID of the card.</param>
+        /// <param name="season">The card's season.</param>
+        /// <param name="receiver">The name of the nation receiving the card.</param>
+        public void GiftCard(long cardID, int season, string receiver)
         {
-            string token = ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
-            ParseXMLDocument($"nation={this.Name}&c=dispatch&dispatch=remove&dispatchid={id}&mode=execute&token={token}", this.Pin);
+            string token = ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=prepare", this.Pin).SelectSingleNode("/NATION/SUCCESS").InnerText;
+            ParseXMLDocument($"nation={this.Name}&c=giftcard&cardid={cardID}&season={season}&to={receiver}&mode=execute&token={token}", this.Pin);
         }
 
         /// <summary>
@@ -1516,21 +1516,21 @@
         }
 
         /// <summary>
-        /// Gets a JSON string representing the nation.
-        /// </summary>
-        /// <returns>A JSON string representing the nation.</returns>
-        public override string ToString()
-        {
-            return Serialize(this);
-        }
-
-        /// <summary>
         /// Register a login.
         /// </summary>
         /// <returns>A boolean indicating whether the ping was successful.</returns>
         public bool Ping()
         {
             return ParseXMLDocument($"nation={this.Name}&q=ping", this.Pin).SelectSingleNode("NATION/PING").InnerText == "1";
+        }
+
+        /// <summary>
+        /// Gets a JSON string representing the nation.
+        /// </summary>
+        /// <returns>A JSON string representing the nation.</returns>
+        public override string ToString()
+        {
+            return Serialize(this);
         }
 
         /// <summary>

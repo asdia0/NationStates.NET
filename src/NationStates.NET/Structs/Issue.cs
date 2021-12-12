@@ -1,7 +1,7 @@
 ﻿namespace NationStates.NET
 {
-    using System.Collections.Generic;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using static Utility;
 
     /// <summary>
@@ -9,30 +9,6 @@
     /// </summary>
     public struct Issue
     {
-        /// <summary>
-        /// Gets the issue's ID.
-        /// </summary>
-        [JsonProperty]
-        public int ID { get; }
-
-        /// <summary>
-        /// Gets the issue's title.
-        /// </summary>
-        [JsonProperty]
-        public string Title { get; }
-
-        /// <summary>
-        /// Gets the issue's description.
-        /// </summary>
-        [JsonProperty]
-        public string Text { get; }
-
-        /// <summary>
-        /// Gets a list of options that can be taken.
-        /// </summary>
-        [JsonProperty]
-        public List<string> Options { get; }
-
         /// <summary>
         /// Gets the issue's author.
         /// </summary>
@@ -44,6 +20,30 @@
         /// </summary>
         [JsonProperty]
         public string Editor { get; }
+
+        /// <summary>
+        /// Gets the issue's ID.
+        /// </summary>
+        [JsonProperty]
+        public int ID { get; }
+
+        /// <summary>
+        /// Gets a list of options that can be taken.
+        /// </summary>
+        [JsonProperty]
+        public List<string> Options { get; }
+
+        /// <summary>
+        /// Gets the issue's description.
+        /// </summary>
+        [JsonProperty]
+        public string Text { get; }
+
+        /// <summary>
+        /// Gets the issue's title.
+        /// </summary>
+        [JsonProperty]
+        public string Title { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue"/> struct.

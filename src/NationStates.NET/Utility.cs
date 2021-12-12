@@ -34,6 +34,21 @@
         };
 
         /// <summary>
+        /// Add "0" to the front of a number if it is single digit.
+        /// </summary>
+        /// <param name="number">The number to manipulate.</param>
+        /// <returns>A string of the manipulated number.</returns>
+        public static string AddZeroIfSingleDigitNumber(int number)
+        {
+            if (number.ToString().Length == 1)
+            {
+                return $"0{number}";
+            }
+
+            return number.ToString();
+        }
+
+        /// <summary>
         /// Capitalises a string.
         /// </summary>
         /// <param name="text">The string to capitalise.</param>
@@ -53,6 +68,49 @@
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Check if the sub-category matches the main category.
+        /// </summary>
+        /// <param name="category">The category to compare to.</param>
+        /// <param name="subCategory">The sub-category to compare.</param>
+        public static void CheckCategoryAndSubCategory(DispatchCategory category, Enum subCategory)
+        {
+            switch (category)
+            {
+                case DispatchCategory.Account:
+                    if (!Enum.IsDefined(typeof(DispatchAccount), subCategory))
+                    {
+                        throw new NSError("Sub-category type must be DispatchAccount.");
+                    }
+
+                    break;
+
+                case DispatchCategory.Bulletin:
+                    if (!Enum.IsDefined(typeof(DispatchBulletin), subCategory))
+                    {
+                        throw new NSError("Sub-category type must be DispatchBulletin.");
+                    }
+
+                    break;
+
+                case DispatchCategory.Factbook:
+                    if (!Enum.IsDefined(typeof(DispatchFactbook), subCategory))
+                    {
+                        throw new NSError("Sub-category type must be DispatchFactbook.");
+                    }
+
+                    break;
+
+                case DispatchCategory.Meta:
+                    if (!Enum.IsDefined(typeof(DispatchMeta), subCategory))
+                    {
+                        throw new NSError("Sub-category type must be DispatchMeta.");
+                    }
+
+                    break;
+            }
         }
 
         /// <summary>
@@ -111,6 +169,38 @@
         }
 
         /// <summary>
+        /// Gets the sub-category's main category.
+        /// </summary>
+        /// <param name="subCategory">The sub-category to get the main category from.</param>
+        /// <returns>The type of the main category.</returns>
+        public static Type GetDispatchCategoryFromSubCategory(Enum subCategory)
+        {
+            List<Type> cases = new()
+            {
+                typeof(DispatchAccount),
+                typeof(DispatchBulletin),
+                typeof(DispatchFactbook),
+                typeof(DispatchMeta),
+            };
+
+            foreach (Type t in cases)
+            {
+                try
+                {
+                    if (Enum.IsDefined(t, subCategory))
+                    {
+                        return t;
+                    }
+                }
+                catch
+                {
+                }
+            }
+
+            throw new NSError("Unexpected sub-category");
+        }
+
+        /// <summary>
         /// Gets the response headers from a request.
         /// </summary>
         /// <param name="path">The path to the webpage.</param>
@@ -144,96 +234,6 @@
 
                 throw new NSError(e.Message);
             }
-        }
-
-        /// <summary>
-        /// Check if the sub-category matches the main category.
-        /// </summary>
-        /// <param name="category">The category to compare to.</param>
-        /// <param name="subCategory">The sub-category to compare.</param>
-        public static void CheckCategoryAndSubCategory(DispatchCategory category, Enum subCategory)
-        {
-            switch (category)
-            {
-                case DispatchCategory.Account:
-                    if (!Enum.IsDefined(typeof(DispatchAccount), subCategory))
-                    {
-                        throw new NSError("Sub-category type must be DispatchAccount.");
-                    }
-
-                    break;
-
-                case DispatchCategory.Bulletin:
-                    if (!Enum.IsDefined(typeof(DispatchBulletin), subCategory))
-                    {
-                        throw new NSError("Sub-category type must be DispatchBulletin.");
-                    }
-
-                    break;
-
-                case DispatchCategory.Factbook:
-                    if (!Enum.IsDefined(typeof(DispatchFactbook), subCategory))
-                    {
-                        throw new NSError("Sub-category type must be DispatchFactbook.");
-                    }
-
-                    break;
-
-                case DispatchCategory.Meta:
-                    if (!Enum.IsDefined(typeof(DispatchMeta), subCategory))
-                    {
-                        throw new NSError("Sub-category type must be DispatchMeta.");
-                    }
-
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Gets the sub-category's main category.
-        /// </summary>
-        /// <param name="subCategory">The sub-category to get the main category from.</param>
-        /// <returns>The type of the main category.</returns>
-        public static Type GetDispatchCategoryFromSubCategory(Enum subCategory)
-        {
-            List<Type> cases = new()
-            {
-                typeof(DispatchAccount),
-                typeof(DispatchBulletin),
-                typeof(DispatchFactbook),
-                typeof(DispatchMeta),
-            };
-
-            foreach (Type t in cases)
-            {
-                try
-                {
-                    if (Enum.IsDefined(t, subCategory))
-                    {
-                        return t;
-                    }
-                }
-                catch
-                {
-                }
-            }
-
-            throw new NSError("Unexpected sub-category");
-        }
-
-        /// <summary>
-        /// Add "0" to the front of a number if it is single digit.
-        /// </summary>
-        /// <param name="number">The number to manipulate.</param>
-        /// <returns>A string of the manipulated number.</returns>
-        public static string AddZeroIfSingleDigitNumber(int number)
-        {
-            if (number.ToString().Length == 1)
-            {
-                return $"0{number}";
-            }
-
-            return number.ToString();
         }
 
         /// <summary>
