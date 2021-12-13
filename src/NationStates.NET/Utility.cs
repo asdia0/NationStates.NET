@@ -231,12 +231,12 @@
                 {
                     throw new NSError("Too many requests. Try again in 15 minutes.");
                 }
-                
+
                 if (e.Message.Contains("(403)"))
                 {
                     throw new NSError("Forbidden request. Check your password/auto-login/PIN headers.");
                 }
-                
+
                 if (e.Message.Contains("(409)"))
                 {
                     throw new NSError("Conflict. Last log-in too recent. Try using a PIN instead.");
