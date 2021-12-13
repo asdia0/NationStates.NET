@@ -124,41 +124,6 @@
         }
 
         /// <summary>
-        /// Downloads a webpage.
-        /// </summary>
-        /// <param name="path">The path to the webpage.</param>
-        /// <param name="headers">A list of optional additional headers.</param>
-        /// <returns>The webpage contents.</returns>
-        public static string DownloadPage(string path, Dictionary<string, string>? headers = null)
-        {
-            using WebClient client = new();
-            client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
-
-            if (headers != null)
-            {
-                foreach (string key in headers.Keys)
-                {
-                    client.Headers.Add(key, headers[key]);
-                }
-            }
-
-            try
-            {
-                Thread.Sleep(600);
-                return client.DownloadString(path);
-            }
-            catch (WebException e)
-            {
-                if (e.Message.Contains("(429)"))
-                {
-                    throw new NSError("Too many requests. Try again in 15 minutes.");
-                }
-
-                throw new NSError(e.Message);
-            }
-        }
-
-        /// <summary>
         /// Formats a string for enum parsing.
         /// </summary>
         /// <param name="text">The string to format.</param>
@@ -201,12 +166,13 @@
         }
 
         /// <summary>
-        /// Gets the response headers from a request.
+        /// Gets a WebClient request.
         /// </summary>
         /// <param name="path">The path to the webpage.</param>
         /// <param name="headers">A list of optional additional headers.</param>
-        /// <returns>The response headers.</returns>
-        public static WebHeaderCollection GetResponseHeaders(string path, Dictionary<string, string>? headers = null)
+        /// <param name="delay">The number of milliseconds to sleep. By default it is 600 milliseconds to comply with the 50 requests/30 seconds rule.</param>
+        /// <returns>The WebClient.</returns>
+        public static WebClient RequestPage(string path, Dictionary<string, string>? headers = null, int delay = 600)
         {
             using WebClient client = new();
             client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
@@ -219,31 +185,34 @@
                 }
             }
 
-            try
-            {
-                Thread.Sleep(600);
-                client.OpenRead("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
-                return client.ResponseHeaders;
-            }
-            catch (WebException e)
-            {
-                if (e.Message.Contains("(429)"))
-                {
-                    throw new NSError("Too many requests. Try again in 15 minutes.");
-                }
+            Thread.Sleep(delay);
+            return client;
+        }
 
-                if (e.Message.Contains("(403)"))
-                {
-                    throw new NSError("Forbidden request. Check your password/auto-login/PIN headers.");
-                }
+        /// <summary>
+        /// Downloads a webpage.
+        /// </summary>
+        /// <param name="path">The path to the webpage.</param>
+        /// <param name="headers">A list of optional additional headers.</param>
+        /// <param name="delay">The number of milliseconds to sleep. By default it is 600 milliseconds to comply with the 50 requests/30 seconds rule.</param>
+        /// <returns>The webpage contents.</returns>
+        public static string DownloadPage(string path, Dictionary<string, string>? headers = null, int delay = 600)
+        {
+            return RequestPage(path, headers, delay).DownloadString(path);
+        }
 
-                if (e.Message.Contains("(409)"))
-                {
-                    throw new NSError("Conflict. Last log-in too recent. Try using a PIN instead.");
-                }
-
-                throw new NSError(e.Message);
-            }
+        /// <summary>
+        /// Gets a collection of headers from a request response.
+        /// </summary>
+        /// <param name="path">The path to the webpage.</param>
+        /// <param name="headers">A list of optional additional headers.</param>
+        /// <param name="delay">The number of milliseconds to sleep. By default it is 600 milliseconds to comply with the 50 requests/30 seconds rule.</param>
+        /// <returns>The response headers.</returns>
+        public static WebHeaderCollection GetResponseHeaders(string path, Dictionary<string, string>? headers = null, int delay = 600)
+        {
+            WebClient client = RequestPage(path, headers, delay);
+            client.OpenRead("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
+            return client.ResponseHeaders;
         }
 
         /// <summary>
