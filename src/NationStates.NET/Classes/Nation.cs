@@ -1379,6 +1379,15 @@
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Nation"/> class.
+        /// </summary>
+        /// <param name="id">The DBID of the nation.</param>
+        public Nation(long id)
+        {
+            this.Name = NationNameFromID(id);
+        }
+
+        /// <summary>
         /// Add a dispatch.
         /// </summary>
         /// <param name="title">The title of the dispatch.</param>
@@ -1404,6 +1413,7 @@
         /// <param name="option">The option to select. Option IDs begin from 0. To dismiss the issue, input `-1`.</param>
         public void AddressIssue(int id, int option)
         {
+            // TODO: Add IssueResults
             ParseXMLDocument($"nation={this.Name}&c=issue&issue={id}&option={option}", this.Pin);
         }
 
