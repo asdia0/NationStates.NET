@@ -10,9 +10,9 @@
     using System.Xml;
 
     /// <summary>
-    /// A class containing useful methods.
+    /// A class containing useful methods to parse the API. It cannot be used in other assemblies (for obvious reasons).
     /// </summary>
-    public class Utility
+    internal class Utility
     {
         private static readonly Dictionary<char, Authority> AuthorityDict = new()
         {
