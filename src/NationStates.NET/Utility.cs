@@ -168,11 +168,10 @@
         /// <summary>
         /// Gets a WebClient request.
         /// </summary>
-        /// <param name="path">The path to the webpage.</param>
         /// <param name="headers">A list of optional additional headers.</param>
         /// <param name="delay">The number of milliseconds to sleep. By default it is 600 milliseconds to comply with the 50 requests/30 seconds rule.</param>
         /// <returns>The WebClient.</returns>
-        public static WebClient RequestPage(string path, Dictionary<string, string>? headers = null, int delay = 600)
+        public static WebClient RequestPage(Dictionary<string, string>? headers = null, int delay = 600)
         {
             using WebClient client = new();
             client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
@@ -198,7 +197,7 @@
         /// <returns>The webpage contents.</returns>
         public static string DownloadPage(string path, Dictionary<string, string>? headers = null, int delay = 600)
         {
-            return RequestPage(path, headers, delay).DownloadString(path);
+            return RequestPage(headers, delay).DownloadString(path);
         }
 
         /// <summary>
@@ -210,7 +209,7 @@
         /// <returns>The response headers.</returns>
         public static WebHeaderCollection GetResponseHeaders(string path, Dictionary<string, string>? headers = null, int delay = 600)
         {
-            WebClient client = RequestPage(path, headers, delay);
+            WebClient client = RequestPage(headers, delay);
             client.OpenRead("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
             return client.ResponseHeaders;
         }
