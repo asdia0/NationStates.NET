@@ -148,21 +148,6 @@
         }
 
         /// <summary>
-        /// Gets the names of newly founded nations.
-        /// </summary>
-        public static HashSet<string> NewNations
-        {
-            get
-            {
-                return ParseXMLDocument("q=newnations")
-                    .SelectSingleNode("/WORLD/NEWNATIONS")
-                    .InnerText
-                    .Split(",")
-                    .ToHashSet();
-            }
-        }
-
-        /// <summary>
         /// Gets the total number of nations.
         /// </summary>
         public static long NumNations
@@ -458,7 +443,7 @@
 
             if (eventTypes != null)
             {
-                url += $"filter={string.Join("+", eventTypes)};";
+                url += $"filter={string.Join("+", eventTypes).ToLower()};";
             }
 
             if (limit != null)
@@ -550,6 +535,16 @@
             }
 
             return ranks;
+        }
+
+        /// <summary>
+        /// Gets the names of newly founded nations.
+        /// </summary>
+        /// <param name="count">The number of new nations to get.</param>
+        /// <returns>A list of the names of newly founded nations.</returns>
+        public static HashSet<string> NewNations(int count)
+        {
+            return Happenings(null, null, new HashSet<EventType>() { EventType.Founding }, count).Select(i => i.Text[2..i.Text.LastIndexOf("@@")]).ToHashSet();
         }
 
         /// <summary>
