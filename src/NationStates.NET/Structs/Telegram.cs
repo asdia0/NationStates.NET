@@ -65,7 +65,7 @@
         public void Send()
         {
             int delay = this.Type == TelegramType.Recruitment ? 180000 : 30000;
-            HashSet<string> nations = GetNationsFromTRL(this.Recipients);
+            HashSet<string> nations = ParseTRLGroup("(" + this.Recipients + ")");
 
             foreach (string nation in nations)
             {
