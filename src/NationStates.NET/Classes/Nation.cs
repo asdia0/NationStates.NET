@@ -1531,7 +1531,7 @@
         /// <returns>A boolean indicating whether the ping was successful.</returns>
         public bool Ping()
         {
-            return ParseXMLDocument($"nation={this.Name}&q=ping", this.Pin).SelectSingleNode("NATION/PING").InnerText == "1";
+            return ParseXMLDocument($"nation={this.Name}&q=ping", this.Pin).SelectSingleNode("/NATION/PING").InnerText == "1";
         }
 
         /// <summary>
