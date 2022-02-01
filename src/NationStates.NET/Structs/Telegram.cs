@@ -56,7 +56,7 @@
             this.ID = id;
             this.Key = key;
             this.Type = type;
-            this.Recipients = recipients;
+            this.Recipients = recipients.Trim().Replace("\n", string.Empty);
         }
 
         /// <summary>
