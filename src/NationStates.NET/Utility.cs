@@ -4,6 +4,7 @@
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Text;
     using System.Threading;
@@ -31,6 +32,13 @@
             { "million", "000" },
             { "billion", "000000" },
             { "trillion", "000000000" },
+        };
+
+        private static readonly List<char> Commands = new()
+        {
+            '+',
+            '-',
+            '/',
         };
 
         /// <summary>
@@ -171,7 +179,7 @@
         /// <param name="headers">A list of optional additional headers.</param>
         /// <param name="delay">The number of milliseconds to sleep. By default it is 600 milliseconds to comply with the 50 requests/30 seconds rule.</param>
         /// <returns>The WebClient.</returns>
-        public static WebClient RequestPage(Dictionary<string, string>? headers = null, int delay = 600)
+        public static WebClient GetClient(Dictionary<string, string>? headers = null, int delay = 600)
         {
             using WebClient client = new();
             client.Headers.Add("user-agent", "NationStates.NET (https://github.com/asdia0/NationStates.NET)");
@@ -197,7 +205,7 @@
         /// <returns>The webpage contents.</returns>
         public static string DownloadPage(string path, Dictionary<string, string>? headers = null, int delay = 600)
         {
-            return RequestPage(headers, delay).DownloadString(path);
+            return GetClient(headers, delay).DownloadString(path);
         }
 
         /// <summary>
@@ -209,7 +217,7 @@
         /// <returns>The response headers.</returns>
         public static WebHeaderCollection GetResponseHeaders(string path, Dictionary<string, string>? headers = null, int delay = 600)
         {
-            WebClient client = RequestPage(headers, delay);
+            WebClient client = GetClient(headers, delay);
             client.OpenRead("https://www.nationstates.net/cgi-bin/api.cgi?" + path + "&v=11");
             return client.ResponseHeaders;
         }
@@ -428,6 +436,126 @@
             jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
             jsonSerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             return JsonConvert.SerializeObject(value, jsonSerializerSettings);
+        }
+
+        /// <summary>
+        /// Parses a primitive in a <see href="https://github.com/auralia/node-nstg/blob/master/trl.md">Telegram Recipient Language</see> string.
+        /// </summary>
+        /// <returns>A list of the names of the nations in the TRL primitive.</returns>
+        public static HashSet<string> ParseTRLPrimitive(string trl)
+        {
+            return new();
+        }
+
+        /// <summary>
+        /// Parses a group in a <see href="https://github.com/auralia/node-nstg/blob/master/trl.md">Telegram Recipient Language</see> string.
+        /// </summary>
+        /// <param name="trl">The TRL group string to parse.</param>
+        /// <returns>A list of the names of the nations in the TRL group.</returns>
+        public static HashSet<string> ParseTRLGroup(string trl)
+        {
+            HashSet<string> nations = new();
+
+            // Go through trl and get sequence.
+            List<string> trlSequence = new();
+
+            int indent = 0;
+
+            int matchingBracket = 0;
+
+            List<char> charArr = new();
+
+            char cmd = ' ';
+
+            for (int i = 0; i < trl.Length; i++)
+            {
+                char c = trl[i];
+
+                if (c == '(')
+                {
+                    indent++;
+
+                    if (indent == 2)
+                    {
+                        charArr.RemoveAll(c => c == ' ');
+                        if (charArr.Count == 1)
+                        {
+                            cmd = charArr.First();
+                            charArr.Clear();
+                        }
+                        else if (charArr.Count > 0)
+                        {
+                            trlSequence.Add(new(charArr.ToArray()));
+                            charArr.Clear();
+                        }
+
+                        matchingBracket = i;
+                    }
+                }
+                else if (c == ')')
+                {
+                    indent--;
+
+                    if (indent == 1)
+                    {
+                        trlSequence.Add($"{(cmd != ' ' ? cmd : string.Empty)}" + trl.Substring(matchingBracket, i - matchingBracket + 1) + ";");
+                        // Compensate for the extra ";".
+                        i++;
+                    }
+                }
+                else if (indent == 1)
+                {
+                    charArr.Add(c);
+                }
+            }
+
+            foreach (string s in trlSequence)
+            {
+                Console.WriteLine(s);
+            }
+
+            foreach (string sequence in trlSequence)
+            {
+                char command = ' ';
+
+                if (!Commands.Contains(sequence[0]))
+                {
+                    command = '+';
+                }
+
+                if (sequence.StartsWith("("))
+                {
+                    nations = nations.Union(ParseTRLCommand(command, nations, ParseTRLGroup(sequence))).ToHashSet();
+                }
+                else
+                {
+                    nations = nations.Union(ParseTRLCommand(command, nations, ParseTRLPrimitive(sequence))).ToHashSet();
+                }
+            }
+
+            return nations.ToHashSet();
+        }
+
+        /// <summary>
+        /// Parses a command in a <see href="https://github.com/auralia/node-nstg/blob/master/trl.md">Telegram Recipient Language</see> string.
+        /// </summary>
+        /// <param name="command">The command (`+`, `-`, `/`).</param>
+        /// <param name="prim1">The first primitive.</param>
+        /// <param name="prim2">The second primitive.</param>
+        /// <returns>A list of the names of the nations from the TRL command.</returns>
+        public static HashSet<string> ParseTRLCommand(char command, HashSet<string> prim1, HashSet<string> prim2)
+        {
+            switch (command)
+            {
+                case '+':
+                    return prim1.Union(prim2).ToHashSet();
+                case '-':
+                    return prim1.Except(prim2).ToHashSet();
+                case '/':
+                    return prim1.Intersect(prim2).ToHashSet();
+                default:
+                    throw new NSError("Invalid TRL command.");
+            }
         }
     }
 }
