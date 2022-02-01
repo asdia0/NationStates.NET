@@ -230,7 +230,7 @@
         public static string NationNameFromID(long id)
         {
             return ParseXMLDocument($"q=cards+info;nationid={id}")
-                .SelectSingleNode("/CARDS/INFO/ID")
+                .SelectSingleNode("/CARDS/INFO/NAME")
                 .InnerText;
         }
 
@@ -441,10 +441,78 @@
         /// <summary>
         /// Parses a primitive in a <see href="https://github.com/auralia/node-nstg/blob/master/trl.md">Telegram Recipient Language</see> string.
         /// </summary>
+        /// <param name="trl">The TRL primitive string to parse.</param>
         /// <returns>A list of the names of the nations in the TRL primitive.</returns>
         public static HashSet<string> ParseTRLPrimitive(string trl)
         {
-            return new();
+            HashSet<string> nations = new();
+
+            string primitive = trl.Split("[")[0].Trim();
+
+            if (Commands.Contains(primitive[0]))
+            {
+                primitive = primitive.Substring(1);
+            }
+
+            int openIndex = trl.IndexOf("[");
+            List<string> arguments = trl[(openIndex + 1)..trl.LastIndexOf("]")].Split(",").ToList();
+
+            switch (primitive)
+            {
+                case "nations":
+                    foreach (string nation in arguments)
+                    {
+                        Nation n = new(nation);
+                        nations.Add(NationNameFromID(n.DBID));
+                    }
+
+                    break;
+                case "regions":
+                    foreach (string region in arguments)
+                    {
+                        Region r = new(region);
+                        nations.UnionWith(r.Nations);
+                    }
+
+                    break;
+                case "tags":
+                    foreach (string tag in arguments)
+                    {
+                        foreach (string regionTag in World.RegionsByTags(arguments.Select(i => (RegionTag)ParseEnum(typeof(RegionTag), i)).ToHashSet(), null))
+                        {
+                            Region rTag = new(regionTag);
+                            nations.UnionWith(rTag.Nations);
+                        }
+                    }
+
+                    break;
+                case "wa":
+                    if (arguments[0] == "members")
+                    {
+                        nations.UnionWith(WorldAssembly.Delegates);
+                        nations.UnionWith(WorldAssembly.Members);
+                    }
+                    else if (arguments[0] == "delegates")
+                    {
+                        nations.UnionWith(WorldAssembly.Delegates);
+                    }
+                    else
+                    {
+                        throw new NSError("Invalid WA type in TRL primitive.");
+                    }
+
+                    break;
+                case "new":
+                    int newLimit = int.Parse(arguments[0]);
+                    nations.UnionWith(World.NewNations(newLimit));
+                    break;
+                case "refounded":
+                    int reLimit = int.Parse(arguments[0]);
+                    nations.UnionWith(World.NewRefoundedNations(reLimit));
+                    break;
+            }
+
+            return nations;
         }
 
         /// <summary>
@@ -477,28 +545,29 @@
 
                     if (indent == 2)
                     {
-                        charArr.RemoveAll(c => c == ' ');
-                        if (charArr.Count == 1)
-                        {
-                            cmd = charArr.First();
-                            charArr.Clear();
-                        }
-                        else if (charArr.Count > 0)
-                        {
-                            trlSequence.Add(new(charArr.ToArray()));
-                            charArr.Clear();
-                        }
-
                         matchingBracket = i;
                     }
                 }
                 else if (c == ')')
                 {
+                    if (charArr.Count == 1)
+                    {
+                        cmd = charArr.First();
+                        charArr.Clear();
+                    }
+                    else if (charArr.Count > 0)
+                    {
+                        trlSequence.AddRange(new string(charArr.ToArray()).Split("; "));
+                        charArr.Clear();
+                    }
+
                     indent--;
 
                     if (indent == 1)
                     {
                         trlSequence.Add($"{(cmd != ' ' ? cmd : string.Empty)}" + trl.Substring(matchingBracket, i - matchingBracket + 1) + ";");
+                        cmd = ' ';
+
                         // Compensate for the extra ";".
                         i++;
                     }
@@ -509,27 +578,24 @@
                 }
             }
 
-            foreach (string s in trlSequence)
-            {
-                Console.WriteLine(s);
-            }
+            trlSequence.RemoveAll(i => i == string.Empty);
 
             foreach (string sequence in trlSequence)
             {
-                char command = ' ';
+                char command = sequence[0];
 
-                if (!Commands.Contains(sequence[0]))
+                if (!Commands.Contains(command))
                 {
                     command = '+';
                 }
 
                 if (sequence.StartsWith("("))
                 {
-                    nations = nations.Union(ParseTRLCommand(command, nations, ParseTRLGroup(sequence))).ToHashSet();
+                    nations = ParseTRLCommand(command, nations, ParseTRLGroup(sequence));
                 }
                 else
                 {
-                    nations = nations.Union(ParseTRLCommand(command, nations, ParseTRLPrimitive(sequence))).ToHashSet();
+                    nations = ParseTRLCommand(command, nations, ParseTRLPrimitive(sequence));
                 }
             }
 
