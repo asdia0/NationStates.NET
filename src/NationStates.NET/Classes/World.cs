@@ -541,10 +541,24 @@
         /// Gets the names of newly founded nations.
         /// </summary>
         /// <param name="count">The number of new nations to get.</param>
-        /// <returns>A list of the names of newly founded nations.</returns>
+        /// <returns>A list of the names of newly founded nations.
+        ///  Note that the number of nations returned may be less than the requested amount.
+        ///  This is due to the API's inability to separate founded and refounded nations.</returns>
         public static HashSet<string> NewNations(int count)
         {
-            return Happenings(null, null, new HashSet<EventType>() { EventType.Founding }, count).Select(i => i.Text[2..i.Text.LastIndexOf("@@")]).ToHashSet();
+            return Happenings(null, null, new HashSet<EventType>() { EventType.Founding }, 2 * count).Where(i => i.Text.Contains("was founded")).Select(i => i.Text[2..i.Text.LastIndexOf("@@")]).Take(count).ToHashSet();
+        }
+
+        /// <summary>
+        /// Gets the names of newly refounded nations.
+        /// </summary>
+        /// <param name="count">The number of new refounded nations to get.</param>
+        /// <returns>A list of the names of newly refounded nations.
+        ///  Note that the number of nations returned may be less than the requested amount.
+        ///  This is due to the API's inability to separate founded and refounded nations.</returns>
+        public static HashSet<string> NewRefoundedNations(int count)
+        {
+            return Happenings(null, null, new HashSet<EventType>() { EventType.Founding }, 5 * count).Where(i => i.Text.Contains("was refounded")).Select(i => i.Text[2..i.Text.LastIndexOf("@@")]).Take(count).ToHashSet();
         }
 
         /// <summary>
