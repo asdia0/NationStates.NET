@@ -919,6 +919,16 @@
                 {
                     this._Name = value;
                     this.nameSet = true;
+
+                    // Check if nation exists.
+                    try
+                    {
+                        _ = this.Animal;
+                    }
+                    catch
+                    {
+                        throw new NSError($"Nation \"{this._Name}\" does not exist.");
+                    }
                 }
             }
         }

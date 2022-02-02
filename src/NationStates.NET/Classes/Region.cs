@@ -337,6 +337,16 @@
                 {
                     this._Name = value;
                     this.nameSet = true;
+
+                    // Check if region exists.
+                    try
+                    {
+                        _ = this.Nations;
+                    }
+                    catch
+                    {
+                        throw new NSError($"Region \"{this._Name}\" does not exist.");
+                    }
                 }
             }
         }
