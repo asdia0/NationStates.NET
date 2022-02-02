@@ -1164,10 +1164,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "crphE/TDanw0+JegEqol8fDzYEOOXWxZIgIde8qSJnQ="
+          "hash": "TaAXU8oi1QcDkX6Iq8asbB0gnPvkWdc4rRa67bYZgeU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1191,7 +1191,7 @@
           "hash": "LLLNuYr/8dJ7j38Jdyx7ksDQhwo+kKRy9oZ7QTCDXvE="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
