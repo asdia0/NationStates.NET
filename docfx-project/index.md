@@ -29,3 +29,9 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 - Verification
 - Telegram
+
+## Example
+An example program can be found [here](src/NationStates.NET.Example/Program.cs).
+
+## NuGet
+The project's NuGet package can be found [here](https://www.nuget.org/packages/NationStates.NET/).
