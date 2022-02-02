@@ -6,29 +6,29 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 
 ### Entities
 
-- [X] Nation
-  - [X] Public shards
-  - [X] Private shards
-  - [X] Private commands
-- [X] Region
-- [X] World Assembly
-- [X] United Nations
-- [X] World
+- Nation
+  - Public shards
+  - Private shards
+  - Private commands
+- Region
+- World Assembly
+- United Nations
+- World
 
 ### Minigames
 
-- [X] Trading Cards
-- [X] Challenge
+- Trading Cards
+- Challenge
 
 #### Recurring minigames
 
-- [X] N-Day
-- [X] Z-Day
+- N-Day
+- Z-Day
 
 ### Misc
 
-- [X] Verification
-- [X] Telegram
+- Verification
+- Telegram
 
 ## Example
 An example program can be found [here](src/NationStates.NET.Example/Program.cs).
