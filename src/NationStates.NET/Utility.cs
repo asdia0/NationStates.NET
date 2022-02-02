@@ -462,16 +462,26 @@
                 case "nations":
                     foreach (string nation in arguments)
                     {
-                        Nation n = new(nation);
-                        nations.Add(NationNameFromID(n.DBID));
+                        try
+                        {
+                            Nation n = new(nation);
+                            nations.Add(nation);
+                        }
+                        catch (NSError)
+                        { }
                     }
 
                     break;
                 case "regions":
                     foreach (string region in arguments)
                     {
-                        Region r = new(region);
-                        nations.UnionWith(r.Nations);
+                        try
+                        {
+                            Region r = new(region);
+                            nations.UnionWith(r.Nations);
+                        }
+                        catch (NSError)
+                        { }
                     }
 
                     break;
