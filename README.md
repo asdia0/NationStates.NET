@@ -28,4 +28,4 @@ NationStates.NET is a [NationStates](https://nationstates.net) [API](https://nat
 ### Misc
 
 - [X] Verification
-- [ ] Telegram
+- [X] Telegram
