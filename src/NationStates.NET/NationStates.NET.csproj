@@ -17,6 +17,8 @@
 	<PackageTags>nationstates api</PackageTags>
 	<PackageReleaseNotes>Initial release of NationStates.NET.</PackageReleaseNotes>
 	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<Authors>Asdia0</Authors>
+	<Company />
   </PropertyGroup>
 
 	<ItemGroup>
