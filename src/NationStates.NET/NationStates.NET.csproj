@@ -9,9 +9,21 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<ApplicationIcon />
 	<StartupObject />
+	<Version>0.1.0</Version>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Description>NationStates.NET is a NationStates API wrapper written for C#. It is compatible with version 11 of the API.</Description>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<RepositoryUrl>https://github.com/asdia0/NationStates.NET</RepositoryUrl>
+	<PackageTags>nationstates api</PackageTags>
+	<PackageReleaseNotes>Initial release of NationStates.NET.</PackageReleaseNotes>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 	<ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
