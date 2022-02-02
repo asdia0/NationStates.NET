@@ -1,4 +1,6 @@
-﻿namespace NationStates.NET
+﻿using System;
+
+namespace NationStates.NET
 {
     using HtmlAgilityPack;
     using Newtonsoft.Json;
@@ -451,7 +453,7 @@
 
             if (Commands.Contains(primitive[0]))
             {
-                primitive = primitive.Substring(1);
+                primitive = primitive[1..];
             }
 
             int openIndex = trl.IndexOf("[");
@@ -575,7 +577,7 @@
 
                     if (indent == 1)
                     {
-                        trlSequence.Add($"{(cmd != ' ' ? cmd : string.Empty)}" + trl.Substring(matchingBracket, i - matchingBracket + 1) + ";");
+                        trlSequence.Add(string.Concat($"{(cmd != ' ' ? cmd : string.Empty)}", trl.AsSpan(matchingBracket, i - matchingBracket + 1), ";"));
                         cmd = ' ';
 
                         // Compensate for the extra ";".
@@ -621,17 +623,13 @@
         /// <returns>A list of the names of the nations from the TRL command.</returns>
         public static HashSet<string> ParseTRLCommand(char command, HashSet<string> prim1, HashSet<string> prim2)
         {
-            switch (command)
+            return command switch
             {
-                case '+':
-                    return prim1.Union(prim2).ToHashSet();
-                case '-':
-                    return prim1.Except(prim2).ToHashSet();
-                case '/':
-                    return prim1.Intersect(prim2).ToHashSet();
-                default:
-                    throw new NSError("Invalid TRL command.");
-            }
+                '+' => prim1.Union(prim2).ToHashSet(),
+                '-' => prim1.Except(prim2).ToHashSet(),
+                '/' => prim1.Intersect(prim2).ToHashSet(),
+                _ => throw new NSError("Invalid TRL command."),
+            };
         }
     }
 }
